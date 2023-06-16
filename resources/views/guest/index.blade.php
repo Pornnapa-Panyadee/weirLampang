@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <meta charset="utf-8">
+    <title>Weir CRflood </title>
+
+    <link rel="icon" href="{{ asset('images/icon/favicon1.ico')}}" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css?family=Mitr|Prompt" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand:500,700" rel="stylesheet">
+
+    <!-- <link rel="stylesheet" type="text/css" href="{{ asset('fonts/feather/feather.css')}}"> -->
+    <!-- <link rel="stylesheet" type="text/css" href="{{ asset('css/form/themify-icons.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/form/icofont.css')}}"> -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/form/font-awesome.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/form/datatables.bootstrap4.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/form/buttons.datatables.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/form/responsive.bootstrap4.min.css')}}">
+
+    <link rel="stylesheet" href="{{ asset('css/form/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/form/waves.min.css')}}" type="text/css" media="all">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/form/jquery.steps.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/form/feather.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/form/style1.css')}}">
+
+    <!-- leaflet -->
+    
+    <link rel="stylesheet" href="{{ asset('css/form/leaflet.css')}}" crossorigin=""/>
+    <script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.2.0/leaflet-omnivore.min.js'></script>
+    <script src="{{ asset('js/leaflet-src.js')}}"  crossorigin=""></script>
+
+    <style type="text/css">
+      #map{
+
+			  font-family: Mitr, sans-serif;
+			  height: 620px;
+			  display: block;
+        margin: auto;
+        text-align: left;
+        font-size: 14px;
+			}
+		  #map.table {
+		    font-family: 'Mitr', sans-serif;
+		    width: 100%;
+		  }#map.tr {
+		    padding: 15px;
+		    text-align: right;
+		  }#map.td {
+		    padding: 15px;
+		    text-align: right;
+        }
+        select{
+            width: 100%;
+            height: 40px;
+        }
+        button.btn {
+            width: 100%;
+        }
+        @media only screen and (max-width:480px) {
+            #map{
+                height: 450px;
+                font-size: 14px;
+            }
+            table{
+                font-size: 2vw;
+            }
+            select{
+            width: 100%;
+            height: 40px;
+            }
+            button.btn{
+            width: 100%;
+            }
+            .btn-sm{
+                font-size: 2vw;
+            }
+        }
+      #fix-header{
+        font-size:16px;
+      }
+      th{
+        text-align:center;
+      }
+      .btn{
+        padding:2px 12px;
+      }
+      @media screen and (max-width: 600px) {
+          div.find {
+            width: 80%;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+      }
+     </style>
+
+    </style>
+
+
+  </head>
+
+  <body class="horizontal-icon-fixed" >
+    @yield('content')
+    <div class="loader-bg">
+        <div class="loader-bar"></div>
+    </div>
+
+    <div id="pcoded" class="pcoded" >
+      <div class="pcoded-overlay-box"></div>
+      
+      <div class="pcoded-container navbar-wrapper">
+        @include('menu.header')
+
+        <div class="pcoded-main-container">
+          <div class="pcoded-wrapper">
+             @include('menu.slidebar')
+            <!-- Map -->
+            <div class="pcoded-content">
+              <div class="card"><h3></h3></div>
+              <div class="pcoded-inner-content">
+                <div class="main-body">
+                  <div class="page-wrapper">
+                    <div class="page-body">
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="card table-card">
+                            <div class="card-header">
+                              <h5>โครงการพัฒนาระบบสารสนเทศการตรวจประเมินสภาพฝายและวางแผนปรับปรุงเพิ่มประสิทธิภาพฝายในพื้นที่จังหวัดเชียงราย</h5>
+                              <br>โดยจังหวัดเชียงรายร่วมกับมหาวิทยาลัยเชียงใหม่
+                              <div class="card-header-right">
+                                <ul class="list-unstyled card-option">
+                                  <li class="first-opt"><i class="feather icon-chevron-left open-card-option"></i></li>
+                                  <li><i class="feather icon-maximize full-card" title="ขยายแผนที่"></i></li>
+                                  <li><i class="feather icon-refresh-cw reload-card" title="Reload แผนที่"></i></li>
+                                  <li><i class="feather icon-chevron-left open-card-option"></i> </li>
+                                </ul>
+                              </div>
+                              <!-- Map Show -->
+                              <div class="card-block p-b-0">
+                                <div id="map"></div>
+                                <br>
+                                <center><img  src="{{ asset('images/icon/refmap1.png') }}" width=85% ></center>
+                              </div>
+                               <!-- End Map show -->
+                                                          
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- banner -->
+                      <div class="card">
+                        <div class="card-block">
+                          <div class="row">
+                            <div class="col-lg-12 col-xl-12">
+                              <div class="sub-title"><h4>ข้อมูลการตรวจสอบประเมินสภาพฝาย</h4> </div>
+                            </div>
+                          </div>
+                              <div class="card-block p-b-0">
+                                <div class="row justify-content-md-center">
+                                  <div class="col-3 col-md-6 col-lg-3">
+                                    <a href="{{ asset('/report/map') }}" target="_blank">
+                                      <button class="btn">
+                                        <center><img src="{{ asset('images/banner/map.png') }}" width=100% /> </center>
+                                      </button>
+                                    </a>
+                                    <!-- <center><img  src="{{ asset('images/banner/map.png') }}" width=100% ></center> -->
+                                  </div>
+                                  <div class="col-3 col-md-6 col-lg-3">
+                                    <a href="{{ asset('report/chart?amp=sum') }}" target="_blank">
+                                      <button class="btn">
+                                        <center><img src="{{ asset('images/banner/graph.png') }}" width=100% /> </center>
+                                      </button>
+                                    </a>
+                                    <!-- <center><img  src="{{ asset('images/banner/graph.png') }}" width=100% ></center> -->
+                                  </div>
+                                  <div class="col-3 col-md-6 col-lg-3">
+                                    <a href="{{ asset('report/scoreComposition') }}" target="_blank">
+                                      <button class="btn">
+                                        <center><img src="{{ asset('images/banner/table.png') }}" width=100% /> </center>
+                                      </button>
+                                    </a>
+                                    <!-- <center><img  src="{{ asset('images/banner/table.png') }}" width=100% ></center> -->
+                                  </div>
+                                  <div class="col-3 col-md-6 col-lg-3">
+                                    <a href="{{ asset('/report/problem') }}" target="_blank">
+                                      <button class="btn">
+                                        <center><img src="{{ asset('images/banner/report.png') }}" width=100% /> </center>
+                                      </button>
+                                    </a>
+                                    <!-- <center><img  src="{{ asset('images/banner/report.png') }}" width=100% ></center> -->
+                                  </div>
+                                </div>                               
+                              </div>
+                        </div>
+                      </div>
+                      
+                       <!-- table -->
+                      <div class="card">
+                        <div class="card-block">
+                          <div class="row">
+                            <div class="col-lg-12 col-xl-12">
+                              <div class="sub-title"><h4>ตารางแสดงรายละเอียดการตรวจสอบฝาย</h4> </div>
+                              <!-- choose Amp -->
+                                <form id="amp" name="amp" action="/#tableData" method="get"> 
+                                <div class="find">
+                                  <div class="row justify-content-center" >
+                                    <div class="col-md-8 col-xl-6"></div>
+                                    <div class="col-md-8 col-xl-2">
+                                      <h5 class="card-title">
+                                          <select id='weir_district' name='amp' id="name">
+                                                <option value="sum">- - เลือกอำเภอ - -</option>
+                                                <option value="ขุนตาล">ขุนตาล</option>
+                                                <option value="เชียงของ">เชียงของ</option>
+                                                <option value="เชียงแสน">เชียงแสน</option>
+                                                <option value="ดอยหลวง">ดอยหลวง</option>
+                                                <option value="เทิง">เทิง</option>
+                                                <option value="ป่าแดด">ป่าแดด</option>
+                                                <option value="พญาเม็งราย">พญาเม็งราย</option>
+                                                <option value="พาน">พาน</option>
+                                                <option value="เมืองเชียงราย">เมืองเชียงราย</option>
+                                                <option value="แม่จัน">แม่จัน</option>
+                                                <option value="แม่ฟ้าหลวง">แม่ฟ้าหลวง</option>
+                                                <option value="แม่ลาว">แม่ลาว</option>
+                                                <option value="แม่สรวย">แม่สรวย</option>
+                                                <option value="แม่สาย">แม่สาย</option>
+                                                <option value="เวียงแก่น">เวียงแก่น</option>
+                                                <option value="เวียงเชียงรุ่ง">เวียงเชียงรุ่ง</option>
+                                                <option value="เวียงชัย">เวียงชัย</option>
+                                                <option value="เวียงป่าเป้า">เวียงป่าเป้า</option>                                                
+                                          </select> 
+                                      </h5>
+                                    </div>
+                                    <div class="col-md-8 col-xl-2">
+                                      <h5 class="card-title">
+                                        <select id="weir_tumbol" name="tumbol" >
+                                            <option value=''>-- เลือกตำบล --</option>
+                                            </select>
+                                      </h5>
+                                    </div>
+                                    <div class="col-md-8 col-xl-1">
+                                      <button type="submit" class="btn btn-outline-dark "  style="float: right; padding:8px;"> ค้นหา </button>
+                                    </div>
+                                                                  
+                                  </div>
+                                </div>
+                                </form>
+                                <hr>
+                              <br>
+                                <!-- table -->
+                                <div id="tableData">
+                                  <div class="dt-responsive table-responsive">
+                                    <table id="fix-header" class="table table-striped table-bordered nowrap" width=80% align="center">
+                                      <thead>
+                                        <tr>
+                                          <th width=5%>#</th>
+                                          <th width=10%>รหัส</th>
+                                          <th width=20%>ชื่อฝาย/ลำน้ำ</th>
+                                          <th width=15%>หมู่บ้าน</th>
+                                          <th width=15%>ตำบล</th>
+                                          <th width=15%>อำเภอ</th>
+                                          <th></th>
+                                        </tr>
+                                      </thead>
+                                      <tbody>     
+                                      <?php for($i = 0;$i < count($data);$i++){  ?>
+                                        <tr>
+                                          <td align="center">{{$i+1}} </td>
+                                          <td>{{$data[$i]['weir_code']}}</td>
+                                          <td>{{$data[$i]['weir_name']}}/{{$data[$i]['river']}} </td>
+                                          <td>{{$data[$i]['weir_village']}}</td>
+                                          <td>{{$data[$i]['weir_tumbol']}}  </td>
+                                          <td>{{$data[$i]['weir_district']}}</td>
+                                          <td align="center" > 
+                                            <a href='{{ asset('/report/pdf') }}/{{$data[$i]['weir_code']}}' class="btn waves-effect waves-light btn-facebook" target="_blank"><i class="feather icon-sidebar"></i>รายงาน</a>
+                                            <a href='{{ asset('/pdf') }}/{{$data[$i]['weir_code']}}' class="btn waves-effect waves-light btn-dropbox" target="_blank"><i class="feather icon-eye"></i>แบบสำรวจ</a>
+                                            <a href='{{ asset('/photo') }}/{{$data[$i]['weir_code']}}' class="btn waves-effect waves-light btn-linkedin" target="_blank"><i class="feather icon-image"></i>ภาพประกอบ</a>
+                                            <a href='{{ asset('/map') }}/{{$data[$i]['weir_code']}}' class="btn waves-effect waves-light btn-instagram" target="_blank"><i class="feather icon-map-pin"></i>แผนที่</a>
+                                            
+                                          </td>
+                                        </tr>
+                                      <?php } ?>                                                                                                 
+                                      </tbody>
+                                    </table>
+                                  </div>
+                                </div>    
+                            </div>
+                                                                                    
+                          </div>
+                        </div>
+                      </div>
+                      <!-- table end -->
+                    </div>
+                  </div>
+
+                  
+                </div>
+              </div>
+
+             
+            </div>  
+          </div>
+            @include('menu.foot')
+          </div>
+          
+        </div>
+
+      </div>
+    </div>
+    
+    
+    <script src="{{ asset('js/form/jquery.min.js')}}"></script>
+    <script src="{{ asset('js/form/jquery-ui.min.js')}}"></script>
+    <script src="{{ asset('js/form/bootstrap.min.js')}}"></script>
+    <script src="{{ asset('js/form/jquery-i18next.min.js')}}" ></script>
+    <script src="{{ asset('js/form/pcoded.min.js')}}" ></script>
+    <script src="{{ asset('js/form/menu-hori-fixed.js')}}" ></script>
+    <script src="{{ asset('js/form/jquery.mcustomscrollbar.concat.min.js')}}" ></script>
+    <script src="{{ asset('js/form/script.js')}}"></script>
+    <script async  src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+    
+    <script src= "{{ asset('js/chooselocationReport.js') }}"></script>
+    <script src="{{ asset('js/form/rocket-loader.min.js')}}"></script>
+  
+    <script src="{{ asset('js/form/jquery.datatables.min.js')}}" ></script>
+    <script src="{{ asset('js/form/datatables.buttons.min.js')}}" ></script>
+
+    <script src="{{ asset('js/form/datatables.fixedheader.min.js')}}"></script>
+
+    <script src="{{ asset('js/form/datatables.colreorder.min.js')}}" ></script>
+    <script src="{{ asset('js/form/buttons.print.min.js')}}" ></script>
+    <script src="{{ asset('js/form/datatables.bootstrap4.min.js')}}" ></script>
+    <script src="{{ asset('js/form/datatables.responsive.min.js')}}" ></script>
+    <script src="{{ asset('js/form/responsive.bootstrap4.min.js')}}"></script>
+
+    <script src= "{{ asset('js/form/fixed-header-custom.js') }}"></script>
+
+    <script src= "{{ asset('js/form/pcoded.min.js') }}"></script>
+    <script src= "{{ asset('js/form/jquery.mcustomscrollbar.concat.min.js') }}"></script>
+
+    <script src= "{{ asset('js/form/script.js') }}"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13" ></script>
+  
+    <script src="{{ asset('js/form/rocket-loader.min.js')}}" data-cf-settings="ce2668daaac54a74e9f6cdff-|49" defer=""></script>
+
+    
+    <!-- Map script -->
+    <link rel="stylesheet" href="{{ asset('css/L.Control.Layers.Tree.css')}}" crossorigin=""/>
+    <script src="{{ asset('/js/L.Control.Layers.Tree.js')}}"></script>
+
+    <script type="text/javascript">
+      var station1 = new L.LayerGroup();
+      var station2 = new L.LayerGroup();
+      var station3 = new L.LayerGroup();
+      var station4 = new L.LayerGroup();
+      var station5 = new L.LayerGroup();
+      var station6 = new L.LayerGroup();
+      var station7 = new L.LayerGroup();
+      var station8 = new L.LayerGroup();
+      var station9 = new L.LayerGroup();
+
+      var station10 = new L.LayerGroup();
+      var station11 = new L.LayerGroup();
+      var station12 = new L.LayerGroup();
+      var station13 = new L.LayerGroup();
+      var station14 = new L.LayerGroup();
+      var station15 = new L.LayerGroup();
+      var station16 = new L.LayerGroup();
+      var station17 = new L.LayerGroup();
+      var station18 = new L.LayerGroup();
+
+      var rid = new L.LayerGroup();
+      var ridNo = new L.LayerGroup();
+      var dwr = new L.LayerGroup();
+      var loyal = new L.LayerGroup();
+      var borders= new L.LayerGroup();
+      var x = 19.78755 ;
+      var y = 99.7995964;
+      var mbAttr = 'CRFlood ',
+          mbUrl = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoidmFucGFueWEiLCJhIjoiY2loZWl5ZnJ4MGxnNHRwbHp5bmY4ZnNxOCJ9.IooQB0jYS_4QZvIq7gkjeQ';
+          osm = L.tileLayer('http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}',{
+              maxZoom: 20,subdomains:['mt0','mt1','mt2','mt3'], attribution: mbAttr });
+          osmBw = L.tileLayer('http://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}',{
+                maxZoom: 20,subdomains:['mt0','mt1','mt2','mt3'], attribution: mbAttr });
+      var map = L.map('map', {
+          layers: [osm,station1,station2,station3,station4,station5,station6,station7,station8,station9,station10,station11,station12,station13,station14,station15,station16,station17,station18,rid,ridNo,dwr,loyal,borders],
+          center: [x,y],
+          zoom: 9,
+        });
+      
+      var runLayer = omnivore.kml('{{ asset('kml/CR_18Amphoe_bound.kml') }}')
+						.on('ready', function() {
+						this.setStyle({
+            fillOpacity: 0,
+						color: "#466DF3",
+						weight: 3
+						});
+			}).addTo(borders); 
+      
+      var pin = L.icon({
+          iconUrl: '{{ asset('images/icon/pin19.png') }}',
+          iconRetinaUrl:'{{ asset('images/icon/pin19.png') }}',
+          iconSize: [30, 40],
+          iconAnchor: [20, 40],
+          popupAnchor: [0, 0]
+        });
+
+      var pinMO = L.icon({
+          iconUrl: '{{ asset('images/icon/pin19.png') }}',
+          iconRetinaUrl:'{{ asset('images/icon/pin19.png') }}',
+          iconSize: [25, 34],
+          iconAnchor: [5, 30],
+          popupAnchor: [0, 0]
+        });
+      var pinRid = L.icon({
+          iconUrl: '{{ asset('images/icon/pin99.png') }}',
+          iconRetinaUrl:'{{ asset('images/icon/pin99.png') }}',
+          iconSize: [18, 20],
+          iconAnchor: [10, 10],
+          popupAnchor: [0, 0]
+        });
+
+      var pinMORid = L.icon({
+          iconUrl: '{{ asset('images/icon/pin99.png') }}',
+          iconRetinaUrl:'{{ asset('images/icon/pin99.png') }}',
+          iconSize: [18, 20],
+          iconAnchor: [10, 10],
+          popupAnchor: [0, 0]
+        });
+      var pinRidNo = L.icon({
+          iconUrl: '{{ asset('images/icon/ridNo1.png') }}',
+          iconRetinaUrl:'{{ asset('images/icon/ridNo1.png') }}',
+          iconSize: [8, 8],
+          iconAnchor: [10, 10],
+          popupAnchor: [0, 0]
+        });
+
+      var pinMORidNo = L.icon({
+          iconUrl: '{{ asset('images/icon/ridNo1.png') }}',
+          iconRetinaUrl:'{{ asset('images/icon/ridNo1.png') }}',
+          iconSize: [8, 8],
+          iconAnchor: [10, 10],
+          popupAnchor: [0, 0]
+        });
+      var pindwr = L.icon({
+          iconUrl: '{{ asset('images/icon/pin98.png') }}',
+          iconRetinaUrl:'{{ asset('images/icon/pin98.png') }}',
+          iconSize: [18, 20],
+          iconAnchor: [10, 10],
+          popupAnchor: [0, 0]
+        });
+
+      var pinMOdwr = L.icon({
+          iconUrl: '{{ asset('images/icon/pin98.png') }}',
+          iconRetinaUrl:'{{ asset('images/icon/pin98.png') }}',
+          iconSize: [18, 20],
+          iconAnchor: [10, 10],
+          popupAnchor: [0, 0]
+        });
+      var pinloyal = L.icon({
+          iconUrl: '{{ asset('images/icon/loyal1.png') }}',
+          iconRetinaUrl:'{{ asset('images/icon/loyal1.png') }}',
+          iconSize: [8, 8],
+          iconAnchor: [10, 10],
+          popupAnchor: [0, 0]
+        });
+
+      var pinMOloyal = L.icon({
+          iconUrl: '{{ asset('images/icon/loyal1.png') }}',
+          iconRetinaUrl:'{{ asset('images/icon/loyal1.png') }}',
+          iconSize: [8, 8],
+          iconAnchor: [10, 10],
+          popupAnchor: [0, 0]
+        });
+           
+    //  var amp=["ขุนตาล","พญาเม็งราย","เทิง","พาน","เมืองเชียงราย","ป่าแดด","แม่ลาว","แม่สรวย","เวียงป่าเป้า"];
+      // var amp=["ขุนตาล","พญาเม็งราย","เทิง","พาน","เมืองเชียงราย","แม่ลาว","แม่สรวย","เวียงป่าเป้า","ป่าแดด"];
+      var amp=["ขุนตาล", "เชียงของ", "เชียงแสน","ดอยหลวง","เทิง","ป่าแดด", "พญาเม็งราย","พาน", "เมืองเชียงราย", "แม่จัน","แม่ฟ้าหลวง","แม่ลาว","แม่สรวย", "แม่สาย","เวียงแก่น","เวียงเชียงรุ่ง","เวียงชัย","เวียงป่าเป้า"];    
+      
+      
+      function addPin(ampName,i,mo){
+        if(i!=79 && i!=89 && i!=99 && i!=69 ){
+          $.getJSON("{{ asset('form/getDataSurvey') }}/"+amp[i], 
+          function (data){
+            // alert (data[0].lat);
+            for (i=0;i<data.length;i++){
+              // var lo =data[i].geometry.coordinates+ '';;
+              var x=data[i].lat;
+              var y=data[i].long;
+              // alert (x);
+              var text ="<font style=\"font-family: 'Mitr';\" size=\"3\"COLOR=#1AA90A > รหัส :" + data[i].weir_code + "</font><br>";
+                  text1 ="<font style=\"font-family: 'Mitr';\" size=\"2\"COLOR=#466DF3 > ฝาย : "+ data[i].weir_name+ " (ลำน้ำ : "+ data[i].river+")</font><br>";
+                  text2 ="<font style=\"font-family: 'Mitr';\" size=\"2\"COLOR=#466DF3 >ที่ตั้ง : "+ data[i].weir_village +" ต."+ data[i].weir_tumbol +" อ."+ data[i].weir_district +"</font><br>";
+                  text3 ="<br><table align=\"center\"><tr><td >" + "<a href='{{ asset('report/pdf') }}/"+data[i].weir_code+"' target=\"_blank\"><button class=\"btn btn-primary btn-sm waves-effect waves-light\"><i class=\"feather icon-sidebar\"></i> รายงาน</button> </a></td> <td> <a href='{{ asset('/pdf') }}/"+data[i].weir_code+"' target=\"_blank\">  "+"<button class=\"btn btn-primary btn-sm waves-effect waves-light\"><i class=\"feather icon-eye\"></i> แบบสำรวจ</button> </a>" +"</td><td > <a href='{{ asset('/photo') }}/"+data[i].weir_code+"' target=\"_blank\">  " + "<button class=\"btn btn-primary btn-sm waves-effect waves-light\"><i class=\"feather icon-image\"></i> ภาพประกอบ</button> </a></td></tr></table>";
+              if(mo==0){
+                L.marker([x,y],{icon: pinMO}).addTo(ampName).bindPopup(text+text1+text2+text3);  
+              }else{
+                L.marker([x,y],{icon: pin}).addTo(ampName).bindPopup(text+text1+text2+text3);  
+              }
+            }//end for
+          });
+        }else if(i==79) {
+          $.getJSON("{{ asset('form/getDataRidtranfer')}}", 
+          function (datarid){
+            for (i=0;i<datarid.length;i++){
+              var x=datarid[i].lat;
+              var y=datarid[i].long;
+              var tag = "<font style=\"font-family: 'Mitr';\" size=\"3\"COLOR=#009ddc > กรมชลประทาน (ถ่ายโอนให้ อปท.) </font><br>" ;
+              var text ="<font style=\"font-family: 'Mitr';\" size=\"3\"COLOR=#466DF3 >  ฝาย : "+ datarid[i].weir_name+ "</font><br>";
+                  text1 = "<font style=\"font-family: 'Mitr';\" size=\"2\"COLOR=#466DF3 >ที่ตั้ง : "+ datarid[i].weir_moo +" "+ datarid[i].weir_village +" ต."+ datarid[i].weir_tumbol +" อ."+ datarid[i].weir_district +"</font><br>";
+                  text2 ="<font style=\"font-family: 'Mitr';\" size=\"2\"COLOR=#466DF3 > งบประมาณ : "+ datarid[i].budget_from+ "</font><br>";
+                  text3 ="<font style=\"font-family: 'Mitr';\" size=\"2\"COLOR=#466DF3 > ถ่ายโอนให้หน่วยงาน : "+ datarid[i].weir_tranfer_unit+ " เมื่อปี พ.ศ. "+ datarid[i].weir_tranfer_year +"</font><br>";
+              if(mo==0){
+                L.marker([x,y],{icon: pinMORid}).addTo(rid).bindPopup(tag+text+text1+text3);  
+              }else{
+                L.marker([x,y],{icon: pinRid}).addTo(rid).bindPopup(tag+text+text1+text3);  
+              }
+              
+            }//end for
+          });
+        }else if( i==89){
+          $.getJSON("{{ asset('form/getDataRidtranferNo')}}", 
+          function (datarid){
+            for (i=0;i<datarid.length;i++){
+              var x=datarid[i].lat;
+              var y=datarid[i].long;
+              var tag = "<font style=\"font-family: 'Mitr';\" size=\"3\"COLOR=#ffb64d > กรมชลประทาน  </font><br>" ;
+              var text  = "<font style=\"font-family: 'Mitr';\" size=\"3\"COLOR=#466DF3 > ฝาย : "+ datarid[i].weir_name+ "</font><br>";
+                  text1 = "<font style=\"font-family: 'Mitr';\" size=\"2\"COLOR=#466DF3 >ที่ตั้ง : "+ datarid[i].weir_moo +" "+ datarid[i].weir_village +" ต."+ datarid[i].weir_tumbol +" อ."+ datarid[i].weir_district +"</font><br>";
+                  text2 = "<font style=\"font-family: 'Mitr';\" size=\"2\"COLOR=#466DF3 > งบประมาณ : "+ datarid[i].budget_from+ "</font><br>";
+                 
+              if(mo==0){
+                L.marker([x,y],{icon: pinMORid}).addTo(ridNo).bindPopup(tag+text+text1+text2);  
+              }else{
+                L.marker([x,y],{icon: pinRid}).addTo(ridNo).bindPopup(tag+text+text1+text2);  
+              }
+              
+            }//end for
+          });
+
+        }else if( i==99){
+          $.getJSON("{{ asset('form/getDataDwr')}}", 
+          function (datadwr){
+            for (i=0;i<datadwr.length;i++){
+              var x=datadwr[i].lat;
+              var y=datadwr[i].long;
+              var tag = "<font style=\"font-family: 'Mitr';\" size=\"3\"COLOR=#ffb64d > กรมทรัพยากรน้ำ </font><br>" ;
+              var text  = "<font style=\"font-family: 'Mitr';\" size=\"3\"COLOR=#466DF3 > ฝาย : "+ datadwr[i].weir_name+ " (ลำน้ำ : "+datadwr[i].river+"</font><br>";
+                  text1 = "<font style=\"font-family: 'Mitr';\" size=\"2\"COLOR=#466DF3 >ที่ตั้ง : "+ datadwr[i].weir_moo +" "+ datadwr[i].weir_village +" ต."+ datadwr[i].weir_tumbol +" อ."+ datadwr[i].weir_district +"</font><br>";
+                  text2 = "<font style=\"font-family: 'Mitr';\" size=\"2\"COLOR=#466DF3 > สร้างเมื่อ : พ.ศ. "+ datadwr[i].weir_build_year+ "</font><br>";
+                  text3 = "<font style=\"font-family: 'Mitr';\" size=\"2\"COLOR=#466DF3 > สถานะปัจจุบัน : "+ datadwr[i].weir_use+ "</font><br>";
+              if(mo==0){
+                L.marker([x,y],{icon: pinMOdwr}).addTo(dwr).bindPopup(tag+text+text1+text2+text3);  
+              }else{
+                L.marker([x,y],{icon: pindwr}).addTo(dwr).bindPopup(tag+text+text1+text2+text3);  
+              }
+              
+            }//end for
+          });
+        }else{
+          $.getJSON("{{ asset('form/getDataLoyal')}}", 
+          function (dataloyal){
+            for (i=0;i<dataloyal.length;i++){
+              var x=dataloyal[i].lat;
+              var y=dataloyal[i].long;
+              var tag = "<font style=\"font-family: 'Mitr';\" size=\"3\"COLOR=#ffb64d > โครงการอันเนื่องมาจากพระราชดำริ  </font><br>" ;
+              var text  = "<font style=\"font-family: 'Mitr';\" size=\"3\"COLOR=#466DF3 > ฝาย : "+ dataloyal[i].weir_name+ "</font><br>";
+                  text1 = "<font style=\"font-family: 'Mitr';\" size=\"2\"COLOR=#466DF3 >ที่ตั้ง : ต."+ dataloyal[i].weir_tumbol +" อ."+ dataloyal[i].weir_district +"</font><br>";
+                  text2 = "<font style=\"font-family: 'Mitr';\" size=\"2\"COLOR=#466DF3 > สร้างเมื่อ : "+ dataloyal[i].weir_start_year+ "</font><br>";
+                  text3 = "<font style=\"font-family: 'Mitr';\" size=\"2\"COLOR=#466DF3 > ระบบชลประทาน : "+ dataloyal[i].weir_system+ "</font><br>";
+              if(mo==0){
+                L.marker([x,y],{icon: pinMORid}).addTo(loyal).bindPopup(tag+text+text1+text2+text3);  
+              }else{
+                L.marker([x,y],{icon: pinRid}).addTo(loyal).bindPopup(tag+text+text1+text2+text3);  
+              }
+              
+            }//end for
+          });
+        }
+        
+      }
+
+      
+      var mx = window.matchMedia("(max-width: 700px)");
+      if(mx.matches){
+        mo=0;
+        // alert(x.matches);
+      }else{
+        mo=1;
+      }
+      addPin(station9,8,mo);
+      addPin(rid,79,mo);
+      addPin(ridNo,89,mo);
+      addPin(dwr,99,mo);
+      addPin(loyal,69,mo); 
+      addPin(station1,0,mo);
+      addPin(station2,1,mo);
+      addPin(station3,2,mo);
+      addPin(station4,3,mo);
+      addPin(station5,4,mo);
+      addPin(station6,5,mo);
+      addPin(station7,6,mo);
+      addPin(station8,7,mo);
+
+      addPin(station10,9,mo);
+      addPin(station11,10,mo);
+      addPin(station12,11,mo);
+      addPin(station13,12,mo);
+      addPin(station14,13,mo);
+      addPin(station15,14,mo);
+      addPin(station16,15,mo);
+      addPin(station17,16,mo);
+      addPin(station18,17,mo);
+      
+
+
+      var baseTree = {
+          label: 'BaseLayers',
+          noShow: true,
+          children: [  {label: ' แผนที่ภูมิประเทศ (Streets)', layer: osm},
+                       {label: ' แผนที่ภาพถ่ายผ่านดาวเทียม (Satellite)', layer: osmBw},
+          ]
+        };
+
+
+        var ctl = L.control.layers.tree(baseTree, null);
+        ctl.addTo(map).collapseTree().expandSelected();
+
+    
+      var overlays = [{
+          label: ' อำเภอ',
+          selectAllCheckbox: true,
+          children: [
+                { label:" "+amp[0],layer: station1},
+                { label:" "+amp[1],layer: station2},
+                { label:" "+amp[2],layer: station3},
+                { label:" "+amp[3],layer: station4},
+                { label:" "+amp[4],layer: station5},
+                { label:" "+amp[5],layer: station6},
+                { label:" "+amp[6],layer: station7},
+                { label:" "+amp[7],layer: station8},
+                { label:" "+amp[8],layer: station9},
+                { label:" "+amp[9],layer: station10},
+                { label:" "+amp[10],layer: station11},
+                { label:" "+amp[11],layer: station12},
+                { label:" "+amp[12],layer: station13},
+                { label:" "+amp[13],layer: station14},
+                { label:" "+amp[14],layer: station15},
+                { label:" "+amp[15],layer: station16},
+                { label:" "+amp[16],layer: station17},
+                { label:" "+amp[17],layer: station18},
+
+          ]
+        },
+        {
+            label: ' หน่วยงานอื่น',
+            selectAllCheckbox: true,
+            collapsed: true,
+            children: [
+                {label: ' กรมชลประทาน',
+                    selectAllCheckbox: true,
+                    children: [
+                      { label:" "+"กรมชลประทาน ",layer: ridNo},
+                      { label:" "+"กรมชลประทาน (ถ่ายโอนให้ อปท.)",layer: rid},
+                      { label:" "+"โครงการพระราชดำริฯ ",layer: loyal},
+                    ]
+                },
+                {label: ' กรมทรัพยากรน้ำ',
+                    selectAllCheckbox: true,
+                    children: [
+                      { label:" "+"กรมทรัพยากรน้ำ ",layer: dwr},
+                    ]
+                },
+            ]
+        }];
+        
+        ctl.setOverlayTree(overlays).collapseTree(true).expandSelected(true);
+    </script>
+
+  
+    <!-- End Map  -->
+  </body>
+
+</html>

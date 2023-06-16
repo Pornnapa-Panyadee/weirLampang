@@ -1,0 +1,101 @@
+<?php
+
+use Illuminate\Support\Facades\Route;
+
+
+
+// Route::get('/', function () { return view('welcome');});
+
+Auth::routes();
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// ------LocationController ------
+Route::get('location/getdistrict/{id}', 'App\Http\Controllers\LocationController@getDistrict');
+Route::get('location/getTumbol/{id}', 'App\Http\Controllers\LocationController@getTumbol');
+Route::get('location/getVillage/{amp}/{tambol}', 'App\Http\Controllers\LocationController@getVillage');
+
+// form
+// Route::get('/form', function () { return view('form.form');});
+// ------FormsController ------
+Route::get('form','App\Http\Controllers\FormsController@locationCR');
+Route::get('/getdistrict/{id}', 'App\Http\Controllers\FormsController@getDistrict');
+Route::get('/getTumbol/{id}', 'App\Http\Controllers\FormsController@getTumbol');
+Route::get('/getVillage/{amp}/{tambol}', 'App\Http\Controllers\FormsController@getVillage');
+Route::get('/expert/{weir_code}', 'App\Http\Controllers\DataSurveyController@getDatabyExpert');
+// Route::get('/expert', function () {return view('form.expert');});
+
+Route::POST('form/formsubmit', 'App\Http\Controllers\FormsController@formSubmit')->name('form.formsubmit');
+Route::POST('form/formupdate', 'App\Http\Controllers\FormsController@formUpdate')->name('form.formupdata');
+Route::POST('form/photosubmit', 'App\Http\Controllers\FormsController@photoSubmit')->name('form.photosubmit');
+Route::get('/remove/{id}', 'App\Http\Controllers\FormsController@formDelete');
+
+
+// Route::get('/', function () { return view('guest.index');})->name('form');
+Route::get('/', 'App\Http\Controllers\DataSurveyController@getDataHomeTable');
+Route::get('/test', 'App\Http\Controllers\DataSurveyController@getDataHomeTabletest')->name('data');
+// Route::get('/list', function () { return view('form.list');})->name('list');
+Route::get('/list', 'App\Http\Controllers\DataSurveyController@getDatatoTable')->name('list');
+Route::get('/list/expert', 'App\Http\Controllers\DataSurveyController@getDatatoTableExpert')->name('expert.list');
+Route::get('/edit/{weir_code}', 'App\Http\Controllers\DataSurveyController@formEdit');
+// Map each Location 
+Route::get('map/{id}', 'App\Http\Controllers\DataSurveyController@getDatabyWeir')->name('form.getDatabyWeir');
+
+// data to Display
+Route::get('form/getDataSurvey/{amp}', 'App\Http\Controllers\DataSurveyController@getDataSurvey')->name('form.getDataSurvey');
+// data to Display Map Rid 
+Route::get('form/getDataRidtranfer', 'App\Http\Controllers\OtherweirsController@getRid');
+Route::get('form/getDataRidtranferNo', 'App\Http\Controllers\OtherweirsController@getRidNo');
+Route::get('form/getDataDwr', 'App\Http\Controllers\OtherweirsController@getDwr');
+Route::get('form/getDataLoyal', 'App\Http\Controllers\OtherweirsController@getloyal');
+// Map each Location 
+Route::get('map/{id}', 'App\Http\Controllers\DataSurveyController@getDatabyWeir')->name('form.getDatabyWeir');
+
+
+// Photo in Home page 
+Route::get('/photo/{id}', 'App\Http\Controllers\PhotoController@photoHome')->name('photo');
+Route::get('/test/{id}', 'App\Http\Controllers\PhotoController@photoHometest')->name('phototest');
+
+// report
+Route::get('/pdf/{id}', 'App\Http\Controllers\ReportPDFController@pdf_index');
+Route::get('/report/pdf/{id}', 'App\Http\Controllers\ReportPDFController@reportpdf_index');
+Route::get('/report/amp/{amp}', 'App\Http\Controllers\ReportPDFController@reportOne_amp');
+Route::get('/report/scoreComposition', function () {return view('pages.scorelist');});
+Route::POST('/report/scoreComposition/pdf', 'App\Http\Controllers\ReportPDFController@compositionWeir')->name('report.pdf');
+Route::POST('/report/problemAmp/pdf', 'App\Http\Controllers\ReportPDFController@reportOne_amp')->name('reportOne_amp.pdf');
+// Route::get('/report/problem/pdf/{amp}', 'App\Http\Controllers\ReportPDFController@problemWeir')->name('reportProblem.pdf');
+
+// add image
+Route::get('addphoto/{id}', 'App\Http\Controllers\PhotoController@photoadd')->name('addphoto');
+Route::get('photoremove/{id}', 'App\Http\Controllers\PhotoController@photoremove')->name('photoremove');
+
+// Expert 
+// Route::get('/expert/list', 'App\Http\Controllers\ListexpertController@getDatatoTable')->name('list');
+
+// Table
+Route::get('/tablescore', 'App\Http\Controllers\MapScoreController@compositionWeir');
+Route::get('/score/{amp}/{class}', 'App\Http\Controllers\MapScoreController@score');
+
+
+// score Map 
+Route::get('/report/map', 'App\Http\Controllers\MapScoreController@scoretable');
+// Route::get('/report/map', function () {return view('scorereport.mapscore');});
+// Route::get('/report/chart', function () {return view('scorereport.chart');});
+Route::get('/report/chart', 'App\Http\Controllers\ChartReportController@score');
+Route::get('/report/chart_test', 'App\Http\Controllers\ChartReportController@score_test');
+
+
+Route::get('/report/problem', function () {return view('pages.problemlist');});
+Route::get('/about', function () {return view('pages.about');});
+Route::get('/contact', function () {return view('pages.contact');});
+Route::get('/manual', function () {return view('pages.manual');});
+Route::get('/project', function () {return view('pages.project');});
+// Route::get('/project/1', function () {return view('pages.project_detail');});
+Route::get('/project/{id} ', 'App\Http\Controllers\ProjectCaseController@case');
+
+
+
+///// admin
+Route::get('/admin/list', 'App\Http\Controllers\UsersController@getUser');
+Route::get('/admin/register', function () {return view('admin.register');});
+Route::get('/admin/edit/{id}', 'App\Http\Controllers\UsersController@getdetailUser');
+Route::get('/admin/delete/{id}', 'App\Http\Controllers\UsersController@deleteUser');
