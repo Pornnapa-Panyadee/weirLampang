@@ -15,7 +15,7 @@ class UpdateToUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             //
-            $table->string('status');
+            $table->string('status')->nullable();;
         });
     }
 
