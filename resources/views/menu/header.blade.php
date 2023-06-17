@@ -9,7 +9,7 @@
 <nav class="navbar header-navbar pcoded-header" >
     <div class="navbar-wrapper">
         <div class="navbar-logo"> 
-            <a href="{{ asset('/') }}">  <h3>Chiang Rai Weir Assessment System </h3> </a>
+            <a href="{{ asset('/') }}">  <h3>Mae Jang Basin Weir Assessment System </h3> </a>
            
                 <a class="mobile-menu" id="mobile-collapse" href="#!">
                     <i class="fa fa-reorder"></i>

@@ -125,8 +125,8 @@
                         <div class="col-md-12">
                           <div class="card table-card">
                             <div class="card-header">
-                              <h5>โครงการพัฒนาระบบสารสนเทศการตรวจประเมินสภาพฝายและวางแผนปรับปรุงเพิ่มประสิทธิภาพฝายในพื้นที่จังหวัดเชียงราย</h5>
-                              <br>โดยจังหวัดเชียงรายร่วมกับมหาวิทยาลัยเชียงใหม่
+                              <h5>โครงการพัฒนาระบบสารสนเทศการตรวจประเมินสภาพฝายและวางแผนปรับปรุงเพิ่มประสิทธิภาพฝายในพื้นที่ลุ่มน้ำแม่จาง จังหวัดลำปาง</h5>
+                              <br>โดยการไฟฟ้าฝ่ายผลิตแห่งประเทศไทย (กฟผ) แม่เมาะ ร่วมกับมหาวิทยาลัยเชียงใหม่
                               <div class="card-header-right">
                                 <ul class="list-unstyled card-option">
                                   <li class="first-opt"><i class="feather icon-chevron-left open-card-option"></i></li>
@@ -373,9 +373,9 @@
       var dwr = new L.LayerGroup();
       var loyal = new L.LayerGroup();
       var borders= new L.LayerGroup();
-      var x = 19.78755 ;
-      var y = 99.7995964;
-      var mbAttr = 'CRFlood ',
+      var x = 18.400015 ; 
+      var y = 99.826525;
+      var mbAttr = 'Mae Jang Basin ',
           mbUrl = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoidmFucGFueWEiLCJhIjoiY2loZWl5ZnJ4MGxnNHRwbHp5bmY4ZnNxOCJ9.IooQB0jYS_4QZvIq7gkjeQ';
           osm = L.tileLayer('http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}',{
               maxZoom: 20,subdomains:['mt0','mt1','mt2','mt3'], attribution: mbAttr });
@@ -387,14 +387,14 @@
           zoom: 9,
         });
       
-      var runLayer = omnivore.kml('{{ asset('kml/CR_18Amphoe_bound.kml') }}')
-						.on('ready', function() {
-						this.setStyle({
-            fillOpacity: 0,
-						color: "#466DF3",
-						weight: 3
-						});
-			}).addTo(borders); 
+      // var runLayer = omnivore.kml('{{ asset('kml/CR_18Amphoe_bound.kml') }}')
+			// 			.on('ready', function() {
+			// 			this.setStyle({
+      //       fillOpacity: 0,
+			// 			color: "#466DF3",
+			// 			weight: 3
+			// 			});
+			// }).addTo(borders); 
       
       var pin = L.icon({
           iconUrl: '{{ asset('images/icon/pin19.png') }}',
@@ -474,7 +474,8 @@
            
     //  var amp=["ขุนตาล","พญาเม็งราย","เทิง","พาน","เมืองเชียงราย","ป่าแดด","แม่ลาว","แม่สรวย","เวียงป่าเป้า"];
       // var amp=["ขุนตาล","พญาเม็งราย","เทิง","พาน","เมืองเชียงราย","แม่ลาว","แม่สรวย","เวียงป่าเป้า","ป่าแดด"];
-      var amp=["ขุนตาล", "เชียงของ", "เชียงแสน","ดอยหลวง","เทิง","ป่าแดด", "พญาเม็งราย","พาน", "เมืองเชียงราย", "แม่จัน","แม่ฟ้าหลวง","แม่ลาว","แม่สรวย", "แม่สาย","เวียงแก่น","เวียงเชียงรุ่ง","เวียงชัย","เวียงป่าเป้า"];    
+      // var amp=["ขุนตาล", "เชียงของ", "เชียงแสน","ดอยหลวง","เทิง","ป่าแดด", "พญาเม็งราย","พาน", "เมืองเชียงราย", "แม่จัน","แม่ฟ้าหลวง","แม่ลาว","แม่สรวย", "แม่สาย","เวียงแก่น","เวียงเชียงรุ่ง","เวียงชัย","เวียงป่าเป้า"];    
+      var amp=["เมืองลำปาง", "เกาะคา", "แม่ทะ","แม่เมาะ"];    
       
       
       function addPin(ampName,i,mo){
@@ -634,20 +635,20 @@
                 { label:" "+amp[1],layer: station2},
                 { label:" "+amp[2],layer: station3},
                 { label:" "+amp[3],layer: station4},
-                { label:" "+amp[4],layer: station5},
-                { label:" "+amp[5],layer: station6},
-                { label:" "+amp[6],layer: station7},
-                { label:" "+amp[7],layer: station8},
-                { label:" "+amp[8],layer: station9},
-                { label:" "+amp[9],layer: station10},
-                { label:" "+amp[10],layer: station11},
-                { label:" "+amp[11],layer: station12},
-                { label:" "+amp[12],layer: station13},
-                { label:" "+amp[13],layer: station14},
-                { label:" "+amp[14],layer: station15},
-                { label:" "+amp[15],layer: station16},
-                { label:" "+amp[16],layer: station17},
-                { label:" "+amp[17],layer: station18},
+                // { label:" "+amp[4],layer: station5},
+                // { label:" "+amp[5],layer: station6},
+                // { label:" "+amp[6],layer: station7},
+                // { label:" "+amp[7],layer: station8},
+                // { label:" "+amp[8],layer: station9},
+                // { label:" "+amp[9],layer: station10},
+                // { label:" "+amp[10],layer: station11},
+                // { label:" "+amp[11],layer: station12},
+                // { label:" "+amp[12],layer: station13},
+                // { label:" "+amp[13],layer: station14},
+                // { label:" "+amp[14],layer: station15},
+                // { label:" "+amp[15],layer: station16},
+                // { label:" "+amp[16],layer: station17},
+                // { label:" "+amp[17],layer: station18},
 
           ]
         },
