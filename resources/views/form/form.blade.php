@@ -32,7 +32,7 @@
       vertical-align: top;
     }#text3{
       text-align: left;
-      background-color: #f2f2f2;
+      /* background-color: #f2f2f2; */
     }.checkbox-color{
       margin-top: 10px;
       margin-left: 30px;
@@ -244,8 +244,7 @@
                                           <!-- ข้อมูลปีก่อสร้างฝาย -->
                                             <div class="form-group row">
                                               <div class="col-sm-5">
-                                                <div class="border-checkbox-section">
-                                                                                                                    
+                                                <div class="border-checkbox-section">                                               
                                                   <div class="border-checkbox-group border-checkbox-group-primary">
                                                     <input class="border-checkbox" type="checkbox" id="weir_self" name="weir_model[self][weir_self]" value="1">
                                                     <label class="border-checkbox-label" for="weir_self"> ออกแบบเอง &nbsp; &nbsp;&nbsp;</label>
@@ -276,13 +275,57 @@
                                           <!-- หน่วยงานรับผิดชอบ -->
                                             <div class="form-group row">
                                               <label class="col-sm-2 col-form-label">หน่วยงานรับผิดชอบ</label>
-                                              <div class="col-sm-4">
-                                                <input id="resp_name" name="resp_name" type="text" class=" form-control" placeholder="-- หน่วยงาน --">
-                                              </div>
-                                              <label class="col-sm-2 col-form-label">รับถ่ายโอนจาก</label>
+                                              <table>
+                                                <tr>
+                                                  <td>
+                                                    <div class="border-checkbox-section">                                               
+                                                      <div class="border-checkbox-group border-checkbox-group-primary">
+                                                        <input class="border-checkbox" type="checkbox" id="weir_type" name="weir_type" value="1">
+                                                        <label class="border-checkbox-label" for="weir_type"> หน่วยงานตามภารกิจ </label>
+                                                      </div>
+                                                    </div>
+                                                  </td>
+                                                  <td>
+                                                    <input id="resp_name" name="resp_name" type="text" class=" form-control" placeholder="-- หน่วยงาน --">
+                                                  </td>
+                                                </tr>
+                                                <tr>
+                                                  <td>
+                                                    <div class="border-checkbox-section">                                               
+                                                      <div class="border-checkbox-group border-checkbox-group-primary">
+                                                        <input class="border-checkbox" type="checkbox" id="weir_type" name="weir_type" value="2">
+                                                        <label class="border-checkbox-label" for="weir_type"> หน่วยงานท้องถิ่น </label>
+                                                      </div>
+                                                    </div>
+                                                  </td>
+                                                  <td>
+                                                    <input id="resp_name" name="resp_name" type="text" class=" form-control" placeholder="-- หน่วยงาน --">
+                                                  </td>
+                                                  <td>รับถ่ายโอนจาก</td>
+                                                  <td>
+                                                    <input id="transfer" name="transfer" type="text" class=" form-control" placeholder="-- หน่วยงาน --">
+                                                  </td>
+                                                </tr>
+                                                <tr>
+                                                  <td>
+                                                    <div class="border-checkbox-section">                                               
+                                                      <div class="border-checkbox-group border-checkbox-group-primary">
+                                                        <input class="border-checkbox" type="checkbox" id="weir_type" name="weir_type" value="3">
+                                                        <label class="border-checkbox-label" for="weir_type"> อื่นๆ </label>
+                                                      </div>
+                                                    </div>
+                                                  </td>
+                                                  
+                                                  <td>
+                                                    <input id="resp_name" name="resp_name" type="text" class=" form-control" placeholder="-- หน่วยงาน --">
+                                                  </td>
+                                                </tr>
+                                              </table>
+                                              
+                                              <!-- <label class="col-sm-2 col-form-label">รับถ่ายโอนจาก</label>
                                               <div class="col-sm-3">
                                                 <input id="transfer" name="transfer" type="text" class=" form-control" placeholder="-- หน่วยงาน --">
-                                              </div>
+                                              </div> -->
                                                                                     
                                             </div>
 
@@ -719,7 +762,30 @@
                                               </div>
                                             </div>
 
-                                          <!-- 2.ระบบส่งน้ำ -->
+                                          <!-- 1.6 -->
+                                            <div class="form-group row">
+                                                <label class="col-sm-2 col-form-label ">1.6 พื้นที่รับประโยชน์ &nbsp ประมาณ</label>
+                                                <div class="col-sm-3">
+                                                   <input id="canal_width" name="benefit_area" type="text" class="form-control" placeholder="ไร่">
+                                                </div> 
+                                                <div class="col-sm-2"> 
+                                                  <div class="border-checkbox-section">                                               
+                                                      <div class="border-checkbox-group border-checkbox-group-primary">
+                                                        <input class="border-checkbox" type="checkbox" id="consumption" name="consumption" value="1">
+                                                        <label class="border-checkbox-label" for="consumption"> อุปโภคบริโภค </label>
+                                                      </div>
+                                                  </div>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                  <div class="border-checkbox-section">                                               
+                                                      <div class="border-checkbox-group border-checkbox-group-primary">
+                                                        <input class="border-checkbox" type="checkbox" id="agriculture" name="agriculture" value="1">
+                                                        <label class="border-checkbox-label" for="agriculture"> การเกษตร </label>
+                                                      </div>
+                                                  </div>
+                                                </div>
+                                            </div>
+                                            <!-- 2.ระบบส่งน้ำ -->
                                             <div class="form-group row">
                                               <div class="card-block button-list" style="margin-left:-40px;">
                                                 <button type="button" class="btn btn-out waves-effect waves-light btn-inverse btn-square" > 2. ระบบส่งน้ำ </button>
@@ -873,7 +939,13 @@
                                                     <tbody>
                                                     <!-- 1 -->
                                                       <tr> 
-                                                        <th colspan="13" id="text1">1. ส่วน Potection เหนือน้ำ (Upstream Protection Section) </th>
+                                                        <th colspan="13" id="text1">
+                                                          1. ส่วน Protection เหนือน้ำ (Upstream Protection Section) 
+                                                          <div class="checkbox-color checkbox-primary"><input type="checkbox" id="1_checkbox_1" name="Upstream" value="1"><label for="1_checkbox_1">  </label> ใช้งานได้</div>
+                                                          <div class="checkbox-color checkbox-primary"><input type="checkbox" id="1_checkbox_2" name="Upstream" value="2"><label for="1_checkbox_2">  </label> ควรปรับปรุง</div>
+                                                          <div class="checkbox-color checkbox-primary"><input type="checkbox" id="1_checkbox_3" name="Upstream" value="3"><label for="1_checkbox_3">  </label> ควรรื้อถอนก่อสร้างใหม่</div>
+                                                        </th>
+
                                                       </tr>
                                                     <!-- 1.1 -->
                                                       <tr>
@@ -1038,7 +1110,12 @@
                                                        </tr>
                                                     <!-- 2 -->
                                                       <tr> 
-                                                          <th colspan="13" id="text1">2. ส่วนเหนือน้ำ (Upstream Concrete Section) </th>
+                                                          <th colspan="13" id="text1">
+                                                            2. ส่วนเหนือน้ำ (Upstream Concrete Section) 
+                                                            <div class="checkbox-color checkbox-primary"><input type="checkbox" id="2_checkbox_1" name="Upstream_Concrete" value="1"><label for="2_checkbox_1">  </label> ใช้งานได้</div>
+                                                          <div class="checkbox-color checkbox-primary"><input type="checkbox" id="2_checkbox_2" name="Upstream_Concrete" value="2"><label for="2_checkbox_2">  </label> ควรปรับปรุง</div>
+                                                          <div class="checkbox-color checkbox-primary"><input type="checkbox" id="2_checkbox_3" name="Upstream_Concrete" value="3"><label for="2_checkbox_3">  </label> ควรรื้อถอนก่อสร้างใหม่</div>
+                                                          </th>
                                                       </tr>
                                                     <!-- 2.1 -->
                                                       <tr>
@@ -1205,7 +1282,12 @@
                                                                                                                                      
                                                     <!-- 3 -->
                                                       <tr> 
-                                                       <th colspan="13" id="text1">3. ส่วนควบคุม (Control Sector) </th>
+                                                       <th colspan="13" id="text1">
+                                                        3. ส่วนควบคุม (Control Section) 
+                                                        <div class="checkbox-color checkbox-primary"><input type="checkbox" id="3_checkbox_1" name="Control" value="1"><label for="3_checkbox_1">  </label> ใช้งานได้</div>
+                                                        <div class="checkbox-color checkbox-primary"><input type="checkbox" id="3_checkbox_2" name="Control" value="2"><label for="3_checkbox_2">  </label> ควรปรับปรุง</div>
+                                                        <div class="checkbox-color checkbox-primary"><input type="checkbox" id="3_checkbox_3" name="Control" value="3"><label for="3_checkbox_3">  </label> ควรรื้อถอนก่อสร้างใหม่</div>
+                                                      </th>
                                                       </tr>
                                                       <!-- 3.1 -->
                                                         <tr>
@@ -1350,11 +1432,11 @@
                                                         </tr>
                                                       <!-- 3.3 -->
                                                         <tr> 
-                                                          <th colspan="13" id="text3">3.3.1 ประตู/ช่องระบายทราย </th>
+                                                          <th colspan="13" id="text3">3.3 ประตู/ช่องระบายทราย </th>
                                                         </tr>
                                                         <!-- 3.3.1 -->
                                                             <tr>
-                                                                <th id="text2" rowspan="4" style="vertical-align: top;">3.3.1 พื้น</th> 
+                                                                <th id="text2"  style="vertical-align: top;">3.3.1 พื้น</th> 
                                                                 <td>ปกติ</td>
                                                                 <td ><div class="checkbox-color checkbox-primary"><input type="checkbox" id="3_3_1_normal_1" name="dgfloor_3_erosion" value="1"><label for="3_3_1_normal_1"></label></div></td>
                                                                 <td><div class="checkbox-color checkbox-primary"><input type="checkbox" id="3_3_1_normal_2" name="dgfloor_3_subsidence" value="1"><label for="3_3_1_normal_2"></label></div></td>
@@ -1388,6 +1470,7 @@
                                                                 </td>
                                                             </tr>
                                                             <tr>
+                                                                <td id="text2">ตะกอน</td>
                                                                 <td>น้อย</td>
                                                                 <td ><div class="checkbox-color checkbox-primary"><input type="checkbox" id="3_3_1_less_1" name="dgfloor_3_erosion" value="2"><label for="3_3_1_less_1"></label></div></td>
                                                                 <td><div class="checkbox-color checkbox-primary"><input type="checkbox" id="3_3_1_less_2" name="dgfloor_3_subsidence" value="2"><label for="3_3_1_less_2"></label></div></td>
@@ -1401,6 +1484,16 @@
                                                                 
                                                             </tr>
                                                             <tr>
+                                                              <td>
+                                                                <table class="table2 table-borderless" id="text2"> 
+                                                                  <tr>
+                                                                    <td><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="3_3_1_sed_n" name="check_floor_3" value="1"><label for="3_3_1_sed_n"></label></div></td>
+                                                                    <td> ปกติ</td>
+                                                                    <td><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="3_3_1_sed_l" name="check_floor_3" value="2"><label for="3_3_3_sed_l"></label></div></td>
+                                                                    <td> น้อย</td>
+                                                                  </tr>
+                                                                </table>
+                                                              </td> 
                                                                 <td>ปานกลาง</td>
                                                                 <td ><div class="checkbox-color checkbox-primary"><input type="checkbox" id="3_3_1_mid_1" name="dgfloor_3_erosion" value="3"><label for="3_3_1_mid_1"></label></div></td>
                                                                 <td><div class="checkbox-color checkbox-primary"><input type="checkbox" id="3_3_1_mid_2" name="dgfloor_3_subsidence" value="3"><label for="3_3_1_mid_2"></label></div></td>
@@ -1413,6 +1506,16 @@
                                                                 <td><div class="checkbox-color checkbox-primary"><input type="checkbox" id="3_3_1_mid_9" name="dgfloor_3_weed" value="3"><label for="3_3_1_mid_9"></label></div></td>
                                                             </tr>
                                                             <tr>
+                                                              <td>
+                                                                <table class="table2 table-borderless" id="text2"> 
+                                                                  <tr>
+                                                                    <td><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="3_3_1_sed_md" name="check_floor_3" value="3"><label for="3_3_1_sed_md"></label></div></td>
+                                                                    <td>กลาง</td>
+                                                                    <td><div class="checkbox-color1 checkbox-primary"><input type="checkbox" id="3_3_1_sed_m" name="check_floor_3" value="4"><label for="3_3_1_sed_m"></label></div></td>
+                                                                    <td>มาก</td>
+                                                                  </tr>
+                                                                </table>
+                                                              </td>
                                                                 <td>มาก</td>
                                                                 <td ><div class="checkbox-color checkbox-primary"><input type="checkbox" id="3_3_1_more_1" name="dgfloor_3_erosion" value="4"><label for="3_3_1_more_1"></label></div></td>
                                                                 <td><div class="checkbox-color checkbox-primary"><input type="checkbox" id="3_3_1_more_2" name="dgfloor_3_subsidence" value="4"><label for="3_3_1_more_2"></label></div></td>
@@ -1573,7 +1676,7 @@
                                                             </tr>
                                                         <!-- 3.3.4 -->
                                                             <tr>
-                                                                <th id="text2" rowspan="4" style="vertical-align: top;">3.3.4 ประตูระบายน้ำ <br> เคลื่องกล/อุปกรณ์</th> 
+                                                                <th id="text2" rowspan="4" style="vertical-align: top;">3.3.4 อุปกรณ์ <br> เคลื่องกล/อุปกรณ์ไฟฟ้า</th> 
                                                                 <td>ปกติ</td>
                                                                 <td ><div class="checkbox-color checkbox-primary"><input type="checkbox" id="3_3_4_normal_1" name="dgmachanic_3_erosion" value="1"><label for="3_3_4_normal_1"></label></div></td>
                                                                 <td><div class="checkbox-color checkbox-primary"><input type="checkbox" id="3_3_4_normal_2" name="dgmachanic_3_subsidence" value="1"><label for="3_3_4_normal_2"></label></div></td>
@@ -1868,7 +1971,12 @@
 
                                                     <!-- 4 -->
                                                       <tr> 
-                                                        <th colspan="13" id="text1">4. ส่วนท้ายน้ำ (Downstream Concrete Section) </th>
+                                                        <th colspan="13" id="text1">
+                                                          4. ส่วนท้ายน้ำ (Downstream Concrete Section)
+                                                          <div class="checkbox-color checkbox-primary"><input type="checkbox" id="4_checkbox_1" name="Downstream_Concrete" value="1"><label for="4_checkbox_1">  </label> ใช้งานได้</div>
+                                                          <div class="checkbox-color checkbox-primary"><input type="checkbox" id="4_checkbox_2" name="Downstream_Concrete" value="2"><label for="4_checkbox_2">  </label> ควรปรับปรุง</div>
+                                                          <div class="checkbox-color checkbox-primary"><input type="checkbox" id="4_checkbox_3" name="Downstream_Concrete" value="3"><label for="4_checkbox_3">  </label> ควรรื้อถอนก่อสร้างใหม่</div> 
+                                                        </th>
                                                       </tr>
                                                       <!-- 4.1 -->
                                                         <tr>
@@ -2186,9 +2294,14 @@
                                                             <td><div class="checkbox-color checkbox-primary"><input type="checkbox" id="4_4_more_9" name="endsill_4_weed" value="4"><label for="4_4_more_9"></label></div></td>
                                                                       
                                                         </tr>
-                                                      <!-- 5 -->
+                                                    <!-- 5 -->
                                                         <tr> 
-                                                          <th colspan="13" id="text1">5. ส่วน Protection ท้ายน้ำ (Downstream Protection Section) </th>
+                                                          <th colspan="13" id="text1">
+                                                            5. ส่วน Protection ท้ายน้ำ (Downstream Protection Section) 
+                                                            <div class="checkbox-color checkbox-primary"><input type="checkbox" id="5_checkbox_1" name="Downstream_Protection" value="1"><label for="5_checkbox_1">  </label> ใช้งานได้</div>
+                                                            <div class="checkbox-color checkbox-primary"><input type="checkbox" id="5_checkbox_2" name="Downstream_Protection" value="2"><label for="5_checkbox_2">  </label> ควรปรับปรุง</div>
+                                                            <div class="checkbox-color checkbox-primary"><input type="checkbox" id="5_checkbox_3" name="Downstream_Protection" value="3"><label for="5_checkbox_3">  </label> ควรรื้อถอนก่อสร้างใหม่</div> 
+                                                          </th>
                                                         </tr>
                                                         <!-- 5.1 -->
                                                           <tr>
@@ -2359,7 +2472,12 @@
                                                           </tr>
                                                     <!-- 6 -->
                                                         <tr> 
-                                                            <th colspan="13" id="text1">6. ระบบส่งน้ำ </th>
+                                                            <th colspan="13" id="text1">
+                                                              6. ระบบส่งน้ำ
+                                                              <div class="checkbox-color checkbox-primary"><input type="checkbox" id="6_checkbox_1" name="water_system" value="1"><label for="6_checkbox_1">  </label> ใช้งานได้</div>
+                                                        <div class="checkbox-color checkbox-primary"><input type="checkbox" id="6_checkbox_2" name="water_system" value="2"><label for="6_checkbox_2">  </label> ควรปรับปรุง</div>
+                                                        <div class="checkbox-color checkbox-primary"><input type="checkbox" id="6_checkbox_3" name="water_system" value="3"><label for="6_checkbox_3">  </label> ควรรื้อถอนก่อสร้างใหม่</div>  
+                                                            </th>
                                                         </tr>
                                                         <!-- 6.1 -->
                                                           <tr>
@@ -2535,7 +2653,7 @@
                                                                   
                                                         <!-- 6.3 -->
                                                           <tr>
-                                                            <th id="text2" rowspan="4" style="vertical-align: top;">6.3 ปากตูน้ำ/ปากคลอง</th> 
+                                                            <th id="text2" rowspan="4" style="vertical-align: top;">6.3 ประตูน้ำ/ปากคลอง</th> 
                                                             <td>ปกติ</td>
                                                             <td ><div class="checkbox-color checkbox-primary"><input type="checkbox" id="6_3_normal_1" name="gate_6_erosion" value="1"><label for="6_3_normal_1"></label></div></td>
                                                             <td><div class="checkbox-color checkbox-primary"><input type="checkbox" id="6_3_normal_2" name="gate_6_subsidence" value="1"><label for="6_3_normal_2"></label></div></td>
