@@ -373,8 +373,8 @@
       var dwr = new L.LayerGroup();
       var loyal = new L.LayerGroup();
       var borders= new L.LayerGroup();
-      var x = 18.400015 ; 
-      var y = 99.826525;
+      var x = 18.290015 ; 
+      var y = 99.656525;
       var mbAttr = 'Mae Jang Basin ',
           mbUrl = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoidmFucGFueWEiLCJhIjoiY2loZWl5ZnJ4MGxnNHRwbHp5bmY4ZnNxOCJ9.IooQB0jYS_4QZvIq7gkjeQ';
           osm = L.tileLayer('http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}',{
@@ -384,17 +384,17 @@
       var map = L.map('map', {
           layers: [osm,station1,station2,station3,station4,station5,station6,station7,station8,station9,station10,station11,station12,station13,station14,station15,station16,station17,station18,rid,ridNo,dwr,loyal,borders],
           center: [x,y],
-          zoom: 9,
+          zoom: 10,
         });
       
-      // var runLayer = omnivore.kml('{{ asset('kml/CR_18Amphoe_bound.kml') }}')
-			// 			.on('ready', function() {
-			// 			this.setStyle({
-      //       fillOpacity: 0,
-			// 			color: "#466DF3",
-			// 			weight: 3
-			// 			});
-			// }).addTo(borders); 
+      var runLayer = omnivore.kml('{{ asset('kml/bound_ขอบเขตลุ่มน้ำแม่จาง.kml') }}')
+						.on('ready', function() {
+						this.setStyle({
+            fillOpacity: 0,
+						color: "#466DF3",
+						weight: 3
+						});
+			}).addTo(borders); 
       
       var pin = L.icon({
           iconUrl: '{{ asset('images/icon/pin19.png') }}',
