@@ -32,6 +32,8 @@ class DownprotectionInv extends Model
         'side_weed',
         'side_damage',
         'side_remake',
-        'check_floor'
+        'check_floor',
+        'section_status'
+
     ];
 }

@@ -46,5 +46,7 @@ class WaterdeliveryInv extends Model
         'gate_weed',
         'gate_damage',
         'gate_remake',
+
+        'section_status'
     ];
 }

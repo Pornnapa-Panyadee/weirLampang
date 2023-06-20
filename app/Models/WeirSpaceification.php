@@ -28,6 +28,9 @@ class WeirSpaceification extends Model
         'canal_has',
         'canal_type',
         'canel_dimension',
+        'benefit_area',
+        'comsumption',
+        'agriculture'
      ];
 
    

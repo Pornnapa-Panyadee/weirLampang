@@ -34,5 +34,6 @@ class UpprotectionInv extends Model
         'side_weed',
         'side_damage',
         'side_remake',
+        'section_status'
     ];
 }

@@ -21,7 +21,9 @@ class WeirSurvey extends Model
         'weir_model',
         'resp_name',
         'transfer',
-        'user'
+        'user',
+
+        'Resp_type'
     ];
         
 }

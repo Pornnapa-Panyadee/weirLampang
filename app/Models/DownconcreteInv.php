@@ -56,5 +56,6 @@ class DownconcreteInv extends Model
         'endsill_weed',
         'endsill_damage',
         'endsill_remake',
+        'section_status'
     ];
 }

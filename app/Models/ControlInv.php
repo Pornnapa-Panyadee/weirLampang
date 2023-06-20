@@ -118,5 +118,7 @@ class ControlInv extends Model
         'bridge_weed',
         'bridge_damage',
         'bridge_remake',
+
+        'section_status'
     ];
 }
