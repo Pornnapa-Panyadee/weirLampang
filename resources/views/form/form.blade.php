@@ -280,44 +280,45 @@
                                                   <td>
                                                     <div class="border-checkbox-section">                                               
                                                       <div class="border-checkbox-group border-checkbox-group-primary">
-                                                        <input class="border-checkbox" type="checkbox" id="weir_type" name="weir_type" value="1">
-                                                        <label class="border-checkbox-label" for="weir_type"> หน่วยงานตามภารกิจ </label>
+                                                        <input class="border-checkbox" type="checkbox" id="weir_type1" name="weir_type" value="1">
+                                                        <label class="border-checkbox-label" for="weir_type1"> หน่วยงานตามภารกิจ </label>
                                                       </div>
                                                     </div>
                                                   </td>
                                                   <td>
-                                                    <input id="resp_name" name="resp_name" type="text" class=" form-control" placeholder="-- หน่วยงาน --">
+                                                    <input id="resp_name1" name="resp_name1" type="text" class=" form-control" placeholder="-- กรอกชื่อ --">
+                                                    <!-- <input id="resp_name" name="resp_name" type="text" class=" form-control" placeholder="-- หน่วยงาน --"> -->
                                                   </td>
                                                 </tr>
                                                 <tr>
                                                   <td>
                                                     <div class="border-checkbox-section">                                               
                                                       <div class="border-checkbox-group border-checkbox-group-primary">
-                                                        <input class="border-checkbox" type="checkbox" id="weir_type" name="weir_type" value="2">
-                                                        <label class="border-checkbox-label" for="weir_type"> หน่วยงานท้องถิ่น </label>
+                                                        <input class="border-checkbox" type="checkbox" id="weir_type2" name="weir_type" value="2">
+                                                        <label class="border-checkbox-label" for="weir_type2"> หน่วยงานท้องถิ่น </label>
                                                       </div>
                                                     </div>
                                                   </td>
                                                   <td>
-                                                    <input id="resp_name" name="resp_name" type="text" class=" form-control" placeholder="-- หน่วยงาน --">
+                                                    <input id="resp_name2" name="resp_name2" type="text" class="form-control" placeholder="-- หน่วยงาน --">
                                                   </td>
                                                   <td>รับถ่ายโอนจาก</td>
                                                   <td>
-                                                    <input id="transfer" name="transfer" type="text" class=" form-control" placeholder="-- หน่วยงาน --">
+                                                    <input id="transfer" name="transfer" type="text" class="form-control" placeholder="-- หน่วยงาน --">
                                                   </td>
                                                 </tr>
                                                 <tr>
                                                   <td>
                                                     <div class="border-checkbox-section">                                               
                                                       <div class="border-checkbox-group border-checkbox-group-primary">
-                                                        <input class="border-checkbox" type="checkbox" id="weir_type" name="weir_type" value="3">
-                                                        <label class="border-checkbox-label" for="weir_type"> อื่นๆ </label>
+                                                        <input class="border-checkbox" type="checkbox" id="weir_type3" name="weir_type" value="3">
+                                                        <label class="border-checkbox-label" for="weir_type3"> อื่นๆ </label>
                                                       </div>
                                                     </div>
                                                   </td>
                                                   
                                                   <td>
-                                                    <input id="resp_name" name="resp_name" type="text" class=" form-control" placeholder="-- หน่วยงาน --">
+                                                    <input id="resp_name3" name="resp_name3" type="text" class=" form-control" placeholder="-- หน่วยงาน --">
                                                   </td>
                                                 </tr>
                                               </table>

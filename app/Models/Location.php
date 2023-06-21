@@ -15,33 +15,32 @@ class Location extends Model
         return $value;
     }
     public static function getDistrictCR(){
-        $value=DB::table('locations')->where('vill_province','=','เชียงราย')->distinct()->get('vill_district'); 
+        $value=DB::table('locations')->where('vill_province','=','ลำปาง')->distinct()->get('vill_district'); 
         //$value=DB::table('villages')->distinct()->get(); 
         return $value;
-      }
+    }
     
-      //Fetch District
-        public static function getprovinceDistrict($vill_provinceid=0){
+    //Fetch District
+    public static function getprovinceDistrict($vill_provinceid=0){
     
-            $value=DB::table('locations')->where('vill_province', $vill_provinceid)->distinct()->get('vill_district');
+        $value=DB::table('locations')->where('vill_province', $vill_provinceid)->distinct()->get('vill_district');
     
-            return $value;
-        }
+        return $value;
+    }
     
-        // Fetch Tumtol
-        public static function getdistrictTumbol($vill_districtid=0){
-    
+    // Fetch Tumtol
+    public static function getdistrictTumbol($vill_districtid=0){
             
-            $value=DB::table('locations')->where('vill_district', $vill_districtid)->distinct()->get('vill_tunbol');
+        $value=DB::table('locations')->where('vill_district', $vill_districtid)->distinct()->get('vill_tunbol');
     
-            return $value;
-        }
+        return $value;
+    }
     
         //Fetch Tumtol
-        public static function gettumbolVillage($vill_districtid=0,$vill_tumbolid=0){
+    public static function gettumbolVillage($vill_districtid=0,$vill_tumbolid=0){
     
-            $value=DB::table('locations')->where('vill_district', $vill_districtid)->where('vill_tunbol', $vill_tumbolid)->orderBy('vill_code')->distinct()->get();
+        $value=DB::table('locations')->where('vill_district', $vill_districtid)->where('vill_tunbol', $vill_tumbolid)->orderBy('vill_code')->distinct()->get();
     
-            return $value;
-        }
+        return $value;
+    }
 }
