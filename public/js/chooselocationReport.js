@@ -1,5 +1,5 @@
 
-var ID = window.location.href.replace("http://localhost/weirLP/weirLampang/public/", "");
+var ID = window.location.href.replace("http://10.110.56.47/weir/jang_basin", "");
 function Province(id, district) {
 
   $('#weir_district').find('option').not(':first').remove();
@@ -44,8 +44,9 @@ function District(id, tumbol) {
   $('#weir_tumbol').find('option').not(':first').remove();
 
   // AJAX request 
+  // console.log(id)
   $.ajax({
-    url: 'http://localhost/weirLP/weirLampang/public/location/getTumbol/' + id,
+    url: 'http://10.110.56.47/weir/jang_basin/location/getTumbol/' + id,
     type: 'get',
     dataType: 'json',
     success: function (response) {
@@ -84,7 +85,7 @@ function Tumbol(dis, id, vill) {
 
   // AJAX request 
   $.ajax({
-    url: 'http://localhost/weirLP/weirLampang/public/location/getVillage/' + dis + "/" + id,
+    url: 'http://10.110.56.47/weir/jang_basin/location/getVillage/' + dis + "/" + id,
     // url: 'getVillage/' + dis+"/"+ id,
     type: 'get',
     dataType: 'json',
