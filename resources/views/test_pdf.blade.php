@@ -247,7 +247,7 @@
             <tr>
                 <td class="line"><font class="outline">ผู้ตรวจสอบ&nbsp;&nbsp;</font>&nbsp;&nbsp;{{ $weir[0]->user}}&nbsp;</td>
                 <td colspan="2" class="line"><font class="outline"> วัน/เดือน/ปี </font> &nbsp;&nbsp;{{ $weir[0]->created_at}}&nbsp;&nbsp; </td>
-                <td class="line"><font class="outline">ตำแหน่ง </font> &nbsp;&nbsp; {{$code[10]}}{{$code[11]}} &nbsp;&nbsp;  </td>
+                <td class="line"><font class="outline">ตำแหน่ง </font> &nbsp;&nbsp; {{$code[9]}}{{$code[10]}} &nbsp;&nbsp;  </td>
                 <td class="line"><font class="outline">หน่วยงาน </font> &nbsp;&nbsp; &nbsp;&nbsp;  </td>
             </tr>
           </table>

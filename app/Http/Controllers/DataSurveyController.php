@@ -229,7 +229,6 @@ class DataSurveyController extends Controller
         }
 
         // dd($upprotection[0]->floor_remake->no);
-        // dd( $upprotection[0]->floor_remake->no);
         return view('form.editform',compact('weir','location','user','districtData','river','model','locationUTM','locationLat','space','upprotection','upconcrete','control','downconcrete','downprotection','waterdelivery','plan','maintain','sug','photo1','photo2','photo3','photo4','photo5','photo6'));
 
         
@@ -288,7 +287,7 @@ class DataSurveyController extends Controller
         $river = River::select('*')->where('river_id',$weir[0]->river_id)->get();
         $location = WeirLocation::select('*')->where('weir_location_id',$weir[0]->weir_location_id)->get();
         $expert = WeirExpert::select('*')->where('weir_id',$weir[0]->weir_id)->get();
-        $area = DB::table('weir_catchment')->select('*')->where('weir_id', $weir[0]->weir_id)->get();
+        $area = DB::table('weir_catchments')->select('*')->where('weir_id', $weir[0]->weir_id)->get();
         // dd($area);
         // dd($weir[0]->weir_code);
         return view('form.expert',compact('weir','river','location','expert','area')); 

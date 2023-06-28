@@ -30,7 +30,8 @@ class ReportPDFController extends Controller
 {
     public function pdf_index($weir_id=0) {
         // dd(Auth::user()->name);
-        
+        // $user = Auth::user()->name;
+
         $weir = WeirSurvey::select('*')->where('weir_code',$weir_id)->get();
         $location = WeirLocation::select('*')->where('weir_location_id',$weir[0]->weir_location_id)->get();
         $river = River::select('*')->where('river_id',$weir[0]->river_id)->get();
@@ -153,8 +154,10 @@ class ReportPDFController extends Controller
             }
         }
         
-        // dd($photo2[0]["file"]);
-        $pdf = PDF::loadView('test_pdf',compact('mt','weir','location','user','districtData','river','model','locationUTM','locationLat','space','upprotection','upconcrete','control','downconcrete','downprotection','waterdelivery','plan','maintain','sug','photo1','photo2','photo3','photo4','photo5','photo6'));
+        // dd($user);
+        //$pdf = PDF::loadView('test_pdf',compact('mt','weir','location','user','districtData','river','model','locationUTM','locationLat','space','upprotection','upconcrete','control','downconcrete','downprotection','waterdelivery','plan','maintain','sug','photo1','photo2','photo3','photo4','photo5','photo6'));
+        $pdf = PDF::loadView('test_pdf',compact('mt','weir','location','districtData','river','model','locationUTM','locationLat','space','upprotection','upconcrete','control','downconcrete','downprotection','waterdelivery','plan','maintain','sug','photo1','photo2','photo3','photo4','photo5','photo6'));
+        
         return $pdf->stream('test.pdf'); //แบบนี้จะ stream มา preview
         //return $pdf->download('test.pdf'); //แบบนี้จะดาวโหลดเลย
     }
@@ -194,7 +197,7 @@ class ReportPDFController extends Controller
         $sug = AdditinalSuggestion::select('*')->where('weir_id',$weir[0]->weir_id)->get();
         $photo = Photo::select('*')->where('weir_id',$weir[0]->weir_id)->get();
         $expert = WeirExpert::select('*')->where('weir_id',$weir[0]->weir_id)->get();
-        $area = DB::table('weir_catchment')->select('*')->where('weir_id', $weir[0]->weir_id)->get();
+        $area = DB::table('weir_catchments')->select('*')->where('weir_id', $weir[0]->weir_id)->get();
 
         // dd($expert);
         // crete json_decode
@@ -738,7 +741,7 @@ class ReportPDFController extends Controller
                 $sug = AdditinalSuggestion::select('*')->where('weir_id',$weir[0]->weir_id)->get();
                 $photo = Photo::select('*')->where('weir_id',$weir[0]->weir_id)->get();
                 $expert = WeirExpert::select('*')->where('weir_id',$weir[0]->weir_id)->get();
-                $area = DB::table('weir_catchment')->select('*')->where('weir_id', $weir[0]->weir_id)->get();
+                $area = DB::table('weir_catchments')->select('*')->where('weir_id', $weir[0]->weir_id)->get();
                 $score = DB::table('score_sums')->select('*')->where('weir_id', $weir[0]->weir_id)->get();
                 // dd($score);
                 $warning=0;

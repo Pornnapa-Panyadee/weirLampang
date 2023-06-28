@@ -28,6 +28,7 @@ use App\Models\WaterdeliveryInv;
 use App\Models\WeirLocation;
 use App\Models\WeirSpaceification;
 use App\Models\EditLog;
+use App\Models\WeirCatchment;
 use Grimzy\LaravelMysqlSpatial\Types\Point;
 
 // use SpatialTrait;
@@ -629,6 +630,7 @@ class FormsController extends Controller
               'bridge_remake'=>json_encode($bridge_3_remake, JSON_UNESCAPED_UNICODE),
 
               'section_status'=>$request->Control,
+              'check_floor'=>$request->check_floor_3,
             ]
           );
           $control->save();
@@ -1071,6 +1073,25 @@ class FormsController extends Controller
               
         
         // dd($dataUser);
+
+        // //// -------- Weir Catchment ------------------/////
+        $catchmant= new WeirCatchment(
+            [
+              'weir_id'=>$weir_id,
+              'weir_code'=>$codeweir,
+              'area'=>NULL, 
+              'L'=>NULL, 
+              'LC'=>NULL,
+              'H'=>NULL, 
+              'S'=>NULL, 
+              'c'=>NULL, 
+              'I'=>NULL, 
+              'Return_period'=>NULL, 
+              'flow'=>NULL,
+            ]
+          );
+          $catchmant->save();
+
         return redirect()->route("list");
         // return view('form.list',compact('user','dataUser'));
         // dd("ok");
@@ -1081,7 +1102,7 @@ class FormsController extends Controller
     }
 
     public function formUpdate(Request $request, User $user){
-      // dd($request);
+      //dd($request);
       $name=Auth::user()->name ;
       function addNULL($text) {
         if($text==true){return 1;}
@@ -1261,7 +1282,7 @@ class FormsController extends Controller
           'weir_village'=>$request->weir_village,
           'weir_tumbol'=>$request->weir_tumbol,
           'weir_district'=>$request->weir_district,
-          'weir_province'=>"เชียงราย", 
+          'weir_province'=>"ลำปาง", 
         ]
       );
       // dd($request->weir_spec_id);
@@ -1286,7 +1307,10 @@ class FormsController extends Controller
           'control_building_machanic_type'=>$request->control_building_machanic_type,
           'canal_has'=>$request->canal_has,
           'canal_type'=>$request->canal_type,
-          'canel_dimension'=>json_encode($request->canel_dimension, JSON_UNESCAPED_UNICODE)
+          'canel_dimension'=>json_encode($request->canel_dimension, JSON_UNESCAPED_UNICODE),
+          'benefit_area'=>$request->benefit_area,
+          'comsumption'=>$request->comsumption,
+          'agriculture'=>$request->agriculture,
         ]
       );
       // dd($request);
@@ -1324,7 +1348,8 @@ class FormsController extends Controller
           'weir_age'=>$request->weir_age,
           'weir_model'=>json_encode($model, JSON_UNESCAPED_UNICODE),
           'resp_name'=>$request->resp_name,
-          'transfer'=>$request->transfer
+          'transfer'=>$request->transfer,
+          'user'=>$name,
         ]
       );
       ///////----1----upprotection_invs-------------/////////
@@ -1354,6 +1379,7 @@ class FormsController extends Controller
           'side_weed'=>$request->side_1_weed,
           'side_damage'=>$request->side_1_damage,
           'side_remake'=>json_encode($side_1_remake, JSON_UNESCAPED_UNICODE),
+          'section_status'=>$request->Upstream,
         ]
       );
 
@@ -1383,7 +1409,8 @@ class FormsController extends Controller
           'side_drainage'=>$request->side_2_drainage,
           'side_weed'=>$request->side_2_weed,
           'side_damage'=>$request->side_2_damage,
-          'side_remake'=>json_encode($side_2_remake, JSON_UNESCAPED_UNICODE)
+          'side_remake'=>json_encode($side_2_remake, JSON_UNESCAPED_UNICODE),
+          'section_status'=>$request->Upstream_Concrete,
         ]
       );
       // dd($sidewall_3_remake);
@@ -1498,6 +1525,10 @@ class FormsController extends Controller
           'bridge_weed'=>$request->bridge_3_weed,
           'bridge_damage'=>$request->bridge_3_damage,
           'bridge_remake'=>json_encode($bridge_3_remake, JSON_UNESCAPED_UNICODE),
+          
+          'section_status'=>$request->Control,
+          'check_floor'=>$request->check_floor_3,
+
         ]
       );
 
@@ -1553,6 +1584,7 @@ class FormsController extends Controller
           'endsill_weed'=>$request->endsill_4_weed,
           'endsill_damage'=>$request->endsill_4_damage,
           'endsill_remake'=>json_encode($endsill_4_remake, JSON_UNESCAPED_UNICODE),
+          'section_status'=>$request->Downstream_Concrete,
         ]
       );
 
@@ -1584,8 +1616,9 @@ class FormsController extends Controller
           'side_drainage'=>$request->side_5_drainage,
           'side_weed'=>$request->side_5_weed,
           'side_damage'=>$request->side_5_damage,
-          'side_remake'=>json_encode($side_5_remake, JSON_UNESCAPED_UNICODE)
+          'side_remake'=>json_encode($side_5_remake, JSON_UNESCAPED_UNICODE),
           
+          'section_status'=>$request->Downstream_Protection,
         ]
       );
 
@@ -1631,6 +1664,7 @@ class FormsController extends Controller
           'gate_damage'=>$request->gate_6_damage,
           'gate_remake'=>json_encode($gate_6_remake, JSON_UNESCAPED_UNICODE),
           
+          'section_status'=>$request->water_system,
         ]
       );
       // /////--------improvement_plans-------------/////////

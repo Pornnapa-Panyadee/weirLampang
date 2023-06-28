@@ -16,17 +16,21 @@ Route::get('location/getVillage/{amp}/{tambol}', 'App\Http\Controllers\LocationC
 
 // form
 // Route::get('/form', function () { return view('form.form');});
-// ------FormsController ------
+// ------Forms ------
 Route::get('form','App\Http\Controllers\FormsController@locationCR');
+Route::POST('form/formsubmit', 'App\Http\Controllers\FormsController@formSubmit')->name('form.formsubmit');
+Route::get('/edit/{weir_code}', 'App\Http\Controllers\DataSurveyController@formEdit');
+Route::POST('form/formupdate', 'App\Http\Controllers\FormsController@formUpdate')->name('form.formupdata');
+Route::POST('form/photosubmit', 'App\Http\Controllers\FormsController@photoSubmit')->name('form.photosubmit');
+
+
 Route::get('/getdistrict/{id}', 'App\Http\Controllers\FormsController@getDistrict');
 Route::get('/getTumbol/{id}', 'App\Http\Controllers\FormsController@getTumbol');
 Route::get('/getVillage/{amp}/{tambol}', 'App\Http\Controllers\FormsController@getVillage');
 Route::get('/expert/{weir_code}', 'App\Http\Controllers\DataSurveyController@getDatabyExpert');
 // Route::get('/expert', function () {return view('form.expert');});
 
-Route::POST('form/formsubmit', 'App\Http\Controllers\FormsController@formSubmit')->name('form.formsubmit');
-Route::POST('form/formupdate', 'App\Http\Controllers\FormsController@formUpdate')->name('form.formupdata');
-Route::POST('form/photosubmit', 'App\Http\Controllers\FormsController@photoSubmit')->name('form.photosubmit');
+
 Route::get('/remove/{id}', 'App\Http\Controllers\FormsController@formDelete');
 
 
@@ -36,7 +40,7 @@ Route::get('/test', 'App\Http\Controllers\DataSurveyController@getDataHomeTablet
 // Route::get('/list', function () { return view('form.list');})->name('list');
 Route::get('/list', 'App\Http\Controllers\DataSurveyController@getDatatoTable')->name('list');
 Route::get('/list/expert', 'App\Http\Controllers\DataSurveyController@getDatatoTableExpert')->name('expert.list');
-Route::get('/edit/{weir_code}', 'App\Http\Controllers\DataSurveyController@formEdit');
+
 // Map each Location 
 Route::get('map/{id}', 'App\Http\Controllers\DataSurveyController@getDatabyWeir')->name('form.getDatabyWeir');
 
