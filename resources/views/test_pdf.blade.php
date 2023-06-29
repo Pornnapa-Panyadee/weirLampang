@@ -18,7 +18,7 @@
         }
         @page {
             size: A4;
-            padding: 5px;
+            padding: 4px;
             }
         @media print {
             html, body {
@@ -127,10 +127,12 @@
      <div class="pcoded-content">
         <table>
             <tr>
-                <td><img src="{{ asset('images/icon/cr.png') }}" width="8%"></td>
+                <td><img src="{{ asset('images/icon/egat.jpg') }}" width="20%"></td>
                 <td>
                     <div class="text1"> แบบฟอร์มการตรวจสภาพฝาย</div>
-                    <div class="text2">โครงการพัฒนาระบบสารสนเทศการตรวจสอบและวางแผนปรับปรุงเพิ่มประสิทธิภาพฝายในพื้นที่จังหวัดเชียงราย <br>โดย จังหวัดเชียงราย ร่วมกับ มหาวิทยาลัยเชียงใหม่ </div>
+                    <div class="text2">โครงการพัฒนาระบบสารสนเทศการตรวจประเมินสภาพฝายและวางแผนปรับปรุงเพิ่มประสิทธิภาพฝาย
+                        <br>ในพื้นที่ลุ่มน้ำแม่จาง จังหวัดลำปาง
+                         <br>โดยการไฟฟ้าฝ่ายผลิตแห่งประเทศไทย (กฟผ) แม่เมาะ ร่วมกับมหาวิทยาลัยเชียงใหม่ </div>
                 </td>
                 <td><img src="{{ asset('images/icon/cmu.png') }}" width="12%"></td>
             </tr>
@@ -278,10 +280,22 @@
 
           <table >  
             <tr>
-                <td width="50%" class="line"><font class="outline"> หน่วยงานรับผิดชอบ</font> &nbsp;&nbsp;{{$weir[0]->resp_name}}&nbsp;&nbsp;  </td>
-                <td width="50%" class="line"><font class="outline"> รับถ่ายโอนมาจาก  </font>  &nbsp;&nbsp;{{$weir[0]->transfer}}&nbsp;&nbsp; </td>
-                
+                <td width="20%" ><font class="outline"> หน่วยงานรับผิดชอบ</font></td>
+                <td width="20%" >{{checkpair($weir[0]->Resp_type,1)}} &nbsp;&nbsp;หน่วยงานตามภารกิจ &nbsp;&nbsp;  </td>
+                <td width="25%" class="line">{{$weir[0]->resp_name}} </td>
             </tr>
+            <tr>
+                <td width="20%" ><font class="outline"> </font></td>
+                <td width="20%" >{{checkpair($weir[0]->Resp_type,2)}} &nbsp;&nbsp;หน่วยงานท้องถิ่น &nbsp;&nbsp;  </td>
+                <td width="25%" class="line">{{$weir[0]->resp_name}} </td>
+                <td width="30%" class="line"><font class="outline"> รับถ่ายโอนมาจาก </font>&nbsp;&nbsp;{{$weir[0]->transfer}}&nbsp;&nbsp; </td>
+            </tr>
+            <tr>
+                <td width="20%" ><font class="outline"> </font></td>
+                <td width="20%" >{{checkpair($weir[0]->Resp_type,3)}} &nbsp;&nbsp;อื่นๆ &nbsp;&nbsp;  </td>
+                <td width="25%" class="line">{{$weir[0]->resp_name}} </td>
+                
+            </tr>   
           </table>
         </div>
         <div class="text">
@@ -443,6 +457,12 @@
                     </tr>
 
                 </table>
+            
+            <div class="text4">1.6 พื้นที่รับประโยชน์ &nbsp;&nbsp;&nbsp;ประมาณ 
+                <span class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{$space[0]->benefit_area}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>ไร่ &nbsp;&nbsp;&nbsp;
+                {{checkHas($space[0]->comsumption)}} &nbsp;&nbsp;อุปโภคบริโภค&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                {{checkHas($space[0]->agriculture)}} &nbsp;&nbsp;การเกษตร&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </div>
         </div>
         <div class="text">
             <div class="text3">2. ระบบส่งน้ำ </div>
@@ -471,7 +491,8 @@
                 </table>
             </div>
         </div>
-
+        
+        <div style="height:22px;"></div>
         <div class="text">
             <div class="text3">3. ข้อมูลประวัติการซ่อม </div>
             <table class="table1" border=1>
@@ -518,7 +539,12 @@
               </thead>
               <!-- 1 -->
                 <tr align="left" style="background-color: #ADADAD;" > 
-                    <th colspan="13" >1. ส่วน Potection เหนือน้ำ (Upstream Protection Section) </th>
+                    <th colspan="13" >
+                        1. ส่วน Potection เหนือน้ำ (Upstream Protection Section)
+                        <span>{{checkpair(1,$upprotection[0]->section_status)}} ใช้งานได้  </span>
+                        <span>{{checkpair(2,$upprotection[0]->section_status)}} ควรปรับปรุง  </span>
+                        <span>{{checkpair(3,$upprotection[0]->section_status)}} ควรรื้อถอนก่อสร้างใหม่ </span>
+                    </th>
                 </tr>
                <!-- 1.1 -->
                 <tr>
@@ -661,7 +687,12 @@
                 <?php } ?>
               <!-- 2 -->
                 <tr align="left" style="background-color: #ADADAD;" > 
-                    <th colspan="13" >2. ส่วนเหนือน้ำ (Upstream Concrete Section) </th>
+                    <th colspan="13" >
+                        2. ส่วนเหนือน้ำ (Upstream Concrete Section) 
+                        <span>{{checkpair(1,$upconcrete[0]->section_status)}} ใช้งานได้  </span>
+                        <span>{{checkpair(2,$upconcrete[0]->section_status)}} ควรปรับปรุง  </span>
+                        <span>{{checkpair(3,$upconcrete[0]->section_status)}} ควรรื้อถอนก่อสร้างใหม่ </span>
+                    </th>
                 </tr>
                <!-- 2.1 -->
                 <tr>
@@ -804,205 +835,254 @@
                 <?php } ?>
               <!-- 3 -->
                 <tr align="left" style="background-color: #ADADAD;" > 
-                    <th colspan="13" >3. ส่วนควบคุม (Control Sector) </th>
+                    <th colspan="13" >
+                        3. ส่วนควบคุม (Control Sector) 
+                        <span>{{checkpair(1,$control[0]->section_status)}} ใช้งานได้  </span>
+                        <span>{{checkpair(2,$control[0]->section_status)}} ควรปรับปรุง  </span>
+                        <span>{{checkpair(3,$control[0]->section_status)}} ควรรื้อถอนก่อสร้างใหม่ </span>
+                    </th>
                 </tr>
                 <!-- 3.1 -->
-                <tr>
-                    <th id="textsurvey" align="left"  rowspan="4">3.1 ฝายควบคุมน้ำ<br>และบันไดปลา</th> 
-                    <td>ปกติ</td>
-                    <td>{{check4($control[0]->waterctrl_erosion,1)}}</td>
-                    <td>{{check4($control[0]->waterctrl_subsidence,1)}}</td>
-                    <td>{{check4($control[0]->waterctrl_cracking,1)}}</td>
-                    <td>{{check4($control[0]->waterctrl_obstruction,1)}}</td>
-                    <td>{{check4($control[0]->waterctrl_hole,1)}}</td>
-                    <td>{{check4($control[0]->waterctrl_leak,1)}}</td>
-                    <td>{{check4($control[0]->waterctrl_movement,1)}}</td>
-                    <td>{{check4($control[0]->waterctrl_drainage,1)}}</td>
-                    <td>{{check4($control[0]->waterctrl_weed,1)}}</td>
-                    <td rowspan="4" width="8%" style="vertical-align: top;">{{$control[0]->waterctrl_damage}}</td>
-                    <td rowspan="4" width="10%">
-                        <table style="vertical-align: top;"> 
-                            <tr>
-                                <td >{{checkCuase($control[0]->waterctrl_remake->no)}}</td>
-                                <td>ไม่มี</td>
-                            </tr>
-                            <tr >
-                                <td>{{checkCuase($control[0]->waterctrl_remake->nosee)}}</td>
-                                <td>มองไม่เห็น</td>
-                            </tr>
-                            <tr>
-                                <td> อื่นๆ </td>
-                                <td class="line">{{$control[0]->waterctrl_remake->detail}}</td>
-                            </tr>
-                            <tr>
-                                <td>&nbsp;</td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-                <?php for($i=2;$i<5;$i++){ ?>
-                  <tr>
-                    <td>{{$level[$i-2]}}</td>
-                    <td>{{check4($control[0]->waterctrl_erosion,$i)}}</td>
-                    <td>{{check4($control[0]->waterctrl_subsidence,$i)}}</td>
-                    <td>{{check4($control[0]->waterctrl_cracking,$i)}}</td>
-                    <td>{{check4($control[0]->waterctrl_obstruction,$i)}}</td>
-                    <td>{{check4($control[0]->waterctrl_hole,$i)}}</td>
-                    <td>{{check4($control[0]->waterctrl_leak,$i)}}</td>
-                    <td>{{check4($control[0]->waterctrl_movement,$i)}}</td>
-                    <td>{{check4($control[0]->waterctrl_drainage,$i)}}</td>
-                    <td>{{check4($control[0]->waterctrl_weed,$i)}}</td>
-                  </tr>
-                <?php } ?>
+                    <tr>
+                        <th id="textsurvey" align="left"  rowspan="4">3.1 ฝายควบคุมน้ำ<br>และบันไดปลา</th> 
+                        <td>ปกติ</td>
+                        <td>{{check4($control[0]->waterctrl_erosion,1)}}</td>
+                        <td>{{check4($control[0]->waterctrl_subsidence,1)}}</td>
+                        <td>{{check4($control[0]->waterctrl_cracking,1)}}</td>
+                        <td>{{check4($control[0]->waterctrl_obstruction,1)}}</td>
+                        <td>{{check4($control[0]->waterctrl_hole,1)}}</td>
+                        <td>{{check4($control[0]->waterctrl_leak,1)}}</td>
+                        <td>{{check4($control[0]->waterctrl_movement,1)}}</td>
+                        <td>{{check4($control[0]->waterctrl_drainage,1)}}</td>
+                        <td>{{check4($control[0]->waterctrl_weed,1)}}</td>
+                        <td rowspan="4" width="8%" style="vertical-align: top;">{{$control[0]->waterctrl_damage}}</td>
+                        <td rowspan="4" width="10%">
+                            <table style="vertical-align: top;"> 
+                                <tr>
+                                    <td >{{checkCuase($control[0]->waterctrl_remake->no)}}</td>
+                                    <td>ไม่มี</td>
+                                </tr>
+                                <tr >
+                                    <td>{{checkCuase($control[0]->waterctrl_remake->nosee)}}</td>
+                                    <td>มองไม่เห็น</td>
+                                </tr>
+                                <tr>
+                                    <td> อื่นๆ </td>
+                                    <td class="line">{{$control[0]->waterctrl_remake->detail}}</td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <?php for($i=2;$i<5;$i++){ ?>
+                    <tr>
+                        <td>{{$level[$i-2]}}</td>
+                        <td>{{check4($control[0]->waterctrl_erosion,$i)}}</td>
+                        <td>{{check4($control[0]->waterctrl_subsidence,$i)}}</td>
+                        <td>{{check4($control[0]->waterctrl_cracking,$i)}}</td>
+                        <td>{{check4($control[0]->waterctrl_obstruction,$i)}}</td>
+                        <td>{{check4($control[0]->waterctrl_hole,$i)}}</td>
+                        <td>{{check4($control[0]->waterctrl_leak,$i)}}</td>
+                        <td>{{check4($control[0]->waterctrl_movement,$i)}}</td>
+                        <td>{{check4($control[0]->waterctrl_drainage,$i)}}</td>
+                        <td>{{check4($control[0]->waterctrl_weed,$i)}}</td>
+                    </tr>
+                    <?php } ?>
                 <!-- 3.2 -->
-                <tr>
-                    <th id="textsurvey" align="left"  rowspan="4">3.2 กำแพงข้าง</th> 
-                    <td>ปกติ</td>
-                    <td>{{check4($control[0]->sidewall_erosion,1)}}</td>
-                    <td>{{check4($control[0]->sidewall_subsidence,1)}}</td>
-                    <td>{{check4($control[0]->sidewall_cracking,1)}}</td>
-                    <td>{{check4($control[0]->sidewall_obstruction,1)}}</td>
-                    <td>{{check4($control[0]->sidewall_hole,1)}}</td>
-                    <td>{{check4($control[0]->sidewall_leak,1)}}</td>
-                    <td>{{check4($control[0]->sidewall_movement,1)}}</td>
-                    <td>{{check4($control[0]->sidewall_drainage,1)}}</td>
-                    <td>{{check4($control[0]->sidewall_weed,1)}}</td>
-                    <td rowspan="4" width="8%" style="vertical-align: top;">{{$control[0]->sidewall_damage}}</td>
-                    <td rowspan="4" width="10%">
-                        <table style="vertical-align: top;"> 
-                            <tr>
-                                <td >{{checkCuase($control[0]->sidewall_remake->no)}}</td>
-                                <td>ไม่มี</td>
-                            </tr>
-                            <tr >
-                                <td>{{checkCuase($control[0]->sidewall_remake->nosee)}}</td>
-                                <td>มองไม่เห็น</td>
-                            </tr>
-                            <tr>
-                                <td> อื่นๆ </td>
-                                <td class="line">{{$control[0]->sidewall_remake->detail}}</td>
-                            </tr>
-                            <tr>
-                                <td>&nbsp;</td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-                <?php for($i=2;$i<5;$i++){ ?>
-                  <tr>
-                    <td>{{$level[$i-2]}}</td>
-                    <td>{{check4($control[0]->sidewall_erosion,$i)}}</td>
-                    <td>{{check4($control[0]->sidewall_subsidence,$i)}}</td>
-                    <td>{{check4($control[0]->sidewall_cracking,$i)}}</td>
-                    <td>{{check4($control[0]->sidewall_obstruction,$i)}}</td>
-                    <td>{{check4($control[0]->sidewall_hole,$i)}}</td>
-                    <td>{{check4($control[0]->sidewall_leak,$i)}}</td>
-                    <td>{{check4($control[0]->sidewall_movement,$i)}}</td>
-                    <td>{{check4($control[0]->sidewall_drainage,$i)}}</td>
-                    <td>{{check4($control[0]->sidewall_weed,$i)}}</td>
-                  </tr>
-                <?php } ?>
+                    <tr>
+                        <th id="textsurvey" align="left"  rowspan="4">3.2 กำแพงข้าง</th> 
+                        <td>ปกติ</td>
+                        <td>{{check4($control[0]->sidewall_erosion,1)}}</td>
+                        <td>{{check4($control[0]->sidewall_subsidence,1)}}</td>
+                        <td>{{check4($control[0]->sidewall_cracking,1)}}</td>
+                        <td>{{check4($control[0]->sidewall_obstruction,1)}}</td>
+                        <td>{{check4($control[0]->sidewall_hole,1)}}</td>
+                        <td>{{check4($control[0]->sidewall_leak,1)}}</td>
+                        <td>{{check4($control[0]->sidewall_movement,1)}}</td>
+                        <td>{{check4($control[0]->sidewall_drainage,1)}}</td>
+                        <td>{{check4($control[0]->sidewall_weed,1)}}</td>
+                        <td rowspan="4" width="8%" style="vertical-align: top;">{{$control[0]->sidewall_damage}}</td>
+                        <td rowspan="4" width="10%">
+                            <table style="vertical-align: top;"> 
+                                <tr>
+                                    <td >{{checkCuase($control[0]->sidewall_remake->no)}}</td>
+                                    <td>ไม่มี</td>
+                                </tr>
+                                <tr >
+                                    <td>{{checkCuase($control[0]->sidewall_remake->nosee)}}</td>
+                                    <td>มองไม่เห็น</td>
+                                </tr>
+                                <tr>
+                                    <td> อื่นๆ </td>
+                                    <td class="line">{{$control[0]->sidewall_remake->detail}}</td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <?php for($i=2;$i<5;$i++){ ?>
+                    <tr>
+                        <td>{{$level[$i-2]}}</td>
+                        <td>{{check4($control[0]->sidewall_erosion,$i)}}</td>
+                        <td>{{check4($control[0]->sidewall_subsidence,$i)}}</td>
+                        <td>{{check4($control[0]->sidewall_cracking,$i)}}</td>
+                        <td>{{check4($control[0]->sidewall_obstruction,$i)}}</td>
+                        <td>{{check4($control[0]->sidewall_hole,$i)}}</td>
+                        <td>{{check4($control[0]->sidewall_leak,$i)}}</td>
+                        <td>{{check4($control[0]->sidewall_movement,$i)}}</td>
+                        <td>{{check4($control[0]->sidewall_drainage,$i)}}</td>
+                        <td>{{check4($control[0]->sidewall_weed,$i)}}</td>
+                    </tr>
+                    <?php } ?>
             
                 <!-- 3.3 -->
-                <tr align="left" style="background-color: #ADADAD;" > 
-                    <th colspan="13" id="textsurvey" >3.3 ประตู/ช่องระบายทราย  </th>
-                </tr>
-                <!-- 3.3.1 -->
-                <tr>
-                    <th id="textsurvey" align="left"  rowspan="4">3.3.1 พื้น</th> 
-                    <td>ปกติ</td>
-                    <td>{{check4($control[0]->dgfloor_erosion,1)}}</td>
-                    <td>{{check4($control[0]->dgfloor_subsidence,1)}}</td>
-                    <td>{{check4($control[0]->dgfloor_cracking,1)}}</td>
-                    <td>{{check4($control[0]->dgfloor_obstruction,1)}}</td>
-                    <td>{{check4($control[0]->dgfloor_hole,1)}}</td>
-                    <td>{{check4($control[0]->dgfloor_leak,1)}}</td>
-                    <td>{{check4($control[0]->dgfloor_movement,1)}}</td>
-                    <td>{{check4($control[0]->dgfloor_drainage,1)}}</td>
-                    <td>{{check4($control[0]->dgfloor_weed,1)}}</td>
-                    <td rowspan="4" width="8%" style="vertical-align: top;">{{$control[0]->dgfloor_damage}}</td>
-                    <td rowspan="4" width="10%">
-                        <table style="vertical-align: top;"> 
-                            <tr>
-                                <td >{{checkCuase($control[0]->dgfloor_remake->no)}}</td>
-                                <td>ไม่มี</td>
-                            </tr>
-                            <tr >
-                                <td>{{checkCuase($control[0]->dgfloor_remake->nosee)}}</td>
-                                <td>มองไม่เห็น</td>
-                            </tr>
-                            <tr>
-                                <td> อื่นๆ </td>
-                                <td class="line">{{$control[0]->dgfloor_remake->detail}}</td>
-                            </tr>
-                            <tr>
-                                <td>&nbsp;</td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-                <?php for($i=2;$i<5;$i++){ ?>
-                  <tr>
-                    <td>{{$level[$i-2]}}</td>
-                    <td>{{check4($control[0]->dgfloor_erosion,$i)}}</td>
-                    <td>{{check4($control[0]->dgfloor_subsidence,$i)}}</td>
-                    <td>{{check4($control[0]->dgfloor_cracking,$i)}}</td>
-                    <td>{{check4($control[0]->dgfloor_obstruction,$i)}}</td>
-                    <td>{{check4($control[0]->dgfloor_hole,$i)}}</td>
-                    <td>{{check4($control[0]->dgfloor_leak,$i)}}</td>
-                    <td>{{check4($control[0]->dgfloor_movement,$i)}}</td>
-                    <td>{{check4($control[0]->dgfloor_drainage,$i)}}</td>
-                    <td>{{check4($control[0]->dgfloor_weed,$i)}}</td>
-                  </tr>
-                <?php } ?>
-                <!-- 3.3.2 -->
-                <tr>
-                    <th id="textsurvey" align="left"  rowspan="4">3.3.2 กำแพงข้าง</th> 
-                    <td>ปกติ</td>
-                    <td>{{check4($control[0]->dgwall_erosion,1)}}</td>
-                    <td>{{check4($control[0]->dgwall_subsidence,1)}}</td>
-                    <td>{{check4($control[0]->dgwall_cracking,1)}}</td>
-                    <td>{{check4($control[0]->dgwall_obstruction,1)}}</td>
-                    <td>{{check4($control[0]->dgwall_hole,1)}}</td>
-                    <td>{{check4($control[0]->dgwall_leak,1)}}</td>
-                    <td>{{check4($control[0]->dgwall_movement,1)}}</td>
-                    <td>{{check4($control[0]->dgwall_drainage,1)}}</td>
-                    <td>{{check4($control[0]->dgwall_weed,1)}}</td>
-                    <td rowspan="4" width="8%" style="vertical-align: top;">{{$control[0]->dgwall_damage}}</td>
-                    <td rowspan="4" width="10%">
-                        <table style="vertical-align: top;"> 
-                            <tr>
-                                <td >{{checkCuase($control[0]->dgwall_remake->no)}}</td>
-                                <td>ไม่มี</td>
-                            </tr>
-                            <tr >
-                                <td>{{checkCuase($control[0]->dgwall_remake->nosee)}}</td>
-                                <td>มองไม่เห็น</td>
-                            </tr>
-                            <tr>
-                                <td> อื่นๆ </td>
-                                <td class="line">{{$control[0]->dgwall_remake->detail}}</td>
-                            </tr>
-                            <tr>
-                                <td>&nbsp;</td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-                <?php for($i=2;$i<5;$i++){ ?>
-                  <tr>
-                    <td>{{$level[$i-2]}}</td>
-                    <td>{{check4($control[0]->dgwall_erosion,$i)}}</td>
-                    <td>{{check4($control[0]->dgwall_subsidence,$i)}}</td>
-                    <td>{{check4($control[0]->dgwall_cracking,$i)}}</td>
-                    <td>{{check4($control[0]->dgwall_obstruction,$i)}}</td>
-                    <td>{{check4($control[0]->dgwall_hole,$i)}}</td>
-                    <td>{{check4($control[0]->dgwall_leak,$i)}}</td>
-                    <td>{{check4($control[0]->dgwall_movement,$i)}}</td>
-                    <td>{{check4($control[0]->dgwall_drainage,$i)}}</td>
-                    <td>{{check4($control[0]->dgwall_weed,$i)}}</td>
-                  </tr>
-                <?php } ?>
+                    <tr align="left"  > 
+                        <th colspan="13" id="textsurvey" >3.3 ประตู/ช่องระบายทราย  </th>
+                    </tr>
+                    <!-- 3.3.1 -->
+                    <tr>
+                        <th id="textsurvey" align="left"  >3.3.1 พื้น</th> 
+                        <td>ปกติ</td>
+                        <td>{{check4($control[0]->dgfloor_erosion,1)}}</td>
+                        <td>{{check4($control[0]->dgfloor_subsidence,1)}}</td>
+                        <td>{{check4($control[0]->dgfloor_cracking,1)}}</td>
+                        <td>{{check4($control[0]->dgfloor_obstruction,1)}}</td>
+                        <td>{{check4($control[0]->dgfloor_hole,1)}}</td>
+                        <td>{{check4($control[0]->dgfloor_leak,1)}}</td>
+                        <td>{{check4($control[0]->dgfloor_movement,1)}}</td>
+                        <td>{{check4($control[0]->dgfloor_drainage,1)}}</td>
+                        <td>{{check4($control[0]->dgfloor_weed,1)}}</td>
+                        <td rowspan="4" width="8%" style="vertical-align: top;">{{$control[0]->dgfloor_damage}}</td>
+                        <td rowspan="4" width="10%">
+                            <table style="vertical-align: top;"> 
+                                <tr>
+                                    <td >{{checkCuase($control[0]->dgfloor_remake->no)}}</td>
+                                    <td>ไม่มี</td>
+                                </tr>
+                                <tr >
+                                    <td>{{checkCuase($control[0]->dgfloor_remake->nosee)}}</td>
+                                    <td>มองไม่เห็น</td>
+                                </tr>
+                                <tr>
+                                    <td> อื่นๆ </td>
+                                    <td class="line">{{$control[0]->dgfloor_remake->detail}}</td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                   
+                    <tr>
+                        <td align="left">ตะกอน</td> 
+                        <td>น้อย</td>
+                        <td>{{check4($control[0]->floor_erosion,2)}}</td>
+                        <td>{{check4($control[0]->floor_subsidence,2)}}</td>
+                        <td>{{check4($control[0]->floor_cracking,2)}}</td>
+                        <td>{{check4($control[0]->floor_obstruction,2)}}</td>
+                        <td>{{check4($control[0]->floor_hole,2)}}</td>
+                        <td>{{check4($control[0]->floor_leak,2)}}</td>
+                        <td>{{check4($control[0]->floor_movement,2)}}</td>
+                        <td>{{check4($control[0]->floor_drainage,2)}}</td>
+                        <td>{{check4($control[0]->floor_weed,2)}}</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <table > 
+                                <tr>
+                                    <td width="10%">{{checkpair(1,$control[0]->check_floor)}}</td>
+                                    <td width="40%">ปกติ</td>
+                                    <td width="10%">{{checkpair(2,$control[0]->check_floor)}}</td>
+                                    <td width="40%">น้อย</td>
+                                </tr>
+                            </table>
+                        </td> 
+                        <td>ปานกลาง</td>
+                        <td>{{check4($control[0]->floor_erosion,3)}}</td>
+                        <td>{{check4($control[0]->floor_subsidence,3)}}</td>
+                        <td>{{check4($control[0]->floor_cracking,3)}}</td>
+                        <td>{{check4($control[0]->floor_obstruction,3)}}</td>
+                        <td>{{check4($control[0]->floor_hole,3)}}</td>
+                        <td>{{check4($control[0]->floor_leak,3)}}</td>
+                        <td>{{check4($control[0]->floor_movement,3)}}</td>
+                        <td>{{check4($control[0]->floor_drainage,3)}}</td>
+                        <td>{{check4($control[0]->floor_weed,3)}}</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <table > 
+                                <tr>
+                                    <td width="10%">{{checkpair($control[0]->check_floor,3)}}</td>
+                                    <td width="40%">ปานกลาง</td>
+                                    <td width="10%">{{checkpair($control[0]->check_floor,4)}}</td>
+                                    <td width="40%">มาก</td>
+                                </tr>
+                            </table>
+                        </td> 
+                        <td>มาก</td>
+                        <td>{{check4($control[0]->floor_erosion,4)}}</td>
+                        <td>{{check4($control[0]->floor_subsidence,4)}}</td>
+                        <td>{{check4($control[0]->floor_cracking,4)}}</td>
+                        <td>{{check4($control[0]->floor_obstruction,4)}}</td>
+                        <td>{{check4($control[0]->floor_hole,4)}}</td>
+                        <td>{{check4($control[0]->floor_leak,4)}}</td>
+                        <td>{{check4($control[0]->floor_movement,4)}}</td>
+                        <td>{{check4($control[0]->floor_drainage,4)}}</td>
+                        <td>{{check4($control[0]->floor_weed,4)}}</td>
+                    </tr>
+                    <!-- 3.3.2 -->
+                    <tr>
+                        <th id="textsurvey" align="left"  rowspan="4">3.3.2 กำแพงข้าง</th> 
+                        <td>ปกติ</td>
+                        <td>{{check4($control[0]->dgwall_erosion,1)}}</td>
+                        <td>{{check4($control[0]->dgwall_subsidence,1)}}</td>
+                        <td>{{check4($control[0]->dgwall_cracking,1)}}</td>
+                        <td>{{check4($control[0]->dgwall_obstruction,1)}}</td>
+                        <td>{{check4($control[0]->dgwall_hole,1)}}</td>
+                        <td>{{check4($control[0]->dgwall_leak,1)}}</td>
+                        <td>{{check4($control[0]->dgwall_movement,1)}}</td>
+                        <td>{{check4($control[0]->dgwall_drainage,1)}}</td>
+                        <td>{{check4($control[0]->dgwall_weed,1)}}</td>
+                        <td rowspan="4" width="8%" style="vertical-align: top;">{{$control[0]->dgwall_damage}}</td>
+                        <td rowspan="4" width="10%">
+                            <table style="vertical-align: top;"> 
+                                <tr>
+                                    <td >{{checkCuase($control[0]->dgwall_remake->no)}}</td>
+                                    <td>ไม่มี</td>
+                                </tr>
+                                <tr >
+                                    <td>{{checkCuase($control[0]->dgwall_remake->nosee)}}</td>
+                                    <td>มองไม่เห็น</td>
+                                </tr>
+                                <tr>
+                                    <td> อื่นๆ </td>
+                                    <td class="line">{{$control[0]->dgwall_remake->detail}}</td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <?php for($i=2;$i<5;$i++){ ?>
+                    <tr>
+                        <td>{{$level[$i-2]}}</td>
+                        <td>{{check4($control[0]->dgwall_erosion,$i)}}</td>
+                        <td>{{check4($control[0]->dgwall_subsidence,$i)}}</td>
+                        <td>{{check4($control[0]->dgwall_cracking,$i)}}</td>
+                        <td>{{check4($control[0]->dgwall_obstruction,$i)}}</td>
+                        <td>{{check4($control[0]->dgwall_hole,$i)}}</td>
+                        <td>{{check4($control[0]->dgwall_leak,$i)}}</td>
+                        <td>{{check4($control[0]->dgwall_movement,$i)}}</td>
+                        <td>{{check4($control[0]->dgwall_drainage,$i)}}</td>
+                        <td>{{check4($control[0]->dgwall_weed,$i)}}</td>
+                    </tr>
+                    <?php } ?>
             </table>
             <div style="height:22px;"></div>
             <table class="table2" border=1>
@@ -1026,488 +1106,493 @@
                 </tr>
               </thead>
               <!-- new -->
-                <!-- 3.3.3 -->
-                <tr align="left" style="background-color: #ADADAD;" > 
-                    <th colspan="13" id="textsurvey" >3.3 ประตู/ช่องระบายทราย  </th>
-                </tr>
-                <tr>
-                    <th id="textsurvey" align="left"  rowspan="4">3.3.3 ประตูระบายน้ำ<br>เฉพาะตัวบาน</th> 
-                    <td>ปกติ</td>
-                    <td>{{check4($control[0]->dggate_erosion,1)}}</td>
-                    <td>{{check4($control[0]->dggate_subsidence,1)}}</td>
-                    <td>{{check4($control[0]->dggate_cracking,1)}}</td>
-                    <td>{{check4($control[0]->dggate_obstruction,1)}}</td>
-                    <td>{{check4($control[0]->dggate_hole,1)}}</td>
-                    <td>{{check4($control[0]->dggate_leak,1)}}</td>
-                    <td>{{check4($control[0]->dggate_movement,1)}}</td>
-                    <td>{{check4($control[0]->dggate_drainage,1)}}</td>
-                    <td>{{check4($control[0]->dggate_weed,1)}}</td>
-                    <td rowspan="4" width="8%" style="vertical-align: top;">{{$control[0]->dggate_damage}}</td>
-                    <td rowspan="4" width="10%">
-                        <table style="vertical-align: top;"> 
-                            <tr>
-                                <td >{{checkCuase($control[0]->dggate_remake->no)}}</td>
-                                <td>ไม่มี</td>
-                            </tr>
-                            <tr >
-                                <td>{{checkCuase($control[0]->dggate_remake->nosee)}}</td>
-                                <td>มองไม่เห็น</td>
-                            </tr>
-                            <tr>
-                                <td> อื่นๆ </td>
-                                <td class="line">{{$control[0]->dggate_remake->detail}}</td>
-                            </tr>
-                            <tr>
-                                <td>&nbsp;</td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-                <?php for($i=2;$i<5;$i++){ ?>
-                  <tr>
-                    <td>{{$level[$i-2]}}</td>
-                    <td>{{check4($control[0]->dggate_erosion,$i)}}</td>
-                    <td>{{check4($control[0]->dggate_subsidence,$i)}}</td>
-                    <td>{{check4($control[0]->dggate_cracking,$i)}}</td>
-                    <td>{{check4($control[0]->dggate_obstruction,$i)}}</td>
-                    <td>{{check4($control[0]->dggate_hole,$i)}}</td>
-                    <td>{{check4($control[0]->dggate_leak,$i)}}</td>
-                    <td>{{check4($control[0]->dggate_movement,$i)}}</td>
-                    <td>{{check4($control[0]->dggate_drainage,$i)}}</td>
-                    <td>{{check4($control[0]->dggate_weed,$i)}}</td>
-                  </tr>
-                <?php } ?>
-                <!-- 3.3.4 -->
-                <tr>
-                    <th id="textsurvey" align="left"  rowspan="4">3.3.4 ประตู <br>ระบายน้ำเคลื่อง<br> กล/อุปกรณ์</th> 
-                    <td>ปกติ</td>
-                    <td>{{check4($control[0]->dgmachanic_erosion,1)}}</td>
-                    <td>{{check4($control[0]->dgmachanic_subsidence,1)}}</td>
-                    <td>{{check4($control[0]->dgmachanic_cracking,1)}}</td>
-                    <td>{{check4($control[0]->dgmachanic_obstruction,1)}}</td>
-                    <td>{{check4($control[0]->dgmachanic_hole,1)}}</td>
-                    <td>{{check4($control[0]->dgmachanic_leak,1)}}</td>
-                    <td>{{check4($control[0]->dgmachanic_movement,1)}}</td>
-                    <td>{{check4($control[0]->dgmachanic_drainage,1)}}</td>
-                    <td>{{check4($control[0]->dgmachanic_weed,1)}}</td>
-                    <td rowspan="4" width="8%" style="vertical-align: top;">{{$control[0]->dgmachanic_damage}}</td>
-                    <td rowspan="4" width="10%">
-                        <table style="vertical-align: top;"> 
-                            <tr>
-                                <td >{{checkCuase($control[0]->dgmachanic_remake->no)}}</td>
-                                <td>ไม่มี</td>
-                            </tr>
-                            <tr >
-                                <td>{{checkCuase($control[0]->dgmachanic_remake->nosee)}}</td>
-                                <td>มองไม่เห็น</td>
-                            </tr>
-                            <tr>
-                                <td> อื่นๆ </td>
-                                <td class="line">{{$control[0]->dgmachanic_remake->detail}}</td>
-                            </tr>
-                            <tr>
-                                <td>&nbsp;</td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-                <?php for($i=2;$i<5;$i++){ ?>
-                  <tr>
-                    <td>{{$level[$i-2]}}</td>
-                    <td>{{check4($control[0]->dgmachanic_erosion,$i)}}</td>
-                    <td>{{check4($control[0]->dgmachanic_subsidence,$i)}}</td>
-                    <td>{{check4($control[0]->dgmachanic_cracking,$i)}}</td>
-                    <td>{{check4($control[0]->dgmachanic_obstruction,$i)}}</td>
-                    <td>{{check4($control[0]->dgmachanic_hole,$i)}}</td>
-                    <td>{{check4($control[0]->dgmachanic_leak,$i)}}</td>
-                    <td>{{check4($control[0]->dgmachanic_movement,$i)}}</td>
-                    <td>{{check4($control[0]->dgmachanic_drainage,$i)}}</td>
-                    <td>{{check4($control[0]->dgmachanic_weed,$i)}}</td>
-                  </tr>
-                <?php } ?>
-                <!-- 3.3.5 -->
-                <tr>
-                    <th id="textsurvey" align="left"  rowspan="4">3.3.5 ท่อนกันน้ำและ<br>ร่องบาน</th> 
-                    <td>ปกติ</td>
-                    <td>{{check4($control[0]->dgblock_erosion,1)}}</td>
-                    <td>{{check4($control[0]->dgblock_subsidence,1)}}</td>
-                    <td>{{check4($control[0]->dgblock_cracking,1)}}</td>
-                    <td>{{check4($control[0]->dgblock_obstruction,1)}}</td>
-                    <td>{{check4($control[0]->dgblock_hole,1)}}</td>
-                    <td>{{check4($control[0]->dgblock_leak,1)}}</td>
-                    <td>{{check4($control[0]->dgblock_movement,1)}}</td>
-                    <td>{{check4($control[0]->dgblock_drainage,1)}}</td>
-                    <td>{{check4($control[0]->dgblock_weed,1)}}</td>
-                    <td rowspan="4" width="8%" style="vertical-align: top;">{{$control[0]->dgblock_damage}}</td>
-                    <td rowspan="4" width="10%">
-                        <table style="vertical-align: top;"> 
-                            <tr>
-                                <td >{{checkCuase($control[0]->dgblock_remake->no)}}</td>
-                                <td>ไม่มี</td>
-                            </tr>
-                            <tr >
-                                <td>{{checkCuase($control[0]->dgblock_remake->nosee)}}</td>
-                                <td>มองไม่เห็น</td>
-                            </tr>
-                            <tr>
-                                <td> อื่นๆ </td>
-                                <td class="line">{{$control[0]->dgblock_remake->detail}}</td>
-                            </tr>
-                            <tr>
-                                <td>&nbsp;</td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-                <?php for($i=2;$i<5;$i++){ ?>
-                  <tr>
-                    <td>{{$level[$i-2]}}</td>
-                    <td>{{check4($control[0]->dgblock_erosion,$i)}}</td>
-                    <td>{{check4($control[0]->dgblock_subsidence,$i)}}</td>
-                    <td>{{check4($control[0]->dgblock_cracking,$i)}}</td>
-                    <td>{{check4($control[0]->dgblock_obstruction,$i)}}</td>
-                    <td>{{check4($control[0]->dgblock_hole,$i)}}</td>
-                    <td>{{check4($control[0]->dgblock_leak,$i)}}</td>
-                    <td>{{check4($control[0]->dgblock_movement,$i)}}</td>
-                    <td>{{check4($control[0]->dgblock_drainage,$i)}}</td>
-                    <td>{{check4($control[0]->dgblock_weed,$i)}}</td>
-                  </tr>
-                <?php } ?>
+                    <!-- 3.3.3 -->
+                        <tr align="left" style="background-color: #ADADAD;" > 
+                            <th colspan="13" id="textsurvey" >3.3 ประตู/ช่องระบายทราย  </th>
+                        </tr>
+                        <tr>
+                            <th id="textsurvey" align="left"  rowspan="4">3.3.3 ประตูระบายน้ำ<br>เฉพาะตัวบาน</th> 
+                            <td>ปกติ</td>
+                            <td>{{check4($control[0]->dggate_erosion,1)}}</td>
+                            <td>{{check4($control[0]->dggate_subsidence,1)}}</td>
+                            <td>{{check4($control[0]->dggate_cracking,1)}}</td>
+                            <td>{{check4($control[0]->dggate_obstruction,1)}}</td>
+                            <td>{{check4($control[0]->dggate_hole,1)}}</td>
+                            <td>{{check4($control[0]->dggate_leak,1)}}</td>
+                            <td>{{check4($control[0]->dggate_movement,1)}}</td>
+                            <td>{{check4($control[0]->dggate_drainage,1)}}</td>
+                            <td>{{check4($control[0]->dggate_weed,1)}}</td>
+                            <td rowspan="4" width="8%" style="vertical-align: top;">{{$control[0]->dggate_damage}}</td>
+                            <td rowspan="4" width="10%">
+                                <table style="vertical-align: top;"> 
+                                    <tr>
+                                        <td >{{checkCuase($control[0]->dggate_remake->no)}}</td>
+                                        <td>ไม่มี</td>
+                                    </tr>
+                                    <tr >
+                                        <td>{{checkCuase($control[0]->dggate_remake->nosee)}}</td>
+                                        <td>มองไม่เห็น</td>
+                                    </tr>
+                                    <tr>
+                                        <td> อื่นๆ </td>
+                                        <td class="line">{{$control[0]->dggate_remake->detail}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <?php for($i=2;$i<5;$i++){ ?>
+                        <tr>
+                            <td>{{$level[$i-2]}}</td>
+                            <td>{{check4($control[0]->dggate_erosion,$i)}}</td>
+                            <td>{{check4($control[0]->dggate_subsidence,$i)}}</td>
+                            <td>{{check4($control[0]->dggate_cracking,$i)}}</td>
+                            <td>{{check4($control[0]->dggate_obstruction,$i)}}</td>
+                            <td>{{check4($control[0]->dggate_hole,$i)}}</td>
+                            <td>{{check4($control[0]->dggate_leak,$i)}}</td>
+                            <td>{{check4($control[0]->dggate_movement,$i)}}</td>
+                            <td>{{check4($control[0]->dggate_drainage,$i)}}</td>
+                            <td>{{check4($control[0]->dggate_weed,$i)}}</td>
+                        </tr>
+                        <?php } ?>
+                    <!-- 3.3.4 -->
+                        <tr>
+                            <th id="textsurvey" align="left"  rowspan="4">3.3.4 ประตู <br>ระบายน้ำเคลื่อง<br> กล/อุปกรณ์</th> 
+                            <td>ปกติ</td>
+                            <td>{{check4($control[0]->dgmachanic_erosion,1)}}</td>
+                            <td>{{check4($control[0]->dgmachanic_subsidence,1)}}</td>
+                            <td>{{check4($control[0]->dgmachanic_cracking,1)}}</td>
+                            <td>{{check4($control[0]->dgmachanic_obstruction,1)}}</td>
+                            <td>{{check4($control[0]->dgmachanic_hole,1)}}</td>
+                            <td>{{check4($control[0]->dgmachanic_leak,1)}}</td>
+                            <td>{{check4($control[0]->dgmachanic_movement,1)}}</td>
+                            <td>{{check4($control[0]->dgmachanic_drainage,1)}}</td>
+                            <td>{{check4($control[0]->dgmachanic_weed,1)}}</td>
+                            <td rowspan="4" width="8%" style="vertical-align: top;">{{$control[0]->dgmachanic_damage}}</td>
+                            <td rowspan="4" width="10%">
+                                <table style="vertical-align: top;"> 
+                                    <tr>
+                                        <td >{{checkCuase($control[0]->dgmachanic_remake->no)}}</td>
+                                        <td>ไม่มี</td>
+                                    </tr>
+                                    <tr >
+                                        <td>{{checkCuase($control[0]->dgmachanic_remake->nosee)}}</td>
+                                        <td>มองไม่เห็น</td>
+                                    </tr>
+                                    <tr>
+                                        <td> อื่นๆ </td>
+                                        <td class="line">{{$control[0]->dgmachanic_remake->detail}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <?php for($i=2;$i<5;$i++){ ?>
+                        <tr>
+                            <td>{{$level[$i-2]}}</td>
+                            <td>{{check4($control[0]->dgmachanic_erosion,$i)}}</td>
+                            <td>{{check4($control[0]->dgmachanic_subsidence,$i)}}</td>
+                            <td>{{check4($control[0]->dgmachanic_cracking,$i)}}</td>
+                            <td>{{check4($control[0]->dgmachanic_obstruction,$i)}}</td>
+                            <td>{{check4($control[0]->dgmachanic_hole,$i)}}</td>
+                            <td>{{check4($control[0]->dgmachanic_leak,$i)}}</td>
+                            <td>{{check4($control[0]->dgmachanic_movement,$i)}}</td>
+                            <td>{{check4($control[0]->dgmachanic_drainage,$i)}}</td>
+                            <td>{{check4($control[0]->dgmachanic_weed,$i)}}</td>
+                        </tr>
+                        <?php } ?>
+                    <!-- 3.3.5 -->
+                        <tr>
+                            <th id="textsurvey" align="left"  rowspan="4">3.3.5 ท่อนกันน้ำและ<br>ร่องบาน</th> 
+                            <td>ปกติ</td>
+                            <td>{{check4($control[0]->dgblock_erosion,1)}}</td>
+                            <td>{{check4($control[0]->dgblock_subsidence,1)}}</td>
+                            <td>{{check4($control[0]->dgblock_cracking,1)}}</td>
+                            <td>{{check4($control[0]->dgblock_obstruction,1)}}</td>
+                            <td>{{check4($control[0]->dgblock_hole,1)}}</td>
+                            <td>{{check4($control[0]->dgblock_leak,1)}}</td>
+                            <td>{{check4($control[0]->dgblock_movement,1)}}</td>
+                            <td>{{check4($control[0]->dgblock_drainage,1)}}</td>
+                            <td>{{check4($control[0]->dgblock_weed,1)}}</td>
+                            <td rowspan="4" width="8%" style="vertical-align: top;">{{$control[0]->dgblock_damage}}</td>
+                            <td rowspan="4" width="10%">
+                                <table style="vertical-align: top;"> 
+                                    <tr>
+                                        <td >{{checkCuase($control[0]->dgblock_remake->no)}}</td>
+                                        <td>ไม่มี</td>
+                                    </tr>
+                                    <tr >
+                                        <td>{{checkCuase($control[0]->dgblock_remake->nosee)}}</td>
+                                        <td>มองไม่เห็น</td>
+                                    </tr>
+                                    <tr>
+                                        <td> อื่นๆ </td>
+                                        <td class="line">{{$control[0]->dgblock_remake->detail}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <?php for($i=2;$i<5;$i++){ ?>
+                        <tr>
+                            <td>{{$level[$i-2]}}</td>
+                            <td>{{check4($control[0]->dgblock_erosion,$i)}}</td>
+                            <td>{{check4($control[0]->dgblock_subsidence,$i)}}</td>
+                            <td>{{check4($control[0]->dgblock_cracking,$i)}}</td>
+                            <td>{{check4($control[0]->dgblock_obstruction,$i)}}</td>
+                            <td>{{check4($control[0]->dgblock_hole,$i)}}</td>
+                            <td>{{check4($control[0]->dgblock_leak,$i)}}</td>
+                            <td>{{check4($control[0]->dgblock_movement,$i)}}</td>
+                            <td>{{check4($control[0]->dgblock_drainage,$i)}}</td>
+                            <td>{{check4($control[0]->dgblock_weed,$i)}}</td>
+                        </tr>
+                        <?php } ?>
                 <!-- 3.4 -->
-                <tr>
-                    <th id="textsurvey" align="left"  rowspan="4">3.4 แท่งสลายพลัง<br>งานน้ำปลายรางเท</th> 
-                    <td>ปกติ</td>
-                    <td>{{check4($control[0]->waterbreak_erosion,1)}}</td>
-                    <td>{{check4($control[0]->waterbreak_subsidence,1)}}</td>
-                    <td>{{check4($control[0]->waterbreak_cracking,1)}}</td>
-                    <td>{{check4($control[0]->waterbreak_obstruction,1)}}</td>
-                    <td>{{check4($control[0]->waterbreak_hole,1)}}</td>
-                    <td>{{check4($control[0]->waterbreak_leak,1)}}</td>
-                    <td>{{check4($control[0]->waterbreak_movement,1)}}</td>
-                    <td>{{check4($control[0]->waterbreak_drainage,1)}}</td>
-                    <td>{{check4($control[0]->waterbreak_weed,1)}}</td>
-                    <td rowspan="4" width="8%" style="vertical-align: top;">{{$control[0]->waterbreak_damage}}</td>
-                    <td rowspan="4" width="10%">
-                        <table style="vertical-align: top;"> 
-                            <tr>
-                                <td >{{checkCuase($control[0]->waterbreak_remake->no)}}</td>
-                                <td>ไม่มี</td>
-                            </tr>
-                            <tr >
-                                <td>{{checkCuase($control[0]->waterbreak_remake->nosee)}}</td>
-                                <td>มองไม่เห็น</td>
-                            </tr>
-                            <tr>
-                                <td> อื่นๆ </td>
-                                <td class="line">{{$control[0]->waterbreak_remake->detail}}</td>
-                            </tr>
-                            <tr>
-                                <td>&nbsp;</td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-                <?php for($i=2;$i<5;$i++){ ?>
-                  <tr>
-                    <td>{{$level[$i-2]}}</td>
-                    <td>{{check4($control[0]->waterbreak_erosion,$i)}}</td>
-                    <td>{{check4($control[0]->waterbreak_subsidence,$i)}}</td>
-                    <td>{{check4($control[0]->waterbreak_cracking,$i)}}</td>
-                    <td>{{check4($control[0]->waterbreak_obstruction,$i)}}</td>
-                    <td>{{check4($control[0]->waterbreak_hole,$i)}}</td>
-                    <td>{{check4($control[0]->waterbreak_leak,$i)}}</td>
-                    <td>{{check4($control[0]->waterbreak_movement,$i)}}</td>
-                    <td>{{check4($control[0]->waterbreak_drainage,$i)}}</td>
-                    <td>{{check4($control[0]->waterbreak_weed,$i)}}</td>
-                  </tr>
-                <?php } ?>
+                    <tr>
+                        <th id="textsurvey" align="left"  rowspan="4">3.4 แท่งสลายพลัง<br>งานน้ำปลายรางเท</th> 
+                        <td>ปกติ</td>
+                        <td>{{check4($control[0]->waterbreak_erosion,1)}}</td>
+                        <td>{{check4($control[0]->waterbreak_subsidence,1)}}</td>
+                        <td>{{check4($control[0]->waterbreak_cracking,1)}}</td>
+                        <td>{{check4($control[0]->waterbreak_obstruction,1)}}</td>
+                        <td>{{check4($control[0]->waterbreak_hole,1)}}</td>
+                        <td>{{check4($control[0]->waterbreak_leak,1)}}</td>
+                        <td>{{check4($control[0]->waterbreak_movement,1)}}</td>
+                        <td>{{check4($control[0]->waterbreak_drainage,1)}}</td>
+                        <td>{{check4($control[0]->waterbreak_weed,1)}}</td>
+                        <td rowspan="4" width="8%" style="vertical-align: top;">{{$control[0]->waterbreak_damage}}</td>
+                        <td rowspan="4" width="10%">
+                            <table style="vertical-align: top;"> 
+                                <tr>
+                                    <td >{{checkCuase($control[0]->waterbreak_remake->no)}}</td>
+                                    <td>ไม่มี</td>
+                                </tr>
+                                <tr >
+                                    <td>{{checkCuase($control[0]->waterbreak_remake->nosee)}}</td>
+                                    <td>มองไม่เห็น</td>
+                                </tr>
+                                <tr>
+                                    <td> อื่นๆ </td>
+                                    <td class="line">{{$control[0]->waterbreak_remake->detail}}</td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <?php for($i=2;$i<5;$i++){ ?>
+                    <tr>
+                        <td>{{$level[$i-2]}}</td>
+                        <td>{{check4($control[0]->waterbreak_erosion,$i)}}</td>
+                        <td>{{check4($control[0]->waterbreak_subsidence,$i)}}</td>
+                        <td>{{check4($control[0]->waterbreak_cracking,$i)}}</td>
+                        <td>{{check4($control[0]->waterbreak_obstruction,$i)}}</td>
+                        <td>{{check4($control[0]->waterbreak_hole,$i)}}</td>
+                        <td>{{check4($control[0]->waterbreak_leak,$i)}}</td>
+                        <td>{{check4($control[0]->waterbreak_movement,$i)}}</td>
+                        <td>{{check4($control[0]->waterbreak_drainage,$i)}}</td>
+                        <td>{{check4($control[0]->waterbreak_weed,$i)}}</td>
+                    </tr>
+                    <?php } ?>
                 <!-- 3.5 -->
-                <tr>
-                    <th id="textsurvey" align="left"  rowspan="4">3.5 สะพาน</th> 
-                    <td>ปกติ</td>
-                    <td>{{check4($control[0]->bridge_erosion,1)}}</td>
-                    <td>{{check4($control[0]->bridge_subsidence,1)}}</td>
-                    <td>{{check4($control[0]->bridge_cracking,1)}}</td>
-                    <td>{{check4($control[0]->bridge_obstruction,1)}}</td>
-                    <td>{{check4($control[0]->bridge_hole,1)}}</td>
-                    <td>{{check4($control[0]->bridge_leak,1)}}</td>
-                    <td>{{check4($control[0]->bridge_movement,1)}}</td>
-                    <td>{{check4($control[0]->bridge_drainage,1)}}</td>
-                    <td>{{check4($control[0]->bridge_weed,1)}}</td>
-                    <td rowspan="4" width="8%" style="vertical-align: top;">{{$control[0]->bridge_damage}}</td>
-                    <td rowspan="4" width="10%">
-                        <table style="vertical-align: top;"> 
-                            <tr>
-                                <td >{{checkCuase($control[0]->bridge_remake->no)}}</td>
-                                <td>ไม่มี</td>
-                            </tr>
-                            <tr >
-                                <td>{{checkCuase($control[0]->bridge_remake->nosee)}}</td>
-                                <td>มองไม่เห็น</td>
-                            </tr>
-                            <tr>
-                                <td> อื่นๆ </td>
-                                <td class="line">{{$control[0]->bridge_remake->detail}}</td>
-                            </tr>
-                            <tr>
-                                <td>&nbsp;</td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-                <?php for($i=2;$i<5;$i++){ ?>
-                  <tr>
-                    <td>{{$level[$i-2]}}</td>
-                    <td>{{check4($control[0]->bridge_erosion,$i)}}</td>
-                    <td>{{check4($control[0]->bridge_subsidence,$i)}}</td>
-                    <td>{{check4($control[0]->bridge_cracking,$i)}}</td>
-                    <td>{{check4($control[0]->bridge_obstruction,$i)}}</td>
-                    <td>{{check4($control[0]->bridge_hole,$i)}}</td>
-                    <td>{{check4($control[0]->bridge_leak,$i)}}</td>
-                    <td>{{check4($control[0]->bridge_movement,$i)}}</td>
-                    <td>{{check4($control[0]->bridge_drainage,$i)}}</td>
-                    <td>{{check4($control[0]->bridge_weed,$i)}}</td>
-                  </tr>
-                <?php } ?>
+                    <tr>
+                        <th id="textsurvey" align="left"  rowspan="4">3.5 สะพาน</th> 
+                        <td>ปกติ</td>
+                        <td>{{check4($control[0]->bridge_erosion,1)}}</td>
+                        <td>{{check4($control[0]->bridge_subsidence,1)}}</td>
+                        <td>{{check4($control[0]->bridge_cracking,1)}}</td>
+                        <td>{{check4($control[0]->bridge_obstruction,1)}}</td>
+                        <td>{{check4($control[0]->bridge_hole,1)}}</td>
+                        <td>{{check4($control[0]->bridge_leak,1)}}</td>
+                        <td>{{check4($control[0]->bridge_movement,1)}}</td>
+                        <td>{{check4($control[0]->bridge_drainage,1)}}</td>
+                        <td>{{check4($control[0]->bridge_weed,1)}}</td>
+                        <td rowspan="4" width="8%" style="vertical-align: top;">{{$control[0]->bridge_damage}}</td>
+                        <td rowspan="4" width="10%">
+                            <table style="vertical-align: top;"> 
+                                <tr>
+                                    <td >{{checkCuase($control[0]->bridge_remake->no)}}</td>
+                                    <td>ไม่มี</td>
+                                </tr>
+                                <tr >
+                                    <td>{{checkCuase($control[0]->bridge_remake->nosee)}}</td>
+                                    <td>มองไม่เห็น</td>
+                                </tr>
+                                <tr>
+                                    <td> อื่นๆ </td>
+                                    <td class="line">{{$control[0]->bridge_remake->detail}}</td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <?php for($i=2;$i<5;$i++){ ?>
+                    <tr>
+                        <td>{{$level[$i-2]}}</td>
+                        <td>{{check4($control[0]->bridge_erosion,$i)}}</td>
+                        <td>{{check4($control[0]->bridge_subsidence,$i)}}</td>
+                        <td>{{check4($control[0]->bridge_cracking,$i)}}</td>
+                        <td>{{check4($control[0]->bridge_obstruction,$i)}}</td>
+                        <td>{{check4($control[0]->bridge_hole,$i)}}</td>
+                        <td>{{check4($control[0]->bridge_leak,$i)}}</td>
+                        <td>{{check4($control[0]->bridge_movement,$i)}}</td>
+                        <td>{{check4($control[0]->bridge_drainage,$i)}}</td>
+                        <td>{{check4($control[0]->bridge_weed,$i)}}</td>
+                    </tr>
+                    <?php } ?>
               <!-- 4 -->
                 <tr align="left" style="background-color: #ADADAD;" > 
-                    <th colspan="13" >4. ส่วนท้ายน้ำ (Downstream Concrete Section) </th>
+                    <th colspan="13" >
+                        4. ส่วนท้ายน้ำ (Downstream Concrete Section) 
+                        <span>{{checkpair(1,$downconcrete[0]->section_status)}} ใช้งานได้  </span>
+                        <span>{{checkpair(2,$downconcrete[0]->section_status)}} ควรปรับปรุง  </span>
+                        <span>{{checkpair(3,$downconcrete[0]->section_status)}} ควรรื้อถอนก่อสร้างใหม่ </span>
+                    </th>
                 </tr>
                <!-- 4.1 -->
-                <tr>
-                    <th id="textsurvey" align="left">4.1 พื้น (floor)</th> 
-                    <td>ปกติ</td>
-                    <td>{{check4($downconcrete[0]->floor_erosion,1)}}</td>
-                    <td>{{check4($downconcrete[0]->floor_subsidence,1)}}</td>
-                    <td>{{check4($downconcrete[0]->floor_cracking,1)}}</td>
-                    <td>{{check4($downconcrete[0]->floor_obstruction,1)}}</td>
-                    <td>{{check4($downconcrete[0]->floor_hole,1)}}</td>
-                    <td>{{check4($downconcrete[0]->floor_leak,1)}}</td>
-                    <td>{{check4($downconcrete[0]->floor_movement,1)}}</td>
-                    <td>{{check4($downconcrete[0]->floor_drainage,1)}}</td>
-                    <td>{{check4($downconcrete[0]->floor_weed,1)}}</td>
-                    <td rowspan="4" width="8%" style="vertical-align: top;">{{$downconcrete[0]->floor_damage}}</td>
-                    <td rowspan="4" width="10%">
-                        <table style="vertical-align: top;"> 
-                            <tr>
-                                <td >{{checkCuase($downconcrete[0]->floor_remake->no)}}</td>
-                                <td>ไม่มี</td>
-                            </tr>
-                            <tr >
-                                <td>{{checkCuase($downconcrete[0]->floor_remake->nosee)}}</td>
-                                <td>มองไม่เห็น</td>
-                            </tr>
-                            <tr>
-                                <td> อื่นๆ </td>
-                                <td class="line">{{$downconcrete[0]->floor_remake->detail}}</td>
-                            </tr>
-                            <tr>
-                                <td>&nbsp;</td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-                <tr>
-                    <td align="left">ตะกอน</td> 
-                    <td>น้อย</td>
-                    <td>{{check4($downconcrete[0]->floor_erosion,2)}}</td>
-                    <td>{{check4($downconcrete[0]->floor_subsidence,2)}}</td>
-                    <td>{{check4($downconcrete[0]->floor_cracking,2)}}</td>
-                    <td>{{check4($downconcrete[0]->floor_obstruction,2)}}</td>
-                    <td>{{check4($downconcrete[0]->floor_hole,2)}}</td>
-                    <td>{{check4($downconcrete[0]->floor_leak,2)}}</td>
-                    <td>{{check4($downconcrete[0]->floor_movement,2)}}</td>
-                    <td>{{check4($downconcrete[0]->floor_drainage,2)}}</td>
-                    <td>{{check4($downconcrete[0]->floor_weed,2)}}</td>
-                </tr>
-                <tr>
-                    <td>
-                        <table > 
-                            <tr>
-                                <td width="10%">{{checkpair(1,$downconcrete[0]->check_floor)}}</td>
-                                <td width="40%">ปกติ</td>
-                                <td width="10%">{{checkpair(2,$downconcrete[0]->check_floor)}}</td>
-                                <td width="40%">น้อย</td>
-                            </tr>
-                        </table>
-                    </td> 
-                    <td>ปานกลาง</td>
-                    <td>{{check4($downconcrete[0]->floor_erosion,3)}}</td>
-                    <td>{{check4($downconcrete[0]->floor_subsidence,3)}}</td>
-                    <td>{{check4($downconcrete[0]->floor_cracking,3)}}</td>
-                    <td>{{check4($downconcrete[0]->floor_obstruction,3)}}</td>
-                    <td>{{check4($downconcrete[0]->floor_hole,3)}}</td>
-                    <td>{{check4($downconcrete[0]->floor_leak,3)}}</td>
-                    <td>{{check4($downconcrete[0]->floor_movement,3)}}</td>
-                    <td>{{check4($downconcrete[0]->floor_drainage,3)}}</td>
-                    <td>{{check4($downconcrete[0]->floor_weed,3)}}</td>
-                </tr>
-                <tr>
-                    <td>
-                        <table > 
-                            <tr>
-                                <td width="10%">{{checkpair($downconcrete[0]->check_floor,3)}}</td>
-                                <td width="40%">ปานกลาง</td>
-                                <td width="10%">{{checkpair($downconcrete[0]->check_floor,4)}}</td>
-                                <td width="40%">มาก</td>
-                            </tr>
-                        </table>
-                    </td> 
-                    <td>มาก</td>
-                    <td>{{check4($downconcrete[0]->floor_erosion,4)}}</td>
-                    <td>{{check4($downconcrete[0]->floor_subsidence,4)}}</td>
-                    <td>{{check4($downconcrete[0]->floor_cracking,4)}}</td>
-                    <td>{{check4($downconcrete[0]->floor_obstruction,4)}}</td>
-                    <td>{{check4($downconcrete[0]->floor_hole,4)}}</td>
-                    <td>{{check4($downconcrete[0]->floor_leak,4)}}</td>
-                    <td>{{check4($downconcrete[0]->floor_movement,4)}}</td>
-                    <td>{{check4($downconcrete[0]->floor_drainage,4)}}</td>
-                    <td>{{check4($downconcrete[0]->floor_weed,4)}}</td>
-                </tr>
+                    <tr>
+                        <th id="textsurvey" align="left">4.1 พื้น (floor)</th> 
+                        <td>ปกติ</td>
+                        <td>{{check4($downconcrete[0]->floor_erosion,1)}}</td>
+                        <td>{{check4($downconcrete[0]->floor_subsidence,1)}}</td>
+                        <td>{{check4($downconcrete[0]->floor_cracking,1)}}</td>
+                        <td>{{check4($downconcrete[0]->floor_obstruction,1)}}</td>
+                        <td>{{check4($downconcrete[0]->floor_hole,1)}}</td>
+                        <td>{{check4($downconcrete[0]->floor_leak,1)}}</td>
+                        <td>{{check4($downconcrete[0]->floor_movement,1)}}</td>
+                        <td>{{check4($downconcrete[0]->floor_drainage,1)}}</td>
+                        <td>{{check4($downconcrete[0]->floor_weed,1)}}</td>
+                        <td rowspan="4" width="8%" style="vertical-align: top;">{{$downconcrete[0]->floor_damage}}</td>
+                        <td rowspan="4" width="10%">
+                            <table style="vertical-align: top;"> 
+                                <tr>
+                                    <td >{{checkCuase($downconcrete[0]->floor_remake->no)}}</td>
+                                    <td>ไม่มี</td>
+                                </tr>
+                                <tr >
+                                    <td>{{checkCuase($downconcrete[0]->floor_remake->nosee)}}</td>
+                                    <td>มองไม่เห็น</td>
+                                </tr>
+                                <tr>
+                                    <td> อื่นๆ </td>
+                                    <td class="line">{{$downconcrete[0]->floor_remake->detail}}</td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left">ตะกอน</td> 
+                        <td>น้อย</td>
+                        <td>{{check4($downconcrete[0]->floor_erosion,2)}}</td>
+                        <td>{{check4($downconcrete[0]->floor_subsidence,2)}}</td>
+                        <td>{{check4($downconcrete[0]->floor_cracking,2)}}</td>
+                        <td>{{check4($downconcrete[0]->floor_obstruction,2)}}</td>
+                        <td>{{check4($downconcrete[0]->floor_hole,2)}}</td>
+                        <td>{{check4($downconcrete[0]->floor_leak,2)}}</td>
+                        <td>{{check4($downconcrete[0]->floor_movement,2)}}</td>
+                        <td>{{check4($downconcrete[0]->floor_drainage,2)}}</td>
+                        <td>{{check4($downconcrete[0]->floor_weed,2)}}</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <table > 
+                                <tr>
+                                    <td width="10%">{{checkpair(1,$downconcrete[0]->check_floor)}}</td>
+                                    <td width="40%">ปกติ</td>
+                                    <td width="10%">{{checkpair(2,$downconcrete[0]->check_floor)}}</td>
+                                    <td width="40%">น้อย</td>
+                                </tr>
+                            </table>
+                        </td> 
+                        <td>ปานกลาง</td>
+                        <td>{{check4($downconcrete[0]->floor_erosion,3)}}</td>
+                        <td>{{check4($downconcrete[0]->floor_subsidence,3)}}</td>
+                        <td>{{check4($downconcrete[0]->floor_cracking,3)}}</td>
+                        <td>{{check4($downconcrete[0]->floor_obstruction,3)}}</td>
+                        <td>{{check4($downconcrete[0]->floor_hole,3)}}</td>
+                        <td>{{check4($downconcrete[0]->floor_leak,3)}}</td>
+                        <td>{{check4($downconcrete[0]->floor_movement,3)}}</td>
+                        <td>{{check4($downconcrete[0]->floor_drainage,3)}}</td>
+                        <td>{{check4($downconcrete[0]->floor_weed,3)}}</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <table > 
+                                <tr>
+                                    <td width="10%">{{checkpair($downconcrete[0]->check_floor,3)}}</td>
+                                    <td width="40%">ปานกลาง</td>
+                                    <td width="10%">{{checkpair($downconcrete[0]->check_floor,4)}}</td>
+                                    <td width="40%">มาก</td>
+                                </tr>
+                            </table>
+                        </td> 
+                        <td>มาก</td>
+                        <td>{{check4($downconcrete[0]->floor_erosion,4)}}</td>
+                        <td>{{check4($downconcrete[0]->floor_subsidence,4)}}</td>
+                        <td>{{check4($downconcrete[0]->floor_cracking,4)}}</td>
+                        <td>{{check4($downconcrete[0]->floor_obstruction,4)}}</td>
+                        <td>{{check4($downconcrete[0]->floor_hole,4)}}</td>
+                        <td>{{check4($downconcrete[0]->floor_leak,4)}}</td>
+                        <td>{{check4($downconcrete[0]->floor_movement,4)}}</td>
+                        <td>{{check4($downconcrete[0]->floor_drainage,4)}}</td>
+                        <td>{{check4($downconcrete[0]->floor_weed,4)}}</td>
+                    </tr>
                <!-- 4.2 -->
-                <tr>
-                    <th id="textsurvey" align="left"  rowspan="4">4.2 ลาดด้านข้าง</th> 
-                    <td>ปกติ</td>
-                    <td>{{check4($downconcrete[0]->side_erosion,1)}}</td>
-                    <td>{{check4($downconcrete[0]->side_subsidence,1)}}</td>
-                    <td>{{check4($downconcrete[0]->side_cracking,1)}}</td>
-                    <td>{{check4($downconcrete[0]->side_obstruction,1)}}</td>
-                    <td>{{check4($downconcrete[0]->side_hole,1)}}</td>
-                    <td>{{check4($downconcrete[0]->side_leak,1)}}</td>
-                    <td>{{check4($downconcrete[0]->side_movement,1)}}</td>
-                    <td>{{check4($downconcrete[0]->side_drainage,1)}}</td>
-                    <td>{{check4($downconcrete[0]->side_weed,1)}}</td>
-                    <td rowspan="4" width="8%" style="vertical-align: top;">{{$downconcrete[0]->side_damage}}</td>
-                    <td rowspan="4" width="10%">
-                        <table style="vertical-align: top;"> 
-                            <tr>
-                                <td >{{checkCuase($downconcrete[0]->side_remake->no)}}</td>
-                                <td>ไม่มี</td>
-                            </tr>
-                            <tr >
-                                <td>{{checkCuase($downconcrete[0]->side_remake->nosee)}}</td>
-                                <td>มองไม่เห็น</td>
-                            </tr>
-                            <tr>
-                                <td> อื่นๆ </td>
-                                <td class="line">{{$downconcrete[0]->side_remake->detail}}</td>
-                            </tr>
-                            <tr>
-                                <td>&nbsp;</td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-                <?php for($i=2;$i<5;$i++){ ?>
-                  <tr>
-                    <td>{{$level[$i-2]}}</td>
-                    <td>{{check4($downconcrete[0]->side_erosion,$i)}}</td>
-                    <td>{{check4($downconcrete[0]->side_subsidence,$i)}}</td>
-                    <td>{{check4($downconcrete[0]->side_cracking,$i)}}</td>
-                    <td>{{check4($downconcrete[0]->side_obstruction,$i)}}</td>
-                    <td>{{check4($downconcrete[0]->side_hole,$i)}}</td>
-                    <td>{{check4($downconcrete[0]->side_leak,$i)}}</td>
-                    <td>{{check4($downconcrete[0]->side_movement,$i)}}</td>
-                    <td>{{check4($downconcrete[0]->side_drainage,$i)}}</td>
-                    <td>{{check4($downconcrete[0]->side_weed,$i)}}</td>
-                  </tr>
-                <?php } ?>
+                    <tr>
+                        <th id="textsurvey" align="left"  rowspan="4">4.2 ลาดด้านข้าง</th> 
+                        <td>ปกติ</td>
+                        <td>{{check4($downconcrete[0]->side_erosion,1)}}</td>
+                        <td>{{check4($downconcrete[0]->side_subsidence,1)}}</td>
+                        <td>{{check4($downconcrete[0]->side_cracking,1)}}</td>
+                        <td>{{check4($downconcrete[0]->side_obstruction,1)}}</td>
+                        <td>{{check4($downconcrete[0]->side_hole,1)}}</td>
+                        <td>{{check4($downconcrete[0]->side_leak,1)}}</td>
+                        <td>{{check4($downconcrete[0]->side_movement,1)}}</td>
+                        <td>{{check4($downconcrete[0]->side_drainage,1)}}</td>
+                        <td>{{check4($downconcrete[0]->side_weed,1)}}</td>
+                        <td rowspan="4" width="8%" style="vertical-align: top;">{{$downconcrete[0]->side_damage}}</td>
+                        <td rowspan="4" width="10%">
+                            <table style="vertical-align: top;"> 
+                                <tr>
+                                    <td >{{checkCuase($downconcrete[0]->side_remake->no)}}</td>
+                                    <td>ไม่มี</td>
+                                </tr>
+                                <tr >
+                                    <td>{{checkCuase($downconcrete[0]->side_remake->nosee)}}</td>
+                                    <td>มองไม่เห็น</td>
+                                </tr>
+                                <tr>
+                                    <td> อื่นๆ </td>
+                                    <td class="line">{{$downconcrete[0]->side_remake->detail}}</td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <?php for($i=2;$i<5;$i++){ ?>
+                    <tr>
+                        <td>{{$level[$i-2]}}</td>
+                        <td>{{check4($downconcrete[0]->side_erosion,$i)}}</td>
+                        <td>{{check4($downconcrete[0]->side_subsidence,$i)}}</td>
+                        <td>{{check4($downconcrete[0]->side_cracking,$i)}}</td>
+                        <td>{{check4($downconcrete[0]->side_obstruction,$i)}}</td>
+                        <td>{{check4($downconcrete[0]->side_hole,$i)}}</td>
+                        <td>{{check4($downconcrete[0]->side_leak,$i)}}</td>
+                        <td>{{check4($downconcrete[0]->side_movement,$i)}}</td>
+                        <td>{{check4($downconcrete[0]->side_drainage,$i)}}</td>
+                        <td>{{check4($downconcrete[0]->side_weed,$i)}}</td>
+                    </tr>
+                    <?php } ?>
                <!-- 4.3 -->
-                <tr>
-                    <th id="textsurvey" align="left"  rowspan="4">4.3 ฟันตะเข้</th> 
-                    <td>ปกติ</td>
-                    <td>{{check4($downconcrete[0]->flrblock_erosion,1)}}</td>
-                    <td>{{check4($downconcrete[0]->flrblock_subsidence,1)}}</td>
-                    <td>{{check4($downconcrete[0]->flrblock_cracking,1)}}</td>
-                    <td>{{check4($downconcrete[0]->flrblock_obstruction,1)}}</td>
-                    <td>{{check4($downconcrete[0]->flrblock_hole,1)}}</td>
-                    <td>{{check4($downconcrete[0]->flrblock_leak,1)}}</td>
-                    <td>{{check4($downconcrete[0]->flrblock_movement,1)}}</td>
-                    <td>{{check4($downconcrete[0]->flrblock_drainage,1)}}</td>
-                    <td>{{check4($downconcrete[0]->flrblock_weed,1)}}</td>
-                    <td rowspan="4" width="8%" style="vertical-align: top;">{{$downconcrete[0]->flrblock_damage}}</td>
-                    <td rowspan="4" width="10%">
-                        <table style="vertical-align: top;"> 
-                            <tr>
-                                <td >{{checkCuase($downconcrete[0]->flrblock_remake->no)}}</td>
-                                <td>ไม่มี</td>
-                            </tr>
-                            <tr >
-                                <td>{{checkCuase($downconcrete[0]->flrblock_remake->nosee)}}</td>
-                                <td>มองไม่เห็น</td>
-                            </tr>
-                            <tr>
-                                <td> อื่นๆ </td>
-                                <td class="line">{{$downconcrete[0]->flrblock_remake->detail}}</td>
-                            </tr>
-                            <tr>
-                                <td>&nbsp;</td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-                <?php for($i=2;$i<5;$i++){ ?>
-                  <tr>
-                    <td>{{$level[$i-2]}}</td>
-                    <td>{{check4($downconcrete[0]->flrblock_erosion,$i)}}</td>
-                    <td>{{check4($downconcrete[0]->flrblock_subsidence,$i)}}</td>
-                    <td>{{check4($downconcrete[0]->flrblock_cracking,$i)}}</td>
-                    <td>{{check4($downconcrete[0]->flrblock_obstruction,$i)}}</td>
-                    <td>{{check4($downconcrete[0]->flrblock_hole,$i)}}</td>
-                    <td>{{check4($downconcrete[0]->flrblock_leak,$i)}}</td>
-                    <td>{{check4($downconcrete[0]->flrblock_movement,$i)}}</td>
-                    <td>{{check4($downconcrete[0]->flrblock_drainage,$i)}}</td>
-                    <td>{{check4($downconcrete[0]->flrblock_weed,$i)}}</td>
-                  </tr>
-                <?php } ?>
+                    <tr>
+                        <th id="textsurvey" align="left"  rowspan="4">4.3 ฟันตะเข้</th> 
+                        <td>ปกติ</td>
+                        <td>{{check4($downconcrete[0]->flrblock_erosion,1)}}</td>
+                        <td>{{check4($downconcrete[0]->flrblock_subsidence,1)}}</td>
+                        <td>{{check4($downconcrete[0]->flrblock_cracking,1)}}</td>
+                        <td>{{check4($downconcrete[0]->flrblock_obstruction,1)}}</td>
+                        <td>{{check4($downconcrete[0]->flrblock_hole,1)}}</td>
+                        <td>{{check4($downconcrete[0]->flrblock_leak,1)}}</td>
+                        <td>{{check4($downconcrete[0]->flrblock_movement,1)}}</td>
+                        <td>{{check4($downconcrete[0]->flrblock_drainage,1)}}</td>
+                        <td>{{check4($downconcrete[0]->flrblock_weed,1)}}</td>
+                        <td rowspan="4" width="8%" style="vertical-align: top;">{{$downconcrete[0]->flrblock_damage}}</td>
+                        <td rowspan="4" width="10%">
+                            <table style="vertical-align: top;"> 
+                                <tr>
+                                    <td >{{checkCuase($downconcrete[0]->flrblock_remake->no)}}</td>
+                                    <td>ไม่มี</td>
+                                </tr>
+                                <tr >
+                                    <td>{{checkCuase($downconcrete[0]->flrblock_remake->nosee)}}</td>
+                                    <td>มองไม่เห็น</td>
+                                </tr>
+                                <tr>
+                                    <td> อื่นๆ </td>
+                                    <td class="line">{{$downconcrete[0]->flrblock_remake->detail}}</td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <?php for($i=2;$i<5;$i++){ ?>
+                    <tr>
+                        <td>{{$level[$i-2]}}</td>
+                        <td>{{check4($downconcrete[0]->flrblock_erosion,$i)}}</td>
+                        <td>{{check4($downconcrete[0]->flrblock_subsidence,$i)}}</td>
+                        <td>{{check4($downconcrete[0]->flrblock_cracking,$i)}}</td>
+                        <td>{{check4($downconcrete[0]->flrblock_obstruction,$i)}}</td>
+                        <td>{{check4($downconcrete[0]->flrblock_hole,$i)}}</td>
+                        <td>{{check4($downconcrete[0]->flrblock_leak,$i)}}</td>
+                        <td>{{check4($downconcrete[0]->flrblock_movement,$i)}}</td>
+                        <td>{{check4($downconcrete[0]->flrblock_drainage,$i)}}</td>
+                        <td>{{check4($downconcrete[0]->flrblock_weed,$i)}}</td>
+                    </tr>
+                    <?php } ?>
                <!-- 4.4 -->
-                <tr>
-                    <th id="textsurvey" align="left"  rowspan="4">4.4 แผงปะทะด้าน<br>ท้ายน้ำ</th> 
-                    <td>ปกติ</td>
-                    <td>{{check4($downconcrete[0]->endsill_erosion,1)}}</td>
-                    <td>{{check4($downconcrete[0]->endsill_subsidence,1)}}</td>
-                    <td>{{check4($downconcrete[0]->endsill_cracking,1)}}</td>
-                    <td>{{check4($downconcrete[0]->endsill_obstruction,1)}}</td>
-                    <td>{{check4($downconcrete[0]->endsill_hole,1)}}</td>
-                    <td>{{check4($downconcrete[0]->endsill_leak,1)}}</td>
-                    <td>{{check4($downconcrete[0]->endsill_movement,1)}}</td>
-                    <td>{{check4($downconcrete[0]->endsill_drainage,1)}}</td>
-                    <td>{{check4($downconcrete[0]->endsill_weed,1)}}</td>
-                    <td rowspan="4" width="8%" style="vertical-align: top;">{{$downconcrete[0]->endsill_damage}}</td>
-                    <td rowspan="4" width="10%">
-                        <table style="vertical-align: top;"> 
-                            <tr>
-                                <td >{{checkCuase($downconcrete[0]->endsill_remake->no)}}</td>
-                                <td>ไม่มี</td>
-                            </tr>
-                            <tr >
-                                <td>{{checkCuase($downconcrete[0]->endsill_remake->nosee)}}</td>
-                                <td>มองไม่เห็น</td>
-                            </tr>
-                            <tr>
-                                <td> อื่นๆ </td>
-                                <td class="line">{{$downconcrete[0]->endsill_remake->detail}}</td>
-                            </tr>
-                            <tr>
-                                <td>&nbsp;</td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-                <?php for($i=2;$i<5;$i++){ ?>
-                  <tr>
-                    <td>{{$level[$i-2]}}</td>
-                    <td>{{check4($downconcrete[0]->endsill_erosion,$i)}}</td>
-                    <td>{{check4($downconcrete[0]->endsill_subsidence,$i)}}</td>
-                    <td>{{check4($downconcrete[0]->endsill_cracking,$i)}}</td>
-                    <td>{{check4($downconcrete[0]->endsill_obstruction,$i)}}</td>
-                    <td>{{check4($downconcrete[0]->endsill_hole,$i)}}</td>
-                    <td>{{check4($downconcrete[0]->endsill_leak,$i)}}</td>
-                    <td>{{check4($downconcrete[0]->endsill_movement,$i)}}</td>
-                    <td>{{check4($downconcrete[0]->endsill_drainage,$i)}}</td>
-                    <td>{{check4($downconcrete[0]->endsill_weed,$i)}}</td>
-                  </tr>
-                <?php } ?>
+                    <tr>
+                        <th id="textsurvey" align="left"  rowspan="4">4.4 แผงปะทะด้าน<br>ท้ายน้ำ</th> 
+                        <td>ปกติ</td>
+                        <td>{{check4($downconcrete[0]->endsill_erosion,1)}}</td>
+                        <td>{{check4($downconcrete[0]->endsill_subsidence,1)}}</td>
+                        <td>{{check4($downconcrete[0]->endsill_cracking,1)}}</td>
+                        <td>{{check4($downconcrete[0]->endsill_obstruction,1)}}</td>
+                        <td>{{check4($downconcrete[0]->endsill_hole,1)}}</td>
+                        <td>{{check4($downconcrete[0]->endsill_leak,1)}}</td>
+                        <td>{{check4($downconcrete[0]->endsill_movement,1)}}</td>
+                        <td>{{check4($downconcrete[0]->endsill_drainage,1)}}</td>
+                        <td>{{check4($downconcrete[0]->endsill_weed,1)}}</td>
+                        <td rowspan="4" width="8%" style="vertical-align: top;">{{$downconcrete[0]->endsill_damage}}</td>
+                        <td rowspan="4" width="10%">
+                            <table style="vertical-align: top;"> 
+                                <tr>
+                                    <td >{{checkCuase($downconcrete[0]->endsill_remake->no)}}</td>
+                                    <td>ไม่มี</td>
+                                </tr>
+                                <tr >
+                                    <td>{{checkCuase($downconcrete[0]->endsill_remake->nosee)}}</td>
+                                    <td>มองไม่เห็น</td>
+                                </tr>
+                                <tr>
+                                    <td> อื่นๆ </td>
+                                    <td class="line">{{$downconcrete[0]->endsill_remake->detail}}</td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <?php for($i=2;$i<5;$i++){ ?>
+                    <tr>
+                        <td>{{$level[$i-2]}}</td>
+                        <td>{{check4($downconcrete[0]->endsill_erosion,$i)}}</td>
+                        <td>{{check4($downconcrete[0]->endsill_subsidence,$i)}}</td>
+                        <td>{{check4($downconcrete[0]->endsill_cracking,$i)}}</td>
+                        <td>{{check4($downconcrete[0]->endsill_obstruction,$i)}}</td>
+                        <td>{{check4($downconcrete[0]->endsill_hole,$i)}}</td>
+                        <td>{{check4($downconcrete[0]->endsill_leak,$i)}}</td>
+                        <td>{{check4($downconcrete[0]->endsill_movement,$i)}}</td>
+                        <td>{{check4($downconcrete[0]->endsill_drainage,$i)}}</td>
+                        <td>{{check4($downconcrete[0]->endsill_weed,$i)}}</td>
+                    </tr>
+                    <?php } ?>
               
             </table>  
             <div style="height:20px;"></div>
@@ -1533,7 +1618,12 @@
               </thead>
               <!-- 5 -->
                 <tr align="left" style="background-color: #ADADAD;" > 
-                    <th colspan="13" >5. ส่วน Protection ท้ายน้ำ (Downstream Protection Section) </th>
+                    <th colspan="13" >
+                        5. ส่วน Protection ท้ายน้ำ (Downstream Protection Section) 
+                        <span>{{checkpair(1,$downprotection[0]->section_status)}} ใช้งานได้  </span>
+                        <span>{{checkpair(2,$downprotection[0]->section_status)}} ควรปรับปรุง  </span>
+                        <span>{{checkpair(3,$downprotection[0]->section_status)}} ควรรื้อถอนก่อสร้างใหม่ </span>
+                    </th>
                 </tr>
                <!-- 5.1 -->
                 <tr>
@@ -1677,7 +1767,12 @@
 
               <!-- 6 -->
                 <tr align="left" style="background-color: #ADADAD;" > 
-                    <th colspan="13" >6. ระบบส่งน้ำ </th>
+                    <th colspan="13" >
+                        6. ระบบส่งน้ำ 
+                        <span>{{checkpair(1,$waterdelivery[0]->section_status)}} ใช้งานได้  </span>
+                        <span>{{checkpair(2,$waterdelivery[0]->section_status)}} ควรปรับปรุง  </span>
+                        <span>{{checkpair(3,$waterdelivery[0]->section_status)}} ควรรื้อถอนก่อสร้างใหม่ </span>
+                    </th>
                 </tr>
                <!-- 6.1 -->
                 <tr>
