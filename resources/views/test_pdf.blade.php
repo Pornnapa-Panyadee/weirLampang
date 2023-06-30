@@ -112,6 +112,7 @@
             padding: 1px;  
             text-align:center;
             margin-left:5px;
+            height:50px;
             width: 20px;
         }div.rowcode {
             width: 100%;
@@ -127,14 +128,14 @@
      <div class="pcoded-content">
         <table>
             <tr>
-                <td><img src="{{ asset('images/icon/egat.jpg') }}" width="20%"></td>
-                <td>
+                <td width="15%"><img src="{{ asset('images/icon/egat.jpg') }}" width="100%"></td>
+                <td width="70%">
                     <div class="text1"> แบบฟอร์มการตรวจสภาพฝาย</div>
                     <div class="text2">โครงการพัฒนาระบบสารสนเทศการตรวจประเมินสภาพฝายและวางแผนปรับปรุงเพิ่มประสิทธิภาพฝาย
                         <br>ในพื้นที่ลุ่มน้ำแม่จาง จังหวัดลำปาง
                          <br>โดยการไฟฟ้าฝ่ายผลิตแห่งประเทศไทย (กฟผ) แม่เมาะ ร่วมกับมหาวิทยาลัยเชียงใหม่ </div>
                 </td>
-                <td><img src="{{ asset('images/icon/cmu.png') }}" width="12%"></td>
+                <td width="15%"><img src="{{ asset('images/icon/cmu.png') }}" width="60%" ></td>
             </tr>
             <tr>
                 <td colspan="3" class="text2">**************************************************************************************************************</td>
@@ -148,6 +149,7 @@
             $tambol=$text[2];
             $s_lat=str_split($locationUTM->x);
             $s_lng=str_split($locationUTM->y);
+
             function checkphoto($text){
                 if($text!=NULL){
                     $img='http://weir.crflood.com/'.$text;
@@ -1035,6 +1037,28 @@
                         <td>{{check4($control[0]->floor_drainage,4)}}</td>
                         <td>{{check4($control[0]->floor_weed,4)}}</td>
                     </tr>
+            </table>
+            <div style="height:20px;"></div>
+            <table class="table2" border=1>
+              <thead>
+                <tr style="background-color: #ADADAD;">
+                    <th rowspan="2" colspan="2" width="20%" >องค์ประกอบ</th>
+                    <th colspan="11" width="80%"  >ผลการตรวจสอบสภาพฝายด้วยสายตา</th>
+                </tr>
+                <tr style="background-color: #ADADAD;">
+                    <th width="6%">การกัดเซาะ</th>
+                    <th width="6%">การทรุดตัว</th>
+                    <th width="6%">การแตกร้าว</th>
+                    <th width="6%">สิ่งกีดขวาง</th>
+                    <th width="6%">รูโพรง</th>
+                    <th width="6%">การรั่ว</th>
+                    <th width="6%">การเคลื่อนตัว</th>
+                    <th width="6%">การระบายน้ำ</th>
+                    <th width="6%">ต้นไม้/วัชพืช</th>
+                    <th width="6%">ขนาดความ<br>เสียหาย</th>
+                    <th width="6%">หมายเหตุ</th>
+                </tr>
+              </thead>
                     <!-- 3.3.2 -->
                     <tr>
                         <th id="textsurvey" align="left"  rowspan="4">3.3.2 กำแพงข้าง</th> 
@@ -1083,33 +1107,10 @@
                         <td>{{check4($control[0]->dgwall_weed,$i)}}</td>
                     </tr>
                     <?php } ?>
-            </table>
-            <div style="height:22px;"></div>
-            <table class="table2" border=1>
-              <thead>
-                <tr style="background-color: #ADADAD;">
-                    <th rowspan="2" colspan="2" width="20%" >องค์ประกอบ</th>
-                    <th colspan="11" width="80%"  >ผลการตรวจสอบสภาพฝายด้วยสายตา</th>
-                </tr>
-                <tr style="background-color: #ADADAD;">
-                    <th width="6%">การกัดเซาะ</th>
-                    <th width="6%">การทรุดตัว</th>
-                    <th width="6%">การแตกร้าว</th>
-                    <th width="6%">สิ่งกีดขวาง</th>
-                    <th width="6%">รูโพรง</th>
-                    <th width="6%">การรั่ว</th>
-                    <th width="6%">การเคลื่อนตัว</th>
-                    <th width="6%">การระบายน้ำ</th>
-                    <th width="6%">ต้นไม้/วัชพืช</th>
-                    <th width="6%">ขนาดความ<br>เสียหาย</th>
-                    <th width="6%">หมายเหตุ</th>
-                </tr>
-              </thead>
-              <!-- new -->
+            
+                <!-- new -->
                     <!-- 3.3.3 -->
-                        <tr align="left" style="background-color: #ADADAD;" > 
-                            <th colspan="13" id="textsurvey" >3.3 ประตู/ช่องระบายทราย  </th>
-                        </tr>
+                      
                         <tr>
                             <th id="textsurvey" align="left"  rowspan="4">3.3.3 ประตูระบายน้ำ<br>เฉพาะตัวบาน</th> 
                             <td>ปกติ</td>
@@ -1545,6 +1546,28 @@
                         <td>{{check4($downconcrete[0]->flrblock_weed,$i)}}</td>
                     </tr>
                     <?php } ?>
+            </table>  
+            <div style="height:20px;"></div>
+            <table class="table2" border=1>
+              <thead>
+                <tr style="background-color: #ADADAD;">
+                    <th rowspan="2" colspan="2" width="20%" >องค์ประกอบ</th>
+                    <th colspan="11" >ผลการตรวจสอบสภาพฝายด้วยสายตา</th>
+                </tr>
+                <tr style="background-color: #ADADAD;">
+                    <th width="6%">การกัดเซาะ</th>
+                    <th width="6%">การทรุดตัว</th>
+                    <th width="6%">การแตกร้าว</th>
+                    <th width="6%">สิ่งกีดขวาง</th>
+                    <th width="6%">รูโพรง</th>
+                    <th width="6%">การรั่ว</th>
+                    <th width="6%">การเคลื่อนตัว</th>
+                    <th width="6%">การระบายน้ำ</th>
+                    <th width="6%">ต้นไม้/วัชพืช</th>
+                    <th width="6%">ขนาดความ<br>เสียหาย</th>
+                    <th width="6%">หมายเหตุ</th>
+                </tr>
+              </thead>
                <!-- 4.4 -->
                     <tr>
                         <th id="textsurvey" align="left"  rowspan="4">4.4 แผงปะทะด้าน<br>ท้ายน้ำ</th> 
@@ -1594,28 +1617,7 @@
                     </tr>
                     <?php } ?>
               
-            </table>  
-            <div style="height:20px;"></div>
-            <table class="table2" border=1>
-              <thead>
-                <tr style="background-color: #ADADAD;">
-                    <th rowspan="2" colspan="2" width="20%" >องค์ประกอบ</th>
-                    <th colspan="11" >ผลการตรวจสอบสภาพฝายด้วยสายตา</th>
-                </tr>
-                <tr style="background-color: #ADADAD;">
-                    <th width="6%">การกัดเซาะ</th>
-                    <th width="6%">การทรุดตัว</th>
-                    <th width="6%">การแตกร้าว</th>
-                    <th width="6%">สิ่งกีดขวาง</th>
-                    <th width="6%">รูโพรง</th>
-                    <th width="6%">การรั่ว</th>
-                    <th width="6%">การเคลื่อนตัว</th>
-                    <th width="6%">การระบายน้ำ</th>
-                    <th width="6%">ต้นไม้/วัชพืช</th>
-                    <th width="6%">ขนาดความ<br>เสียหาย</th>
-                    <th width="6%">หมายเหตุ</th>
-                </tr>
-              </thead>
+            
               <!-- 5 -->
                 <tr align="left" style="background-color: #ADADAD;" > 
                     <th colspan="13" >
@@ -1992,16 +1994,16 @@
                     </tr>
                 </table>
             </div>
-            <div class="text3">6. ความเห็นและข้อสังเกตเพิ่มเติม </div>
+        <div class="text3">6. ความเห็นและข้อสังเกตเพิ่มเติม </div>
                 <div class="text4" > 
                     <textarea rows="50" cols="200" style="border: none">
                         <font class="line">{{$sug[0]->suggestion}}</font>
                     </textarea>
                 </div>
-            </div>
-            <br>
-            <div class="page-break"></div>
-              <div class="text3" >7. รูปประกอบ </div>
+        </div>
+        <br>
+        <div class="page-break"></div>
+            <div class="text3" >7. รูปประกอบ </div>
                 <div class="text4"> 
                     <table calss="table3" border=1>
                         <tr style="background-color: #ADADAD;">
@@ -2067,10 +2069,7 @@
                         </tr>
                     </tablr>
                 </div>
-            
-           
+            </div>
         </div>
-        
-     </div>
     </body>
 </html>

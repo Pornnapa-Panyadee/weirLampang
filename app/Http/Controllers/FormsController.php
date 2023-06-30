@@ -29,6 +29,7 @@ use App\Models\WeirLocation;
 use App\Models\WeirSpaceification;
 use App\Models\EditLog;
 use App\Models\WeirCatchment;
+use App\Models\WeirExpert;
 use Grimzy\LaravelMysqlSpatial\Types\Point;
 
 // use SpatialTrait;
@@ -1073,7 +1074,16 @@ class FormsController extends Controller
               
         
         // dd($dataUser);
-
+        // //// -------- Weir Expert ------------------/////
+        $expert= new WeirExpert(
+            [
+              'weir_id'=>$weir_id,            
+              'weir_code'=>$codeweir,
+              'weir_problem'=>NULL,
+              'weir_solution'=>NULL,
+            ]
+          );
+        $expert->save();
         // //// -------- Weir Catchment ------------------/////
         $catchmant= new WeirCatchment(
             [

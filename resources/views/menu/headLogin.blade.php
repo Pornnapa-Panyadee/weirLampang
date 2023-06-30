@@ -1,9 +1,9 @@
 <nav class="navbar header-navbar pcoded-header">
     <div class="navbar-wrapper">
         <div class="navbar-logo">
-           <a href="/list">
+           <a href="{{ asset('/list') }}">
                <!-- <img class="img-fluid" src="png/logo.png" alt="Logo" /> -->
-                <h6>Chiang Rai Weir Assessment System</h6>
+                <h6>Mae Jang Weir <br> Assessment System</h6>
             </a>
             <a class="mobile-menu" id="mobile-collapse" href="#!">
                <i class="feather icon-menu icon-toggle-right"></i>
