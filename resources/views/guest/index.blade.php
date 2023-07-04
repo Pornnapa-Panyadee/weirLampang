@@ -209,24 +209,11 @@
                                       <h5 class="card-title">
                                           <select id='weir_district' name='amp' id="name">
                                                 <option value="sum">- - เลือกอำเภอ - -</option>
-                                                <option value="ขุนตาล">ขุนตาล</option>
-                                                <option value="เชียงของ">เชียงของ</option>
-                                                <option value="เชียงแสน">เชียงแสน</option>
-                                                <option value="ดอยหลวง">ดอยหลวง</option>
-                                                <option value="เทิง">เทิง</option>
-                                                <option value="ป่าแดด">ป่าแดด</option>
-                                                <option value="พญาเม็งราย">พญาเม็งราย</option>
-                                                <option value="พาน">พาน</option>
-                                                <option value="เมืองเชียงราย">เมืองเชียงราย</option>
-                                                <option value="แม่จัน">แม่จัน</option>
-                                                <option value="แม่ฟ้าหลวง">แม่ฟ้าหลวง</option>
-                                                <option value="แม่ลาว">แม่ลาว</option>
-                                                <option value="แม่สรวย">แม่สรวย</option>
-                                                <option value="แม่สาย">แม่สาย</option>
-                                                <option value="เวียงแก่น">เวียงแก่น</option>
-                                                <option value="เวียงเชียงรุ่ง">เวียงเชียงรุ่ง</option>
-                                                <option value="เวียงชัย">เวียงชัย</option>
-                                                <option value="เวียงป่าเป้า">เวียงป่าเป้า</option>                                                
+                                                <option value="เมืองลำปาง">เมืองลำปาง</option>
+                                                <option value="เกาะคา">เกาะคา</option>
+                                                <option value="แม่ทะ">แม่ทะ</option>
+                                                <option value="แม่เมาะ">แม่เมาะ</option>
+                                                                                             
                                           </select> 
                                       </h5>
                                     </div>
@@ -472,10 +459,7 @@
           popupAnchor: [0, 0]
         });
            
-    //  var amp=["ขุนตาล","พญาเม็งราย","เทิง","พาน","เมืองเชียงราย","ป่าแดด","แม่ลาว","แม่สรวย","เวียงป่าเป้า"];
-      // var amp=["ขุนตาล","พญาเม็งราย","เทิง","พาน","เมืองเชียงราย","แม่ลาว","แม่สรวย","เวียงป่าเป้า","ป่าแดด"];
-      // var amp=["ขุนตาล", "เชียงของ", "เชียงแสน","ดอยหลวง","เทิง","ป่าแดด", "พญาเม็งราย","พาน", "เมืองเชียงราย", "แม่จัน","แม่ฟ้าหลวง","แม่ลาว","แม่สรวย", "แม่สาย","เวียงแก่น","เวียงเชียงรุ่ง","เวียงชัย","เวียงป่าเป้า"];    
-      var amp=["เมืองลำปาง", "เกาะคา", "แม่ทะ","แม่เมาะ"];    
+     var amp=["เมืองลำปาง", "เกาะคา", "แม่ทะ","แม่เมาะ"];    
       
       
       function addPin(ampName,i,mo){

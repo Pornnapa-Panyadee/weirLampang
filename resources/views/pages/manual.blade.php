@@ -61,10 +61,10 @@
                                             <div class="content">
                                                 <div class="title m-b-md">
                                                 <center>
-                                                    <iframe src="https://docs.google.com/gview?url=https://weir.crflood.com/pdf/คู่มือการใช้งานเว็บไซต์ฝาย.pdf&embedded=true#:page.7" style="" width="80%" height="880px" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe> 
+                                                    <iframe src="https://docs.google.com/gview?url=https://watercenter.scmc.cmu.ac.th/weir/jang_basin/pdf/คู่มือการใช้งานเว็บไซต์ฝาย.pdf&embedded=true#:page.7" style="" width="80%" height="880px" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe> 
                                                 </center>
                                                 <br>
-                                                <center><h4> สามารถดาวน์โหลด </h4><a href="https://weir.crflood.com/pdf/คู่มือการใช้งานเว็บไซต์ฝาย.pdf"><h4> คู่มือการใช้งานเว็บไซต์ (PDF)  </h4></a></center><br><br>
+                                                <center><h4> สามารถดาวน์โหลด </h4><a href="https://watercenter.scmc.cmu.ac.th/weir/jang_basin/pdf/คู่มือการใช้งานเว็บไซต์ฝาย.pdf"><h4> คู่มือการใช้งานเว็บไซต์ (PDF)  </h4></a></center><br><br>
                                                 </div>
                                             </div>
                                     

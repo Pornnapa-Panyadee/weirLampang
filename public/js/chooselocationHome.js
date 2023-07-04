@@ -1,17 +1,17 @@
 //console.log('hello');
 
-var ID = window.location.href.replace("http://weir.crflood.com/", "");
+var ID = window.location.href.replace("https://watercenter.scmc.cmu.ac.th/weir/jang_basin/", "");
 
-function Province(id,district) {
+function Province(id, district) {
   // Empty the dropdown
-  
+
   $('#weir_district').find('option').not(':first').remove();
 
   // AJAX request 
   $.ajax({
-  
- url: 'http://weir.crflood.com/district/' + id,
- 
+
+    url: 'https://watercenter.scmc.cmu.ac.th/weir/jang_basin/district/' + id,
+
     type: 'get',
     dataType: 'json',
     success: function (response) {
@@ -30,7 +30,7 @@ function Province(id,district) {
           var option = "<option value='" + name + "'>" + name + "</option>";
           $("#weir_district").append(option);
           if (district == name) {
-            $('#weir_district option:contains(' + district + ')').prop({selected: true});
+            $('#weir_district option:contains(' + district + ')').prop({ selected: true });
           }
         }
 
@@ -44,83 +44,83 @@ function Province(id,district) {
 function District(id, tumbol) {
 
 
-    // Empty the dropdown
+  // Empty the dropdown
 
-    $('#weir_tumbol').find('option').not(':first').remove();
+  $('#weir_tumbol').find('option').not(':first').remove();
 
-    // AJAX request 
-    $.ajax({
-     
-  url: 'http://weir.crflood.com/tumbol/' + id,
-      type: 'get',
-      dataType: 'json',
-      success: function (response) {
+  // AJAX request 
+  $.ajax({
 
-        var len = 0;
-        
-        if (response['data'] != null) {
-          len = response['data'].length;
-        }
+    url: 'https://watercenter.scmc.cmu.ac.th/weir/jang_basin/tumbol/' + id,
+    type: 'get',
+    dataType: 'json',
+    success: function (response) {
 
-        if (len > 0) {
-          // Read data and create <option >
+      var len = 0;
 
-          
+      if (response['data'] != null) {
+        len = response['data'].length;
+      }
 
-          for (var i = 0; i < len; i++) {
+      if (len > 0) {
+        // Read data and create <option >
 
-            var id = response['data'][i].vill_id;
-            var name = response['data'][i].vill_tunbol;
-            var option = "<option value='" + name + "'>" + name + "</option>";
-            $("#weir_tumbol").append(option);
-            if (tumbol == name) {
-              $('#weir_tumbol option:contains(' + tumbol + ')').prop({selected: true});
-            }
+
+
+        for (var i = 0; i < len; i++) {
+
+          var id = response['data'][i].vill_id;
+          var name = response['data'][i].vill_tunbol;
+          var option = "<option value='" + name + "'>" + name + "</option>";
+          $("#weir_tumbol").append(option);
+          if (tumbol == name) {
+            $('#weir_tumbol option:contains(' + tumbol + ')').prop({ selected: true });
           }
         }
-
       }
-    });
+
+    }
+  });
 }
 
 
 function Tumbol(id, vill) {
-      // Empty the dropdown
-      $('#weir_village').find('option').not(':first').remove();
+  // Empty the dropdown
+  $('#weir_village').find('option').not(':first').remove();
 
-      // AJAX request 
-      $.ajax({
-      
-    url: 'http://weir.crflood.com/village/' + id,
-        type: 'get',
-        dataType: 'json',
-        success: function (response) {
-  
-          var len = 0;
-          if (response['data'] != null) {
-            len = response['data'].length;
+  // AJAX request 
+  $.ajax({
+
+    url: 'https://watercenter.scmc.cmu.ac.th/weir/jang_basin/village/' + id,
+    type: 'get',
+    dataType: 'json',
+    success: function (response) {
+
+      var len = 0;
+      if (response['data'] != null) {
+        len = response['data'].length;
+      }
+
+      if (len > 0) {
+        // Read data and create <option >
+        for (var i = 0; i < len; i++) {
+
+
+          var name = response['data'][i].vill_name;
+          var moo = response['data'][i].vill_moo;
+          var village = "หมู่ที่ " + moo + " " + name;
+
+          var option = "<option value='" + village + "'>" + village + "</option>";
+
+          $("#weir_village").append(option);
+          if (vill == village) {
+            $('#weir_village option:contains(' + vill + ')').prop({ selected: true });
           }
-  
-          if (len > 0) {
-            // Read data and create <option >
-            for (var i = 0; i < len; i++) {
-  
-  
-              var name = response['data'][i].vill_name;
-              var moo = response['data'][i].vill_moo;
-              var village = "หมู่ที่ " + moo + " " + name;
-  
-              var option = "<option value='" + village + "'>" + village + "</option>";
-  
-              $("#weir_village").append(option);
-              if (vill == village) {
-                $('#weir_village option:contains(' + vill + ')').prop({selected: true});
-              }
-            }
-          }
-  
         }
-      });
+      }
+
+    }
+  });
 }
 
 
@@ -128,9 +128,9 @@ $(document).ready(function () {
   // District Change
 
   $('#weir_province').change(function () {
-      let id = $('#weir_province').val();
-      //console.log(id)
-      Province(id, "0");
+    let id = $('#weir_province').val();
+    //console.log(id)
+    Province(id, "0");
 
   });
 
@@ -143,9 +143,9 @@ $(document).ready(function () {
   // District Change
 
   $('#weir_district').change(function () {
-      let id = $('#weir_district').val();
-      //console.log(id)
-      District(id, "0");
+    let id = $('#weir_district').val();
+    //console.log(id)
+    District(id, "0");
 
   });
 
@@ -179,14 +179,14 @@ function District(id, tumbol) {
 
   // AJAX request 
   $.ajax({
-   
-url: 'http://weir.crflood.com/tumbol/' + id,
+
+    url: 'https://watercenter.scmc.cmu.ac.th/weir/jang_basin/tumbol/' + id,
     type: 'get',
     dataType: 'json',
     success: function (response) {
 
       var len = 0;
-      
+
       if (response['data'] != null) {
         len = response['data'].length;
       }
@@ -201,10 +201,10 @@ url: 'http://weir.crflood.com/tumbol/' + id,
 
           var id = response['data'][i].vill_id;
           var name = response['data'][i].vill_tunbol;
-             option = "<option value='" + name + "'>" + name + "</option>";
+          option = "<option value='" + name + "'>" + name + "</option>";
           $("#weir_tumbolCR").append(option);
           if (tumbol == name) {
-            $('#weir_tumbolCR option:contains(' + tumbol + ')').prop({selected: true});
+            $('#weir_tumbolCR option:contains(' + tumbol + ')').prop({ selected: true });
           }
         }
       }

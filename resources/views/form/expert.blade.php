@@ -375,7 +375,7 @@
                                             </div>
                                             <div class="form-group row">
                                               <div class="field" align="center">
-                                                    <img src='http://weir.crflood.com/images/map_original/{{$location[0]->weir_district}}/{{$weir[0]['weir_code']}}.jpg' width="50%"><br><br>
+                                                    <img src='https://watercenter.scmc.cmu.ac.th/weir/jang_basin/images/map_original/{{$location[0]->weir_district}}/{{$weir[0]['weir_code']}}.jpg' width="50%"><br><br>
                                                     <h3><button class="btn waves-effect waves-dark btn-mini btn-danger btn-outline-danger " onclick="myFunction()" title="delete">
                                                       <i class="icofont icofont-delete-alt"></i> ลบรูปภาพ
                                                     </button></h3>

@@ -127,7 +127,7 @@
                                                     <h3>5. ระบบสารสนเทศการตรวจประเมินสภาพฝายและวางแผนปรับปรุงเพิ่มประสิทธิภาพฝายในพื้นที่จังหวัดเชียงราย : </h3>
                                                       <div align="center">
                                                           <img src="{{ asset('images/icon/qr.png') }}" width="20%"> <br>
-                                                          เว็บไซต์ : <a href="https://weir.crflood.com/"> www.weir.crflood.com </a> <br>
+                                                          เว็บไซต์ : <a href="https://watercenter.scmc.cmu.ac.th/weir/jang_basin/"> www.watercenter.scmc.cmu.ac.th/weir/jang_basin/ </a> <br>
                                                           ดาวน์โหลด : <a href="{{ asset('images/icon/qr.png') }}" download> QRcode  </a>
                                                       </div>
                                                   </div>

@@ -152,13 +152,12 @@
 
             function checkphoto($text){
                 if($text!=NULL){
-                    $img='http://weir.crflood.com/'.$text;
-                    echo "<img src='{$img}'  width=110px; style='margin:10px;'>";
+                    echo "<img src='{$text}'  width=110px; style='margin:10px;'>";
                 }else{ echo "";}	
             }
             function check4($text,$r) {
                 if($text==$r){
-                    $img='http://weir.crflood.com/images/icon/check1.png';
+                    $img='https://watercenter.scmc.cmu.ac.th/weir/jang_basin/images/icon/check1.png';
                     echo "<img src='{$img}'  width=15px;>";		
                 }else{
                      echo "";	
@@ -166,41 +165,41 @@
             }
             function checkCuase($text) {
                 if($text!=NULL){
-                    $img='http://weir.crflood.com/images/logo/check.png';
+                    $img='https://watercenter.scmc.cmu.ac.th/weir/jang_basin/images/logo/check.png';
                     echo "<img src='{$img}'  width=15px;>";	
                     //echo  "<font size=\"4\"> &#9745;</font>";
                 }else{
-                    $img='http://weir.crflood.com/images/logo/square.png'; 
+                    $img='https://watercenter.scmc.cmu.ac.th/weir/jang_basin/images/logo/square.png'; 
                      echo "<img src='{$img}'  width=15px;>";	
                 }
             }
             function checkHas($text) {
                 if($text==1){
-                    $img='http://weir.crflood.com/images/logo/check.png';
+                    $img='https://watercenter.scmc.cmu.ac.th/weir/jang_basin/images/logo/check.png';
                     echo "<img src='{$img}'  width=15px;>";	
                     //echo  "<font size=\"4\"> &#9745;</font>";
                 }else{
-                    $img='http://weir.crflood.com/images/logo/square.png'; 
+                    $img='https://watercenter.scmc.cmu.ac.th/weir/jang_basin/images/logo/square.png'; 
                      echo "<img src='{$img}'  width=15px;>";	
                 }
             }
             function checkZero($t) {
                 
                 if($t==2){
-                    $img='http://weir.crflood.com/images/logo/check.png';
+                    $img='https://watercenter.scmc.cmu.ac.th/weir/jang_basin/images/logo/check.png';
                     echo "<img src='{$img}'  width=15px;>";	
                     //echo  "<font size=\"4\"> &#9745;</font>";
                 }else{
-                    $img='http://weir.crflood.com/images/logo/square.png'; 
+                    $img='https://watercenter.scmc.cmu.ac.th/weir/jang_basin/images/logo/square.png'; 
                     echo "<img src='{$img}'  width=15px;>";
                 }
             } 
             function checkpair($text,$i) {
                 if($i==$text){
-                   $img='http://weir.crflood.com/images/logo/check.png';
+                   $img='https://watercenter.scmc.cmu.ac.th/weir/jang_basin/images/logo/check.png';
                    echo "<img src='{$img}'  width=15px;>";	
                }else{
-                   $img='http://weir.crflood.com/images/logo/square.png';
+                   $img='https://watercenter.scmc.cmu.ac.th/weir/jang_basin/images/logo/square.png';
                    echo "<img src='{$img}'  width=15px;>";	
                } 
             }

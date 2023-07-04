@@ -241,7 +241,7 @@
                                         <div class="alert alert-primary" style="margin:0 -20px 0;">รูปภาพแผนที่แสดงขอบเขตพื้นที่รับน้ำ </div>
                                           <div class="row" id="showpixrow">
                                             <div class="column" id="showpix">
-                                                <img src='http://weir.crflood.com//images/map/{{$amp}}/{{$weir_id}}.jpg' onclick="openModal();currentSlide(1)" style="width:50%" class="hover-shadow cursor">
+                                                <img src='https://watercenter.scmc.cmu.ac.th/weir/jang_basin/images/map/{{$amp}}/{{$weir_id}}.jpg' onclick="openModal();currentSlide(1)" style="width:50%" class="hover-shadow cursor">
                                             </div>
                                             
                                           </div>
@@ -310,7 +310,7 @@
                                               <!-- map -->
                                               <div class="mySlides" align="center">
                                                 <div class="numbertext"> 1 /{{$num}}</div>
-                                                  <img src='http://weir.crflood.com/images/map_original/{{$amp}}/{{$weir_id}}.jpg' width=60%>
+                                                  <img src='https://watercenter.scmc.cmu.ac.th/weir/jang_basin/images/map_original/{{$amp}}/{{$weir_id}}.jpg' width=60%>
                                               </div>
 
                                               <?php for($i=0;$i<$num1;$i++){?>
@@ -366,7 +366,7 @@
                                               </div>
                                               <div class="caption-container" width=100%>
                                                 <div class="columnDown">
-                                                    <img class="demo cursor" src='http://weir.crflood.com/images/map/{{$amp}}/{{$weir_id}}.jpg' style="width:50%" onclick="currentSlide(1)" >
+                                                    <img class="demo cursor" src='https://watercenter.scmc.cmu.ac.th/weir/jang_basin/images/map/{{$amp}}/{{$weir_id}}.jpg' style="width:50%" onclick="currentSlide(1)" >
                                                 </div>
                                                 <!-- 1 -->
                                                 <?php for($i=0;$i<$num1;$i++){?>

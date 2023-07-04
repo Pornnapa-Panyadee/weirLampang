@@ -63,10 +63,22 @@ Route::get('/test/{id}', 'App\Http\Controllers\PhotoController@photoHometest')->
 Route::get('/pdf/{id}', 'App\Http\Controllers\ReportPDFController@pdf_index');
 Route::get('/report/pdf/{id}', 'App\Http\Controllers\ReportPDFController@reportpdf_index');
 Route::get('/report/amp/{amp}', 'App\Http\Controllers\ReportPDFController@reportOne_amp');
-Route::get('/report/scoreComposition', function () {return view('pages.scorelist');});
+
 Route::POST('/report/scoreComposition/pdf', 'App\Http\Controllers\ReportPDFController@compositionWeir')->name('report.pdf');
 Route::POST('/report/problemAmp/pdf', 'App\Http\Controllers\ReportPDFController@reportOne_amp')->name('reportOne_amp.pdf');
-// Route::get('/report/problem/pdf/{amp}', 'App\Http\Controllers\ReportPDFController@problemWeir')->name('reportProblem.pdf');
+
+// Report Home 
+Route::get('/report/map', 'App\Http\Controllers\ReportPDFController@reportpdf_index'); 
+Route::get('/report/chart', 'App\Http\Controllers\ReportPDFController@reportpdf_index');
+Route::get('/report/scoreComposition', 'App\Http\Controllers\ReportPDFController@reportpdf_index');
+Route::get('/report/problem', 'App\Http\Controllers\ReportPDFController@reportpdf_index');
+
+// Route::get('/report/map', 'App\Http\Controllers\MapScoreController@scoretable');
+// Route::get('/report/chart', 'App\Http\Controllers\ChartReportController@score');
+// Route::get('/report/scoreComposition', function () {return view('pages.scorelist');});
+// Route::get('/report/problem', function () {return view('pages.problemlist');});
+
+
 
 // add image
 Route::get('addphoto/{id}', 'App\Http\Controllers\PhotoController@photoadd')->name('addphoto');
@@ -81,14 +93,14 @@ Route::get('/score/{amp}/{class}', 'App\Http\Controllers\MapScoreController@scor
 
 
 // score Map 
-Route::get('/report/map', 'App\Http\Controllers\MapScoreController@scoretable');
+
 // Route::get('/report/map', function () {return view('scorereport.mapscore');});
 // Route::get('/report/chart', function () {return view('scorereport.chart');});
-Route::get('/report/chart', 'App\Http\Controllers\ChartReportController@score');
+
 Route::get('/report/chart_test', 'App\Http\Controllers\ChartReportController@score_test');
 
 
-Route::get('/report/problem', function () {return view('pages.problemlist');});
+
 Route::get('/about', function () {return view('pages.about');});
 Route::get('/contact', function () {return view('pages.contact');});
 Route::get('/manual', function () {return view('pages.manual');});

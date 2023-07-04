@@ -157,13 +157,13 @@
                 $s_lng=str_split($locationUTM->y);
                 function checkphoto($text){
                     if($text!=NULL){
-                        $img='http://weir.crflood.com/'.$text;
+                        $img='https://watercenter.scmc.cmu.ac.th/weir/jang_basin/'.$text;
                         echo "<img src='{$img}'  width=140px; style='margin:8px 0 -10px 20px;'>";
                     }else{ echo "";}	
                 }
                 function checkphoto1($text){
                     if($text!=NULL){
-                        $img='http://weir.crflood.com/'.$text;
+                        $img='https://watercenter.scmc.cmu.ac.th/weir/jang_basin/'.$text;
                         echo "<img src='{$img}'  width=140px; style='margin:-14px 0 0px 20px;'>";
                     }else{ echo "";}	
                 }
@@ -392,7 +392,7 @@
                             <th style="background-color:#C0C0C0; text-align:center" width="50%">สภาพโดยรวมของฝายและแนวทางแก้ไขปรับปรุงเบื้องต้น</th>
                         </tr>
                         <tr>
-                            <td  width="25%"><img src='http://weir.crflood.com//images/map/{{$location[0]->weir_district}}/{{$weir[0]['weir_code']}}.jpg'  class="detail_img"> </td>
+                            <td  width="25%"><img src='https://watercenter.scmc.cmu.ac.th/weir/jang_basin/images/map/{{$location[0]->weir_district}}/{{$weir[0]['weir_code']}}.jpg'  class="detail_img"> </td>
                             <td valign="top" width="25%" class="text_table"> 
                                 <u>ข้อมูลพื้นที่รับน้ำของฝาย</u><br>
                                 A = {{$area[0]->area}} ตารางกิโลเมตร <BR>

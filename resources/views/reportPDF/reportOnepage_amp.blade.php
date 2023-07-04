@@ -177,13 +177,13 @@
         <?php 
             function checkphoto($text){
                 if($text!=NULL){
-                    $img='http://weir.crflood.com/'.$text;
+                    $img='https://watercenter.scmc.cmu.ac.th/weir/jang_basin/'.$text;
                     echo "<img src='{$img}'  width=140px; style='margin:8px 0 0px 20px;'>";
                 }else{ echo "&nbsp; ";}	
             }
             function checkphoto1($text){
                 if($text!=NULL){
-                    $img='http://weir.crflood.com/'.$text;
+                    $img='https://watercenter.scmc.cmu.ac.th/weir/jang_basin/'.$text;
                     echo "<img src='{$img}'  width=140px; style='margin:-24px 0 10px 20px;'>";
                     // echo "<img src='{$img}'  width=50%; style='margin:4px 0 20px 20px; padding-top:-14px;position: absolute;'>";
                 }else{ echo "";}	
@@ -446,7 +446,7 @@
                             <th style="background-color:#C0C0C0; text-align:center" width="50%">สภาพโดยรวมของฝายและแนวทางแก้ไขปรับปรุงเบื้องต้น </th>
                         </tr>
                         <tr>
-                            <?php $url = "http://weir.crflood.com//images/map/".$result[$i]['location'][0]->weir_district."/".$result[$i]['weir'][0]['weir_code'].".jpg";
+                            <?php $url = "https://watercenter.scmc.cmu.ac.th/weir/jang_basin/images/map/".$result[$i]['location'][0]->weir_district."/".$result[$i]['weir'][0]['weir_code'].".jpg";
                                 if(@is_array(getimagesize($url))){ ?> 
                                     <td  width="25%"><img src='{{$url}}'  class="detail_img"> </td>
                                 <?php } else{ ?>
