@@ -557,7 +557,7 @@
       }else{
         mo=1;
       }
-      addPin(station9,8,mo);
+      
       addPin(rid,79,mo);
       addPin(ridNo,89,mo);
       addPin(dwr,99,mo);
