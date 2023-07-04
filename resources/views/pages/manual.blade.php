@@ -2,7 +2,7 @@
 <html lang="en">
     <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
     <meta charset="utf-8">
-    <title>Weir CRflood : คู่มือการใช้งานเว็บไซต์</title>
+    <title>Mae Jang Basin : คู่มือการใช้งานเว็บไซต์</title>
 
     <link rel="icon" href="{{ asset('images/icon/favicon1.ico')}}" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css?family=Mitr|Prompt" rel="stylesheet">
