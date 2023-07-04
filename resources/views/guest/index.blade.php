@@ -339,21 +339,6 @@
       var station2 = new L.LayerGroup();
       var station3 = new L.LayerGroup();
       var station4 = new L.LayerGroup();
-      var station5 = new L.LayerGroup();
-      var station6 = new L.LayerGroup();
-      var station7 = new L.LayerGroup();
-      var station8 = new L.LayerGroup();
-      var station9 = new L.LayerGroup();
-
-      var station10 = new L.LayerGroup();
-      var station11 = new L.LayerGroup();
-      var station12 = new L.LayerGroup();
-      var station13 = new L.LayerGroup();
-      var station14 = new L.LayerGroup();
-      var station15 = new L.LayerGroup();
-      var station16 = new L.LayerGroup();
-      var station17 = new L.LayerGroup();
-      var station18 = new L.LayerGroup();
 
       var rid = new L.LayerGroup();
       var ridNo = new L.LayerGroup();
@@ -581,22 +566,6 @@
       addPin(station2,1,mo);
       addPin(station3,2,mo);
       addPin(station4,3,mo);
-      addPin(station5,4,mo);
-      addPin(station6,5,mo);
-      addPin(station7,6,mo);
-      addPin(station8,7,mo);
-
-      addPin(station10,9,mo);
-      addPin(station11,10,mo);
-      addPin(station12,11,mo);
-      addPin(station13,12,mo);
-      addPin(station14,13,mo);
-      addPin(station15,14,mo);
-      addPin(station16,15,mo);
-      addPin(station17,16,mo);
-      addPin(station18,17,mo);
-      
-
 
       var baseTree = {
           label: 'BaseLayers',
@@ -619,21 +588,6 @@
                 { label:" "+amp[1],layer: station2},
                 { label:" "+amp[2],layer: station3},
                 { label:" "+amp[3],layer: station4},
-                // { label:" "+amp[4],layer: station5},
-                // { label:" "+amp[5],layer: station6},
-                // { label:" "+amp[6],layer: station7},
-                // { label:" "+amp[7],layer: station8},
-                // { label:" "+amp[8],layer: station9},
-                // { label:" "+amp[9],layer: station10},
-                // { label:" "+amp[10],layer: station11},
-                // { label:" "+amp[11],layer: station12},
-                // { label:" "+amp[12],layer: station13},
-                // { label:" "+amp[13],layer: station14},
-                // { label:" "+amp[14],layer: station15},
-                // { label:" "+amp[15],layer: station16},
-                // { label:" "+amp[16],layer: station17},
-                // { label:" "+amp[17],layer: station18},
-
           ]
         },
         {
