@@ -354,7 +354,7 @@
           osmBw = L.tileLayer('http://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}',{
                 maxZoom: 20,subdomains:['mt0','mt1','mt2','mt3'], attribution: mbAttr });
       var map = L.map('map', {
-          layers: [osm,station1,station2,station3,station4,station5,station6,station7,station8,station9,station10,station11,station12,station13,station14,station15,station16,station17,station18,rid,ridNo,dwr,loyal,borders],
+          layers: [osm,station1,station2,station3,station4,rid,ridNo,dwr,loyal,borders],
           center: [x,y],
           zoom: 10,
         });
