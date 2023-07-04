@@ -28,7 +28,7 @@
                             <div class="dropdown-toggle" data-toggle="dropdown">เข้าสู่ระบบ </div>
                             <ul class="show-notification profile-notification dropdown-menu" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut" >
                                 <li>
-                                <a href="login"><i class="feather icon-log-in"></i> Login</a>
+                                <a href="{{ asset('/login') }}"><i class="feather icon-log-in"></i> Login</a>
                                 </li>
                                     <!-- <li>
                                         <a href="register">
