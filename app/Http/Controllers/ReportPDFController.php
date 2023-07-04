@@ -31,7 +31,7 @@ class ReportPDFController extends Controller
     public function pdf_index($weir_id=0) {
         // dd(Auth::user()->name);
         // $user = Auth::user()->name;
-
+        ini_set('max_execution_time', 300);
         $weir = WeirSurvey::select('*')->where('weir_code',$weir_id)->get();
         $location = WeirLocation::select('*')->where('weir_location_id',$weir[0]->weir_location_id)->get();
         $river = River::select('*')->where('river_id',$weir[0]->river_id)->get();
