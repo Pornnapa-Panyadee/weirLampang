@@ -142,6 +142,7 @@
             </tr>
         </table>
         <?php 
+            ini_set('max_execution_time', 300);
             $level=["น้อย","ปานกลาง","มาก"];
             $code=str_split($weir[0]->weir_code );
             $text= explode(" ",$location[0]->weir_village);
