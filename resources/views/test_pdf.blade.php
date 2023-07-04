@@ -128,14 +128,14 @@
      <div class="pcoded-content">
         <table>
             <tr>
-                <!-- <td width="15%"><img src="{{ asset('images/icon/egat.jpg') }}" width="100%"></td> -->
+                <td width="15%"><img src="{{ asset('images/icon/egat.jpg') }}" width="100%"></td>
                 <td width="70%">
                     <div class="text1"> แบบฟอร์มการตรวจสภาพฝาย</div>
                     <div class="text2">โครงการพัฒนาระบบสารสนเทศการตรวจประเมินสภาพฝายและวางแผนปรับปรุงเพิ่มประสิทธิภาพฝาย
                         <br>ในพื้นที่ลุ่มน้ำแม่จาง จังหวัดลำปาง
                          <br>โดยการไฟฟ้าฝ่ายผลิตแห่งประเทศไทย (กฟผ) แม่เมาะ ร่วมกับมหาวิทยาลัยเชียงใหม่ </div>
                 </td>
-                <!-- <td width="15%"><img src="{{ asset('images/icon/cmu.png') }}" width="60%" ></td> -->
+                <td width="15%"><img src="{{ asset('images/icon/cmu.png') }}" width="60%" ></td>
             </tr>
             <tr>
                 <td colspan="3" class="text2">**************************************************************************************************************</td>
