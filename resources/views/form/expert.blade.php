@@ -208,7 +208,7 @@
                                 <div class="col-md-12">
                                   <div id="wizard">
                                     <section>
-                                    <form class="wizard-form" id="basic-forms" action="{{route('form.formsubmit')}}" enctype="multipart/form-data" method="POST" onsubmit="return confirm('บันทึกข้อมูล เรียบร้อย !!');">
+                                    <form class="wizard-form" id="basic-forms" action="{{route('form.formexpert')}}" enctype="multipart/form-data" method="POST" onsubmit="return confirm('บันทึกข้อมูล เรียบร้อย !!');">
                                     <!-- <form class="wizard-form" id="basic-forms" action="{{route('form.formsubmit')}}" enctype="multipart/form-data" method="POST" onsubmit="return confirm('บันทึกข้อมูล เรียบร้อย !!');"> -->
                                         
                                         @csrf <!-- {{ csrf_field() }} -->   
@@ -220,7 +220,7 @@
                                           <div class="form-group row">
                                             <label class="col-sm-1 col-form-label">รหัส</label>
                                             <div class="col-sm-2">
-                                              <input id="weir_name" name="weir_name" type="text" class=" form-control" value="{{$weir[0]->weir_code}}">
+                                              <input id="weir_code" name="weir_code" type="text" class=" form-control" value="{{$weir[0]->weir_code}}">
                                             </div>
                                             <label class="col-sm-1 col-form-label">ชื่อฝาย</label>
                                             <div class="col-sm-2">
@@ -238,19 +238,19 @@
                                           <div class="form-group row">
                                             <label class="col-sm-1 col-form-label">หมู่บ้าน</label>
                                             <div class="col-sm-2">
-                                              <input id="weir_name" name="weir_name" type="text" class=" form-control" value="{{$location[0]->weir_village}}">
+                                              <input id="weir_village" name="weir_village" type="text" class=" form-control" value="{{$location[0]->weir_village}}">
                                             </div>
                                             <label class="col-sm-1 col-form-label">ตำบล</label>
                                             <div class="col-sm-2">
-                                              <input id="weir_name" name="weir_name" type="text" class=" form-control" value="{{$location[0]->weir_tumbol}}">
+                                              <input id="weir_tumbol" name="weir_tumbol" type="text" class=" form-control" value="{{$location[0]->weir_tumbol}}">
                                             </div>
                                             <label class="col-sm-1 col-form-label">อำเภอ</label>
                                             <div class="col-sm-2">
-                                              <input id="river_name" name="river_name" type="text" class=" form-control" value="{{$location[0]->weir_district}}">
+                                              <input id="weir_district" name="weir_district" type="text" class=" form-control" value="{{$location[0]->weir_district}}">
                                             </div>
                                             <label class="col-sm-1 col-form-label" align="right">จังหวัด</label>
                                             <div class="col-sm-2">
-                                              <input id="river_branch" name="river_branch" type="text" class=" form-control" value="{{$location[0]->weir_province}}">
+                                              <input id="weir_province" name="weir_province" type="text" class=" form-control" value="{{$location[0]->weir_province}}">
                                              </div>
                                           </div>
                                           <!-- หน่วยงานรับผิดชอบ -->

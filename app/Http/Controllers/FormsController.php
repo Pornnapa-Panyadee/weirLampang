@@ -2064,4 +2064,32 @@ class FormsController extends Controller
     }
 
 
+    public function formexpert(Request $request, User $user){
+      // dd($request);
+      $name=Auth::user()->name ;
+            
+      $expert= WeirExpert::where('weir_code',$request->weir_code)->update(
+        [
+          'weir_problem'=>$request->expert_problem,
+          'weir_solution'=>$request->expert_solution,
+        ]
+      );
+      // //// -------- Weir Catchment ------------------/////
+      $catchmant= WeirCatchment::where('weir_code',$request->weir_code)->update(
+        [
+          'area'=>$request->expert_A, 
+          'L'=>$request->expert_L, 
+          'LC'=>$request->expert_LC,
+          'H'=>$request->expert_H, 
+          'S'=>$request->expert_S, 
+          'c'=>$request->expert_C, 
+          'I'=>$request->expert_I, 
+          'Return_period'=>$request->expert_Returnperiod, 
+          'flow'=>$request->expert_rate,
+        ]
+      );
+      return redirect()->route("expert.list");   
+    }
+
+
 }

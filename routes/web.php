@@ -22,6 +22,7 @@ Route::POST('form/formsubmit', 'App\Http\Controllers\FormsController@formSubmit'
 Route::get('/edit/{weir_code}', 'App\Http\Controllers\DataSurveyController@formEdit');
 Route::POST('form/formupdate', 'App\Http\Controllers\FormsController@formUpdate')->name('form.formupdata');
 Route::POST('form/photosubmit', 'App\Http\Controllers\FormsController@photoSubmit')->name('form.photosubmit');
+Route::POST('form/formexpert', 'App\Http\Controllers\FormsController@formexpert')->name('form.formexpert');
 
 
 Route::get('/getdistrict/{id}', 'App\Http\Controllers\FormsController@getDistrict');
