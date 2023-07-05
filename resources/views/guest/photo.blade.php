@@ -241,7 +241,7 @@
                                         <div class="alert alert-primary" style="margin:0 -20px 0;">รูปภาพแผนที่แสดงขอบเขตพื้นที่รับน้ำ </div>
                                           <div class="row" id="showpixrow">
                                             <div class="column" id="showpix">
-                                                <img src='https://watercenter.scmc.cmu.ac.th/weir/jang_basin/images/map/{{$amp}}/{{$weir_id}}.jpg' onclick="openModal();currentSlide(1)" style="width:50%" class="hover-shadow cursor">
+                                                <!-- <img src='https://watercenter.scmc.cmu.ac.th/weir/jang_basin/images/map/{{$amp}}/{{$weir_id}}.jpg' onclick="openModal();currentSlide(1)" style="width:50%" class="hover-shadow cursor"> -->
                                             </div>
                                             
                                           </div>
@@ -250,7 +250,7 @@
                                           <div class="row" id="showpixrow">
                                               <?php for($i=0;$i<$num1;$i++){?>
                                                   <div class="column" id="showpix">
-                                                      <img src="/{{$photo1[$i]['file']}}" onclick="openModal();currentSlide({{$i+2}})" style="width:100%" class="hover-shadow cursor">
+                                                      <img src="{{ asset($photo1[$i]['file']) }} " onclick="openModal();currentSlide({{$i+2}})" style="width:100%" class="hover-shadow cursor">
                                                   </div>
                                               <?php } ?> 
                                           </div>
@@ -258,7 +258,7 @@
                                           <div class="row" id="showpixrow">
                                               <?php for($i=0;$i<$num2;$i++){?>
                                                   <div class="column" id="showpix">
-                                                    <img src="/{{$photo2[$i]['file']}}" onclick="openModal();currentSlide({{$i+$num1+2}})" style="width:100%" class="hover-shadow cursor">
+                                                    <img src="{{asset($photo2[$i]['file'])}}" onclick="openModal();currentSlide({{$i+$num1+2}})" style="width:100%" class="hover-shadow cursor">
                                                   </div>
                                               <?php } ?> 
                                           </div>
@@ -267,7 +267,7 @@
                                           <div class="row" id="showpixrow">
                                               <?php for($i=0;$i<$num3;$i++){?>
                                                   <div class="column" id="showpix">
-                                                  <img src="/{{$photo3[$i]['file']}}" onclick="openModal();currentSlide({{$i+$num1+$num2+2}})" style="width:100%" class="hover-shadow cursor">
+                                                  <img src="{{asset($photo3[$i]['file'])}}" onclick="openModal();currentSlide({{$i+$num1+$num2+2}})" style="width:100%" class="hover-shadow cursor">
                                                   </div>
                                               <?php } ?> 
                                           </div>
@@ -276,7 +276,7 @@
                                           <div class="row" id="showpixrow">
                                               <?php for($i=0;$i<$num4;$i++){?>
                                                   <div class="column" id="showpix">
-                                                    <img src="/{{$photo4[$i]['file']}}" onclick="openModal();currentSlide({{$i+$num1+$num2+$num3+2}})" style="width:100%" class="hover-shadow cursor">
+                                                    <img src="{{asset($photo4[$i]['file'])}}" onclick="openModal();currentSlide({{$i+$num1+$num2+$num3+2}})" style="width:100%" class="hover-shadow cursor">
                                                   </div>
                                               <?php } ?> 
                                           </div>
@@ -284,7 +284,7 @@
                                           <div class="row" id="showpixrow">
                                               <?php for($i=0;$i<$num5;$i++){?>
                                                   <div class="column" id="showpix">
-                                                    <img src="/{{$photo5[$i]['file']}}" onclick="openModal();currentSlide({{$i+$num1+$num2+$num3+$num4+2}})" style="width:100%" class="hover-shadow cursor">
+                                                    <img src="{{asset($photo5[$i]['file'])}}" onclick="openModal();currentSlide({{$i+$num1+$num2+$num3+$num4+2}})" style="width:100%" class="hover-shadow cursor">
                                                   </div>
                                               <?php } ?> 
                                           </div>
@@ -292,7 +292,7 @@
                                           <div class="row" id="showpixrow">
                                               <?php for($i=0;$i<$num6;$i++){?>
                                                   <div class="column" id="showpix">
-                                                    <img src="/{{$photo6[$i]['file']}}" onclick="openModal();currentSlide({{$i+$num1+$num2+$num3+$num4+$num5+2}})" style="width:100%" class="hover-shadow cursor">
+                                                    <img src="{{asset($photo6[$i]['file'])}}" onclick="openModal();currentSlide({{$i+$num1+$num2+$num3+$num4+$num5+2}})" style="width:100%" class="hover-shadow cursor">
                                                   </div>
                                               <?php } ?> 
                                           </div>
@@ -308,50 +308,50 @@
                                               <?php   $num =$num1+$num2+$num3+$num4+$num5+$num6+1; ?>
                                               <!-- 1 -->
                                               <!-- map -->
-                                              <div class="mySlides" align="center">
+                                              <!-- <div class="mySlides" align="center">
                                                 <div class="numbertext"> 1 /{{$num}}</div>
                                                   <img src='https://watercenter.scmc.cmu.ac.th/weir/jang_basin/images/map_original/{{$amp}}/{{$weir_id}}.jpg' width=60%>
-                                              </div>
+                                              </div> -->
 
                                               <?php for($i=0;$i<$num1;$i++){?>
                                                       <div class="mySlides">
                                                           <div class="numbertext">{{$i+2}} / {{$num}}</div>
-                                                          <img src="/{{$photo1[$i]['original']}}" class="pixpopup">
+                                                          <img src="{{asset($photo1[$i]['original'])}}" class="pixpopup">
                                                       </div>
                                               <?php } ?>
                                               <!-- 2 -->
                                               <?php for($i=0;$i<$num2;$i++){?>
                                                       <div class="mySlides">
                                                           <div class="numbertext">{{$i+$num1+2}} / {{$num}}</div>
-                                                          <img src="/{{$photo2[$i]['original']}} " class="pixpopup" >
+                                                          <img src="{{asset($photo2[$i]['original'])}} " class="pixpopup" >
                                                       </div>
                                               <?php } ?>
                                               <!-- 3 -->
                                               <?php for($i=0;$i<$num3;$i++){?>
                                                       <div class="mySlides">
                                                           <div class="numbertext">{{$i+$num1+$num2+2}} / {{$num}}</div>
-                                                          <img src="/{{$photo3[$i]['original']}}" class="pixpopup" >
+                                                          <img src="{{asset($photo3[$i]['original'])}}" class="pixpopup" >
                                                       </div>
                                               <?php } ?>
                                               <!-- 4 -->
                                               <?php for($i=0;$i<$num4;$i++){?>
                                                       <div class="mySlides">
                                                           <div class="numbertext">{{$i+$num1+$num2+$num3+2}} / {{$num}}</div>
-                                                          <img src="/{{$photo4[$i]['original']}}"class="pixpopup" >
+                                                          <img src="{{asset($photo4[$i]['original'])}}"class="pixpopup" >
                                                       </div>
                                               <?php } ?>
                                               <!-- 5 -->
                                               <?php for($i=0;$i<$num5;$i++){?>
                                                       <div class="mySlides">
                                                           <div class="numbertext">{{$i+$num1+$num2+$num3+$num4+2}} / {{$num}}</div>
-                                                          <img src="/{{$photo5[$i]['original']}}" class="pixpopup">
+                                                          <img src="{{asset($photo5[$i]['original'])}}" class="pixpopup">
                                                       </div>
                                               <?php } ?>
                                               <!-- 6 -->
                                               <?php for($i=0;$i<$num6;$i++){?>
                                                       <div class="mySlides">
                                                           <div class="numbertext">{{$i+$num1+$num2+$num3+$num4+$num5+2}} / {{$num}}</div>
-                                                          <img  src="/{{$photo6[$i]['original']}}"  >
+                                                          <img  src="{{asset($photo6[$i]['original'])}}"  >
                                                       </div>
                                               <?php } ?>
                                               
@@ -365,43 +365,43 @@
                                               <p id="caption"></p>
                                               </div>
                                               <div class="caption-container" width=100%>
-                                                <div class="columnDown">
+                                                <!-- <div class="columnDown">
                                                     <img class="demo cursor" src='https://watercenter.scmc.cmu.ac.th/weir/jang_basin/images/map/{{$amp}}/{{$weir_id}}.jpg' style="width:50%" onclick="currentSlide(1)" >
-                                                </div>
+                                                </div> -->
                                                 <!-- 1 -->
                                                 <?php for($i=0;$i<$num1;$i++){?>
                                                     <div class="columnDown">
-                                                        <img class="demo cursor" src="/{{$photo1[$i]['file']}}" style="width:100%" onclick="currentSlide({{$i+2}})" >
+                                                        <img class="demo cursor" src="{{asset($photo1[$i]['file'])}}" style="width:100%" onclick="currentSlide({{$i+2}})" >
                                                     </div>
                                                 <?php } ?>
                                                 <!-- 2 -->
                                                 <?php for($i=0;$i<$num2;$i++){?>
                                                     <div class="columnDown">
-                                                        <img class="demo cursor" src="/{{$photo2[$i]['file']}}" style="width:100%" onclick="currentSlide({{$i+$num1+2}})" >
+                                                        <img class="demo cursor" src="{{asset($photo2[$i]['file'])}}" style="width:100%" onclick="currentSlide({{$i+$num1+2}})" >
                                                     </div>
                                                 <?php } ?>
                                                 <!-- 3 -->
                                                 <?php for($i=0;$i<$num3;$i++){?>
                                                     <div class="columnDown">
-                                                        <img class="demo cursor" src="/{{$photo3[$i]['file']}}" style="width:100%" onclick="currentSlide({{$i+$num1+$num2+2}})" >
+                                                        <img class="demo cursor" src="{{asset($photo3[$i]['file'])}}" style="width:100%" onclick="currentSlide({{$i+$num1+$num2+2}})" >
                                                     </div>
                                                 <?php } ?>
                                                 <!-- 4 -->
                                                 <?php for($i=0;$i<$num4;$i++){?>
                                                     <div class="columnDown">
-                                                        <img class="demo cursor" src="/{{$photo4[$i]['file']}}" style="width:100%" onclick="currentSlide({{$i+$num1+$num2+$num3+2}})" >
+                                                        <img class="demo cursor" src="{{asset($photo4[$i]['file'])}}" style="width:100%" onclick="currentSlide({{$i+$num1+$num2+$num3+2}})" >
                                                     </div>
                                                 <?php } ?>
                                                 <!-- 5 -->
                                                 <?php for($i=0;$i<$num5;$i++){?>
                                                     <div class="columnDown">
-                                                        <img class="demo cursor" src="/{{$photo5[$i]['file']}}" style="width:100%" onclick="currentSlide({{$i+$num1+$num2+$num3+$num4+2}})" >
+                                                        <img class="demo cursor" src="{{asset($photo5[$i]['file'])}}" style="width:100%" onclick="currentSlide({{$i+$num1+$num2+$num3+$num4+2}})" >
                                                     </div>
                                                 <?php } ?>
                                                 <!-- 6 -->
                                                 <?php for($i=0;$i<$num6;$i++){?>
                                                     <div class="columnDown">
-                                                        <img class="demo cursor" src="/{{$photo6[$i]['file']}}" style="width:100%" onclick="currentSlide({{$i+$num1+$num2+$num3+$num4+$num5+2}})" >
+                                                        <img class="demo cursor" src="{{asset($photo6[$i]['file'])}}" style="width:100%" onclick="currentSlide({{$i+$num1+$num2+$num3+$num4+$num5+2}})" >
                                                     </div>
                                                 <?php } ?>
 
