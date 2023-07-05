@@ -182,7 +182,7 @@
                                               <div class="row">
                                                   <?php for($i=0;$i<$num1;$i++){?>
                                                       <div style="margin:10px;">
-                                                          <img src="/{{$photo1[$i]['file']}}" style="width:100%" > 
+                                                          <img src="{{asset($photo1[$i]['file'])}}" style="width:100%" > 
                                                           {{$photo1[$i]['name'] }}
                                                           <div align="right">
                                                             <a href='{{ asset('/photoremove') }}/{{$photo1[$i]['name']}}'  > 
@@ -199,7 +199,7 @@
                                               <div class="row">
                                                   <?php for($i=0;$i<$num2;$i++){?>
                                                     <div style="margin:10px;">
-                                                      <img src="/{{$photo2[$i]['file']}}"  style="width:100%" >
+                                                      <img src="{{asset($photo2[$i]['file'])}}"  style="width:100%" >
                                                       <div align="right">
                                                       {{$photo2[$i]['name'] }}
                                                         <a href='{{ asset('/photoremove') }}/{{$photo2[$i]['name']}}' >
@@ -218,7 +218,7 @@
                                               <div class="row">
                                                   <?php for($i=0;$i<$num3;$i++){?>
                                                     <div style="margin:10px;">
-                                                      <img src="/{{$photo3[$i]['file']}}"style="width:100%" >
+                                                      <img src="{{asset($photo3[$i]['file'])}}"style="width:100%" >
                                                       <div align="right">
                                                       {{$photo3[$i]['name'] }}
                                                         <a href='{{ asset('/photoremove') }}/{{$photo3[$i]['name']}}'  >
@@ -237,7 +237,7 @@
                                               <div class="row">
                                                   <?php for($i=0;$i<$num4;$i++){?>
                                                     <div style="margin:10px;">
-                                                      <img src="/{{$photo4[$i]['file']}}"  style="width:100%" >
+                                                      <img src="{{asset($photo4[$i]['file'])}}"  style="width:100%" >
                                                       <div align="right">
                                                       {{$photo4[$i]['name'] }}
                                                         <a href='{{ asset('/photoremove') }}/{{$photo4[$i]['name']}}'  >
@@ -256,7 +256,7 @@
                                               <div class="row">
                                                   <?php for($i=0;$i<$num5;$i++){?>
                                                     <div style="margin:10px;">
-                                                      <img src="/{{$photo5[$i]['file']}}" style="width:100%" >
+                                                      <img src="{{asset($photo5[$i]['file'])}}" style="width:100%" >
                                                       <div align="right">
                                                         {{$photo5[$i]['name'] }}
                                                         <a href='{{ asset('/photoremove') }}/{{$photo5[$i]['name']}}'  >
@@ -275,7 +275,7 @@
                                               <div class="row">
                                                   <?php for($i=0;$i<$num6;$i++){?>
                                                     <div style="margin:10px;">
-                                                      <img src="/{{$photo6[$i]['file']}}" style="width:100%" >
+                                                      <img src="{{asset($photo6[$i]['file'])}}" style="width:100%" >
                                                       <div align="right">
                                                         {{$photo6[$i]['name'] }}
                                                         <a href='{{ asset('/photoremove') }}/{{$photo6[$i]['name']}}'  >
