@@ -65,14 +65,20 @@
                                             <center><img src="{{ asset('images/admin/survey.gif') }}" width=20% ></center>
                                             <br>
                                             
-                                            <form method="POST" action="{{ route('register') }}">
+                                            <form action="{{route('users.updatedata')}}" enctype="multipart/form-data" method="POST" onsubmit="return confirm('บันทึกข้อมูล เรียบร้อย !!');">
                                                 @csrf
+                                                <div class="form-group row">
+                                                    <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('ID') }}</label>
 
+                                                    <div class="col-md-6">
+                                                        <input id="id" type="text" class="form-control @error('name') is-invalid @enderror" name="id" value="{{$data[0]->id}}" required autocomplete="id" autofocus>
+                                                    </div>
+                                                </div>
                                                 <div class="form-group row">
                                                     <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('ชื่อผู้ใช้') }}</label>
 
                                                     <div class="col-md-6">
-                                                        <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                                        <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{$data[0]->name}}" required autocomplete="name" autofocus>
 
                                                         @error('name')
                                                             <span class="invalid-feedback" role="alert">
@@ -86,7 +92,7 @@
                                                     <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
                                                     <div class="col-md-6">
-                                                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                                                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{$data[0]->email}}" required autocomplete="email">
 
                                                         @error('email')
                                                             <span class="invalid-feedback" role="alert">
@@ -97,34 +103,12 @@
                                                 </div>
 
                                                 <div class="form-group row">
-                                                    <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                                                    <div class="col-md-6">
-                                                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
-                                                        @error('password')
-                                                            <span class="invalid-feedback" role="alert">
-                                                                <strong>{{ $message }}</strong>
-                                                            </span>
-                                                        @enderror
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group row">
-                                                    <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
-
-                                                    <div class="col-md-6">
-                                                        <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group row">
                                                     <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('สถานะการใช้งาน') }}</label>
 
                                                     <div class="col-md-6">
                                                         
                                                         <select id="status" name="status">
-                                                            <option selected> - - สถานะ - -</option>
+                                                            <option value={{$data[0]->status}} selected > -- {{$status}} --</option>
                                                             <option value="admin">ผู้ดูแลระบบ</option>
                                                             <option value="surveyor">ผู้สำรวจ</option>
                                                             <option value="expert">ผู้เชี่ยวชาญ</option>
@@ -136,7 +120,7 @@
                                                 <div class="form-group row mb-0">
                                                     <div class="col-md-6 offset-md-4">
                                                         <button type="submit" class="btn btn-primary">
-                                                            {{ __('เพิ่มผู้ใช้งาน') }}
+                                                            {{ __('แก้ไขข้อมูลผู้ใช้งาน') }}
                                                         </button>
                                                     </div>
                                                 </div>

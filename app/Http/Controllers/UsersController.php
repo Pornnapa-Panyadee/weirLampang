@@ -31,7 +31,7 @@ class UsersController extends Controller
         }else{
             $status ="ผู้ดูแลระบบ";
         }
-        
+        // dd($data[0]->name);
         return view('admin/edit',compact('data','status'));           
     }
 
@@ -43,6 +43,19 @@ class UsersController extends Controller
         }else{
             return view('admin/nolist'); 
         }                  
+    }
+
+    public function updateUser(Request $request, User $user){
+
+        $data = DB::table('users')->where('id',$request->id)->update(
+        [   
+            'name'=>$request->name,
+            'email'=>$request->email,
+            'status'=>$request->status,
+        ]
+      );
+
+      return redirect()->route("admin.list");          
     }
 
 }
