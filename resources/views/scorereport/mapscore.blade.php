@@ -120,7 +120,7 @@
                         <div class="col-md-12">
                           <div class="card table-card">
                             <div class="card-header">
-                              <h3>แผนที่แสดงตำแหน่งฝายจำแนกตามสภาพฝาย ในพื้นที่จังหวัดเชียงราย</h3>                              
+                              <h3>แผนที่แสดงตำแหน่งฝายจำแนกตามสภาพฝาย ในพื้นที่ลุ่มน้ำแม่จาง จังหวัดลำปาง</h3>                              
                               
                               <!-- Map Show -->
                               <div class="card-block p-b-0">
@@ -145,7 +145,7 @@
                                 <div class="card-block">
                                   <div class="row">
                                     <div class="col-lg-9 col-xl-12">
-                                      <div class="sub-title"> <h4> ตารางสรุปผลจำนวนฝายจำแนกตามสภาพฝาย ในพื้นที่จังหวัดเชียงราย </h4> </div>
+                                      <div class="sub-title"> <h4> ตารางสรุปผลจำนวนฝายจำแนกตามสภาพฝาย ในพื้นที่ลุ่มน้ำแม่จาง จังหวัดลำปาง </h4> </div>
                                     </div> 
                                   </div>
                                   <div id="tableData">
@@ -247,13 +247,7 @@
     <script type="text/javascript">
       var station1 = new L.LayerGroup();var station2 = new L.LayerGroup();
       var station3 = new L.LayerGroup();var station4 = new L.LayerGroup();
-      var station5 = new L.LayerGroup();var station6 = new L.LayerGroup();
-      var station7 = new L.LayerGroup();var station8 = new L.LayerGroup();
-      var station9 = new L.LayerGroup();var station10 = new L.LayerGroup();
-      var station11 = new L.LayerGroup();var station12 = new L.LayerGroup();
-      var station13 = new L.LayerGroup();var station14 = new L.LayerGroup();
-      var station15 = new L.LayerGroup();var station16 = new L.LayerGroup();
-      var station17 = new L.LayerGroup();var station18 = new L.LayerGroup();
+
       var station19 = new L.LayerGroup();var station20 = new L.LayerGroup();
       var station21 = new L.LayerGroup();var station22 = new L.LayerGroup();
       var station23 = new L.LayerGroup();var station24 = new L.LayerGroup();
@@ -266,22 +260,9 @@
 
       var station37 = new L.LayerGroup();var station38 = new L.LayerGroup();
       var station39 = new L.LayerGroup();var station40 = new L.LayerGroup();
-      var station41 = new L.LayerGroup();var station42 = new L.LayerGroup();
-      var station43 = new L.LayerGroup();var station44 = new L.LayerGroup();
-      var station45 = new L.LayerGroup();var station46 = new L.LayerGroup();
-      var station47 = new L.LayerGroup();var station48 = new L.LayerGroup();
-      var station49 = new L.LayerGroup();var station50 = new L.LayerGroup();
-      var station51 = new L.LayerGroup();var station52 = new L.LayerGroup();
-      var station53 = new L.LayerGroup();var station54 = new L.LayerGroup();
+
       var station55 = new L.LayerGroup();var station56 = new L.LayerGroup();
       var station57 = new L.LayerGroup();var station58 = new L.LayerGroup();
-      var station59 = new L.LayerGroup();var station60 = new L.LayerGroup();
-      var station61 = new L.LayerGroup();var station62 = new L.LayerGroup();
-      var station63 = new L.LayerGroup();var station64 = new L.LayerGroup();
-      var station65 = new L.LayerGroup();var station66 = new L.LayerGroup();
-      var station67 = new L.LayerGroup();var station68 = new L.LayerGroup();
-      var station69 = new L.LayerGroup();var station70 = new L.LayerGroup();
-      var station71 = new L.LayerGroup();var station72 = new L.LayerGroup();
 
 
       
@@ -386,9 +367,7 @@
         });
 
 
-      // var amp=["ขุนตาล","พญาเม็งราย","เทิง","พาน","เมืองเชียงราย","ป่าแดด","แม่ลาว","แม่สรวย","เวียงป่าเป้า"];
-      // var amp=["ขุนตาล","พญาเม็งราย","เทิง","พาน","เมืองเชียงราย","แม่ลาว","แม่สรวย","เวียงป่าเป้า","ป่าแดด"];
-      var amp=["ขุนตาล", "เชียงของ", "เชียงแสน","ดอยหลวง","เทิง","ป่าแดด", "พญาเม็งราย","พาน", "เมืองเชียงราย", "แม่จัน","แม่ฟ้าหลวง","แม่ลาว","แม่สรวย", "แม่สาย","เวียงแก่น","เวียงเชียงรุ้ง","เวียงชัย","เวียงป่าเป้า"] 
+      var amp=["เมืองลำปาง","เกาะคา","แม่ทะ","แม่เมาะ"];
       
       
       function addPin(ampName,i,c,mo){
@@ -450,77 +429,21 @@
         addPin(station2,1,"สภาพดี",mo);
         addPin(station3,2,"สภาพดี",mo);
         addPin(station4,3,"สภาพดี",mo);
-        addPin(station5,4,"สภาพดี",mo);
-        addPin(station6,5,"สภาพดี",mo);
-        addPin(station7,6,"สภาพดี",mo);
-        addPin(station8,7,"สภาพดี",mo);
-        addPin(station9,8,"สภาพดี",mo);
-        addPin(station10,9,"สภาพดี",mo);
-        addPin(station11,10,"สภาพดี",mo);
-        addPin(station12,11,"สภาพดี",mo);
-        addPin(station13,12,"สภาพดี",mo);
-        addPin(station14,13,"สภาพดี",mo);
-        addPin(station15,14,"สภาพดี",mo);
-        addPin(station16,15,"สภาพดี",mo);
-        addPin(station17,16,"สภาพดี",mo);
-        addPin(station18,17,"สภาพดี",mo);
 
         addPin(station19,0,"สภาพค่อนข้างดี",mo);
         addPin(station20,1,"สภาพค่อนข้างดี",mo);
         addPin(station21,2,"สภาพค่อนข้างดี",mo);
         addPin(station22,3,"สภาพค่อนข้างดี",mo);
-        addPin(station23,4,"สภาพค่อนข้างดี",mo);
-        addPin(station24,5,"สภาพค่อนข้างดี",mo);
-        addPin(station25,6,"สภาพค่อนข้างดี",mo);
-        addPin(station26,7,"สภาพค่อนข้างดี",mo);
-        addPin(station27,8,"สภาพค่อนข้างดี",mo);
-        addPin(station28,9,"สภาพค่อนข้างดี",mo);
-        addPin(station29,10,"สภาพค่อนข้างดี",mo);
-        addPin(station30,11,"สภาพค่อนข้างดี",mo);
-        addPin(station31,12,"สภาพค่อนข้างดี",mo);
-        addPin(station32,13,"สภาพค่อนข้างดี",mo);
-        addPin(station33,14,"สภาพค่อนข้างดี",mo);
-        addPin(station34,15,"สภาพค่อนข้างดี",mo);
-        addPin(station35,16,"สภาพค่อนข้างดี",mo);
-        addPin(station36,17,"สภาพค่อนข้างดี",mo);
 
         addPin(station37,0,"สภาพปานกลาง",mo);
         addPin(station38,1,"สภาพปานกลาง",mo);
         addPin(station39,2,"สภาพปานกลาง",mo);
         addPin(station40,3,"สภาพปานกลาง",mo);
-        addPin(station41,4,"สภาพปานกลาง",mo);
-        addPin(station42,5,"สภาพปานกลาง",mo);
-        addPin(station43,6,"สภาพปานกลาง",mo);
-        addPin(station44,7,"สภาพปานกลาง",mo);
-        addPin(station45,8,"สภาพปานกลาง",mo);
-        addPin(station46,9,"สภาพปานกลาง",mo);
-        addPin(station47,10,"สภาพปานกลาง",mo);
-        addPin(station48,11,"สภาพปานกลาง",mo);
-        addPin(station49,12,"สภาพปานกลาง",mo);
-        addPin(station50,13,"สภาพปานกลาง",mo);
-        addPin(station51,14,"สภาพปานกลาง",mo);
-        addPin(station52,15,"สภาพปานกลาง",mo);
-        addPin(station53,16,"สภาพปานกลาง",mo);
-        addPin(station54,17,"สภาพปานกลาง",mo);
 
         addPin(station55,0,"สภาพทรุดโทรม",mo);
         addPin(station56,1,"สภาพทรุดโทรม",mo);
         addPin(station57,2,"สภาพทรุดโทรม",mo);
         addPin(station58,3,"สภาพทรุดโทรม",mo);
-        addPin(station59,4,"สภาพทรุดโทรม",mo);
-        addPin(station60,5,"สภาพทรุดโทรม",mo);
-        addPin(station61,6,"สภาพทรุดโทรม",mo);
-        addPin(station62,7,"สภาพทรุดโทรม",mo);
-        addPin(station63,8,"สภาพทรุดโทรม",mo);
-        addPin(station64,9,"สภาพทรุดโทรม",mo);
-        addPin(station65,10,"สภาพทรุดโทรม",mo);
-        addPin(station66,11,"สภาพทรุดโทรม",mo);
-        addPin(station67,12,"สภาพทรุดโทรม",mo);
-        addPin(station68,13,"สภาพทรุดโทรม",mo);
-        addPin(station69,14,"สภาพทรุดโทรม",mo);
-        addPin(station70,15,"สภาพทรุดโทรม",mo);
-        addPin(station71,16,"สภาพทรุดโทรม",mo);
-        addPin(station72,17,"สภาพทรุดโทรม",mo);
       
 
       
@@ -545,20 +468,6 @@
                 { label:" "+amp[1],layer: station2},
                 { label:" "+amp[2],layer: station3},
                 { label:" "+amp[3],layer: station4},
-                { label:" "+amp[4],layer: station5},
-                { label:" "+amp[5],layer: station6},
-                { label:" "+amp[6],layer: station7},
-                { label:" "+amp[7],layer: station8},
-                { label:" "+amp[8],layer: station9},
-                { label:" "+amp[9],layer: station10},
-                { label:" "+amp[10],layer: station11},
-                { label:" "+amp[11],layer: station12},
-                { label:" "+amp[12],layer: station13},
-                { label:" "+amp[13],layer: station14},
-                { label:" "+amp[14],layer: station15},
-                { label:" "+amp[15],layer: station16},
-                { label:" "+amp[16],layer: station17},
-                { label:" "+amp[17],layer: station18},
           ]
         },
         {
@@ -569,20 +478,6 @@
                 { label:" "+amp[1],layer: station20},
                 { label:" "+amp[2],layer: station21},
                 { label:" "+amp[3],layer: station22},
-                { label:" "+amp[4],layer: station23},
-                { label:" "+amp[5],layer: station24},
-                { label:" "+amp[6],layer: station25},
-                { label:" "+amp[7],layer: station26},
-                { label:" "+amp[8],layer: station27},
-                { label:" "+amp[9],layer: station28},
-                { label:" "+amp[10],layer: station29},
-                { label:" "+amp[11],layer: station30},
-                { label:" "+amp[12],layer: station31},
-                { label:" "+amp[13],layer: station32},
-                { label:" "+amp[14],layer: station33},
-                { label:" "+amp[15],layer: station34},
-                { label:" "+amp[16],layer: station35},
-                { label:" "+amp[17],layer: station36},
           ]
         },
         {
@@ -593,20 +488,6 @@
                 { label:" "+amp[1],layer: station38},
                 { label:" "+amp[2],layer: station39},
                 { label:" "+amp[3],layer: station40},
-                { label:" "+amp[4],layer: station41},
-                { label:" "+amp[5],layer: station42},
-                { label:" "+amp[6],layer: station43},
-                { label:" "+amp[7],layer: station44},
-                { label:" "+amp[8],layer: station45},
-                { label:" "+amp[9],layer: station46},
-                { label:" "+amp[10],layer: station47},
-                { label:" "+amp[11],layer: station48},
-                { label:" "+amp[12],layer: station49},
-                { label:" "+amp[13],layer: station50},
-                { label:" "+amp[14],layer: station51},
-                { label:" "+amp[15],layer: station52},
-                { label:" "+amp[16],layer: station53},
-                { label:" "+amp[17],layer: station54},
           ]
         },
         {
@@ -617,27 +498,12 @@
                 { label:" "+amp[1],layer: station56},
                 { label:" "+amp[2],layer: station57},
                 { label:" "+amp[3],layer: station58},
-                { label:" "+amp[4],layer: station59},
-                { label:" "+amp[5],layer: station60},
-                { label:" "+amp[6],layer: station61},
-                { label:" "+amp[7],layer: station62},
-                { label:" "+amp[8],layer: station63},
-                { label:" "+amp[9],layer: station64},
-                { label:" "+amp[10],layer: station65},
-                { label:" "+amp[11],layer: station66},
-                { label:" "+amp[12],layer: station67},
-                { label:" "+amp[13],layer: station68},
-                { label:" "+amp[14],layer: station69},
-                { label:" "+amp[15],layer: station70},
-                { label:" "+amp[16],layer: station71},
-                { label:" "+amp[17],layer: station72},
           ]
         }
       ];
       
       var map = L.map('map', {
-          layers: [osm,station1,station2,station3,station4,station5,station6,station7,station8,station9,station10,station11,station12,station13,station14,station15,station16,station17,station18,station19,station20,station21,station22,station23,station24,station25,station26,station27,station28,station29,station30,station31,station32,station33,station34,station35,station36,station37,
-          station38,station39,station40,station41,station42,station43,station44,station45,station46,station47,station48,station49,station50,station51,station52,station53,station54,station55,station56,station57,station58,station59,station60,station61,station62,station63,station64,station65,station66,station67,station68,station69,station70,station71,station72,borders],
+          layers: [osm,station1,station2,station3,station4,station19,station20,station21,station22,station37,station38,station39,station40,station55,station56,station57,station58,borders],
           center: [x,y],
           zoom: 9,
         });

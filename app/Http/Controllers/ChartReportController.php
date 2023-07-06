@@ -147,9 +147,9 @@ class ChartReportController extends Controller
         //             [$e[2][6],$e[1][6],$e[0][6]]];
 
         if ($amp == "sum") {
-            $amp_name = "จังหวัดเชียงราย";
+            $amp_name = "จังหวัดลำปาง";
         } else {
-            $amp_name = "อำเภอ" . $amp . " จังหวัดเชียงราย";
+            $amp_name = "อำเภอ" . $amp . " จังหวัดลำปาง";
         }
 
         return view('scorereport.chart', compact('result', 'e', 'head', 'countNum', 'countBar', 'head1', 'amp_name'));
@@ -277,9 +277,9 @@ class ChartReportController extends Controller
         //             [$e[2][6],$e[1][6],$e[0][6]]];
 
         if ($amp == "sum") {
-            $amp_name = "9 อำเภอ จังหวัดเชียงราย";
+            $amp_name = "4 อำเภอ จังหวัดลำปาง";
         } else {
-            $amp_name = "อำเภอ" . $amp . " จังหวัดเชียงราย";
+            $amp_name = "อำเภอ" . $amp . " จังหวัดลำปาง";
         }
 
         return view('scorereport.charttest', compact('result', 'e', 'head', 'countNum', 'countBar', 'head1', 'amp_name'));

@@ -142,16 +142,16 @@
                     <td colspan="3" height=100px; class="customers"> <font style="font-size:42px;"><b>ผลการตรวจประเมินสภาพฝายแต่ละองค์ประกอบ</b></td>
                 </tr>
                 <tr>
-                    <td colspan="3" height=200px; class="customers"> <font style="font-size:50px;"><b>{{$text_amp}}  จังหวัดเชียงราย</b></td>
+                    <td colspan="3" height=200px; class="customers"> <font style="font-size:50px;"><b>{{$text_amp}}  จังหวัดลำปาง</b></td>
                 </tr>
                 <tr>
                     <td colspan="3" class="customers"> <font style="font-size:32px;"><b>โครงการพัฒนาระบบสารสนเทศการตรวจประเมินสภาพฝายและวางแผนปรับปรุงเพิ่มประสิทธิภาพฝาย<b></td>
                 </tr>
                 <tr>
-                    <td colspan="3" class="customers"> <font style="font-size:32px;"><b>ในพื้นที่จังหวัดเชียงราย<b></td>
+                    <td colspan="3" class="customers"> <font style="font-size:32px;"><b>ในพื้นที่ลุ่มน้ำแม่จาง จังหวัดลำปาง<b></td>
                 </tr>
                 <tr>
-                    <td colspan="3" height=100px;> <font style="font-size:26px;"><b>โดย สำนักงานป้องกันบรรเทาสาธารณภัยเชียงรายร่วมกับมหาวิทยาลัยเชียงใหม่<b></td>
+                    <td colspan="3" height=100px;> <font style="font-size:26px;"><b>โดยการไฟฟ้าฝ่ายผลิตแห่งประเทศไทย (กฟผ) แม่เมาะ ร่วมกับมหาวิทยาลัยเชียงใหม่<b></td>
                 </tr>
             </table>
             <!-- <img src="{{ asset('images/header_pages/'.$amp.'.jpg') }}" width="105%">  -->

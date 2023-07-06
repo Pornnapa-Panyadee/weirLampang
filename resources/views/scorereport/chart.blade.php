@@ -176,7 +176,7 @@
                                         <div class="col-md-12">
                                             <div class="card table-card">
                                                 <div class="card-header">
-                                                    <h3>กราฟแสดงสัดส่วนของฝายจำแนกตามสภาพฝาย ในพื้นที่จังหวัดเชียงราย</h3>
+                                                    <h3>กราฟแสดงสัดส่วนของฝายจำแนกตามสภาพฝาย ในพื้นที่ลุ่มน้ำแม่จาง จังหวัดลำปาง</h3>
                                                     <hr>
                                                 </div>
                                                 <div class="card-header">
@@ -192,24 +192,10 @@
                                                                                     <select name="amp" class="selectpicker " id="amp" onchange="this.form.submit();">
                                                                                         <option value="0"> &nbsp;&nbsp;- - กรุณาเลือกอำเภอ - -</option>
                                                                                         <option value="sum">ทั้งหมด</option>
-                                                                                        <option value="ขุนตาล">ขุนตาล</option>
-                                                                                        <option value="เชียงของ">เชียงของ</option>
-                                                                                        <option value="เชียงแสน">เชียงแสน</option>
-                                                                                        <option value="ดอยหลวง">ดอยหลวง</option>
-                                                                                        <option value="เทิง">เทิง</option>
-                                                                                        <option value="ป่าแดด">ป่าแดด</option>
-                                                                                        <option value="พญาเม็งราย">พญาเม็งราย</option>
-                                                                                        <option value="พาน">พาน</option>
-                                                                                        <option value="เมืองเชียงราย">เมืองเชียงราย</option>
-                                                                                        <option value="แม่จัน">แม่จัน</option>
-                                                                                        <option value="แม่ฟ้าหลวง">แม่ฟ้าหลวง</option>
-                                                                                        <option value="แม่ลาว">แม่ลาว</option>
-                                                                                        <option value="แม่สรวย">แม่สรวย</option>
-                                                                                        <option value="แม่สาย">แม่สาย</option>
-                                                                                        <option value="เวียงแก่น">เวียงแก่น</option>
-                                                                                        <option value="เวียงเชียงรุ้ง">เวียงเชียงรุ้ง</option>
-                                                                                        <option value="เวียงชัย">เวียงชัย</option>
-                                                                                        <option value="เวียงป่าเป้า">เวียงป่าเป้า</option>
+                                                                                        <option value="เมืองลำปาง">เมืองลำปาง</option>
+                                                                                        <option value="เกาะคา">เกาะคา</option>
+                                                                                        <option value="แม่ทะ">แม่ทะ</option>
+                                                                                        <option value="แม่เมาะ">แม่เมาะ</option> 
                                                                                     </select>
                                                                                 </td>
                                                                             </tr>

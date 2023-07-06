@@ -69,10 +69,10 @@ Route::POST('/report/scoreComposition/pdf', 'App\Http\Controllers\ReportPDFContr
 Route::POST('/report/problemAmp/pdf', 'App\Http\Controllers\ReportPDFController@reportOne_amp')->name('reportOne_amp.pdf');
 
 // Report Home 
-Route::get('/report/map', 'App\Http\Controllers\ReportPDFController@reportpdf_index'); 
-Route::get('/report/chart', 'App\Http\Controllers\ReportPDFController@reportpdf_index');
-Route::get('/report/scoreComposition', 'App\Http\Controllers\ReportPDFController@reportpdf_index');
-Route::get('/report/problem', 'App\Http\Controllers\ReportPDFController@reportpdf_index');
+Route::get('/report/map', 'App\Http\Controllers\ReportPDFController@reportpdf_warning'); 
+Route::get('/report/chart', 'App\Http\Controllers\ReportPDFController@reportpdf_warning');
+Route::get('/report/scoreComposition', 'App\Http\Controllers\ReportPDFController@reportpdf_warning');
+Route::get('/report/problem', 'App\Http\Controllers\ReportPDFController@reportpdf_warning');
 
 // Route::get('/report/map', 'App\Http\Controllers\MapScoreController@scoretable');
 // Route::get('/report/chart', 'App\Http\Controllers\ChartReportController@score');

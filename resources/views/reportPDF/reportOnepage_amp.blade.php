@@ -156,16 +156,16 @@
                     <td colspan="3" height=100px; class="customers"> <font style="font-size:42px;"><b>ข้อมูลสภาพปัญหาและแนวทางแก้ไขปัญหาเบื้องต้นของฝาย</b></td>
                 </tr>
                 <tr>
-                    <td colspan="3" height=500px; class="customers"> <font style="font-size:60px;"><b>{{$text_tm}} <br> {{$text_amp}} จังหวัดเชียงราย</b></td>
+                    <td colspan="3" height=500px; class="customers"> <font style="font-size:60px;"><b>{{$text_tm}} <br> {{$text_amp}} จังหวัดลำปาง</b></td>
                 </tr>
                 <tr>
                     <td colspan="3" class="customers"> <font style="font-size:24px;"><b>โครงการพัฒนาระบบสารสนเทศการตรวจประเมินสภาพฝายและวางแผนปรับปรุงเพิ่มประสิทธิภาพฝาย<b></td>
                 </tr>
                 <tr>
-                    <td colspan="3" class="customers"> <font style="font-size:24px;"><b>ในพื้นที่จังหวัดเชียงราย<b></td>
+                    <td colspan="3" class="customers"> <font style="font-size:24px;"><b>ในพื้นที่ลุ่มน้ำแม่จาง จังหวัดลำปาง<b></td>
                 </tr>
                 <tr>
-                    <td colspan="3" height=100px;> <font style="font-size:24px;"><b>โดย สำนักงานป้องกันบรรเทาสาธารณภัยเชียงรายร่วมกับมหาวิทยาลัยเชียงใหม่<b></td>
+                    <td colspan="3" height=100px;> <font style="font-size:24px;"><b>โดยการไฟฟ้าฝ่ายผลิตแห่งประเทศไทย (กฟผ) แม่เมาะ ร่วมกับมหาวิทยาลัยเชียงใหม่ <b></td>
                 </tr>
             </table>
           
@@ -237,7 +237,7 @@
                 <tr>
                     <td><img src="{{ asset('images/icon/cr.png') }}" width="8%"></td>
                     <td>
-                        <div class="text_head"> การตรวจสภาพฝายและแนวทางแก้ไขปรับปรุงเพื่อเพิ่มประสิทธิภาพฝาย ในพื้นที่จังหวัดเชียงราย</div>
+                        <div class="text_head"> การตรวจสภาพฝายและแนวทางแก้ไขปรับปรุงเพื่อเพิ่มประสิทธิภาพฝาย ในพื้นที่ลุ่มน้ำแม่จาง จังหวัดลำปาง</div>
                     </td>
                     <td><img src="{{ asset('images/icon/cmu.png') }}" width="10%"></td>
                 </tr>
@@ -269,7 +269,7 @@
                         <td width="30%">หมู่บ้าน : หมู่ที่ &nbsp;{{$moo}}&nbsp;{{$tambol}}</td>
                         <td width="15%">ตำบล : &nbsp;{{$result[$i]['location'][0]->weir_tumbol}}</td>
                         <td width="15%">อำเภอ : &nbsp;{{$result[$i]['location'][0]->weir_district}}</td>
-                        <td width="15%">จังหวัด : &nbsp;เชียงราย</td>
+                        <td width="15%">จังหวัด : &nbsp;ลำปาง</td>
                         <td  >&nbsp;</td>
                     </tr>
                 </table>

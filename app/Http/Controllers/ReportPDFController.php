@@ -1000,7 +1000,13 @@ class ReportPDFController extends Controller
         $amp ="เมืองลำปาง";
         // dd($amp);
         $name= "test.pdf";
-        $pdf = PDF::loadView('reportPDF.test',compact('amp'));
+        $pdf = PDF::loadView('reportPDF.test');
         return $pdf->stream($name); 
+
+    }
+
+    public function reportpdf_warning($weir_id=0) {
+        return view('guest.warning'); 
+        
     }
 }

@@ -75,24 +75,10 @@
                                                                                         <td>
                                                                                             <select id='weir_district' name='amp' class="form-control" id="name">
                                                                                                 <option value="sum">- - กรุณาเลือกอำเภอ - -</option>
-                                                                                                <option value="ขุนตาล">ขุนตาล</option>
-                                                                                                <option value="เชียงของ">เชียงของ</option>
-                                                                                                <option value="เชียงแสน">เชียงแสน</option>
-                                                                                                <option value="ดอยหลวง">ดอยหลวง</option>
-                                                                                                <option value="เทิง">เทิง</option>
-                                                                                                <option value="ป่าแดด">ป่าแดด</option>
-                                                                                                <option value="พญาเม็งราย">พญาเม็งราย</option>
-                                                                                                <option value="พาน">พาน</option>
-                                                                                                <option value="เมืองเชียงราย">เมืองเชียงราย</option>
-                                                                                                <option value="แม่จัน">แม่จัน</option>
-                                                                                                <option value="แม่ฟ้าหลวง">แม่ฟ้าหลวง</option>
-                                                                                                <option value="แม่ลาว">แม่ลาว</option>
-                                                                                                <option value="แม่สรวย">แม่สรวย</option>
-                                                                                                <option value="แม่สาย">แม่สาย</option>
-                                                                                                <option value="เวียงแก่น">เวียงแก่น</option>
-                                                                                                <option value="เวียงเชียงรุ่ง">เวียงเชียงรุ่ง</option>
-                                                                                                <option value="เวียงชัย">เวียงชัย</option>
-                                                                                                <option value="เวียงป่าเป้า">เวียงป่าเป้า</option>   
+                                                                                                <option value="เมืองลำปาง">เมืองลำปาง</option>
+                                                                                                <option value="เกาะคา">เกาะคา</option>
+                                                                                                <option value="แม่ทะ">แม่ทะ</option>
+                                                                                                <option value="แม่เมาะ">แม่เมาะ</option>  
                                                                                             </select> 
                                                                                             <span class="messages"></span>
                                                                                         </td>

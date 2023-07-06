@@ -34,14 +34,14 @@
                     </li>
                 </ul>
             </li>
-            <li class="pcoded-hasmenu">
+            <!-- <li class="pcoded-hasmenu">
                 <a href="javascript:void(0)" >
                     <span class="pcoded-mtext"><i class="feather icon-box"></i> คลังความรู้</span>
                 </a>
                 <ul class="pcoded-submenu">
                     <li class="">
                         <a href="https://blockage.crflood.com/mapthai/chiangrai" target="_blank" >
-                          <span class="pcoded-mtext">IDF Curve รายอำเภอ (จ.เชียงราย) </span>
+                          <span class="pcoded-mtext">IDF Curve รายอำเภอ (จ.ลำปาง) </span>
                         </a>
                     </li>
                     <li class="">
@@ -55,7 +55,7 @@
                         </a>
                     </li>
                 </ul>
-            </li>
+            </li> -->
             <li class="pcoded-hasmenu">
                 <a href="{{ asset('/about') }}" >
                     <span class="pcoded-mtext"><i class="fa fa-sticky-note-o"></i> เกี่ยวกับโครงการ</span>

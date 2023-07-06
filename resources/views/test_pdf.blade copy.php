@@ -316,7 +316,7 @@
                         <td width=15% class="line"><font class="outline">หมู่ที่&nbsp;&nbsp;</font>&nbsp;&nbsp;{{$moo}}&nbsp;</td>
                         <td width=25% class="line"><font class="outline">&nbsp;ชื่อหมู่บ้าน&nbsp;&nbsp;</font>&nbsp;&nbsp;  {{$tambol}}&nbsp;</td>
                         <td width=25% class="line"><font class="outline">&nbsp;ตำบล &nbsp;&nbsp;</font>&nbsp;&nbsp;{{$location[0]->weir_tumbol}}&nbsp;</td>
-                        <td width=25% class="line"><font class="outline">&nbsp;จังหวัด&nbsp;&nbsp;</font>&nbsp;&nbsp;เชียงราย</td>
+                        <td width=25% class="line"><font class="outline">&nbsp;จังหวัด&nbsp;&nbsp;</font>&nbsp;&nbsp;ลำปาง</td>
                     </tr>
                 </table>
                 <div style="padding-left:50px; margin-top:10px;"> พิกัด X (UTM)

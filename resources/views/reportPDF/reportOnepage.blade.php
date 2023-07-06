@@ -141,7 +141,7 @@
                 <tr>
                     <td><img src="{{ asset('images/icon/cr.png') }}" width="8%"></td>
                     <td>
-                        <div class="text2"> การตรวจสภาพฝายและแนวทางแก้ไขปรับปรุงเพื่อเพิ่มประสิทธิภาพฝาย ในพื้นที่จังหวัดเชียงราย</div>
+                        <div class="text2"> การตรวจสภาพฝายและแนวทางแก้ไขปรับปรุงเพื่อเพิ่มประสิทธิภาพฝาย ในพื้นที่จังหวัดลำปาง</div>
                     </td>
                     <td><img src="{{ asset('images/icon/cmu.png') }}" width="10%"></td>
                 </tr>
@@ -221,7 +221,7 @@
                         <td width="20%">หมู่บ้าน : หมู่ที่ &nbsp;{{$moo}}&nbsp;{{$tambol}}</td>
                         <td width="15%">ตำบล : &nbsp;{{$location[0]->weir_tumbol}}</td>
                         <td width="15%">อำเภอ : &nbsp;{{$location[0]->weir_district}}</td>
-                        <td width="15%">จังหวัด : &nbsp;เชียงราย</td>
+                        <td width="15%">จังหวัด : &nbsp;ลำปาง</td>
                         <td  >&nbsp;</td>
                     </tr>
                 </table>

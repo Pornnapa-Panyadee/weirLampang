@@ -62,7 +62,7 @@
                                                                 <div class="card-block">
                                                                     <div class="row" id="draggablePanelList">
 
-                                                                        <div class="col-lg-12 col-xl-3">
+                                                                        <!-- <div class="col-lg-12 col-xl-3">
                                                                             <div class="card-sub">
                                                                                 <img class="card-img-top img-fluid" src="{{ asset('images/project/proj01.png') }}">
                                                                                 <div class="card-block">
@@ -73,9 +73,9 @@
                                                                                 </div>
                                                                             </div>
 
-                                                                        </div>
+                                                                        </div> -->
                                                                         <!--  -->
-                                                                        <div class="col-lg-12 col-xl-3">
+                                                                        <!-- <div class="col-lg-12 col-xl-3">
                                                                             <div class="card-sub">
                                                                                 <img class="card-img-top img-fluid" src="{{ asset('images/project/proj02.png') }}">
                                                                                 <div class="card-block">
@@ -85,9 +85,9 @@
                                                                                     </a>
                                                                                 </div>
                                                                             </div>
-                                                                        </div>
+                                                                        </div> -->
                                                                         <!--  -->
-                                                                        <div class="col-lg-12 col-xl-3">
+                                                                        <!-- <div class="col-lg-12 col-xl-3">
                                                                             <div class="card-sub">
                                                                                 <img class="card-img-top img-fluid" src="{{ asset('images/project/proj03.png') }}">
                                                                                 <div class="card-block">
@@ -97,9 +97,9 @@
                                                                                     </a>
                                                                                 </div>
                                                                             </div>
-                                                                        </div>
+                                                                        </div> -->
                                                                         <!--  -->
-                                                                        <div class="col-lg-12 col-xl-3">
+                                                                        <!-- <div class="col-lg-12 col-xl-3">
                                                                             <div class="card-sub">
                                                                                 <img class="card-img-top img-fluid" src="{{ asset('images/project/proj04.png') }}">
                                                                                 <div class="card-block">
@@ -109,152 +109,10 @@
                                                                                     </a>
                                                                                 </div>
                                                                             </div>
-                                                                        </div>
+                                                                        </div> -->
                                                                     </div>
                                                                     <Br>
-                                                                    <div class="row" id="draggablePanelList">
-                                                                        <!--  -->
-                                                                        <div class="col-lg-12 col-xl-3">
-                                                                            <div class="card-sub">
-                                                                                <img class="card-img-top img-fluid" src="{{ asset('images/project/proj05.png') }}">
-                                                                                <div class="card-block">
-                                                                                    <a href="{{ asset('/project/5')}}">
-                                                                                        <h4 class="card-title">โครงการที่5 ฝายน้ำหงาว </h4>
-                                                                                        <p class="card-text">ตำบลตับเต่า อำเภอเทิง </p>
-                                                                                    </a>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <!--  -->
-                                                                        <div class="col-lg-12 col-xl-3">
-                                                                            <div class="card-sub">
-                                                                                <img class="card-img-top img-fluid" src="{{ asset('images/project/proj06.png') }}">
-                                                                                <div class="card-block">
-                                                                                    <a href="{{ asset('/project/6')}}">
-                                                                                        <h4 class="card-title">โครงการที่6 ฝายห้วยส้าน </h4>
-                                                                                        <p class="card-text">ตำบลโป่งแพร่ อำเภอแม่ลาว </p>
-                                                                                    </a>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-
-                                                                        <!--  -->
-                                                                        <div class="col-lg-12 col-xl-3">
-                                                                            <div class="card-sub">
-                                                                                <img class="card-img-top img-fluid" src="{{ asset('images/project/proj07.png') }}">
-                                                                                <div class="card-block">
-                                                                                    <a href="{{ asset('/project/7')}}">
-                                                                                        <h4 class="card-title">โครงการที่7 ฝายห้วยต้า </h4>
-                                                                                        <p class="card-text">ตำบลต้า อำเภอขุนตาล </p>
-                                                                                    </a>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <!--  -->
-                                                                        <div class="col-lg-12 col-xl-3">
-                                                                            <div class="card-sub">
-                                                                                <img class="card-img-top img-fluid" src="{{ asset('images/project/proj08.png') }}">
-                                                                                <div class="card-block">
-                                                                                    <a href="{{ asset('/project/8')}}">
-                                                                                        <h4 class="card-title">โครงการที่8 ฝายห้วยชมพู </h4>
-                                                                                        <p class="card-text">ตำบลแม่เจดีย์ใหม่ อำเภอเวียงป่าเป้า </p>
-                                                                                    </a>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <Br>
-                                                                    <div class="row" id="draggablePanelList">
-                                                                        <!--  -->
-                                                                        <div class="col-lg-12 col-xl-3">
-                                                                            <div class="card-sub">
-                                                                                <img class="card-img-top img-fluid" src="{{ asset('images/project/proj09.png') }}">
-                                                                                <div class="card-block">
-                                                                                    <a href="{{ asset('/project/9')}}">
-                                                                                        <h4 class="card-title">โครงการที่9 ฝายห้วยแม่พริก </h4>
-                                                                                        <p class="card-text">ตำบลแม่พริก อำเภอแม่สรวย </p>
-                                                                                    </a>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <!--  -->
-                                                                        <div class="col-lg-12 col-xl-3">
-                                                                            <div class="card-sub">
-                                                                                <img class="card-img-top img-fluid" src="{{ asset('images/project/proj10.png') }}">
-                                                                                <div class="card-block">
-                                                                                    <a href="{{ asset('/project/10')}}">
-                                                                                        <h4 class="card-title">โครงการที่10 ฝายห้วยมะขม </h4>
-                                                                                        <p class="card-text">ตำบลทุ่งก่อ อำเภอเวียงเชียงรุ้ง </p>
-                                                                                    </a>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <!--  -->
-                                                                        <div class="col-lg-12 col-xl-3">
-                                                                            <div class="card-sub">
-                                                                                <img class="card-img-top img-fluid" src="{{ asset('images/project/proj11.png') }}">
-                                                                                <div class="card-block">
-                                                                                    <a href="{{ asset('/project/11')}}">
-                                                                                        <h4 class="card-title">โครงการที่11 ฝายห้วยส้าน </h4>
-                                                                                        <p class="card-text">ตำบลท่าข้าม อำเภอเวียงแก่น </p>
-                                                                                    </a>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <!--  -->
-                                                                        <div class="col-lg-12 col-xl-3">
-                                                                            <div class="card-sub">
-                                                                                <img class="card-img-top img-fluid" src="{{ asset('images/project/proj12.png') }}">
-                                                                                <div class="card-block">
-                                                                                    <a href="{{ asset('/project/12')}}">
-                                                                                        <h4 class="card-title">โครงการที่12 ฝายน้ำบง </h4>
-                                                                                        <p class="card-text">ตำบลโชคชัย อำเภอดอยหลวง </p>
-                                                                                    </a>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <br>
-                                                                    <div class="row" id="draggablePanelList">
-                                                                        <!--  -->
-                                                                        <div class="col-lg-12 col-xl-3">
-                                                                            <div class="card-sub">
-                                                                                <img class="card-img-top img-fluid" src="{{ asset('images/project/proj13.png') }}">
-                                                                                <div class="card-block">
-                                                                                    <a href="{{ asset('/project/13')}}">
-                                                                                        <h4 class="card-title">โครงการที่13 ฝายห้วยบง </h4>
-                                                                                        <p class="card-text">ตำบลบ้านแซว อำเภอเชียงแสน </p>
-                                                                                    </a>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <!--  -->
-                                                                        <div class="col-lg-12 col-xl-3">
-                                                                            <div class="card-sub">
-                                                                                <img class="card-img-top img-fluid" src="{{ asset('images/project/proj14.png') }}">
-                                                                                <div class="card-block">
-                                                                                    <a href="{{ asset('/project/14')}}">
-                                                                                        <h4 class="card-title">โครงการที่14 ฝายน้ำจ้อง </h4>
-                                                                                        <p class="card-text">ตำบลโป่งผา อำเภอแม่สาย </p>
-                                                                                    </a>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <!--  -->
-                                                                        <div class="col-lg-12 col-xl-3">
-                                                                            <div class="card-sub">
-                                                                                <img class="card-img-top img-fluid" src="{{ asset('images/project/proj15.png') }}">
-                                                                                <div class="card-block">
-                                                                                    <a href="{{ asset('/project/15')}}">
-                                                                                        <h4 class="card-title">โครงการที่15 ฝายห้วยไร่ </h4>
-                                                                                        <p class="card-text">ตำบลแม่ไร่ อำเภอแม่จัน </p>
-                                                                                    </a>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <!--  -->
-
-                                                                    </div>
+                                                                    
                                                                 </div>
                                                             </div>
                                                             <!-- Draggable default card start -->

@@ -310,7 +310,7 @@ class MapScoreController extends Controller
     // Page Map Score for table
     public function scoretable()
     {
-        $amp = ["ขุนตาล", "เชียงของ", "เชียงแสน", "ดอยหลวง", "เทิง", "ป่าแดด", "พญาเม็งราย", "พาน", "เมืองเชียงราย", "แม่จัน", "แม่ฟ้าหลวง", "แม่ลาว", "แม่สรวย", "แม่สาย", "เวียงแก่น", "เวียงเชียงรุ้ง", "เวียงชัย", "เวียงป่าเป้า"];
+        $amp = ["เมืองลำปาง", "เกาะคา", "แม่ทะ", "แม่เมาะ"];
 
         for ($i = 0; $i < count($amp); $i++) {
             $score_N = DB::table('score_sums')->select('*')->where('amp', $amp[$i])->where('class', 'สภาพดี')->get();
