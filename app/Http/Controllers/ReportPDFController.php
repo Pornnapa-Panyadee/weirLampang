@@ -994,4 +994,13 @@ class ReportPDFController extends Controller
         }
         
     }
+
+    public function testPDF()
+    {
+        $amp ="เมืองลำปาง";
+        // dd($amp);
+        $name= "test.pdf";
+        $pdf = PDF::loadView('reportPDF.test',compact('amp'));
+        return $pdf->stream($name); 
+    }
 }

@@ -117,3 +117,7 @@ Route::get('/admin/register', function () {return view('admin.register');});
 Route::get('/admin/edit/{id}', 'App\Http\Controllers\UsersController@getdetailUser');
 Route::get('/admin/delete/{id}', 'App\Http\Controllers\UsersController@deleteUser');
 Route::post('/admin/update', 'App\Http\Controllers\UsersController@updateUser')->name('users.updatedata');
+
+
+// test
+Route::get('/testpdf', 'App\Http\Controllers\ReportPDFController@testPDF');
