@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use PDF;
 use DB;
@@ -1000,8 +1001,11 @@ class ReportPDFController extends Controller
         $amp ="เมืองลำปาง";
         // dd($amp);
         $name= "test.pdf";
-        $pdf = PDF::loadView('reportPDF.test');
-        return $pdf->stream($name); 
+        $pdf = PDF::loadView('reportPDF.test',compact("amp"));
+        // return $pdf->stream($name); 
+        $content = $pdf->download()->getOriginalContent();
+        Storage::put('public/pdf/test.pdf',$content);
+        return view('guest.pdf'); 
 
     }
 
