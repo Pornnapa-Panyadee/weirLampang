@@ -359,20 +359,20 @@
                                                   <td>
                                                     <div class="border-checkbox-section">                                               
                                                       <div class="border-checkbox-group border-checkbox-group-primary">
-                                                        <input class="border-checkbox" type="checkbox" id="weir_type1" name="weir_type" {{checkdata($weir[0]->Resp_type,1)}}>
-                                                        <label class="border-checkbox-label" for="weir_type1"> หน่วยงานตามภารกิจ </label>
+                                                        <input class="border-checkbox" type="checkbox" id="weir_type1" name="resp_type" {{checkdata(1,$weir[0]->Resp_type)}}>
+                                                        <label class="border-checkbox-label" for="weir_type1"> หน่วยงานตามภารกิจ {</label>
                                                       </div>
                                                     </div>
                                                   </td>
                                                   <td>
-                                                    <input id="resp_name1" name="resp_name1" type="text" class=" form-control" {{checkresp_type($weir[0]->resp_name,$weir[0]->Resp_type,1)}}>
+                                                    <input id="resp_name1" name="resp_name1" type="text" class=" form-control"  {{checkresp_type($weir[0]->resp_name,$weir[0]->Resp_type,1)}}>
                                                    </td>
                                                 </tr>
                                                 <tr>
                                                   <td>
                                                     <div class="border-checkbox-section">                                               
                                                       <div class="border-checkbox-group border-checkbox-group-primary">
-                                                        <input class="border-checkbox" type="checkbox" id="weir_type2" name="weir_type" {{checkdata($weir[0]->Resp_type,2)}}>
+                                                        <input class="border-checkbox" type="checkbox" id="weir_type2" name="resp_type" {{checkdata(2,$weir[0]->Resp_type)}}>
                                                         <label class="border-checkbox-label" for="weir_type2"> หน่วยงานท้องถิ่น </label>
                                                       </div>
                                                     </div>
@@ -389,7 +389,7 @@
                                                   <td>
                                                     <div class="border-checkbox-section">                                               
                                                       <div class="border-checkbox-group border-checkbox-group-primary">
-                                                        <input class="border-checkbox" type="checkbox" id="weir_type3" name="weir_type" {{checkdata($weir[0]->Resp_type,3)}}>
+                                                        <input class="border-checkbox" type="checkbox" id="weir_type3" name="weir_type" {{checkdata(3,$weir[0]->Resp_type)}}>
                                                         <label class="border-checkbox-label" for="weir_type3"> อื่นๆ </label>
                                                       </div>
                                                     </div>
