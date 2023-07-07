@@ -1345,6 +1345,19 @@ class FormsController extends Controller
           }
       }
 
+      // dd($request);
+      if($request->resp_name1!=NULL||$request->resp_name2!=NULL||$request->resp_name2!=NULL){
+            if($request->resp_name1!=NULL){
+              $resp_name = $request->resp_name1;
+            }else if($request->resp_name2!=NULL){
+              $resp_name = $request->resp_name2;
+            }else{
+              $resp_name = $request->resp_name3;
+            }
+      }else{
+        $resp_name =NULL;
+      }
+        
       // /////--------weir_surveys-------------/////////
       $weir= WeirSurvey::where('weir_id',$request->weir_id)->update(
         [
@@ -1357,7 +1370,8 @@ class FormsController extends Controller
           'weir_build'=>$request->weir_year,
           'weir_age'=>$request->weir_age,
           'weir_model'=>json_encode($model, JSON_UNESCAPED_UNICODE),
-          'resp_name'=>$request->resp_name,
+          'Resp_type'=>$request->resp_type,
+          'resp_name'=>$resp_name,
           'transfer'=>$request->transfer,
           'user'=>$name,
         ]
@@ -1795,10 +1809,12 @@ class FormsController extends Controller
                   $photo_last= DB::table('photos')->select('photo_id')->where('weir_id', $weir_id)->get()->last();
                   if($photo_last==NULL){
                     $last=0;
+                    $photo_id=$codeweir."-".calCodePH($photo,0);
                   }else{
                     $last=explode("-",$photo_last->photo_id);
+                    $photo_id=$codeweir."-".calCodePH($photo,$last[1]);
                   }
-                  $photo_id=$codeweir."-".calCodePH($photo,(int)$last[1]);
+                  
 
                   
                   $filename = $photo_id.'.'.$image->getClientOriginalExtension();
@@ -1841,10 +1857,11 @@ class FormsController extends Controller
                   $photo_last= DB::table('photos')->select('photo_id')->where('weir_id', $weir_id)->orderBy('created_at', 'asc')->get()->last();
                   if($photo_last==NULL){
                     $last=0;
+                    $photo_id=$codeweir."-".calCodePH($photo,0);
                   }else{
                     $last=explode("-",$photo_last->photo_id);
+                    $photo_id=$codeweir."-".calCodePH($photo,(int)$last[1]);
                   }
-                  $photo_id=$codeweir."-".calCodePH($photo,(int)$last[1]);
 
                   $filename = $photo_id.'.'.$image->getClientOriginalExtension();
                   //path of image for upload
@@ -1886,11 +1903,13 @@ class FormsController extends Controller
                   $photo_last= DB::table('photos')->select('photo_id')->where('weir_id', $weir_id)->orderBy('created_at', 'asc')->get()->last();
                   if($photo_last==NULL){
                     $last=0;
+                    $photo_id=$codeweir."-".calCodePH($photo,0);
                   }else{
                     $last=explode("-",$photo_last->photo_id);
+                    $photo_id=$codeweir."-".calCodePH($photo,(int)$last[1]);
                   }
 
-                  $photo_id=$codeweir."-".calCodePH($photo,(int)$last[1]);
+                  
 
                   $filename = $photo_id.'.'.$image->getClientOriginalExtension();
                   //path of image for upload
@@ -1932,10 +1951,11 @@ class FormsController extends Controller
                   $photo_last= DB::table('photos')->select('photo_id')->where('weir_id', $weir_id)->orderBy('created_at', 'asc')->get()->last();
                   if($photo_last==NULL){
                     $last=0;
+                    $photo_id=$codeweir."-".calCodePH($photo,0);
                   }else{
                     $last=explode("-",$photo_last->photo_id);
+                    $photo_id=$codeweir."-".calCodePH($photo,(int)$last[1]);
                   }
-                  $photo_id=$codeweir."-".calCodePH($photo,(int)$last[1]);
 
                   $filename = $photo_id.'.'.$image->getClientOriginalExtension();
                   //path of image for upload
@@ -1978,10 +1998,11 @@ class FormsController extends Controller
                   $photo_last= DB::table('photos')->select('photo_id')->where('weir_id', $weir_id)->orderBy('created_at', 'asc')->get()->last();
                   if($photo_last==NULL){
                     $last=0;
+                    $photo_id=$codeweir."-".calCodePH($photo,0);
                   }else{
                     $last=explode("-",$photo_last->photo_id);
+                    $photo_id=$codeweir."-".calCodePH($photo,(int)$last[1]);
                   }
-                  $photo_id=$codeweir."-".calCodePH($photo,(int)$last[1]);
 
                   $filename = $photo_id.'.'.$image->getClientOriginalExtension();
                   //path of image for upload
@@ -2022,11 +2043,12 @@ class FormsController extends Controller
                   $photo= DB::table('photos')->select('photo_id')->where('weir_id', $weir_id)->orderBy('created_at', 'asc')->count();;
                   $photo_last= DB::table('photos')->select('photo_id')->where('weir_id', $weir_id)->orderBy('created_at', 'asc')->get()->last();
                   if($photo_last==NULL){
-                    $last=0;
+                    $photo_id=$codeweir."-".calCodePH($photo,0);
                   }else{
                     $last=explode("-",$photo_last->photo_id);
+                    $photo_id=$codeweir."-".calCodePH($photo,(int)$last[1]);
                   }
-                  $photo_id=$codeweir."-".calCodePH($photo,(int)$last[1]);
+                  
 
                   $filename = $photo_id.'.'.$image->getClientOriginalExtension();
                   //path of image for upload
