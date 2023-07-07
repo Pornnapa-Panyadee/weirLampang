@@ -1002,7 +1002,10 @@ class ReportPDFController extends Controller
         
         $pdf = PDF::loadView('test_pdf02',compact('weir_id'));
         
-        return $pdf->stream('test.pdf'); //แบบนี้จะ stream มา preview
+        // return $pdf->stream('test.pdf'); //แบบนี้จะ stream มา preview
+        $content = $pdf->download()->getOriginalContent();
+        Storage::put('public/pdf/test.pdf',$content);
+        return view('guest.pdf'); 
 
     }
 
