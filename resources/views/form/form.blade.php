@@ -280,7 +280,7 @@
                                                   <td>
                                                     <div class="border-checkbox-section">                                               
                                                       <div class="border-checkbox-group border-checkbox-group-primary">
-                                                        <input class="border-checkbox" type="checkbox" id="weir_type1" name="weir_type" value="1">
+                                                        <input class="border-checkbox" type="checkbox" id="weir_type1" name="resp_type" value="1">
                                                         <label class="border-checkbox-label" for="weir_type1"> หน่วยงานตามภารกิจ </label>
                                                       </div>
                                                     </div>
@@ -294,7 +294,7 @@
                                                   <td>
                                                     <div class="border-checkbox-section">                                               
                                                       <div class="border-checkbox-group border-checkbox-group-primary">
-                                                        <input class="border-checkbox" type="checkbox" id="weir_type2" name="weir_type" value="2">
+                                                        <input class="border-checkbox" type="checkbox" id="weir_type2" name="resp_type" value="2">
                                                         <label class="border-checkbox-label" for="weir_type2"> หน่วยงานท้องถิ่น </label>
                                                       </div>
                                                     </div>
@@ -311,7 +311,7 @@
                                                   <td>
                                                     <div class="border-checkbox-section">                                               
                                                       <div class="border-checkbox-group border-checkbox-group-primary">
-                                                        <input class="border-checkbox" type="checkbox" id="weir_type3" name="weir_type" value="3">
+                                                        <input class="border-checkbox" type="checkbox" id="weir_type3" name="resp_type" value="3">
                                                         <label class="border-checkbox-label" for="weir_type3"> อื่นๆ </label>
                                                       </div>
                                                     </div>
