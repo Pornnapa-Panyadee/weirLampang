@@ -1002,7 +1002,7 @@ class ReportPDFController extends Controller
         $weir = WeirSurvey::select('*')->where('weir_code',$weir_id)->get();
         // dd($amp);
         $name= "test.pdf";
-        $pdf = PDF::loadView('test_pdf02',compact("weir"));
+        $pdf = PDF::loadView('reportPDF.test',compact("weir"));
         // return $pdf->stream($name); 
         $content = $pdf->download()->getOriginalContent();
         Storage::put('public/pdf/test.pdf',$content);
