@@ -998,22 +998,22 @@ class ReportPDFController extends Controller
 
     public function testPDF($weir_id=0)
     {
-        // $weir_id = "WLP01150501";
+        
         $weir = WeirSurvey::select('*')->where('weir_code',$weir_id)->get();
-        $location = WeirLocation::select('*')->where('weir_location_id',$weir[0]->weir_location_id)->get();
-        $river = River::select('*')->where('river_id',$weir[0]->river_id)->get();
-        $districtData['data'] = Location::getDistrictCR();
-        $space = WeirSpaceification::select('*')->where('weir_spec_id',$weir[0]->weir_spec_id)->get();
-        $upprotection = UpprotectionInv::select('*')->where('weir_id',$weir[0]->weir_id)->get();
-        $upconcrete = UpconcreteInv::select('*')->where('weir_id',$weir[0]->weir_id)->get();
-        $control = ControlInv::select('*')->where('weir_id',$weir[0]->weir_id)->get();
-        $downconcrete = DownconcreteInv::select('*')->where('weir_id',$weir[0]->weir_id)->get();
-        $downprotection = DownprotectionInv::select('*')->where('weir_id',$weir[0]->weir_id)->get();
-        $waterdelivery = WaterdeliveryInv::select('*')->where('weir_id',$weir[0]->weir_id)->get();
-        $plan = ImprovementPlan::select('*')->where('weir_id',$weir[0]->weir_id)->get();
-        $maintain1 = Maintenance::select('*')->where('weir_id',$weir[0]->weir_id)->get();
-        $sug = AdditinalSuggestion::select('*')->where('weir_id',$weir[0]->weir_id)->get();
-        $photo = Photo::select('*')->where('weir_id',$weir[0]->weir_id)->get();
+        // $location = WeirLocation::select('*')->where('weir_location_id',$weir[0]->weir_location_id)->get();
+        // $river = River::select('*')->where('river_id',$weir[0]->river_id)->get();
+        // $districtData['data'] = Location::getDistrictCR();
+        // $space = WeirSpaceification::select('*')->where('weir_spec_id',$weir[0]->weir_spec_id)->get();
+        // $upprotection = UpprotectionInv::select('*')->where('weir_id',$weir[0]->weir_id)->get();
+        // $upconcrete = UpconcreteInv::select('*')->where('weir_id',$weir[0]->weir_id)->get();
+        // $control = ControlInv::select('*')->where('weir_id',$weir[0]->weir_id)->get();
+        // $downconcrete = DownconcreteInv::select('*')->where('weir_id',$weir[0]->weir_id)->get();
+        // $downprotection = DownprotectionInv::select('*')->where('weir_id',$weir[0]->weir_id)->get();
+        // $waterdelivery = WaterdeliveryInv::select('*')->where('weir_id',$weir[0]->weir_id)->get();
+        // $plan = ImprovementPlan::select('*')->where('weir_id',$weir[0]->weir_id)->get();
+        // $maintain1 = Maintenance::select('*')->where('weir_id',$weir[0]->weir_id)->get();
+        // $sug = AdditinalSuggestion::select('*')->where('weir_id',$weir[0]->weir_id)->get();
+        // $photo = Photo::select('*')->where('weir_id',$weir[0]->weir_id)->get();
 
         $pdf = PDF::loadView('test_pdf02',compact('weir'));
         
