@@ -32,7 +32,7 @@ class ReportPDFController extends Controller
     public function pdf_index($weir_id=0) {
         // dd(Auth::user()->name);
         // $user = Auth::user()->name;
-        ini_set('max_execution_time', 300);
+        // ini_set('max_execution_time', 300);
         $weir = WeirSurvey::select('*')->where('weir_code',$weir_id)->get();
         $location = WeirLocation::select('*')->where('weir_location_id',$weir[0]->weir_location_id)->get();
         $river = River::select('*')->where('river_id',$weir[0]->river_id)->get();
@@ -998,14 +998,26 @@ class ReportPDFController extends Controller
 
     public function testPDF()
     {
-        $amp ="เมืองลำปาง";
-        // dd($amp);
-        $name= "test.pdf";
-        $pdf = PDF::loadView('reportPDF.test',compact("amp"));
-        // return $pdf->stream($name); 
-        $content = $pdf->download()->getOriginalContent();
-        Storage::put('public/pdf/test.pdf',$content);
-        return view('guest.pdf'); 
+        $weir_id = "WLP01150501";
+        $weir = WeirSurvey::select('*')->where('weir_code',$weir_id)->get();
+        $location = WeirLocation::select('*')->where('weir_location_id',$weir[0]->weir_location_id)->get();
+        $river = River::select('*')->where('river_id',$weir[0]->river_id)->get();
+        $districtData['data'] = Location::getDistrictCR();
+        $space = WeirSpaceification::select('*')->where('weir_spec_id',$weir[0]->weir_spec_id)->get();
+        $upprotection = UpprotectionInv::select('*')->where('weir_id',$weir[0]->weir_id)->get();
+        $upconcrete = UpconcreteInv::select('*')->where('weir_id',$weir[0]->weir_id)->get();
+        $control = ControlInv::select('*')->where('weir_id',$weir[0]->weir_id)->get();
+        $downconcrete = DownconcreteInv::select('*')->where('weir_id',$weir[0]->weir_id)->get();
+        $downprotection = DownprotectionInv::select('*')->where('weir_id',$weir[0]->weir_id)->get();
+        $waterdelivery = WaterdeliveryInv::select('*')->where('weir_id',$weir[0]->weir_id)->get();
+        $plan = ImprovementPlan::select('*')->where('weir_id',$weir[0]->weir_id)->get();
+        $maintain1 = Maintenance::select('*')->where('weir_id',$weir[0]->weir_id)->get();
+        $sug = AdditinalSuggestion::select('*')->where('weir_id',$weir[0]->weir_id)->get();
+        $photo = Photo::select('*')->where('weir_id',$weir[0]->weir_id)->get();
+
+        $pdf = PDF::loadView('test_pdf02',compact('weir'));
+        
+        return $pdf->stream('test.pdf'); //แบบนี้จะ stream มา preview
 
     }
 
