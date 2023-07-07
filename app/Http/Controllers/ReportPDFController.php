@@ -32,7 +32,7 @@ class ReportPDFController extends Controller
     public function pdf_index($weir_id=0) {
         // dd(Auth::user()->name);
         // $user = Auth::user()->name;
-        // ini_set('max_execution_time', 300);
+        ini_set('max_execution_time', 300);
         $weir = WeirSurvey::select('*')->where('weir_code',$weir_id)->get();
         $location = WeirLocation::select('*')->where('weir_location_id',$weir[0]->weir_location_id)->get();
         $river = River::select('*')->where('river_id',$weir[0]->river_id)->get();
@@ -998,10 +998,11 @@ class ReportPDFController extends Controller
 
     public function testPDF()
     {
-               
-        $pdf = PDF::loadView('test_pdf02');
-        
-        // return $pdf->stream('test.pdf'); //แบบนี้จะ stream มา preview
+        $amp ="เมืองลำปาง";
+        // dd($amp);
+        $name= "test.pdf";
+        $pdf = PDF::loadView('reportPDF.test',compact("amp"));
+        // return $pdf->stream($name); 
         $content = $pdf->download()->getOriginalContent();
         Storage::put('public/pdf/test.pdf',$content);
         return view('guest.pdf'); 
