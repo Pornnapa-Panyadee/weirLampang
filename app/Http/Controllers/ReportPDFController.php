@@ -996,7 +996,7 @@ class ReportPDFController extends Controller
         
     }
 
-    public function testPDF($weir_id =0)
+    public function testPDF($weir_id=0)
     {
         // $weir_id = "WLP01150501";
         $weir = WeirSurvey::select('*')->where('weir_code',$weir_id)->get();
