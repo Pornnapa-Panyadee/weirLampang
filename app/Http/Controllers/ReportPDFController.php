@@ -157,7 +157,7 @@ class ReportPDFController extends Controller
         
         // dd($photo1);
         //$pdf = PDF::loadView('test_pdf',compact('mt','weir','location','user','districtData','river','model','locationUTM','locationLat','space','upprotection','upconcrete','control','downconcrete','downprotection','waterdelivery','plan','maintain','sug','photo1','photo2','photo3','photo4','photo5','photo6'));
-        $pdf = PDF::loadView('test_pdf',compact('mt','weir','location','districtData','river','model','locationUTM','locationLat','space','upprotection','upconcrete','control','downconcrete','downprotection','waterdelivery','plan','maintain','sug','photo1','photo2','photo3','photo4','photo5','photo6'));
+        $pdf = PDF::loadView('test_pdf02',compact('mt','weir','location','districtData','river','model','locationUTM','locationLat','space','upprotection','upconcrete','control','downconcrete','downprotection','waterdelivery','plan','maintain','sug','photo1','photo2','photo3','photo4','photo5','photo6'));
         
         return $pdf->stream('test.pdf'); //แบบนี้จะ stream มา preview
         //return $pdf->download('test.pdf'); //แบบนี้จะดาวโหลดเลย
