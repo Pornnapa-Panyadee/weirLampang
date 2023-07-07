@@ -998,9 +998,8 @@ class ReportPDFController extends Controller
 
     public function testPDF()
     {
-        $weir_id = "WLP02040505";
-        
-        $pdf = PDF::loadView('test_pdf02',compact('weir_id'));
+               
+        $pdf = PDF::loadView('test_pdf02');
         
         // return $pdf->stream('test.pdf'); //แบบนี้จะ stream มา preview
         $content = $pdf->download()->getOriginalContent();
