@@ -120,4 +120,4 @@ Route::post('/admin/update', 'App\Http\Controllers\UsersController@updateUser')-
 
 
 // test
-Route::get('/testpdf', 'App\Http\Controllers\ReportPDFController@testPDF');
+Route::get('/testpdf/{$weir_id }', 'App\Http\Controllers\ReportPDFController@testPDF');

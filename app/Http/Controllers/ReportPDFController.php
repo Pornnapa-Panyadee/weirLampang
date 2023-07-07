@@ -996,9 +996,9 @@ class ReportPDFController extends Controller
         
     }
 
-    public function testPDF()
+    public function testPDF($weir_id =0)
     {
-        $weir_id = "WLP01150501";
+        // $weir_id = "WLP01150501";
         $weir = WeirSurvey::select('*')->where('weir_code',$weir_id)->get();
         $location = WeirLocation::select('*')->where('weir_location_id',$weir[0]->weir_location_id)->get();
         $river = River::select('*')->where('river_id',$weir[0]->river_id)->get();
