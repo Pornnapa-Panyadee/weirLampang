@@ -141,49 +141,6 @@
                 <td colspan="3" class="text2">**************************************************************************************************************</td>
             </tr>
         </table>
-        <?php 
-            $code=str_split($weir[0]->weir_code );
-        ?>
-        <div class="text4" >
-            <table>
-              <tr>
-                <td> รหัสหมู่บ้าน 
-                    <font class="box" >0</font>
-                    <font class="box">0</font>
-                    <font class="box">0</font>
-                    <font class="box">0</font>
-                    <font class="box">0</font>
-                    <font class="box">{{$code[7]}}</font>
-                    <font class="box">{{$code[8]}}</font>
-                    <font class="box">{{$code[9]}}</font>
-                </td>
-                <td> รหัสตำบล 
-                    <font class="box">0</font>
-                    <font class="box">0</font>
-                    <font class="box">0</font>
-                    <font class="box">0</font>
-                    <font class="box">0</font>
-                    <font class="box">0</font>
-                    <font class="box">{{$code[5]}}</font>
-                    <font class="box">{{$code[6]}}</font>
-                </td>
-                <td> รหัสอำเภอ 
-                    <font class="box">0</font>
-                    <font class="box">0</font>
-                    <font class="box">0</font>
-                    <font class="box">0</font>
-                    <font class="box">{{$code[3]}}</font>
-                    <font class="box">{{$code[4]}}</font>
-                </td>
-                <td> รหัสจังหวัด 
-                    <font class="box">0</font>
-                    <font class="box">0</font>
-                    <font class="box">5</font> 
-                    <font class="box">7</font>
-                </td>
-              </tr>
-            </table>
-        </div>
     </div>
     </body>
 </html>
