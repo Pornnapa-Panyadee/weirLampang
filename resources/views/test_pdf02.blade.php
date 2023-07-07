@@ -2,8 +2,7 @@
 <html>
  <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>Weir | PDF Form </title>
-     <link rel="icon" href="{{ asset('images/icon/favicon1.ico')}}" type="image/x-icon">
+    <title>Weir Report</title>
     <style>
         @font-face{
         font-family:  'THSarabunNew';
@@ -125,28 +124,29 @@
     </style>
  </head>
     <body>
-     <div class="pcoded-content">
-        <table>
-            <tr>
-                <td width="15%">
-                    <!-- <img src="{{ asset('images/icon/egat.jpg') }}" width="100%"> -->
-                </td>
-                <td width="70%">
-                    <div class="text1"> แบบฟอร์มการตรวจสภาพฝาย</div>
-                    <div class="text2">โครงการพัฒนาระบบสารสนเทศการตรวจประเมินสภาพฝายและวางแผนปรับปรุงเพิ่มประสิทธิภาพฝาย
-                        <br>ในพื้นที่ลุ่มน้ำแม่จาง จังหวัดลำปาง
-                         <br>โดยการไฟฟ้าฝ่ายผลิตแห่งประเทศไทย (กฟผ) แม่เมาะ ร่วมกับมหาวิทยาลัยเชียงใหม่ </div>
-                </td>
-                <td width="15%">
-                    <!-- <img src="{{ asset('images/icon/cmu.png') }}" width="60%" > -->
-                </td>
-            </tr>
-            <tr>
-                <td colspan="3" class="text2">**************************************************************************************************************</td>
-            </tr>
-        </table>
+        <div class="pcoded-content">
+            <table>
+                <tr>
+                    <td width="15%">
+                        <img src="{{ url('/images/icon/egat.jpg') }}" width="37%">
+                    </td>
+                    <td width="70%">
+                        <div class="text1"> แบบฟอร์มการตรวจสภาพฝาย</div>
+                        <div class="text2">โครงการพัฒนาระบบสารสนเทศการตรวจประเมินสภาพฝายและวางแผนปรับปรุงเพิ่มประสิทธิภาพฝาย
+                            <br>ในพื้นที่ลุ่มน้ำแม่จาง จังหวัดลำปาง
+                            <br>โดยการไฟฟ้าฝ่ายผลิตแห่งประเทศไทย (กฟผ) แม่เมาะ ร่วมกับมหาวิทยาลัยเชียงใหม่ </div>
+                    </td>
+                    <td width="15%"><img src="{{ asset('/images/icon/cmu.png') }}" width="60%" > </td>
+                </tr>
+                <tr>
+                    <td colspan="3" class="text2">**************************************************************************************************************</td>
+                </tr>
+            </table>
+        </div>
         <?php 
             $code=str_split($weir[0]->weir_code );
+            echo $weir[0]->weir_code;
+            echo $code[3];
         ?>
         <div class="text4" >
             <table>
@@ -157,9 +157,9 @@
                     <font class="box">0</font>
                     <font class="box">0</font>
                     <font class="box">0</font>
-                    <font class="box">{{$code[7]}}</font>
-                    <font class="box">{{$code[8]}}</font>
-                    <font class="box">{{$code[9]}}</font>
+                    <font class="box"><?php $code[7]; ?></font>
+                    <font class="box"><?php $code[8];  ?></font>
+                    <font class="box"><?php $code[9];  ?></font>
                 </td>
                 <td> รหัสตำบล 
                     <font class="box">0</font>
@@ -168,16 +168,16 @@
                     <font class="box">0</font>
                     <font class="box">0</font>
                     <font class="box">0</font>
-                    <font class="box">{{$code[5]}}</font>
-                    <font class="box">{{$code[6]}}</font>
+                    <font class="box"><?php $code[5]  ?></font>
+                    <font class="box"><?php $code[6]  ?></font>
                 </td>
                 <td> รหัสอำเภอ 
                     <font class="box">0</font>
                     <font class="box">0</font>
                     <font class="box">0</font>
                     <font class="box">0</font>
-                    <font class="box">{{$code[3]}}</font>
-                    <font class="box">{{$code[4]}}</font>
+                    <font class="box"><?php $code[3]  ?></font>
+                    <font class="box"><?php $code[4]  ?></font>
                 </td>
                 <td> รหัสจังหวัด 
                     <font class="box">0</font>
@@ -188,6 +188,6 @@
               </tr>
             </table>
         </div>
-    </div>
+        
     </body>
 </html>
