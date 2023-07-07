@@ -1005,7 +1005,8 @@ class ReportPDFController extends Controller
         // return $pdf->stream($name); 
         $content = $pdf->download()->getOriginalContent();
         Storage::put('public/pdf/test.pdf',$content);
-        return view('guest.pdf'); 
+        return Storage::response('public/pdf/test.pdf');
+        // return view('guest.pdf'); 
 
     }
 
