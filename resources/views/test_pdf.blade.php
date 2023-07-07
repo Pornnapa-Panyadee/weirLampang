@@ -128,14 +128,18 @@
      <div class="pcoded-content">
         <table>
             <tr>
-                <td width="15%"><img src="{{ asset('images/icon/egat.jpg') }}" width="100%"></td>
+                <td width="15%">
+                    <!-- <img src="{{ asset('images/icon/egat.jpg') }}" width="100%"> -->
+                </td>
                 <td width="70%">
                     <div class="text1"> แบบฟอร์มการตรวจสภาพฝาย</div>
                     <div class="text2">โครงการพัฒนาระบบสารสนเทศการตรวจประเมินสภาพฝายและวางแผนปรับปรุงเพิ่มประสิทธิภาพฝาย
                         <br>ในพื้นที่ลุ่มน้ำแม่จาง จังหวัดลำปาง
                          <br>โดยการไฟฟ้าฝ่ายผลิตแห่งประเทศไทย (กฟผ) แม่เมาะ ร่วมกับมหาวิทยาลัยเชียงใหม่ </div>
                 </td>
-                <td width="15%"><img src="{{ asset('images/icon/cmu.png') }}" width="60%" ></td>
+                <td width="15%">
+                    <!-- <img src="{{ asset('images/icon/cmu.png') }}" width="60%" > -->
+                </td>
             </tr>
             <tr>
                 <td colspan="3" class="text2">**************************************************************************************************************</td>
@@ -317,7 +321,7 @@
                         <td width=15% class="line"><font class="outline">หมู่ที่&nbsp;&nbsp;</font>&nbsp;&nbsp;{{$moo}}&nbsp;</td>
                         <td width=25% class="line"><font class="outline">&nbsp;ชื่อหมู่บ้าน&nbsp;&nbsp;</font>&nbsp;&nbsp;  {{$tambol}}&nbsp;</td>
                         <td width=25% class="line"><font class="outline">&nbsp;ตำบล &nbsp;&nbsp;</font>&nbsp;&nbsp;{{$location[0]->weir_tumbol}}&nbsp;</td>
-                        <td width=25% class="line"><font class="outline">&nbsp;จังหวัด&nbsp;&nbsp;</font>&nbsp;&nbsp;เชียงราย</td>
+                        <td width=25% class="line"><font class="outline">&nbsp;จังหวัด&nbsp;&nbsp;</font>&nbsp;&nbsp;ลำปาง</td>
                     </tr>
                 </table>
                 <div style="padding-left:50px; margin-top:10px;"> พิกัด X (UTM)
