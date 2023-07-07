@@ -154,9 +154,6 @@
             $tambol=$text[2];
             $s_lat=str_split($locationUTM->x);
             $s_lng=str_split($locationUTM->y);
-            $check1='images/icon/check1.png';
-            $check='images/logo/check.png';
-            $square='images/logo/square.png';
 
             function checkphoto($text){
                 if($text!=NULL){
@@ -164,8 +161,9 @@
                 }else{ echo "";}	
             }
             function check4($text,$r) {
+
                 if($text==$r){
-                    echo "<img src='{$check1}'  width=15px;>";		
+                    echo "<img src='images/icon/check1.png'  width=15px;>";		
                 }else{
                      echo "";	
                 }
