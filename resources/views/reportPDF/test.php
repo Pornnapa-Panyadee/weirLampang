@@ -127,7 +127,9 @@
         <div class="pcoded-content">
             <table>
                 <tr>
-                    <td width="15%"><img src="{{ asset('images/footer/lampang.png') }}" width="37%"></td>
+                    <td width="15%">
+                        <img src="{{ url('/images/icon/egat.jpg') }}" width="37%">
+                    </td>
                     <td width="70%">
                         <div class="text1"> แบบฟอร์มการตรวจสภาพฝาย</div>
                         <div class="text2">โครงการพัฒนาระบบสารสนเทศการตรวจประเมินสภาพฝายและวางแผนปรับปรุงเพิ่มประสิทธิภาพฝาย
@@ -141,7 +143,49 @@
                 </tr>
             </table>
         </div>
-        <?php echo $weir[0]->weir_code; ?>
+        <?php 
+            $code=str_split($weir[0]->weir_code );
+        ?>
+        <div class="text4" >
+            <table>
+              <tr>
+                <td> รหัสหมู่บ้าน 
+                    <font class="box" >0</font>
+                    <font class="box">0</font>
+                    <font class="box">0</font>
+                    <font class="box">0</font>
+                    <font class="box">0</font>
+                    <font class="box"><?php $code[7]; ?></font>
+                    <font class="box"><?php $code[8];  ?></font>
+                    <font class="box"><?php $code[9];  ?></font>
+                </td>
+                <td> รหัสตำบล 
+                    <font class="box">0</font>
+                    <font class="box">0</font>
+                    <font class="box">0</font>
+                    <font class="box">0</font>
+                    <font class="box">0</font>
+                    <font class="box">0</font>
+                    <font class="box"><?php $code[5]  ?></font>
+                    <font class="box"><?php $code[6]  ?></font>
+                </td>
+                <td> รหัสอำเภอ 
+                    <font class="box">0</font>
+                    <font class="box">0</font>
+                    <font class="box">0</font>
+                    <font class="box">0</font>
+                    <font class="box"><?php $code[3]  ?></font>
+                    <font class="box"><?php $code[4]  ?></font>
+                </td>
+                <td> รหัสจังหวัด 
+                    <font class="box">0</font>
+                    <font class="box">0</font>
+                    <font class="box">5</font> 
+                    <font class="box">7</font>
+                </td>
+              </tr>
+            </table>
+        </div>
         
     </body>
 </html>
