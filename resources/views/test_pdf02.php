@@ -86,19 +86,22 @@
             margin-left:-5px;
         }.table1{
             text-align: center;
+            border: 1px solid #000;
         }.table2{
             width:100%;
             /* margin-bottom:1rem; */
             background-color:transparent;
             border-collapse: collapse;
-            border: 1px solid #dddddd;
+            border: 1px solid #000;
             font-size:14px;
             text-align: center;
             line-height:1;
         }.table2 tr{
             /* height:35px; */
             line-height:0.95;
-            border-bottom: 2px solid #ddd;
+            border-bottom: 1px solid #000;
+        }tr.noBorder > td, td.noBorder {
+            border-style:hidden;
         }.table3{
             margin-left:5px;
             font-size:14px;
@@ -157,7 +160,7 @@
 
             function checkphoto($text){
                 if($text!=NULL){
-                    echo "<img src='{$text}'  width=110px; style='margin:10px;'>";
+                    echo "<img src='{$text}'  width=110px; style='margin:0 0 -10 10px;'>";
                 }else{ echo "";}	
             }
             function check4($text,$r) {
@@ -485,7 +488,7 @@
             </div>
         </div>
         
-        <div style="height:22px;"></div>
+        <div style="height:40px;"></div>
         <div class="text">
             <div class="text3">3. ข้อมูลประวัติการซ่อม </div>
             <table class="table1" border=1>
@@ -508,7 +511,7 @@
 
         <div class="text">
             <div class="text3">4. การตรวจสภาพฝาย </div>
-            <table class="table2" border=1>  
+            <table class="table2" border=2>  
               <!-- header -->
               <!-- <thead style="display: table-header-group;"> -->
               <thead>
@@ -554,20 +557,20 @@
                     <td><?php check4($upprotection[0]->floor_weed,1)?></td>
                     <td rowspan="4" width="8%" style="vertical-align: top;"><?php echo $upprotection[0]->floor_damage?></td>
                     <td rowspan="4" width="10%">
-                        <table style="vertical-align: top;"> 
-                            <tr>
-                                <td ><?php checkCuase($upprotection[0]->floor_remake->no)?></td>
+                        <table style="vertical-align: top; border-style:hidden;" > 
+                            <tr class="noBorder">
+                                <td><?php checkCuase($upprotection[0]->floor_remake->no)?></td>
                                 <td>ไม่มี</td>
                             </tr>
-                            <tr >
+                            <tr class="noBorder">
                                 <td><?php checkCuase($upprotection[0]->floor_remake->nosee)?></td>
                                 <td>มองไม่เห็น</td>
                             </tr>
-                            <tr>
+                            <tr class="noBorder">
                                 <td> อื่นๆ </td>
                                 <td class="line"><?php echo $upprotection[0]->floor_remake->detail?></td>
                             </tr>
-                            <tr>
+                            <tr class="noBorder">
                                 <td>&nbsp;</td>
                             </tr>
                         </table>
@@ -589,9 +592,9 @@
                 <tr>
                     <td>
                         <table > 
-                            <tr>
+                            <tr class="noBorder">
                                 <td width="10%"><?php checkpair(1,$upprotection[0]->check_floor)?></td>
-                                <td width="40%">ปกติ</td>
+                                <td width="40%" >ปกติ</td>
                                 <td width="10%"><?php checkpair(2,$upprotection[0]->check_floor)?></td>
                                 <td width="40%">น้อย</td>
                             </tr>
@@ -611,7 +614,7 @@
                 <tr>
                     <td>
                         <table > 
-                            <tr>
+                            <tr class="noBorder">
                                 <td width="10%"><?php checkpair($upprotection[0]->check_floor,3)?></td>
                                 <td width="40%">ปานกลาง</td>
                                 <td width="10%"><?php checkpair($upprotection[0]->check_floor,4)?></td>
@@ -646,19 +649,19 @@
                     <td rowspan="4" width="8%" style="vertical-align: top;"><?php echo $upprotection[0]->side_damage?></td>
                     <td rowspan="4" width="10%">
                         <table style="vertical-align: top;"> 
-                            <tr>
+                            <tr class="noBorder">
                                 <td ><?php checkCuase($upprotection[0]->side_remake->no)?></td>
                                 <td>ไม่มี</td>
                             </tr>
-                            <tr >
+                            <tr class="noBorder">
                                 <td><?php checkCuase($upprotection[0]->side_remake->nosee)?></td>
                                 <td>มองไม่เห็น</td>
                             </tr>
-                            <tr>
+                            <tr class="noBorder">
                                 <td> อื่นๆ </td>
                                 <td class="line"><?php echo $upprotection[0]->side_remake->detail?></td>
                             </tr>
-                            <tr>
+                            <tr class="noBorder">
                                 <td>&nbsp;</td>
                             </tr>
                         </table>
@@ -703,19 +706,19 @@
                     <td rowspan="4" width="8%" style="vertical-align: top;"><?php echo $upconcrete[0]->floor_damage?></td>
                     <td rowspan="4" width="10%">
                         <table style="vertical-align: top;"> 
-                            <tr>
+                            <tr class="noBorder">
                                 <td ><?php checkCuase($upconcrete[0]->floor_remake->no)?></td>
                                 <td>ไม่มี</td>
                             </tr>
-                            <tr >
+                            <tr class="noBorder">
                                 <td><?php checkCuase($upconcrete[0]->floor_remake->nosee)?></td>
                                 <td>มองไม่เห็น</td>
                             </tr>
-                            <tr>
+                            <tr class="noBorder">
                                 <td> อื่นๆ </td>
                                 <td class="line"><?php echo $upconcrete[0]->floor_remake->detail?></td>
                             </tr>
-                            <tr>
+                            <tr class="noBorder">
                                 <td>&nbsp;</td>
                             </tr>
                         </table>
@@ -737,7 +740,7 @@
                 <tr>
                     <td>
                         <table > 
-                            <tr>
+                            <tr class="noBorder">
                                 <td width="10%"><?php checkpair(1,$upconcrete[0]->check_floor)?></td>
                                 <td width="40%">ปกติ</td>
                                 <td width="10%"><?php checkpair(2,$upconcrete[0]->check_floor)?></td>
@@ -759,7 +762,7 @@
                 <tr>
                     <td>
                         <table > 
-                            <tr>
+                            <tr class="noBorder">
                                 <td width="10%"><?php checkpair($upconcrete[0]->check_floor,3)?></td>
                                 <td width="40%">ปานกลาง</td>
                                 <td width="10%"><?php checkpair($upconcrete[0]->check_floor,4)?></td>
@@ -794,19 +797,19 @@
                     <td rowspan="4" width="8%" style="vertical-align: top;"><?php echo $upconcrete[0]->side_damage?></td>
                     <td rowspan="4" width="10%">
                         <table style="vertical-align: top;"> 
-                            <tr>
+                            <tr class="noBorder">
                                 <td ><?php checkCuase($upconcrete[0]->side_remake->no)?></td>
                                 <td>ไม่มี</td>
                             </tr>
-                            <tr >
+                            <tr class="noBorder">
                                 <td><?php checkCuase($upconcrete[0]->side_remake->nosee)?></td>
                                 <td>มองไม่เห็น</td>
                             </tr>
-                            <tr>
+                            <tr class="noBorder">
                                 <td> อื่นๆ </td>
                                 <td class="line"><?php echo $upconcrete[0]->side_remake->detail?></td>
                             </tr>
-                            <tr>
+                            <tr class="noBorder">
                                 <td>&nbsp;</td>
                             </tr>
                         </table>
@@ -851,19 +854,19 @@
                         <td rowspan="4" width="8%" style="vertical-align: top;"><?php echo $control[0]->waterctrl_damage?></td>
                         <td rowspan="4" width="10%">
                             <table style="vertical-align: top;"> 
-                                <tr>
+                                <tr class="noBorder">
                                     <td ><?php checkCuase($control[0]->waterctrl_remake->no)?></td>
                                     <td>ไม่มี</td>
                                 </tr>
-                                <tr >
+                                <tr class="noBorder">
                                     <td><?php checkCuase($control[0]->waterctrl_remake->nosee)?></td>
                                     <td>มองไม่เห็น</td>
                                 </tr>
-                                <tr>
+                                <tr class="noBorder">
                                     <td> อื่นๆ </td>
                                     <td class="line"><?php echo $control[0]->waterctrl_remake->detail?></td>
                                 </tr>
-                                <tr>
+                                <tr class="noBorder">
                                     <td>&nbsp;</td>
                                 </tr>
                             </table>
@@ -899,19 +902,19 @@
                         <td rowspan="4" width="8%" style="vertical-align: top;"><?php echo $control[0]->sidewall_damage?></td>
                         <td rowspan="4" width="10%">
                             <table style="vertical-align: top;"> 
-                                <tr>
+                                <tr class="noBorder">
                                     <td ><?php checkCuase($control[0]->sidewall_remake->no)?></td>
                                     <td>ไม่มี</td>
                                 </tr>
-                                <tr >
+                                <tr class="noBorder">
                                     <td><?php checkCuase($control[0]->sidewall_remake->nosee)?></td>
                                     <td>มองไม่เห็น</td>
                                 </tr>
-                                <tr>
+                                <tr class="noBorder">
                                     <td> อื่นๆ </td>
                                     <td class="line"><?php echo $control[0]->sidewall_remake->detail?></td>
                                 </tr>
-                                <tr>
+                                <tr class="noBorder">
                                     <td>&nbsp;</td>
                                 </tr>
                             </table>
@@ -952,19 +955,19 @@
                         <td rowspan="4" width="8%" style="vertical-align: top;"><?php echo $control[0]->dgfloor_damage?></td>
                         <td rowspan="4" width="10%">
                             <table style="vertical-align: top;"> 
-                                <tr>
+                                <tr class="noBorder">
                                     <td ><?php checkCuase($control[0]->dgfloor_remake->no)?></td>
                                     <td>ไม่มี</td>
                                 </tr>
-                                <tr >
+                                <tr class="noBorder">
                                     <td><?php checkCuase($control[0]->dgfloor_remake->nosee)?></td>
                                     <td>มองไม่เห็น</td>
                                 </tr>
-                                <tr>
+                                <tr class="noBorder" >
                                     <td> อื่นๆ </td>
                                     <td class="line"><?php echo $control[0]->dgfloor_remake->detail?></td>
                                 </tr>
-                                <tr>
+                                <tr class="noBorder">
                                     <td>&nbsp;</td>
                                 </tr>
                             </table>
@@ -987,7 +990,7 @@
                     <tr>
                         <td>
                             <table > 
-                                <tr>
+                                <tr class="noBorder">
                                     <td width="10%"><?php checkpair(1,$control[0]->check_floor)?></td>
                                     <td width="40%">ปกติ</td>
                                     <td width="10%"><?php checkpair(2,$control[0]->check_floor)?></td>
@@ -1009,7 +1012,7 @@
                     <tr>
                         <td>
                             <table > 
-                                <tr>
+                                <tr class="noBorder">
                                     <td width="10%"><?php checkpair($control[0]->check_floor,3)?></td>
                                     <td width="40%">ปานกลาง</td>
                                     <td width="10%"><?php checkpair($control[0]->check_floor,4)?></td>
@@ -1029,7 +1032,7 @@
                         <td><?php check4($control[0]->floor_weed,4)?></td>
                     </tr>
             </table>
-            <div style="height:20px;"></div>
+            <div style="height:40px;"></div>
             <table class="table2" border=1>
               <thead>
                 <tr style="background-color: #ADADAD;">
@@ -1066,19 +1069,19 @@
                         <td rowspan="4" width="8%" style="vertical-align: top;"><?php echo $control[0]->dgwall_damage?></td>
                         <td rowspan="4" width="10%">
                             <table style="vertical-align: top;"> 
-                                <tr>
+                                <tr class="noBorder">
                                     <td ><?php checkCuase($control[0]->dgwall_remake->no)?></td>
                                     <td>ไม่มี</td>
                                 </tr>
-                                <tr >
+                                <tr class="noBorder">
                                     <td><?php checkCuase($control[0]->dgwall_remake->nosee)?></td>
                                     <td>มองไม่เห็น</td>
                                 </tr>
-                                <tr>
+                                <tr class="noBorder">
                                     <td> อื่นๆ </td>
                                     <td class="line"><?php echo $control[0]->dgwall_remake->detail?></td>
                                 </tr>
-                                <tr>
+                                <tr class="noBorder">
                                     <td>&nbsp;</td>
                                 </tr>
                             </table>
@@ -1117,19 +1120,19 @@
                             <td rowspan="4" width="8%" style="vertical-align: top;"><?php echo $control[0]->dggate_damage?></td>
                             <td rowspan="4" width="10%">
                                 <table style="vertical-align: top;"> 
-                                    <tr>
+                                    <tr class="noBorder">
                                         <td ><?php checkCuase($control[0]->dggate_remake->no)?></td>
                                         <td>ไม่มี</td>
                                     </tr>
-                                    <tr >
+                                    <tr class="noBorder">
                                         <td><?php checkCuase($control[0]->dggate_remake->nosee)?></td>
                                         <td>มองไม่เห็น</td>
                                     </tr>
-                                    <tr>
+                                    <tr class="noBorder">
                                         <td> อื่นๆ </td>
                                         <td class="line"><?php echo $control[0]->dggate_remake->detail?></td>
                                     </tr>
-                                    <tr>
+                                    <tr class="noBorder">
                                         <td>&nbsp;</td>
                                     </tr>
                                 </table>
@@ -1165,19 +1168,19 @@
                             <td rowspan="4" width="8%" style="vertical-align: top;"><?php echo $control[0]->dgmachanic_damage?></td>
                             <td rowspan="4" width="10%">
                                 <table style="vertical-align: top;"> 
-                                    <tr>
+                                    <tr class="noBorder">
                                         <td ><?php checkCuase($control[0]->dgmachanic_remake->no)?></td>
                                         <td>ไม่มี</td>
                                     </tr>
-                                    <tr >
+                                    <tr class="noBorder">
                                         <td><?php checkCuase($control[0]->dgmachanic_remake->nosee)?></td>
                                         <td>มองไม่เห็น</td>
                                     </tr>
-                                    <tr>
+                                    <tr class="noBorder">
                                         <td> อื่นๆ </td>
                                         <td class="line"><?php echo $control[0]->dgmachanic_remake->detail?></td>
                                     </tr>
-                                    <tr>
+                                    <tr class="noBorder">
                                         <td>&nbsp;</td>
                                     </tr>
                                 </table>
@@ -1213,19 +1216,19 @@
                             <td rowspan="4" width="8%" style="vertical-align: top;"><?php echo $control[0]->dgblock_damage?></td>
                             <td rowspan="4" width="10%">
                                 <table style="vertical-align: top;"> 
-                                    <tr>
+                                    <tr class="noBorder">
                                         <td ><?php checkCuase($control[0]->dgblock_remake->no)?></td>
                                         <td>ไม่มี</td>
                                     </tr>
-                                    <tr >
+                                    <tr class="noBorder">
                                         <td><?php checkCuase($control[0]->dgblock_remake->nosee)?></td>
                                         <td>มองไม่เห็น</td>
                                     </tr>
-                                    <tr>
+                                    <tr class="noBorder">
                                         <td> อื่นๆ </td>
                                         <td class="line"><?php echo $control[0]->dgblock_remake->detail?></td>
                                     </tr>
-                                    <tr>
+                                    <tr class="noBorder">
                                         <td>&nbsp;</td>
                                     </tr>
                                 </table>
@@ -1261,19 +1264,19 @@
                         <td rowspan="4" width="8%" style="vertical-align: top;"><?php echo $control[0]->waterbreak_damage?></td>
                         <td rowspan="4" width="10%">
                             <table style="vertical-align: top;"> 
-                                <tr>
+                                <tr class="noBorder">
                                     <td ><?php checkCuase($control[0]->waterbreak_remake->no)?></td>
                                     <td>ไม่มี</td>
                                 </tr>
-                                <tr >
+                                <tr class="noBorder">
                                     <td><?php checkCuase($control[0]->waterbreak_remake->nosee)?></td>
                                     <td>มองไม่เห็น</td>
                                 </tr>
-                                <tr>
+                                <tr class="noBorder">
                                     <td> อื่นๆ </td>
                                     <td class="line"><?php echo $control[0]->waterbreak_remake->detail?></td>
                                 </tr>
-                                <tr>
+                                <tr class="noBorder">
                                     <td>&nbsp;</td>
                                 </tr>
                             </table>
@@ -1309,19 +1312,19 @@
                         <td rowspan="4" width="8%" style="vertical-align: top;"><?php echo $control[0]->bridge_damage?></td>
                         <td rowspan="4" width="10%">
                             <table style="vertical-align: top;"> 
-                                <tr>
+                                <tr class="noBorder">
                                     <td ><?php checkCuase($control[0]->bridge_remake->no)?></td>
                                     <td>ไม่มี</td>
                                 </tr>
-                                <tr >
+                                <tr class="noBorder">
                                     <td><?php checkCuase($control[0]->bridge_remake->nosee)?></td>
                                     <td>มองไม่เห็น</td>
                                 </tr>
-                                <tr>
+                                <tr class="noBorder">
                                     <td> อื่นๆ </td>
                                     <td class="line"><?php echo $control[0]->bridge_remake->detail?></td>
                                 </tr>
-                                <tr>
+                                <tr class="noBorder">
                                     <td>&nbsp;</td>
                                 </tr>
                             </table>
@@ -1366,19 +1369,19 @@
                         <td rowspan="4" width="8%" style="vertical-align: top;"><?php echo $downconcrete[0]->floor_damage?></td>
                         <td rowspan="4" width="10%">
                             <table style="vertical-align: top;"> 
-                                <tr>
+                                <tr class="noBorder">
                                     <td ><?php checkCuase($downconcrete[0]->floor_remake->no)?></td>
                                     <td>ไม่มี</td>
                                 </tr>
-                                <tr >
+                                <tr class="noBorder">
                                     <td><?php checkCuase($downconcrete[0]->floor_remake->nosee)?></td>
                                     <td>มองไม่เห็น</td>
                                 </tr>
-                                <tr>
+                                <tr class="noBorder">
                                     <td> อื่นๆ </td>
                                     <td class="line"><?php echo $downconcrete[0]->floor_remake->detail?></td>
                                 </tr>
-                                <tr>
+                                <tr class="noBorder">
                                     <td>&nbsp;</td>
                                 </tr>
                             </table>
@@ -1400,7 +1403,7 @@
                     <tr>
                         <td>
                             <table > 
-                                <tr>
+                                <tr class="noBorder">
                                     <td width="10%"><?php checkpair(1,$downconcrete[0]->check_floor)?></td>
                                     <td width="40%">ปกติ</td>
                                     <td width="10%"><?php checkpair(2,$downconcrete[0]->check_floor)?></td>
@@ -1422,7 +1425,7 @@
                     <tr>
                         <td>
                             <table > 
-                                <tr>
+                                <tr class="noBorder">
                                     <td width="10%"><?php checkpair($downconcrete[0]->check_floor,3)?></td>
                                     <td width="40%">ปานกลาง</td>
                                     <td width="10%"><?php checkpair($downconcrete[0]->check_floor,4)?></td>
@@ -1457,15 +1460,15 @@
                         <td rowspan="4" width="8%" style="vertical-align: top;"><?php echo $downconcrete[0]->side_damage?></td>
                         <td rowspan="4" width="10%">
                             <table style="vertical-align: top;"> 
-                                <tr>
+                                <tr class="noBorder">
                                     <td ><?php checkCuase($downconcrete[0]->side_remake->no)?></td>
                                     <td>ไม่มี</td>
                                 </tr>
-                                <tr >
+                                <tr class="noBorder">
                                     <td><?php checkCuase($downconcrete[0]->side_remake->nosee)?></td>
                                     <td>มองไม่เห็น</td>
                                 </tr>
-                                <tr>
+                                <tr class="noBorder">
                                     <td> อื่นๆ </td>
                                     <td class="line"><?php echo $downconcrete[0]->side_remake->detail?></td>
                                 </tr>
@@ -1505,19 +1508,19 @@
                         <td rowspan="4" width="8%" style="vertical-align: top;"><?php echo $downconcrete[0]->flrblock_damage?></td>
                         <td rowspan="4" width="10%">
                             <table style="vertical-align: top;"> 
-                                <tr>
+                                <tr class="noBorder">
                                     <td ><?php checkCuase($downconcrete[0]->flrblock_remake->no)?></td>
                                     <td>ไม่มี</td>
                                 </tr>
-                                <tr >
+                                <tr class="noBorder">
                                     <td><?php checkCuase($downconcrete[0]->flrblock_remake->nosee)?></td>
                                     <td>มองไม่เห็น</td>
                                 </tr>
-                                <tr>
+                                <tr class="noBorder">
                                     <td> อื่นๆ </td>
                                     <td class="line"><?php echo $downconcrete[0]->flrblock_remake->detail?></td>
                                 </tr>
-                                <tr>
+                                <tr class="noBorder">
                                     <td>&nbsp;</td>
                                 </tr>
                             </table>
@@ -1538,7 +1541,7 @@
                     </tr>
                     <?php } ?>
             </table>  
-            <div style="height:20px;"></div>
+            <div style="height:40px;"></div>
             <table class="table2" border=1>
               <thead>
                 <tr style="background-color: #ADADAD;">
@@ -1575,19 +1578,19 @@
                         <td rowspan="4" width="8%" style="vertical-align: top;"><?php echo $downconcrete[0]->endsill_damage?></td>
                         <td rowspan="4" width="10%">
                             <table style="vertical-align: top;"> 
-                                <tr>
+                                <tr class="noBorder">
                                     <td ><?php checkCuase($downconcrete[0]->endsill_remake->no)?></td>
                                     <td>ไม่มี</td>
                                 </tr>
-                                <tr >
+                                <tr class="noBorder">
                                     <td><?php checkCuase($downconcrete[0]->endsill_remake->nosee)?></td>
                                     <td>มองไม่เห็น</td>
                                 </tr>
-                                <tr>
+                                <tr class="noBorder">
                                     <td> อื่นๆ </td>
                                     <td class="line"><?php echo $downconcrete[0]->endsill_remake->detail?></td>
                                 </tr>
-                                <tr>
+                                <tr class="noBorder">
                                     <td>&nbsp;</td>
                                 </tr>
                             </table>
@@ -1634,19 +1637,19 @@
                     <td rowspan="4" width="8%" style="vertical-align: top;"><?php echo $downprotection[0]->floor_damage?></td>
                     <td rowspan="4" width="10%">
                         <table style="vertical-align: top;"> 
-                            <tr>
+                            <tr class="noBorder">
                                 <td ><?php checkCuase($downprotection[0]->floor_remake->no)?></td>
                                 <td>ไม่มี</td>
                             </tr>
-                            <tr >
+                            <tr class="noBorder">
                                 <td><?php checkCuase($downprotection[0]->floor_remake->nosee)?></td>
                                 <td>มองไม่เห็น</td>
                             </tr>
-                            <tr>
+                            <tr class="noBorder">
                                 <td> อื่นๆ </td>
                                 <td class="line"><?php echo $downprotection[0]->floor_remake->detail?></td>
                             </tr>
-                            <tr>
+                            <tr class="noBorder">
                                 <td>&nbsp;</td>
                             </tr>
                         </table>
@@ -1668,7 +1671,7 @@
                 <tr>
                     <td>
                         <table > 
-                            <tr>
+                            <tr class="noBorder">
                                 <td width="10%"><?php checkpair(1,$downprotection[0]->check_floor)?></td>
                                 <td width="40%">ปกติ</td>
                                 <td width="10%"><?php checkpair(2,$downprotection[0]->check_floor)?></td>
@@ -1690,7 +1693,7 @@
                 <tr>
                     <td>
                         <table > 
-                            <tr>
+                            <tr class="noBorder">
                                 <td width="10%"><?php checkpair($downprotection[0]->check_floor,3)?></td>
                                 <td width="40%">ปานกลาง</td>
                                 <td width="10%"><?php checkpair($downprotection[0]->check_floor,4)?></td>
@@ -1725,19 +1728,19 @@
                     <td rowspan="4" width="8%" style="vertical-align: top;"><?php echo $downprotection[0]->side_damage?></td>
                     <td rowspan="4" width="10%">
                         <table style="vertical-align: top;"> 
-                            <tr>
+                            <tr class="noBorder">
                                 <td ><?php checkCuase($downprotection[0]->side_remake->no)?></td>
                                 <td>ไม่มี</td>
                             </tr>
-                            <tr >
+                            <tr class="noBorder">
                                 <td><?php checkCuase($downprotection[0]->side_remake->nosee)?></td>
                                 <td>มองไม่เห็น</td>
                             </tr>
-                            <tr>
+                            <tr class="noBorder">
                                 <td> อื่นๆ </td>
                                 <td class="line"><?php echo $downprotection[0]->side_remake->detail?></td>
                             </tr>
-                            <tr>
+                            <tr class="noBorder">
                                 <td>&nbsp;</td>
                             </tr>
                         </table>
@@ -1783,19 +1786,19 @@
                     <td rowspan="4" width="8%" style="vertical-align: top;"> <?php echo $waterdelivery[0]->floor_damage?> </td>
                     <td rowspan="4" width="10%">
                         <table style="vertical-align: top;"> 
-                            <tr>
+                            <tr class="noBorder">
                                 <td ><?php checkCuase($waterdelivery[0]->floor_remake->no)?></td>
                                 <td>ไม่มี</td>
                             </tr>
-                            <tr >
+                            <tr class="noBorder">
                                 <td><?php checkCuase($waterdelivery[0]->floor_remake->nosee)?></td>
                                 <td>มองไม่เห็น</td>
                             </tr>
-                            <tr>
+                            <tr class="noBorder">
                                 <td> อื่นๆ </td>
                                 <td class="line"><?php echo $waterdelivery[0]->floor_remake->detail?></td>
                             </tr>
-                            <tr>
+                            <tr class="noBorder">
                                 <td>&nbsp;</td>
                             </tr>
                         </table>
@@ -1817,7 +1820,7 @@
                 <tr>
                     <td>
                         <table > 
-                            <tr>
+                            <tr class="noBorder">
                                 <td width="10%"><?php checkpair(1,$waterdelivery[0]->check_floor)?></td>
                                 <td width="40%">ปกติ</td>
                                 <td width="10%"><?php checkpair(2,$waterdelivery[0]->check_floor)?></td>
@@ -1839,7 +1842,7 @@
                 <tr>
                     <td>
                         <table > 
-                            <tr>
+                            <tr class="noBorder">
                                 <td width="10%"><?php checkpair($waterdelivery[0]->check_floor,3)?></td>
                                 <td width="40%">ปานกลาง</td>
                                 <td width="10%"><?php checkpair($waterdelivery[0]->check_floor,4)?></td>
@@ -1874,19 +1877,19 @@
                     <td rowspan="4" width="8%" style="vertical-align: top;"><?php echo $waterdelivery[0]->side_damage?></td>
                     <td rowspan="4" width="10%">
                         <table style="vertical-align: top;"> 
-                            <tr>
+                            <tr class="noBorder">
                                 <td ><?php checkCuase($waterdelivery[0]->side_remake->no)?></td>
                                 <td>ไม่มี</td>
                             </tr>
-                            <tr >
+                            <tr class="noBorder">
                                 <td><?php checkCuase($waterdelivery[0]->side_remake->nosee)?></td>
                                 <td>มองไม่เห็น</td>
                             </tr>
-                            <tr>
+                            <tr class="noBorder">
                                 <td> อื่นๆ </td>
                                 <td class="line"><?php echo $waterdelivery[0]->side_remake->detail?></td>
                             </tr>
-                            <tr>
+                            <tr class="noBorder">
                                 <td>&nbsp;</td>
                             </tr>
                         </table>
@@ -1922,19 +1925,19 @@
                     <td rowspan="4" width="8%" style="vertical-align: top;"><?php echo $waterdelivery[0]->gate_damage?></td>
                     <td rowspan="4" width="10%">
                         <table style="vertical-align: top;"> 
-                            <tr>
+                            <tr class="noBorder">
                                 <td ><?php checkCuase($waterdelivery[0]->gate_remake->no)?></td>
                                 <td>ไม่มี</td>
                             </tr>
-                            <tr >
+                            <tr class="noBorder">
                                 <td><?php checkCuase($waterdelivery[0]->gate_remake->nosee)?></td>
                                 <td>มองไม่เห็น</td>
                             </tr>
-                            <tr>
+                            <tr class="noBorder">
                                 <td> อื่นๆ </td>
                                 <td class="line"><?php echo $waterdelivery[0]->gate_remake->detail?></td>
                             </tr>
-                            <tr>
+                            <tr class="noBorder">
                                 <td>&nbsp;</td>
                             </tr>
                         </table>
@@ -1954,10 +1957,6 @@
                     <td><?php check4($waterdelivery[0]->gate_weed,$i)?></td>
                   </tr>
                 <?php } ?>
-
-            
-            
-            
             </table>
         </div>
         <div class="text">
@@ -2005,7 +2004,6 @@
                                 <?php for($i=0;$i<count($photo1);$i++){ ?>
                                     <?php checkphoto($photo1[$i]["file"])?>
                                 <?php } ?>
-                                
                             </td>
                         </tr>
                         <tr style="background-color: #ADADAD;">
