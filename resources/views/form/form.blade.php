@@ -225,7 +225,7 @@
                                             <div class="form-group row">
                                               <label class="col-sm-2 col-form-label">ชื่อผู้ตรวจสอบ</label>
                                               <div class="col-sm-4">
-                                                <input id="survey_name" name="survey_name" type="text" class=" form-control" placeholder="-- กรอกชื่อ --" value="ทีมตัวประเมิน">
+                                                <input id="survey_name" name="survey_name" type="text" class=" form-control" placeholder="-- กรอกชื่อ --" value="ทีมตรวจประเมิน">
                                               </div>
                                               <label class="col-sm-2 col-form-label">วัน/เดือน/ปี ตรวจสอบ</label>
                                               <div class="col-sm-4">
