@@ -449,7 +449,11 @@ class FormsController extends Controller
               'Resp_type'=>$request->resp_type,
               'resp_name'=>$resp_name,
               'transfer'=>$request->transfer,
-              'user'=>$name
+              'user'=>$name,
+              'survey_name'=>$request->survey_name,
+              'survey_date'=>$request->survey_date,
+              'survey_position'=>$request->survey_position,
+              'survey_unit'=>$request->survey_unit,
             ]
           );
           $weir->save();
@@ -1374,6 +1378,10 @@ class FormsController extends Controller
           'resp_name'=>$resp_name,
           'transfer'=>$request->transfer,
           'user'=>$name,
+          'survey_name'=>$request->survey_name,
+          'survey_date'=>$request->survey_date,
+          'survey_position'=>$request->survey_position,
+          'survey_unit'=>$request->survey_unit,
         ]
       );
       ///////----1----upprotection_invs-------------/////////

@@ -19,7 +19,12 @@
   <link rel="stylesheet" type="text/css" href="{{ asset('css/form/pages.css')}}">
   
   <style>
-    .table2{
+    .surveyname {
+      border-radius: 25px;
+      border: 2px solid #4099ff;
+      padding: 20px;
+      width: 100%;
+    }.table2{
       font-size:12px;
       text-align: center;
     }.table2 tr{
@@ -216,6 +221,29 @@
                                         <!-- -ข้อมูลทั่วไป -->
                                         <h3> ข้อมูลทั่วไป</h3>
                                         <fieldset>
+                                          <div class="surveyname">
+                                            <div class="form-group row">
+                                              <label class="col-sm-2 col-form-label">ชื่อผู้ตรวจสอบ</label>
+                                              <div class="col-sm-4">
+                                                <input id="survey_name" name="survey_name" type="text" class=" form-control" placeholder="-- กรอกชื่อ --">
+                                              </div>
+                                              <label class="col-sm-2 col-form-label">วัน/เดือน/ปี ตรวจสอบ</label>
+                                              <div class="col-sm-4">
+                                                <input type="date" id="survey_date" name="survey_date" type=”datetime-local” style="width:100%;">
+                                              </div>
+                                            </div>
+                                            <div class="form-group row">
+                                              <label class="col-sm-2 col-form-label">ตำแหน่ง</label>
+                                              <div class="col-sm-4">
+                                                <input id="survey_position" name="survey_position" type="text" class=" form-control" placeholder="-- กรอกตำแหน่ง --">
+                                              </div>
+                                              <label class="col-sm-2 col-form-label">หน่วยงาน</label>
+                                              <div class="col-sm-4">
+                                                <input id="survey_unit" name="survey_unit" type="text" class=" form-control" placeholder="-- กรอกหน่วยงาน --">
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <hr>
                                           <div class="form-group row">
                                             <label class="col-sm-1 col-form-label">ชื่อฝาย</label>
                                             <div class="col-sm-2">

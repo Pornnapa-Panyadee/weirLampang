@@ -23,7 +23,11 @@ class WeirSurvey extends Model
         'transfer',
         'user',
 
-        'Resp_type'
+        'Resp_type',
+        'survey_name',
+        'survey_date',
+        'survey_position',
+        'survey_unit',
     ];
         
 }

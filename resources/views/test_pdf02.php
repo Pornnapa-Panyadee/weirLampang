@@ -243,10 +243,10 @@
         <div class="text" >
           <table>
             <tr>
-                <td class="line"><font class="outline">ผู้ตรวจสอบ&nbsp;&nbsp;</font>&nbsp;&nbsp;<?php echo $weir[0]->user; ?> &nbsp;</td>
-                <td colspan="2" class="line"><font class="outline"> วัน/เดือน/ปี </font> &nbsp;&nbsp;<?php echo $weir[0]->created_at; ?> &nbsp;&nbsp; </td>
-                <td class="line"><font class="outline">ตำแหน่ง </font> &nbsp;&nbsp; <?php echo $code[9].$code[10] ?> &nbsp;&nbsp;  </td>
-                <td class="line"><font class="outline">หน่วยงาน </font> &nbsp;&nbsp; &nbsp;&nbsp;  </td>
+                <td class="line"><font class="outline">ผู้ตรวจสอบ&nbsp;&nbsp;</font>&nbsp;&nbsp;<?php echo $weir[0]->survey_name; ?> &nbsp;</td>
+                <td colspan="2" class="line"><font class="outline"> วัน/เดือน/ปี </font> &nbsp;&nbsp;<?php echo $weir[0]->survey_date; ?> &nbsp;&nbsp; </td>
+                <td class="line"><font class="outline">ตำแหน่ง </font> &nbsp;&nbsp; <?php echo $weir[0]->survey_position ?> &nbsp;&nbsp;  </td>
+                <td class="line"><font class="outline">หน่วยงาน </font> &nbsp;&nbsp; <?php echo $weir[0]->survey_unit ?>  &nbsp;&nbsp;  </td>
             </tr>
           </table>
           <table>
