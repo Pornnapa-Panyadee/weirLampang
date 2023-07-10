@@ -225,7 +225,7 @@
                                             <div class="form-group row">
                                               <label class="col-sm-2 col-form-label">ชื่อผู้ตรวจสอบ</label>
                                               <div class="col-sm-4">
-                                                <input id="survey_name" name="survey_name" type="text" class=" form-control" placeholder="-- กรอกชื่อ --">
+                                                <input id="survey_name" name="survey_name" type="text" class=" form-control" placeholder="-- กรอกชื่อ --" value="ทีมตัวประเมิน">
                                               </div>
                                               <label class="col-sm-2 col-form-label">วัน/เดือน/ปี ตรวจสอบ</label>
                                               <div class="col-sm-4">
@@ -235,11 +235,11 @@
                                             <div class="form-group row">
                                               <label class="col-sm-2 col-form-label">ตำแหน่ง</label>
                                               <div class="col-sm-4">
-                                                <input id="survey_position" name="survey_position" type="text" class=" form-control" placeholder="-- กรอกตำแหน่ง --">
+                                                <input id="survey_position" name="survey_position" type="text" class=" form-control" placeholder="-- กรอกตำแหน่ง --" value="-">
                                               </div>
                                               <label class="col-sm-2 col-form-label">หน่วยงาน</label>
                                               <div class="col-sm-4">
-                                                <input id="survey_unit" name="survey_unit" type="text" class=" form-control" placeholder="-- กรอกหน่วยงาน --">
+                                                <input id="survey_unit" name="survey_unit" type="text" class=" form-control" placeholder="-- กรอกหน่วยงาน --" value="CMU">
                                               </div>
                                             </div>
                                           </div>
