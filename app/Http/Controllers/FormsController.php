@@ -335,9 +335,22 @@ class FormsController extends Controller
           
           $codeweir="W".$code[0]->vill_code.'%';       
           $weircode = DB::table('weir_surveys')->select('weir_code')->where('weir_code','like',$codeweir)->get();
-          
-          $num=calCodeW(count($weircode));
-          $codeweir="W".$code[0]->vill_code.$num;
+          $wcode = DB::table('weir_surveys')->select('weir_code')->where('weir_code','like',$codeweir)->get()->last();
+          $c = str_split($wcode->weir_code,1);
+          if((int)$c[9]>0){
+            $n = $c[9].$c[10];
+            $num=calCodeW((int)$n);
+            $codeweir="W".$code[0]->vill_code.$num;
+          }else{
+            $num=calCodeW((int)$c[10]);
+            $codeweir="W".$code[0]->vill_code.$num;
+
+          }
+          // $n = $c[9].$c[10];
+
+          // dd($n);
+          // $num=calCodeW(count($weircode));
+          // $codeweir="W".$code[0]->vill_code.$num;
         // dd($codeweir);
 
         // Insert Data
@@ -1750,7 +1763,7 @@ class FormsController extends Controller
       $weir_spec_id = $weir[0]->weir_spec_id;
       $weir_location_id =$weir[0]->weir_location_id; 
       // delete
-      DB::table('weir_surveys')->where('weir_code',$weir_code)->delete(); 
+      DB::table('weir_surveys')->where('weir_id',$weir[0]->weir_id)->delete(); 
       DB::table('rivers')->where('river_id',$river_id)->delete(); 
       DB::table('weir_spaceifications')->where('weir_spec_id',$weir_spec_id)->delete(); 
       DB::table('weir_locations')->where('weir_location_id',$weir_location_id)->delete(); 
