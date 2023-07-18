@@ -381,9 +381,42 @@ class DataSurveyController extends Controller
             ];      
         }
         $district['name']=Location::getprovinceDistrict();
-        // dd($district);
+        // dd($data);
         return view('guest.test',compact('data','district'));      
         
         
     }
+    public function getData(Request $request) {
+
+        $location = WeirLocation::select('*')->get();
+        // dd($location);
+        for ($i=0;$i<count($location);$i++){ 
+            $weir = WeirSurvey::select('weir_id','weir_code','weir_name','river_id','user','created_at')->where('weir_location_id',$location[$i]->weir_location_id)->get();
+            $river = River::select('river_name')->where('river_id',$weir[0]->river_id)->get();
+            $utm=json_decode($location[$i]->utm);
+            $latlong=json_decode($location[$i]->latlong);
+            $data[] = [
+                'weir_id'=> $weir[0]->weir_id,
+                'weir_code'=> $weir[0]->weir_code,
+                'weir_name'=> $weir[0]->weir_name,
+                'UTM_x'=>$utm->x,
+                'UTM_y'=>$utm->y,
+                'lat'=>$latlong->x,
+                'long'=>$latlong->y,
+                'weir_village'=> $location[$i]->weir_village,
+                'weir_tumbol'=> $location[$i]->weir_tumbol,
+                'weir_district'=> $location[$i]->weir_district,
+                'river' => $river[0]->river_name,
+                'date'=>$weir[0]->created_at
+            ];      
+        }
+
+        // dd($data);
+        return view('guest.data',compact('data'));
+
+
+
+    }
+
+    
 }

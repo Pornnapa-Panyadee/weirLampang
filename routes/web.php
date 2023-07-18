@@ -122,3 +122,5 @@ Route::post('/admin/update', 'App\Http\Controllers\UsersController@updateUser')-
 // test
 Route::get('/testpdf', 'App\Http\Controllers\ReportPDFController@testPDF');
 Route::get('/testpdf/{id}', 'App\Http\Controllers\ReportPDFController@testPDF');
+
+Route::get('/data', 'App\Http\Controllers\DataSurveyController@getData');
