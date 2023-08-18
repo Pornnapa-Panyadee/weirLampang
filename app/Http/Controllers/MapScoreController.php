@@ -328,4 +328,70 @@ class MapScoreController extends Controller
         // dd($result);
         return view('scorereport.mapscore', compact('result'));
     }
+
+
+    // API MAP Score
+    public function sedimentscoreOnMap($amp = 0, $class = 0)
+    {
+        $location = WeirLocation::select('*')->where('weir_district', $amp)->get();
+        for ($i = 0; $i < count($location); $i++) {
+            $score = 0;
+            $weir = WeirSurvey::select('*')->where('weir_location_id', $location[$i]->weir_location_id)->get();
+            $river = River::select('river_name')->where('river_id', $weir[0]->river_id)->get();
+            $score = DB::table('upconcrete_invs')->select('*')->where('weir_id', $weir[0]->weir_id)->get();
+
+            $latlong = json_decode($location[$i]->latlong);
+            // dd($class);
+            if ($score[0]->check_floor == $class) {
+                $result[] = [
+                    'weir_id' => $weir[0]->weir_id,
+                    'weir_code' => $weir[0]->weir_code,
+                    'weir_name' => $weir[0]->weir_name,
+                    'lat' => $latlong->x,
+                    'long' => $latlong->y,
+                    'weir_village' => $location[$i]->weir_village,
+                    'weir_tumbol' => $location[$i]->weir_tumbol,
+                    'weir_district' => $location[$i]->weir_district,
+                    'river' => $river[0]->river_name,
+                    'score' => $score[0]->check_floor
+                ];
+            }
+        }
+        // dd($result);
+        
+        $result = json_encode($result);
+        echo $result;
+    }
+
+    public function sedimentscore()
+    {
+        $amp = ["เมืองลำปาง", "เกาะคา", "แม่ทะ", "แม่เมาะ"];
+
+        for ($i = 0; $i < count($amp); $i++) {
+            $score_Y = DB::table('upconcrete_invs')
+                        ->select('upconcrete_invs.weir_id','upconcrete_invs.check_floor')
+                        ->join('weir_surveys','weir_surveys.weir_id','=','upconcrete_invs.weir_id')
+                        ->join('weir_locations','weir_locations.weir_location_id','=','weir_surveys.weir_location_id')
+                        ->where(['weir_locations.weir_district' =>$amp[$i] , 'upconcrete_invs.check_floor' => '2'])->count();
+            $score_O = DB::table('upconcrete_invs')
+                        ->select('upconcrete_invs.weir_id','upconcrete_invs.check_floor')
+                        ->join('weir_surveys','weir_surveys.weir_id','=','upconcrete_invs.weir_id')
+                        ->join('weir_locations','weir_locations.weir_location_id','=','weir_surveys.weir_location_id')
+                        ->where(['weir_locations.weir_district' =>$amp[$i] , 'upconcrete_invs.check_floor' => '3'])->count();
+            $score_R = DB::table('upconcrete_invs')
+                        ->select('upconcrete_invs.weir_id','upconcrete_invs.check_floor')
+                        ->join('weir_surveys','weir_surveys.weir_id','=','upconcrete_invs.weir_id')
+                        ->join('weir_locations','weir_locations.weir_location_id','=','weir_surveys.weir_location_id')
+                        ->where(['weir_locations.weir_district' =>$amp[$i] , 'upconcrete_invs.check_floor' => '4'])->count();
+            $result[] = [
+                'amp' => $amp[$i],
+                'score_Y' => $score_Y,
+                'score_O' => $score_O,
+                'score_R' => $score_R,
+            ];
+        }
+        // dd($result);
+        return view('scorereport.sedimentscore', compact('result'));
+    }
+
 }

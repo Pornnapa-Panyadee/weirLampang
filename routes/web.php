@@ -74,6 +74,8 @@ Route::get('/report/chart', 'App\Http\Controllers\ReportPDFController@reportpdf_
 Route::get('/report/scoreComposition', 'App\Http\Controllers\ReportPDFController@reportpdf_warning');
 Route::get('/report/problem', 'App\Http\Controllers\ReportPDFController@reportpdf_warning');
 
+
+Route::get('/report/sediment', 'App\Http\Controllers\MapScoreController@sedimentscore');
 // Route::get('/report/map', 'App\Http\Controllers\MapScoreController@scoretable');
 // Route::get('/report/chart', 'App\Http\Controllers\ChartReportController@score');
 // Route::get('/report/scoreComposition', function () {return view('pages.scorelist');});
@@ -91,6 +93,7 @@ Route::get('photoremove/{id}', 'App\Http\Controllers\PhotoController@photoremove
 // Table
 Route::get('/tablescore', 'App\Http\Controllers\MapScoreController@compositionWeir');
 Route::get('/score/{amp}/{class}', 'App\Http\Controllers\MapScoreController@score');
+Route::get('/sedimentscore/{amp}/{class}', 'App\Http\Controllers\MapScoreController@sedimentscoreOnMap');
 
 
 // score Map 
