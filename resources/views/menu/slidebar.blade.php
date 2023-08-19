@@ -34,6 +34,43 @@
                     </li>
                 </ul>
             </li>
+            <li class="pcoded-hasmenu">
+                <a  href="javascript:void(0)" >
+                <span class="pcoded-mtext"><i class="feather icon-map"></i> ข้อมูลตะกอนหน้าฝาย </span>
+                </a>
+                <ul class="pcoded-submenu">
+                    <li class="">
+                        <a href="{{ asset('/report/sediment') }}" >
+                          <span class="pcoded-mtext">แผนที่ตะกอน</span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="{{ asset('report/sedimentTable') }}" >
+                          <span class="pcoded-mtext">ตารางรายงานสรุปข้อมูลตะกอน</span>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </li>
+            <li class="pcoded-hasmenu">
+                <a  href="javascript:void(0)" >
+                <span class="pcoded-mtext"><i class="fa fa-sticky-note-o"></i> เกี่ยวกับโครงการ </span>
+                </a>
+                <ul class="pcoded-submenu">
+                    <li class="">
+                        <a href="{{ asset('/about') }}" >
+                          <span class="pcoded-mtext">ข้อมูลโครงการ</span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="https://watercenter.scmc.cmu.ac.th/blockage/jang_basin">
+                          <span class="pcoded-mtext">เว็บไซต์สิ่งกีดขวางทางน้ำ</span>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </li>
+
             <!-- <li class="pcoded-hasmenu">
                 <a href="javascript:void(0)" >
                     <span class="pcoded-mtext"><i class="feather icon-box"></i> คลังความรู้</span>
@@ -56,12 +93,12 @@
                     </li>
                 </ul>
             </li> -->
-            <li class="pcoded-hasmenu">
+            <!-- <li class="pcoded-hasmenu">
                 <a href="{{ asset('/about') }}" >
                     <span class="pcoded-mtext"><i class="fa fa-sticky-note-o"></i> เกี่ยวกับโครงการ</span>
                 </a>
                
-            </li>
+            </li> -->
             <li class="pcoded-hasmenu">
                 <a href="{{ asset('/contact') }}" >
                     <span class="pcoded-mtext"><i class="fa fa-comment-o"></i> ติดต่อเรา</span>

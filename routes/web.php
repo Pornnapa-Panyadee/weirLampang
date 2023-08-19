@@ -73,7 +73,7 @@ Route::get('/report/map', 'App\Http\Controllers\ReportPDFController@reportpdf_wa
 Route::get('/report/chart', 'App\Http\Controllers\ReportPDFController@reportpdf_warning');
 Route::get('/report/scoreComposition', 'App\Http\Controllers\ReportPDFController@reportpdf_warning');
 Route::get('/report/problem', 'App\Http\Controllers\ReportPDFController@reportpdf_warning');
-
+Route::get('/report/sedimentTable', 'App\Http\Controllers\ReportPDFController@reportpdf_warning');
 
 Route::get('/report/sediment', 'App\Http\Controllers\MapScoreController@sedimentscore');
 // Route::get('/report/map', 'App\Http\Controllers\MapScoreController@scoretable');
