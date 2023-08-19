@@ -212,7 +212,16 @@
                                     <!-- <form class="wizard-form" id="basic-forms" action="{{route('form.formsubmit')}}" enctype="multipart/form-data" method="POST" onsubmit="return confirm('บันทึกข้อมูล เรียบร้อย !!');"> -->
                                         
                                         @csrf <!-- {{ csrf_field() }} -->   
-                                        
+                                        <?php
+                                          function checkdata($val,$t) {
+                                                if($val==$t){
+                                                  $text='value='.$val.' checked';
+                                                }else{
+                                                  $text='value='.$val;
+                                                }
+                                              return $text;
+                                          } 
+                                        ?>
 
                                         <!-- -ข้อมูลทั่วไป -->
                                         <h3> ข้อมูลจากผู้เชี่ยวชาญ</h3>
@@ -350,21 +359,59 @@
 
 
                                         <!-- แนวทางแก้ไขปรับปรุงเบื้องต้น -->
-                                        <div class="form-group row">
-                                              <div class="card-block button-list" style="margin-left:-40px;">
-                                                <button type="button" class="btn btn-out waves-effect waves-light btn-inverse btn-square" > แนวทางแก้ไขปรับปรุงเบื้องต้น  </button>
+                                          <div class="form-group row">
+                                                <div class="card-block button-list" style="margin-left:-40px;">
+                                                  <button type="button" class="btn btn-out waves-effect waves-light btn-inverse btn-square" > แนวทางแก้ไขปรับปรุงเบื้องต้น  </button>
+                                                </div>
+                                              </div>
+                                              <div class="form-group row">
+                                                <label class="col-sm-2 col-form-label text-right">แนวทางแก้ไขปรับปรุงเบื้องต้น : </label>
+                                                <div class="col-sm-8">
+                                                  <textarea id="expert_solution" name="expert_solution" type="text" class=" form-control" rows="15" > {{$expert[0]->weir_solution}}</textarea>
+                                                </div>                
+                                              </div>
+                                        
+                                          <br><br><br>
+                                        </fieldset>
+
+                                        <h3> ระดับสภาพฝาย </h3>
+                                        <input id="improve_type" name="improve_type" type="text" class=" form-control" value="{{$improve_type}}" hidden>
+                                        <fieldset>
+                                            <div class="form-group row">
+                                              <div class="card-block button-list" style="margin-left:-40px;margin-bottom:-30px;">
+                                                <button type="button" class="btn btn-out waves-effect waves-light btn-inverse btn-square" > ระดับสภาพฝาย  </button>
                                               </div>
                                             </div>
-                                            <div class="form-group row">
-                                              <label class="col-sm-2 col-form-label text-right">แนวทางแก้ไขปรับปรุงเบื้องต้น : </label>
-                                              <div class="col-sm-8">
-                                                <textarea id="expert_solution" name="expert_solution" type="text" class=" form-control" rows="15" > {{$expert[0]->weir_solution}}</textarea>
-                                              </div>                
-                                            </div>
-                                       
-                                        <br><br><br>
+                                            <div class="border-checkbox-section" >
+                                              <div class="form-group row" style="margin-top:-20px;">
+                                                <label class="col-sm-2 col-form-label ">ระดับสภาพฝาย  </label>
+                                                  <div class="col-sm-2">
+                                                    <div class="border-checkbox-group border-checkbox-group-primary">
+                                                      <input class="border-checkbox" type="checkbox" id="improve_1" name="improve_type_new" {{checkdata(1,$improve_type)}}>
+                                                      <label class="border-checkbox-label" for="improve_1">สภาพดี</label>
+                                                    </div>
+                                                  </div>
+                                                  <div class="col-sm-2">
+                                                    <div class="border-checkbox-group border-checkbox-group-primary">
+                                                      <input class="border-checkbox" type="checkbox" id="improve_2" name="improve_type_new" {{checkdata(2,$improve_type)}}>
+                                                      <label class="border-checkbox-label" for="improve_2">สภาพค่อนข้างดี <br>(ซ่อมแซ่มเล็กน้อย)</label>
+                                                    </div>
+                                                  </div>   
+                                                  <div class="col-sm-2">
+                                                    <div class="border-checkbox-group border-checkbox-group-primary">
+                                                      <input class="border-checkbox" type="checkbox" id="improve_3" name="improve_type_new" {{checkdata(3,$improve_type)}}>
+                                                      <label class="border-checkbox-label" for="improve_3">สภาพปานกลาง <br>(ควรซ่อมแซ่ม)</label>
+                                                    </div>
+                                                  </div> 
+                                                  <div class="col-sm-2">
+                                                    <div class="border-checkbox-group border-checkbox-group-primary">
+                                                      <input class="border-checkbox" type="checkbox" id="improve_4" name="improve_type_new" {{checkdata(4,$improve_type)}}>
+                                                      <label class="border-checkbox-label" for="improve_4">สภาพทรุดโทรม <br>(ซ่อมแซ่มทันที)</label>
+                                                    </div>
+                                                  </div>                                        
+                                              </div>
+                                            </div>                                          
                                         </fieldset>
-                                    
 
                                         <h3> รูปภาพพื้นที่รับน้ำ </h3>
                                         <fieldset>
