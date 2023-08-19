@@ -23,7 +23,7 @@ use App\Models\WaterdeliveryInv;
 use App\Models\WeirLocation;
 use App\Models\WeirSpaceification;
 use App\Models\WeirExpert;
-
+use App\Models\Impovement;
 
 class DataSurveyController extends Controller
 {
@@ -290,9 +290,19 @@ class DataSurveyController extends Controller
         $location = WeirLocation::select('*')->where('weir_location_id',$weir[0]->weir_location_id)->get();
         $expert = WeirExpert::select('*')->where('weir_id',$weir[0]->weir_id)->get();
         $area = DB::table('weir_catchments')->select('*')->where('weir_id', $weir[0]->weir_id)->get();
-        // dd($area);
+        // $improve=Impovement::select('*')->where('weir_code',$id)->get();
+        if(Impovement::select('*')->where('weir_code',$id)->count() > 0){
+            $improve=Impovement::select('*')->where('weir_code',$id)->get();
+            $improve_type=$improve[0]->improve_type;
+            // dd($improve);
+        }else{
+            $improve_type=0;
+        }
+        
+        // $improve=Impovement::select('*')->where('weir_code',$id)->get();
+        // dd($improve);
         // dd($weir[0]->weir_code);
-        return view('form.expert',compact('weir','river','location','expert','area')); 
+        return view('form.expert',compact('weir','river','location','expert','area','improve_type')); 
     }
     
 

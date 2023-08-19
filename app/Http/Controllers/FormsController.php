@@ -30,6 +30,7 @@ use App\Models\WeirSpaceification;
 use App\Models\EditLog;
 use App\Models\WeirCatchment;
 use App\Models\WeirExpert;
+use App\Models\Impovement;
 use Grimzy\LaravelMysqlSpatial\Types\Point;
 
 // use SpatialTrait;
@@ -1123,7 +1124,8 @@ class FormsController extends Controller
               'flow'=>NULL,
             ]
           );
-          $catchmant->save();
+        $catchmant->save();
+        
 
         return redirect()->route("list");
         // return view('form.list',compact('user','dataUser'));
@@ -2115,8 +2117,9 @@ class FormsController extends Controller
 
     public function formexpert(Request $request, User $user){
       // dd($request);
-      $name=Auth::user()->name ;
-            
+      // $name=Auth::user()->name ;
+      $weir = WeirSurvey::select('weir_id')->where('weir_code',$request->weir_code)->get();
+      // dd($weir[0]->weir_id);
       $expert= WeirExpert::where('weir_code',$request->weir_code)->update(
         [
           'weir_problem'=>$request->expert_problem,
@@ -2137,6 +2140,26 @@ class FormsController extends Controller
           'flow'=>$request->expert_rate,
         ]
       );
+      // dd($request);
+      if($request->improve_type==0){
+        $improve=new Impovement(
+            [
+              'weir_id'=>$weir[0]->weir_id,
+              'weir_code'=>$request->weir_code,
+              'weir_amp'=>$request->weir_district,
+              'improve_type'=>$request->improve_type_new
+            ]
+          );
+        $improve->save();
+      }else{
+        $improve=Impovement::where('weir_code',$request->weir_code)->update(
+            [
+              'improve_type'=>$request->improve_type_new
+            ]
+        );
+      }
+      
+
       return redirect()->route("expert.list");   
     }
 
