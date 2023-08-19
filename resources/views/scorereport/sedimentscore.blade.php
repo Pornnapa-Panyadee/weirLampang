@@ -133,7 +133,7 @@
                                         <br>
                                         <div class="row justify-content-end"> 
                                           <div class="col col-lg-6">
-                                              <img class="ref" src="{{ asset('/images/icon/refsedimentmap.png') }}" align="right" width=100% >
+                                              <img class="ref" src="{{ asset('/images/icon/refsedimentmap_1.png') }}" align="right" width=100% >
                                           </div>
                                       </div>
                                     </div>
@@ -281,46 +281,46 @@
       
       
       var pin_Y = L.icon({
-          iconUrl: '{{ asset('images/icon/pinsedY.png')}}',
-          iconRetinaUrl:'{{ asset('images/icon/pinsedY.png')}}',
+          iconUrl: '{{ asset('images/icon/pinsed_Y.png')}}',
+          iconRetinaUrl:'{{ asset('images/icon/pinsed_Y.png')}}',
           iconSize: [30, 40],
           iconAnchor: [20, 40],
           popupAnchor: [0, 0]
         });
 
       var pinMO_O  = L.icon({
-          iconUrl: '{{ asset('images/icon/pinsedO.png') }}',
-          iconRetinaUrl:'{{ asset('images/icon/pinsedO.png') }}',
+          iconUrl: '{{ asset('images/icon/pinsed_O.png') }}',
+          iconRetinaUrl:'{{ asset('images/icon/pinsed_O.png') }}',
           iconSize: [8, 8],
           iconAnchor: [10, 10],
           popupAnchor: [0, 0]
         });
         var pin_O = L.icon({
-          iconUrl: '{{ asset('images/icon/pinsedO.png')}}',
-          iconRetinaUrl:'{{ asset('images/icon/pinsedO.png')}}',
+          iconUrl: '{{ asset('images/icon/pinsed_O.png')}}',
+          iconRetinaUrl:'{{ asset('images/icon/pinsed_O.png')}}',
           iconSize: [30, 40],
           iconAnchor: [20, 40],
           popupAnchor: [0, 0]
         });
 
       var pinMO_Y  = L.icon({
-          iconUrl: '{{ asset('images/icon/pinsedY.png') }}',
-          iconRetinaUrl:'{{ asset('images/icon/pinsedY.png') }}',
+          iconUrl: '{{ asset('images/icon/pinsed_Y.png') }}',
+          iconRetinaUrl:'{{ asset('images/icon/pinsed_Y.png') }}',
           iconSize: [8, 8],
           iconAnchor: [10, 10],
           popupAnchor: [0, 0]
         });
       var pin_R = L.icon({
-          iconUrl: '{{ asset('images/icon/pinsedR.png') }}',
-          iconRetinaUrl:'{{ asset('images/icon/pinsedR.png') }}',
+          iconUrl: '{{ asset('images/icon/pinsed_R.png') }}',
+          iconRetinaUrl:'{{ asset('images/icon/pinsed_R.png') }}',
           iconSize: [30, 40],
           iconAnchor: [20, 40],
           popupAnchor: [0, 0]
         });
 
       var pinMO_R = L.icon({
-          iconUrl: '{{ asset('images/icon/pinsedR.png') }}',
-          iconRetinaUrl:'{{ asset('images/icon/pinsedR.png') }}',
+          iconUrl: '{{ asset('images/icon/pinsed_R.png') }}',
+          iconRetinaUrl:'{{ asset('images/icon/pinsed_R.png') }}',
           iconSize: [18, 20],
           iconAnchor: [10, 10],
           popupAnchor: [0, 0]
