@@ -25,6 +25,7 @@ use App\Models\WaterdeliveryInv;
 use App\Models\WeirLocation;
 use App\Models\WeirSpaceification;
 use App\Models\WeirExpert;
+use App\Models\Impovement;
 
 
 class ReportPDFController extends Controller
@@ -1003,17 +1004,83 @@ class ReportPDFController extends Controller
         // dd($amp);
         $name= "test.pdf";
         $pdf = PDF::loadView('reportPDF.test',compact("weir"));
-        // $pdf = PDF::loadView('test_pdf02',compact("weir"));
         return $pdf->stream($name); 
-        // $content = $pdf->download()->getOriginalContent();
-        // Storage::put('public/pdf/test.pdf',$content);
-        // return Storage::response('public/pdf/test.pdf');
-        // return view('guest.pdf'); 
-
     }
 
     public function reportpdf_warning($weir_id=0) {
         return view('guest.warning'); 
         
+    }
+
+    public function sedimentUpconcrete(Request $request) {
+        // dd($request);
+        function check_state($s,$t){
+            if($s==1 && $t==1){return 1;}
+            else if($s==1 && $t==2){return 2;}
+            else if($s==1 && $t==3){return 3;}
+            else if($s==1 && $t==4){return 4;}
+            else{return 0;}
+        }
+        $amp=$request->amp;
+        $tumbol=$request->tumbol;
+        $N=check_state($request->weir_N,2);
+        $Y=check_state($request->weir_Y,3);
+        $O=check_state($request->weir_O,4);
+
+        // dd($Y);
+        if($amp=="sum"){$location = WeirLocation::select('*')->get();} 
+        else if ($tumbol!=NULL){ $location = WeirLocation::select('*')->where('weir_district',$amp)->where('weir_tumbol',$tumbol)->get();}
+        else {$location = WeirLocation::select('*')->where('weir_district',$amp)->get();}
+        
+        $result=[];
+        // dd($location);
+        for ($i=0;$i<count($location);$i++){ 
+            $weir = WeirSurvey::select('*')->where('weir_location_id',$location[$i]->weir_location_id)->get();
+            $sediment_level= UpconcreteInv::select('check_floor')->where('weir_id', $weir[0]->weir_id)->get();
+            // dd($sediment_level[0]->check_floor);
+            if ($sediment_level[0]->check_floor==$N || $sediment_level[0]->check_floor==$Y || $sediment_level[0]->check_floor==$O ){
+                $river = River::select('river_name')->where('river_id',$weir[0]->river_id)->get();
+                $latlong=json_decode($location[$i]->latlong);
+                $vill=explode(" ",$location[$i]['weir_village']);                    
+                // เปลี่ยนคำ
+                if(strpos($weir[0]->resp_name, "เทศบาลตำบล")== 0){$weir[0]->resp_name = str_replace("เทศบาลตำบล","ทต.",$weir[0]->resp_name);}
+                // if(strpos($weir[0]->resp_name, "ที่ว่าการอำเภอ")== 0){ $weir[0]->resp_name = str_replace("ที่ว่าการอำเภอ","อ.",$weir[0]->resp_name);}
+                if(strpos($weir[0]->resp_name, "ที่ว่าการอำเภอ")== 0){ 
+                    $weir[0]->resp_name = str_replace("ที่ว่าการอำเภอ","อ.",$weir[0]->resp_name); 
+                        if($weir[0]->resp_name =="อ."){ $weir[0]->resp_name=="อ.".$amp; }
+                        }
+                $result[] = [
+                    'weir_id'=> $weir[0]->weir_id,
+                    'weir_code'=> $weir[0]->weir_code,
+                    'weir_name'=> $weir[0]->weir_name,
+                    'lat'=>number_format($latlong->x, 3, '.', ''), 
+                    'long'=>number_format($latlong->y, 3, '.', ''), 
+                    'weir_village'=> $vill[2],
+                    'weir_tumbol'=> $location[$i]->weir_tumbol,
+                    'weir_district'=> $location[$i]->weir_district,
+                    'river' => $river[0]->river_name,
+                    'resp_name'=> $weir[0]->resp_name,
+                    'transfer'=>$weir[0]->transfer,
+                    'sediment_level'=>$sediment_level[0]->check_floor
+                    ];
+
+            }
+            
+           
+        }
+
+        // dd(count($result));
+
+        if(count($result)==0){$dataNo=1;}
+        else{$dataNo=0;}
+        $amp=$amp;
+        if($tumbol!=NULL){ $text_amp="ตำบล".$tumbol."  อำเภอ".$amp; }
+        else{ $text_amp="อำเภอ".$amp; }
+        // dd($dataNo);
+        $name="weir_report.pdf";
+        $pdf = PDF::loadView('reportPDF.weir_sediment',compact('result','amp','dataNo','tumbol','text_amp'))->setPaper('Letter', 'landscape');;
+        return $pdf->stream($name);
+        
+
     }
 }
