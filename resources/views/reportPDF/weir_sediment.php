@@ -142,7 +142,7 @@
                     <td colspan="4" class="customers"><font style="font-size:70px;"><b>รายงานสรุป</b></font></td>
                 </tr>
                 <tr>
-                    <td colspan="4" height=200px; class="customers"> <font style="font-size:50px;"><b>ข้อมูลตะกอนหน้าฝาย</b></td>
+                    <td colspan="4" height=200px; class="customers"> <font style="font-size:50px;"><b>ข้อมูลปริมาณตะกอนหน้าฝาย</b></td>
                 </tr>
                 <tr>
                     <td colspan="4" height=200px; class="customers"> <font style="font-size:42px;"><b><?php echo($text_amp); ?>  จังหวัดลำปาง</b></td>

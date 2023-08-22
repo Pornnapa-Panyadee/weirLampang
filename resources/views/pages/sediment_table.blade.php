@@ -54,7 +54,7 @@
                                 <div class="col-md-12">
                                     <div class="card table-card">
                                         <div class="card-header">
-                                        <h3>ตารางแสดงรายงานสรุปผลการตรวจประเมินสภาพฝายแต่ละองค์ประกอบ</h3>     
+                                        <h3>รายงานสรุปข้อมูลปริมาณตะกอนหน้าฝายของฝายในลุ่มน้ำจาง</h3>     
                                         <hr>                         
                                         </div>
                                         <div class="card-header">
@@ -66,7 +66,7 @@
                                                                 <div class="col-lg-7 col-md-12">
                                                                     <div class="card text-white card-inverse">
                                                                         <div class="card-header">
-                                                                                <h3> รายงานสรุปผลสภาพของฝายแต่ละองค์ประกอบ</h3>
+                                                                                <h3> รายงานสรุปข้อมูลปริมาณตะกอนหน้าฝาย</h3>
                                                                         </div>
                                                                             <div class="card-body">
                                                                                 <table class="table-name"  width=80% align=center style="margin-bottom:80px;margin-top:40px;">

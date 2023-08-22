@@ -41,12 +41,12 @@
                 <ul class="pcoded-submenu">
                     <li class="">
                         <a href="{{ asset('/report/sediment') }}" >
-                          <span class="pcoded-mtext">แผนที่ตะกอน</span>
+                          <span class="pcoded-mtext">แผนที่ตำแหน่งฝายตามปริมาณตะกอน</span>
                         </a>
                     </li>
                     <li class="">
                         <a href="{{ asset('report/sedimentTable') }}" >
-                          <span class="pcoded-mtext">ตารางรายงานสรุปข้อมูลตะกอน</span>
+                          <span class="pcoded-mtext">ตารางรายงานสรุปข้อมูลปริมาณตะกอน</span>
                         </a>
                     </li>
                     
