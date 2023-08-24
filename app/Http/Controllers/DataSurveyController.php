@@ -292,8 +292,8 @@ class DataSurveyController extends Controller
         $area = DB::table('weir_catchments')->select('*')->where('weir_id', $weir[0]->weir_id)->get()->last();
         // $improve=Impovement::select('*')->where('weir_code',$id)->get();
         if(Impovement::select('*')->where('weir_code',$id)->count() > 0){
-            $improve=Impovement::select('*')->where('weir_code',$id)->get();
-            $improve_type=$improve[0]->improve_type;
+            $improve=Impovement::select('*')->where('weir_code',$id)->get()->last();
+            $improve_type=$improve->improve_type;
             // dd($improve);
         }else{
             $improve_type=0;
