@@ -93,19 +93,19 @@
                                                                           </tr>
                                                                          </thead>
                                                                         <tbody>
-                                                                          <?php for($i = 0;$i < count($dataUser);$i++){  ?>
+                                                                          <?php for($i = 0;$i < count($data);$i++){  ?>
                                                                             <tr>
                                                                               <td align="center">{{$i+1}} </td>
-                                                                              <td>{{$dataUser[$i]['weir_code']}}</td>
-                                                                              <td>{{$dataUser[$i]['weir_name']}}/{{$dataUser[$i]['river']}} </td>
-                                                                              <td>{{$dataUser[$i]['weir_village']}} ต.{{$dataUser[$i]['weir_tumbol']}} อ.{{$dataUser[$i]['weir_district']}}  </td>
+                                                                              <td>{{$data[$i]['weir_code']}}</td>
+                                                                              <td>{{$data[$i]['weir_name']}}/{{$data[$i]['river']}} </td>
+                                                                              <td>{{$data[$i]['weir_village']}} ต.{{$data[$i]['weir_tumbol']}} อ.{{$data[$i]['weir_district']}}  </td>
                                                                               
                                                                               <td>ระวีเวช จาติเกตุ</td>
                                                                               
                                                                               <td align="center"> 
-                                                                                <a href='{{ asset('/report/pdf/') }}/{{$dataUser[$i]['weir_code']}}' target=_blank ><button class="btn waves-effect waves-dark btn-mini btn-info btn-outline-info" title="view"><i class="icofont icofont-eye-alt"></i></button></a>
-                                                                                <a href='{{ asset('/expert') }}/{{$dataUser[$i]['weir_code']}}' target=_blank><button class="btn waves-effect waves-dark btn-mini btn-warning btn-outline-warning" title="edit"><i class="icofont icofont-edit-alt"></i></button> </a>
-                                                                                <a href='{{ asset('/remove') }}/{{$dataUser[$i]['weir_code']}}' target=_blank><button class="btn waves-effect waves-dark btn-mini btn-danger btn-outline-danger" onclick="myFunction()" title="delete"><i class="icofont icofont-delete-alt"></i></button></a>
+                                                                                <a href='{{ asset('/report/pdf/') }}/{{$data[$i]['weir_code']}}' target=_blank ><button class="btn waves-effect waves-dark btn-mini btn-info btn-outline-info" title="view"><i class="icofont icofont-eye-alt"></i></button></a>
+                                                                                <a href='{{ asset('/expert') }}/{{$data[$i]['weir_code']}}' target=_blank><button class="btn waves-effect waves-dark btn-mini btn-warning btn-outline-warning" title="edit"><i class="icofont icofont-edit-alt"></i></button> </a>
+                                                                                <a href='{{ asset('/remove') }}/{{$data[$i]['weir_code']}}' target=_blank><button class="btn waves-effect waves-dark btn-mini btn-danger btn-outline-danger" onclick="myFunction()" title="delete"><i class="icofont icofont-delete-alt"></i></button></a>
                                                                               </td>
                                                                             </tr>
                                                                           <?php } ?>                                              
