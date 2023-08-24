@@ -2159,7 +2159,7 @@ class FormsController extends Controller
       $org_path=null;
       if ($request->hasFile('water_system')) {
               $images = $request->file('water_system');
-              $org_img = $thm_img = true;
+              $org_img = true;
               if( ! File::exists('images/map/')) { $org_img = File::makeDirectory('images/map/', 0777, true);}
               // loop through each image to save and upload
               foreach($images as $key => $image) {
@@ -2171,7 +2171,11 @@ class FormsController extends Controller
                   })->save($org_path);
               }
       }
-      // if($org_path==null){$org_path=null}
+      
+      if($exp->map==null && $org_path==null ){ $org_path=null;}
+      else if($exp->map!=null && $org_path==null){ $org_path=$exp->map;}
+      else{$org_path=$org_path;}
+      // dd($org_path);
       $expert= WeirExpert::where('id',$exp->id)->update(
         [
           'weir_problem'=>$request->expert_problem,
