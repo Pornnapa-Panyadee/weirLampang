@@ -241,7 +241,7 @@
                                         <div class="alert alert-primary" style="margin:0 -20px 0;">รูปภาพแผนที่แสดงขอบเขตพื้นที่รับน้ำ </div>
                                           <div class="row" id="showpixrow">
                                             <div class="column" id="showpix">
-                                                <!-- <img src='https://watercenter.scmc.cmu.ac.th/weir/jang_basin/images/map/{{$amp}}/{{$weir_id}}.jpg' onclick="openModal();currentSlide(1)" style="width:50%" class="hover-shadow cursor"> -->
+                                                <img src="{{asset($expert['map'])}}"  onclick="openModal();currentSlide(1)" style="width:20%" class="hover-shadow cursor">
                                             </div>
                                             
                                           </div>
@@ -308,10 +308,10 @@
                                               <?php   $num =$num1+$num2+$num3+$num4+$num5+$num6+1; ?>
                                               <!-- 1 -->
                                               <!-- map -->
-                                              <!-- <div class="mySlides" align="center">
+                                              <div class="mySlides" align="center">
                                                 <div class="numbertext"> 1 /{{$num}}</div>
-                                                  <img src='https://watercenter.scmc.cmu.ac.th/weir/jang_basin/images/map_original/{{$amp}}/{{$weir_id}}.jpg' width=60%>
-                                              </div> -->
+                                                  <img src="{{asset($expert['map'])}}" width=60%>
+                                              </div>
 
                                               <?php for($i=0;$i<$num1;$i++){?>
                                                       <div class="mySlides">
@@ -365,9 +365,9 @@
                                               <p id="caption"></p>
                                               </div>
                                               <div class="caption-container" width=100%>
-                                                <!-- <div class="columnDown">
-                                                    <img class="demo cursor" src='https://watercenter.scmc.cmu.ac.th/weir/jang_basin/images/map/{{$amp}}/{{$weir_id}}.jpg' style="width:50%" onclick="currentSlide(1)" >
-                                                </div> -->
+                                                <div class="columnDown">
+                                                    <img class="demo cursor" src="{{asset($expert['map'])}}" style="width:50%" onclick="currentSlide(1)" >
+                                                </div>
                                                 <!-- 1 -->
                                                 <?php for($i=0;$i<$num1;$i++){?>
                                                     <div class="columnDown">

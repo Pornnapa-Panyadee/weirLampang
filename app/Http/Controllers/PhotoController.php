@@ -23,6 +23,7 @@ use App\Models\User;
 use App\Models\WaterdeliveryInv;
 use App\Models\WeirLocation;
 use App\Models\WeirSpaceification;
+use App\Models\WeirExpert;
 
 class PhotoController extends Controller
 {
@@ -30,7 +31,8 @@ class PhotoController extends Controller
         $weir = WeirSurvey::select('*')->where('weir_code',$weir_id)->get();        
         $location = WeirLocation::select('weir_district')->where('weir_location_id',$weir[0]->weir_location_id)->get();
         $photo = Photo::select('*')->where('weir_id',$weir[0]->weir_id)->get();
-        
+        $expert= WeirExpert::select('map')->where('weir_id',$weir[0]->weir_id)->get()->last();
+        // dd($expert['map']);
         $photo1[]=["name"=>NULL,"file"=>NULL,"original"=>NULL];
         $photo2[]=["name"=>NULL,"file"=>NULL,"original"=>NULL];
         $photo3[]=["name"=>NULL,"file"=>NULL,"original"=>NULL];
@@ -85,10 +87,11 @@ class PhotoController extends Controller
                 $num6=$num6+1;
             }
         }
+
         
         $amp =$location[0]->weir_district;
         // dd($amp);
-        return view('guest.photo',compact('photo1','photo2','photo3','photo4','photo5','photo6','num1','num2','num3','num4','num5','num6','weir_id','amp'));
+        return view('guest.photo',compact('expert','photo1','photo2','photo3','photo4','photo5','photo6','num1','num2','num3','num4','num5','num6','weir_id','amp'));
         
         
     }
