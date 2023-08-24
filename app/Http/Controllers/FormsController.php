@@ -2120,14 +2120,17 @@ class FormsController extends Controller
       // $name=Auth::user()->name ;
       $weir = WeirSurvey::select('weir_id')->where('weir_code',$request->weir_code)->get();
       // dd($weir[0]->weir_id);
-      $expert= WeirExpert::where('weir_code',$request->weir_code)->update(
+      $exp = DB::table('weir_experts')->select('*')->where('weir_id', $weir[0]->weir_id)->get()->last();
+      // dd($exp->id);
+      $expert= WeirExpert::where('id',$exp->id)->update(
         [
           'weir_problem'=>$request->expert_problem,
           'weir_solution'=>$request->expert_solution,
         ]
       );
       // //// -------- Weir Catchment ------------------/////
-      $catchmant= WeirCatchment::where('weir_code',$request->weir_code)->update(
+      $catch = DB::table('weir_catchments')->select('*')->where('weir_id', $weir[0]->weir_id)->get()->last();
+      $catchmant= WeirCatchment::where('id',$catch->id)->update(
         [
           'area'=>$request->expert_A, 
           'L'=>$request->expert_L, 

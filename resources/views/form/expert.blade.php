@@ -284,61 +284,61 @@
                                             <div class="form-group row">
                                               <label class="col-sm-2 col-form-label text-right">A : </label>
                                               <div class="col-sm-4">
-                                                <input id="expert_A" name="expert_A" type="text" class=" form-control" value="{{$area[0]->area}}"> 
+                                                <input id="expert_A" name="expert_A" type="text" class=" form-control" value="{{$area->area}}"> 
                                               </div>
                                               <label class="col-sm-2 col-form-label">ตารางกิโลเมตร</label>                    
                                             </div>
                                             <div class="form-group row">
                                               <label class="col-sm-2 col-form-label text-right">L : </label>
                                               <div class="col-sm-4">
-                                                <input id="expert_L" name="expert_L" type="text" class="form-control" value="{{$area[0]->L}}"> 
+                                                <input id="expert_L" name="expert_L" type="text" class="form-control" value="{{$area->L}}"> 
                                               </div>
                                               <label class="col-sm-2 col-form-label">กิโลเมตร</label>                    
                                             </div>
                                             <div class="form-group row">
                                               <label class="col-sm-2 col-form-label text-right">LC : </label>
                                               <div class="col-sm-4">
-                                                <input id="expert_LC" name="expert_LC" type="text" class=" form-control" value="{{$area[0]->LC}}"> 
+                                                <input id="expert_LC" name="expert_LC" type="text" class=" form-control" value="{{$area->LC}}"> 
                                               </div>
                                               <label class="col-sm-2 col-form-label">กิโลเมตร</label>                    
                                             </div>
                                             <div class="form-group row">
                                               <label class="col-sm-2 col-form-label text-right">H : </label>
                                               <div class="col-sm-4">
-                                                <input id="expert_H" name="expert_H" type="text" class=" form-control" value="{{$area[0]->H}}"> 
+                                                <input id="expert_H" name="expert_H" type="text" class=" form-control" value="{{$area->H}}"> 
                                               </div>
                                               <label class="col-sm-2 col-form-label">เมตร</label>                    
                                             </div>
                                             <div class="form-group row">
                                               <label class="col-sm-2 col-form-label text-right">S : </label>
                                               <div class="col-sm-4">
-                                                <input id="expert_S" name="expert_S" type="text" class=" form-control" value="{{$area[0]->S}}"> 
+                                                <input id="expert_S" name="expert_S" type="text" class=" form-control" value="{{$area->S}}"> 
                                               </div>                  
                                             </div>
                                             <div class="form-group row">
                                               <label class="col-sm-2 col-form-label text-right">C : </label>
                                               <div class="col-sm-4">
-                                                <input id="expert_C" name="expert_C" type="text" class=" form-control" value="{{$area[0]->c}}"> 
+                                                <input id="expert_C" name="expert_C" type="text" class=" form-control" value="{{$area->c}}"> 
                                               </div>                  
                                             </div>
                                             <div class="form-group row">
                                               <label class="col-sm-2 col-form-label text-right">I : </label>
                                               <div class="col-sm-4">
-                                                <input id="expert_I" name="expert_I" type="text" class=" form-control" value="{{$area[0]->I}}"> 
+                                                <input id="expert_I" name="expert_I" type="text" class=" form-control" value="{{$area->I}}"> 
                                               </div>
                                               <label class="col-sm-2 col-form-label">มิลลิเมตร/ชั่วโมง</label>                    
                                             </div>
                                             <div class="form-group row">
                                               <label class="col-sm-2 col-form-label text-right">Return period : </label>
                                               <div class="col-sm-4">
-                                                <input id="expert_Returnperiod" name="expert_Returnperiod" type="text" class=" form-control" value="{{$area[0]->Return_period}}"> 
+                                                <input id="expert_Returnperiod" name="expert_Returnperiod" type="text" class=" form-control" value="{{$area->Return_period}}"> 
                                               </div>
                                               <label class="col-sm-2 col-form-label">ปี</label>                    
                                             </div>
                                             <div class="form-group row">
                                               <label class="col-sm-2 col-form-label text-right">อัตราการไหลสูงสุด = : </label>
                                               <div class="col-sm-4">
-                                                <input id="expert_rate" name="expert_rate" type="text" class=" form-control" value="{{$area[0]->flow}}"> 
+                                                <input id="expert_rate" name="expert_rate" type="text" class=" form-control" value="{{$area->flow}}"> 
                                               </div>
                                               <label class="col-sm-2 col-form-label">ลบ.ม./วินาที</label>                    
                                             </div>
@@ -353,7 +353,7 @@
                                             <div class="form-group row">
                                               <label class="col-sm-2 col-form-label text-right">สภาพโดยรวมของฝาย : </label>
                                               <div class="col-sm-8">
-                                                <textarea id="expert_problem" name="expert_problem" type="text" class=" form-control" rows="15"> {{$expert[0]->weir_problem}}</textarea>
+                                                <textarea id="expert_problem" name="expert_problem" type="text" class=" form-control" rows="15"> {{$expert->weir_problem}}</textarea>
                                               </div>                
                                             </div>
 
@@ -367,7 +367,7 @@
                                               <div class="form-group row">
                                                 <label class="col-sm-2 col-form-label text-right">แนวทางแก้ไขปรับปรุงเบื้องต้น : </label>
                                                 <div class="col-sm-8">
-                                                  <textarea id="expert_solution" name="expert_solution" type="text" class=" form-control" rows="15" > {{$expert[0]->weir_solution}}</textarea>
+                                                  <textarea id="expert_solution" name="expert_solution" type="text" class=" form-control" rows="15" > {{$expert->weir_solution}}</textarea>
                                                 </div>                
                                               </div>
                                         

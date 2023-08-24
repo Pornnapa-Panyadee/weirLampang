@@ -288,8 +288,8 @@ class DataSurveyController extends Controller
         $weir = WeirSurvey::select('*')->where('weir_code',$id)->get();
         $river = River::select('*')->where('river_id',$weir[0]->river_id)->get();
         $location = WeirLocation::select('*')->where('weir_location_id',$weir[0]->weir_location_id)->get();
-        $expert = WeirExpert::select('*')->where('weir_id',$weir[0]->weir_id)->get();
-        $area = DB::table('weir_catchments')->select('*')->where('weir_id', $weir[0]->weir_id)->get();
+        $expert = WeirExpert::select('*')->where('weir_id',$weir[0]->weir_id)->get()->last();
+        $area = DB::table('weir_catchments')->select('*')->where('weir_id', $weir[0]->weir_id)->get()->last();
         // $improve=Impovement::select('*')->where('weir_code',$id)->get();
         if(Impovement::select('*')->where('weir_code',$id)->count() > 0){
             $improve=Impovement::select('*')->where('weir_code',$id)->get();
@@ -301,7 +301,7 @@ class DataSurveyController extends Controller
         
         // $improve=Impovement::select('*')->where('weir_code',$id)->get();
         // dd($improve);
-        // dd($weir[0]->weir_code);
+        // dd($area);
         return view('form.expert',compact('weir','river','location','expert','area','improve_type')); 
     }
     
