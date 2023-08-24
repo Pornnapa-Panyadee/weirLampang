@@ -28,7 +28,7 @@ Route::POST('form/formexpert', 'App\Http\Controllers\FormsController@formexpert'
 Route::get('/getdistrict/{id}', 'App\Http\Controllers\FormsController@getDistrict');
 Route::get('/getTumbol/{id}', 'App\Http\Controllers\FormsController@getTumbol');
 Route::get('/getVillage/{amp}/{tambol}', 'App\Http\Controllers\FormsController@getVillage');
-Route::get('/expert/{weir_code}', 'App\Http\Controllers\DataSurveyController@getDatabyExpert');
+Route::get('/expert/{weir_code}', 'App\Http\Controllers\DataSurveyController@getDatabyExpert')->name('expert');
 // Route::get('/expert', function () {return view('form.expert');});
 
 
@@ -84,10 +84,10 @@ Route::get('/report/sedimentTable', function () {return view('pages.sediment_tab
 // Route::get('/report/problem', function () {return view('pages.problemlist');});
 
 
-
 // add image
 Route::get('addphoto/{id}', 'App\Http\Controllers\PhotoController@photoadd')->name('addphoto');
 Route::get('photoremove/{id}', 'App\Http\Controllers\PhotoController@photoremove')->name('photoremove');
+Route::get('photoremovemap/{id}', 'App\Http\Controllers\PhotoController@photoremovemap')->name('photoremovemap');
 
 // Expert 
 // Route::get('/expert/list', 'App\Http\Controllers\ListexpertController@getDatatoTable')->name('list');

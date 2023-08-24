@@ -2156,7 +2156,7 @@ class FormsController extends Controller
             ]
         );
       }
-     
+      $org_path=null;
       if ($request->hasFile('water_system')) {
               $images = $request->file('water_system');
               $org_img = $thm_img = true;
@@ -2171,6 +2171,7 @@ class FormsController extends Controller
                   })->save($org_path);
               }
       }
+      // if($org_path==null){$org_path=null}
       $expert= WeirExpert::where('id',$exp->id)->update(
         [
           'weir_problem'=>$request->expert_problem,

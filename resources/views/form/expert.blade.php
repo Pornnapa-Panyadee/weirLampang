@@ -172,6 +172,11 @@
     }
     // ///////////////////////////////////////////////////////////
   </script>
+  <script>
+      function myFunction() {
+        confirm("คุณต้องการลบรูปฝายใช่ไหม?");
+      }
+  </script>
  </head>
  
  <body onload="initProj4js()">
@@ -418,9 +423,18 @@
                                             <div class="form-group row">
                                               <div class="field" align="center">
                                                     <img src='{{asset($expert->map)}}' width="50%"><br><br>
-                                                    <h3><button class="btn waves-effect waves-dark btn-mini btn-danger btn-outline-danger " onclick="myFunction()" title="delete">
+                                                    <div align="center">
+                                                      <a href="{{ asset('/photoremovemap')}}/{{$expert->weir_code}}"  > 
+                                                      <h3><link class="btn waves-effect waves-dark" onclick="myFunction()" title="delete">
+                                                        <i class="icofont icofont-delete-alt"></i>ลบรูปภาพ
+                                                      </link></h3>
+                                                    </a>
+                                                    </div>
+                                                    
+
+                                                    <!-- <h3><button class="btn waves-effect waves-dark btn-mini btn-danger btn-outline-danger " onclick="myFunction()" title="delete">
                                                       <i class="icofont icofont-delete-alt"></i> ลบรูปภาพ
-                                                    </button></h3>
+                                                    </button></h3> -->
                                                     <br><br>
                                                     <h4>แก้ไข/เพิ่มเติมรูปภาพ</h4>
                                                     <h3><input type="file" id="water_system" name="water_system[]" multiple /> </h3>

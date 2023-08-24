@@ -174,6 +174,20 @@ class PhotoController extends Controller
         return redirect()->route('addphoto', ['id' => $weir[0]->weir_code]);
     }
 
+    public function photoremovemap($weir_code=0) {
+        // dd($weir_code);
+        $map_code= WeirExpert::where('weir_code',$weir_code)->get();
+        // dd($map_code->weir_code);
+        $filename = $map_code[0]->map;
+        if (file_exists($filename)) {
+            unlink($filename);
+        }    
+
+        $map= WeirExpert::where('weir_code',$weir_code)->update(['map'=>NULL]);
+        
+        return redirect()->route('expert', ['weir_code' => $weir_code]);
+    }
+
 
 }
 
