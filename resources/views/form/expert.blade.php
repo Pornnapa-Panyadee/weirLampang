@@ -417,13 +417,13 @@
                                             </div>
                                             <div class="form-group row">
                                               <div class="field" align="center">
-                                                    <img src='https://watercenter.scmc.cmu.ac.th/weir/jang_basin/images/map_original/{{$location[0]->weir_district}}/{{$weir[0]['weir_code']}}.jpg' width="50%"><br><br>
+                                                    <img src='{{asset($expert->map)}}' width="50%"><br><br>
                                                     <h3><button class="btn waves-effect waves-dark btn-mini btn-danger btn-outline-danger " onclick="myFunction()" title="delete">
                                                       <i class="icofont icofont-delete-alt"></i> ลบรูปภาพ
                                                     </button></h3>
                                                     <br><br>
                                                     <h4>แก้ไข/เพิ่มเติมรูปภาพ</h4>
-                                                    <h3><input type="file" id="upstream_protection" name="upstream_protection[]" multiple /> </h3>
+                                                    <h3><input type="file" id="water_system" name="water_system[]" multiple /> </h3>
                                                </div>
                                             </div>
                                             

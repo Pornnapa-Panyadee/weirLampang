@@ -2122,12 +2122,7 @@ class FormsController extends Controller
       // dd($weir[0]->weir_id);
       $exp = DB::table('weir_experts')->select('*')->where('weir_id', $weir[0]->weir_id)->get()->last();
       // dd($exp->id);
-      $expert= WeirExpert::where('id',$exp->id)->update(
-        [
-          'weir_problem'=>$request->expert_problem,
-          'weir_solution'=>$request->expert_solution,
-        ]
-      );
+      
       // //// -------- Weir Catchment ------------------/////
       $catch = DB::table('weir_catchments')->select('*')->where('weir_id', $weir[0]->weir_id)->get()->last();
       $catchmant= WeirCatchment::where('id',$catch->id)->update(
@@ -2161,6 +2156,29 @@ class FormsController extends Controller
             ]
         );
       }
+     
+      if ($request->hasFile('water_system')) {
+              $images = $request->file('water_system');
+              $org_img = $thm_img = true;
+              if( ! File::exists('images/map/')) { $org_img = File::makeDirectory('images/map/', 0777, true);}
+              // loop through each image to save and upload
+              foreach($images as $key => $image) {
+                  $filename = $request->weir_code.'.'.$image->getClientOriginalExtension();
+                  //path of image for upload
+                  $org_path = 'images/map/'. $filename;
+                  Image::make($image)->fit(2000,2826, function ($constraint) {
+                              $constraint->upsize();
+                  })->save($org_path);
+              }
+      }
+      $expert= WeirExpert::where('id',$exp->id)->update(
+        [
+          'weir_problem'=>$request->expert_problem,
+          'weir_solution'=>$request->expert_solution,
+          'map'=>$org_path
+        ]
+      );
+
       
 
       return redirect()->route("expert.list");   
