@@ -388,27 +388,22 @@
                                                   <div class="col-sm-2">
                                                     <div class="border-checkbox-group border-checkbox-group-primary">
                                                       <input class="border-checkbox" type="checkbox" id="improve_1" name="improve_type_new" {{checkdata(1,$improve_type)}}>
-                                                      <label class="border-checkbox-label" for="improve_1">สภาพดี</label>
+                                                      <label class="border-checkbox-label" for="improve_1">ใช้งานได้</label>
                                                     </div>
                                                   </div>
                                                   <div class="col-sm-2">
                                                     <div class="border-checkbox-group border-checkbox-group-primary">
                                                       <input class="border-checkbox" type="checkbox" id="improve_2" name="improve_type_new" {{checkdata(2,$improve_type)}}>
-                                                      <label class="border-checkbox-label" for="improve_2">สภาพค่อนข้างดี <br>(ซ่อมแซ่มเล็กน้อย)</label>
+                                                      <label class="border-checkbox-label" for="improve_2">ควรปรับปรุง</label>
                                                     </div>
                                                   </div>   
-                                                  <div class="col-sm-2">
+                                                  <div class="col-sm-4">
                                                     <div class="border-checkbox-group border-checkbox-group-primary">
                                                       <input class="border-checkbox" type="checkbox" id="improve_3" name="improve_type_new" {{checkdata(3,$improve_type)}}>
-                                                      <label class="border-checkbox-label" for="improve_3">สภาพปานกลาง <br>(ควรซ่อมแซ่ม)</label>
+                                                      <label class="border-checkbox-label" for="improve_3">ควรรื้อถอนก่อสร้างใหม่</label>
                                                     </div>
                                                   </div> 
-                                                  <div class="col-sm-2">
-                                                    <div class="border-checkbox-group border-checkbox-group-primary">
-                                                      <input class="border-checkbox" type="checkbox" id="improve_4" name="improve_type_new" {{checkdata(4,$improve_type)}}>
-                                                      <label class="border-checkbox-label" for="improve_4">สภาพทรุดโทรม <br>(ซ่อมแซ่มทันที)</label>
-                                                    </div>
-                                                  </div>                                        
+                                                                           
                                               </div>
                                             </div>                                          
                                         </fieldset>

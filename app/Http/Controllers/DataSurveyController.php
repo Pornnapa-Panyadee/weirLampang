@@ -335,7 +335,7 @@ class DataSurveyController extends Controller
             ];
             // dd($weir[0]->user);
 
-            if($weir[0]->user==$user || $status=="admin" ){
+            if($weir[0]->user==$user || $status=="admin" || $status=="expert" || $weir[0]->user=="reveewach" ){
                 $dataUser[] = [
                     'weir_id'=> $weir[0]->weir_id,
                     'weir_code'=> $weir[0]->weir_code,
@@ -350,7 +350,6 @@ class DataSurveyController extends Controller
                     'date'=>$weir[0]->created_at
                 ];
             }
-        
           }
             return view('form.expert_list',compact('data','dataUser','user'));
         }else{
