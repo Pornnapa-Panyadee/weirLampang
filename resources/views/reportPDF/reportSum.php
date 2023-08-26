@@ -345,11 +345,6 @@
                                 <?php } }?>
                             </td>
                         </tr>
-                        <tr  style="background-color:#DFDFDF" >
-                            <td colspan="2">3. ส่วนควบคุมน้ำ :<?php echo checkpixhas(count($photo3),$photo3[0]["file"],$damage[2]); ?></td>
-                            <td>4. ส่วนท้ายน้ำ : <?php echo checkpixhas(count($photo4),$photo4[0]["file"],$damage[3]); ?></td>
-                            <td style="text-align:center;" width="10%"><?php echo $sediment['check4']; ?></td>
-                        </tr>
                         <tr>
                             <td colspan="2" style="height:72px;" ><br>
                                 <?php  if($countPhoto3==1){?>
@@ -367,12 +362,6 @@
                                     <?php echo checkphoto($photo4[$i]["file"]); ?>
                                 <?php } }?>
                             </td>
-                        </tr>
-                        <tr style="background-color:#DFDFDF">
-                            <td >5. ส่วนป้องกันท้ายน้ำ : <?php echo checkpixhas(count($photo5),$photo5[0]["file"],$damage[4]); ?></td>
-                            <td style="text-align:center;" width="10%"><?php echo $sediment['check5']; ?></td>
-                            <td >6. ระบบส่งน้ำ : <?php echo checkpixhas(count($photo6),$photo6[0]["file"],$damage[5]); ?></td>
-                            <td style="text-align:center;" width="10%"><?php echo $sediment['check6']; ?></td>
                         </tr>
                         <tr>
                             <td colspan="2" style="height:72px;" ><br>
