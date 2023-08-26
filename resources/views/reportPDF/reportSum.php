@@ -345,6 +345,11 @@
                                 <?php } }?>
                             </td>
                         </tr>
+                        <tr  style="background-color:#DFDFDF" >
+                            <td colspan="2">3. ส่วนควบคุมน้ำ :<?php echo checkpixhas(count($photo3),$photo3[0]["file"],$damage[2]); ?></td>
+                            <td>4. ส่วนท้ายน้ำ : <?php echo checkpixhas(count($photo4),$photo4[0]["file"],$damage[3]); ?></td>
+                            <td style="text-align:center;" width="10%"><?php echo $sediment['check4']; ?></td>
+                        </tr>
                         <tr>
                             <td colspan="2" style="height:72px;" ><br>
                                 <?php  if($countPhoto3==1){?>
@@ -362,6 +367,12 @@
                                     <?php echo checkphoto($photo4[$i]["file"]); ?>
                                 <?php } }?>
                             </td>
+                        </tr>
+                        <tr style="background-color:#DFDFDF">
+                            <td >5. ส่วนป้องกันท้ายน้ำ : <?php echo checkpixhas(count($photo5),$photo5[0]["file"],$damage[4]); ?></td>
+                            <td style="text-align:center;" width="10%"><?php echo $sediment['check5']; ?></td>
+                            <td >6. ระบบส่งน้ำ : <?php echo checkpixhas(count($photo6),$photo6[0]["file"],$damage[5]); ?></td>
+                            <td style="text-align:center;" width="10%"><?php echo $sediment['check6']; ?></td>
                         </tr>
                         <tr>
                             <td colspan="2" style="height:72px;" ><br>
@@ -383,6 +394,48 @@
                         </tr>
 
                        
+                    </table>
+            </div>
+
+            <?php if( (strlen($expert->weir_problem)+strlen($expert->weir_solution))>2000){ ?> 
+                <div class="page-break"></div>
+            <?php } ?>
+
+            <div class="text">
+                    <table class="table5" border=1 style="margin-top:3px;">                   
+                        <tr>
+                            <th style="background-color:#C0C0C0; text-align:center" width="50%" colspan="2">พื้นที่รับน้ำของฝายและข้อมูลประกอบ </th>
+                            <th style="background-color:#C0C0C0; text-align:center" width="50%">สภาพโดยรวมของฝายและแนวทางแก้ไขปรับปรุงเบื้องต้น</th>
+                        </tr>
+                        <tr>
+                            <td  width="25%"><img src='https://watercenter.scmc.cmu.ac.th/weir/jang_basin/images/map/<?php echo $location[0]->weir_district; ?>/<?php echo $weir[0]['weir_code']; ?>.jpg'  class="detail_img"> </td>
+                            <td valign="top" width="25%" class="text_table"> 
+                                <u>ข้อมูลพื้นที่รับน้ำของฝาย</u><br>
+                                A = <?php echo $area[0]->area; ?> ตารางกิโลเมตร <BR>
+                                L = <?php echo $area[0]->L; ?> กิโลเมตร <BR>
+                                LC = <?php echo $area[0]->LC; ?> กิโลเมตร <BR>
+                                H = <?php echo $area[0]->H; ?> เมตร <BR>
+                                s = <?php echo $area[0]->S; ?>  <BR>
+                                <?php if($area[0]->area<25){?>
+                                    c = <?php echo $area[0]->c; ?> <BR>
+                                    I = <?php echo $area[0]->I; ?> มิลลิเมตร/ชั่วโมง <BR>
+                                    Return period = <?php echo $area[0]->Return_period; ?> ปี <BR>
+                                    อัตราการไหลสูงสุด  = <?php echo $area[0]->flow; ?> ลบ.ม./วินาที
+                                <?php } else{ ?> 
+                                    Return period = <?php echo $area[0]->Return_period; ?> ปี <BR>
+                                    อัตราการไหลสูงสุด  = <?php echo $area[0]->flow; ?> ลบ.ม./วินาที
+                                    <BR><BR><BR><BR>
+                                <?php } ?>                                
+                                
+
+                            </td>
+                            <td valign="top" class="text4">
+                                <b>สภาพโดยรวมของฝาย  </b> <br> 
+                                <?php echo $expert->weir_problem; ?> <br>
+                                <b>แนวทางแก้ไขปรับปรุงเบื้องต้น  </b> <br> 
+                                <?php echo $expert->weir_solution; ?>
+                            </td>
+                        </tr>
                     </table>
             </div>
           
