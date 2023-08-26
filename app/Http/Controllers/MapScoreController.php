@@ -24,6 +24,7 @@ use App\Models\WaterdeliveryInv;
 use App\Models\WeirLocation;
 use App\Models\WeirSpaceification;
 use App\Models\WeirExpert;
+use App\Models\Impovement;
 
 class MapScoreController extends Controller
 {
@@ -274,15 +275,19 @@ class MapScoreController extends Controller
     // API MAP Score
     public function score($amp = 0, $class = 0)
     {
+        // $imp = Impovement::select('*')->where('weir_amp', $amp)->where('improve_type', $class)->get();
         $location = WeirLocation::select('*')->where('weir_district', $amp)->get();
+        dd($location);
         for ($i = 0; $i < count($location); $i++) {
-            $score = 0;
             $weir = WeirSurvey::select('*')->where('weir_location_id', $location[$i]->weir_location_id)->get();
             $river = River::select('river_name')->where('river_id', $weir[0]->river_id)->get();
-            $score = DB::table('score_sums')->select('*')->where('weir_id', $weir[0]->weir_id)->get();
+            $score = Impovement::select('*')->where('weir_id', $weir[0]->weir_id)->get()->last();
             $latlong = json_decode($location[$i]->latlong);
-            // dd($latlong);
-            if ($score[0]->class == $class) {
+            
+            // dd($score[0]->improve_type);
+
+            if ($score->improve_type == $class) {
+
                 $result[] = [
                     'weir_id' => $weir[0]->weir_id,
                     'weir_code' => $weir[0]->weir_code,
@@ -293,16 +298,10 @@ class MapScoreController extends Controller
                     'weir_tumbol' => $location[$i]->weir_tumbol,
                     'weir_district' => $location[$i]->weir_district,
                     'river' => $river[0]->river_name,
-                    'score' => $score[0]->score,
-                    'class' => $score[0]->class
+                    'score' => $score->improve_type,
                 ];
             }
         }
-        // dd($result);
-        if ($amp == "ป่าแดด" && $class = "ปรับปรุง") {
-            $result[] = [];
-        }
-
         $result = json_encode($result);
         echo $result;
     }
@@ -311,16 +310,15 @@ class MapScoreController extends Controller
     public function scoretable()
     {
         $amp = ["เมืองลำปาง", "เกาะคา", "แม่ทะ", "แม่เมาะ"];
+        
 
         for ($i = 0; $i < count($amp); $i++) {
-            $score_N = DB::table('score_sums')->select('*')->where('amp', $amp[$i])->where('class', 'สภาพดี')->get();
-            $score_Y = DB::table('score_sums')->select('*')->where('amp', $amp[$i])->where('class', 'สภาพค่อนข้างดี')->get();
-            $score_O = DB::table('score_sums')->select('*')->where('amp', $amp[$i])->where('class', 'สภาพปานกลาง')->get();
-            $score_R = DB::table('score_sums')->select('*')->where('amp', $amp[$i])->where('class', 'สภาพทรุดโทรม')->get();
-            $result[] = [
+            $score_N = Impovement::select('improve_type')->where('weir_amp', $amp[$i])->where('improve_type', 1)->get();
+            $score_O = Impovement::select('improve_type')->where('weir_amp', $amp[$i])->where('improve_type', 2)->get();
+            $score_R = Impovement::select('improve_type')->where('weir_amp', $amp[$i])->where('improve_type', 3)->get();
+           $result[] = [
                 'amp' => $amp[$i],
                 'score_N' => $score_N->count(),
-                'score_Y' => $score_Y->count(),
                 'score_O' => $score_O->count(),
                 'score_R' => $score_R->count(),
             ];

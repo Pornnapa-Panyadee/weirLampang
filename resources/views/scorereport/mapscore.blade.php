@@ -157,10 +157,9 @@
                                             <th colspan="3">สภาพฝาย (จำนวน) </th>
                                           </tr>
                                           <tr>
-                                            <th valign="middle">สภาพดี</th>
-                                            <th>สภาพค่อนข้างดี <br> (ซ่อมแซมเล็กน้อย) </th>
-                                            <th>สภาพปานกลาง <br> (ควรซ่อมแซม)</th>    
-                                            <th>สภาพทรุดโทรม <br> (ซ่อมแซมทันที) </th>                                                                             
+                                            <th valign="middle">ใช้งานได้</th>
+                                            <th>ควรปรับปรุง</th>    
+                                            <th>ควรรื้อถอนก่อสร้างใหม่ </th>                                                                             
                                           </tr>
                                         </thead>
                                         <tbody>
@@ -168,7 +167,6 @@
                                           <tr >
                                             <td width=25%>{{$result[$i]['amp']}}</td>
                                             <td width=20% align="center">{{$result[$i]['score_N']}}</td>
-                                            <td width=20% align="center">{{$result[$i]['score_Y']}} </td>
                                             <td width=20% align="center">{{$result[$i]['score_O']}} </td>
                                             <td width=20% align="center">{{$result[$i]['score_R']}} </td>
                                           </tr>
@@ -250,30 +248,20 @@
 
       var station19 = new L.LayerGroup();var station20 = new L.LayerGroup();
       var station21 = new L.LayerGroup();var station22 = new L.LayerGroup();
-      var station23 = new L.LayerGroup();var station24 = new L.LayerGroup();
-      var station25 = new L.LayerGroup();var station26 = new L.LayerGroup();
-      var station27 = new L.LayerGroup();var station28 = new L.LayerGroup();
-      var station29 = new L.LayerGroup();var station30 = new L.LayerGroup();
-      var station31 = new L.LayerGroup();var station32 = new L.LayerGroup();
-      var station33 = new L.LayerGroup();var station34 = new L.LayerGroup();
-      var station35 = new L.LayerGroup();var station36 = new L.LayerGroup();
 
       var station37 = new L.LayerGroup();var station38 = new L.LayerGroup();
       var station39 = new L.LayerGroup();var station40 = new L.LayerGroup();
 
-      var station55 = new L.LayerGroup();var station56 = new L.LayerGroup();
-      var station57 = new L.LayerGroup();var station58 = new L.LayerGroup();
-
-
-      
       var rid = new L.LayerGroup();
       var ridNo = new L.LayerGroup();
       var dwr = new L.LayerGroup();
       var loyal = new L.LayerGroup();
       var borders= new L.LayerGroup();
-      var x = 19.65755 ;
-      var y = 99.8995964;
-      var mbAttr = 'CRFlood ',
+
+      var x = 18.230015 ; 
+      var y = 99.656525;
+
+      var mbAttr = 'Mae Jang Basin ',
           mbUrl = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoidmFucGFueWEiLCJhIjoiY2loZWl5ZnJ4MGxnNHRwbHp5bmY4ZnNxOCJ9.IooQB0jYS_4QZvIq7gkjeQ';
           osm = L.tileLayer('http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}',{
               maxZoom: 20,subdomains:['mt0','mt1','mt2','mt3'], attribution: mbAttr });
@@ -281,14 +269,14 @@
                 maxZoom: 20,subdomains:['mt0','mt1','mt2','mt3'], attribution: mbAttr });
    
 
-      var runLayer = omnivore.kml('{{ asset('kml/CR_18Amphoe_bound.kml') }}')
-      .on('ready', function() {
-          this.setStyle({
-                    fillOpacity: 0,
-            color: "#466DF3",
-            weight: 3
-        });
-    }).addTo(borders); 
+      var runLayer = omnivore.kml('{{ asset('kml/bound_ขอบเขตลุ่มน้ำแม่จาง.kml') }}')
+        .on('ready', function() {
+            this.setStyle({
+                      fillOpacity: 0,
+              color: "#466DF3",
+              weight: 3
+          });
+      }).addTo(borders); 
      
       var pin = L.icon({
           iconUrl: '{{ asset('images/icon/pin19.png') }}',
@@ -425,25 +413,20 @@
         mo=1;
       }
         
-        addPin(station1,0,"สภาพดี",mo);
-        addPin(station2,1,"สภาพดี",mo);
-        addPin(station3,2,"สภาพดี",mo);
-        addPin(station4,3,"สภาพดี",mo);
+        addPin(station1,0,"1",mo);
+        addPin(station2,1,"1",mo);
+        addPin(station3,2,"1",mo);
+        addPin(station4,3,"1",mo);
 
-        addPin(station19,0,"สภาพค่อนข้างดี",mo);
-        addPin(station20,1,"สภาพค่อนข้างดี",mo);
-        addPin(station21,2,"สภาพค่อนข้างดี",mo);
-        addPin(station22,3,"สภาพค่อนข้างดี",mo);
+        addPin(station19,0,"2",mo);
+        addPin(station20,1,"2",mo);
+        addPin(station21,2,"2",mo);
+        addPin(station22,3,"2",mo);
 
-        addPin(station37,0,"สภาพปานกลาง",mo);
-        addPin(station38,1,"สภาพปานกลาง",mo);
-        addPin(station39,2,"สภาพปานกลาง",mo);
-        addPin(station40,3,"สภาพปานกลาง",mo);
-
-        addPin(station55,0,"สภาพทรุดโทรม",mo);
-        addPin(station56,1,"สภาพทรุดโทรม",mo);
-        addPin(station57,2,"สภาพทรุดโทรม",mo);
-        addPin(station58,3,"สภาพทรุดโทรม",mo);
+        addPin(station37,0,"3",mo);
+        addPin(station38,1,"3",mo);
+        addPin(station39,2,"3",mo);
+        addPin(station40,3,"3",mo);
       
 
       
@@ -459,9 +442,9 @@
       
 
     
-      var overlays = [
+       var overlays = [
         {
-          label: ' สภาพดี',
+          label: ' ใช้งานได้',
           selectAllCheckbox: true,
           children: [
                 { label:" "+amp[0],layer: station1},
@@ -471,7 +454,7 @@
           ]
         },
         {
-            label: ' สภาพค่อนข้างดี',
+            label: ' ควรปรับปรุง',
             selectAllCheckbox: true,
             children: [
                 { label:" "+amp[0],layer: station19},
@@ -481,7 +464,7 @@
           ]
         },
         {
-            label: ' สภาพปานกลาง',
+            label: ' ควรรื้อถอนก่อสร้างใหม่',
             selectAllCheckbox: true,
             children: [
                 { label:" "+amp[0],layer: station37},
@@ -489,28 +472,17 @@
                 { label:" "+amp[2],layer: station39},
                 { label:" "+amp[3],layer: station40},
           ]
-        },
-        {
-            label: ' สภาพทรุดโทรม',
-            selectAllCheckbox: true,
-            children: [
-                { label:" "+amp[0],layer: station55},
-                { label:" "+amp[1],layer: station56},
-                { label:" "+amp[2],layer: station57},
-                { label:" "+amp[3],layer: station58},
-          ]
         }
       ];
       
       var map = L.map('map', {
-          layers: [osm,station1,station2,station3,station4,station19,station20,station21,station22,station37,station38,station39,station40,station55,station56,station57,station58,borders],
+          layers: [osm,station1,station2,station3,station4,station19,station20,station21,station22,station37,station38,station39,station40,borders],
           center: [x,y],
-          zoom: 9,
+          zoom: 10,
         });
       ctl.addTo(map).collapseTree().expandSelected();
 
       ctl.setOverlayTree(overlays).collapseTree(false).expandSelected(true);
-      
 
 
       

@@ -70,7 +70,7 @@ Route::POST('/report/problemAmp/pdf', 'App\Http\Controllers\ReportPDFController@
 Route::POST('/report/sediment_upconcrete/pdf', 'App\Http\Controllers\ReportPDFController@sedimentUpconcrete')->name('sediment.pdf');
 
 // Report Home 
-Route::get('/report/map', 'App\Http\Controllers\ReportPDFController@reportpdf_warning'); 
+// Route::get('/report/map', 'App\Http\Controllers\ReportPDFController@reportpdf_warning'); 
 Route::get('/report/chart', 'App\Http\Controllers\ReportPDFController@reportpdf_warning');
 Route::get('/report/scoreComposition', 'App\Http\Controllers\ReportPDFController@reportpdf_warning');
 Route::get('/report/problem', 'App\Http\Controllers\ReportPDFController@reportpdf_warning');
@@ -78,7 +78,7 @@ Route::get('/report/sedimentTable', 'App\Http\Controllers\ReportPDFController@re
 
 Route::get('/report/sediment', 'App\Http\Controllers\MapScoreController@sedimentscore');
 Route::get('/report/sedimentTable', function () {return view('pages.sediment_table');});
-// Route::get('/report/map', 'App\Http\Controllers\MapScoreController@scoretable');
+Route::get('/report/map', 'App\Http\Controllers\MapScoreController@scoretable');
 // Route::get('/report/chart', 'App\Http\Controllers\ChartReportController@score');
 // Route::get('/report/scoreComposition', function () {return view('pages.scorelist');});
 // Route::get('/report/problem', function () {return view('pages.problemlist');});
