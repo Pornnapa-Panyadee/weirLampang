@@ -168,6 +168,8 @@
                 $tambol=$text[2];
                 $s_lat=str_split($locationUTM->x);
                 $s_lng=str_split($locationUTM->y);
+                $countPhoto1 = count($photo1);
+                $countPhoto2 = count($photo2);
                 function checkphoto($text){
                     if($text!=NULL){
                         $img=$text;
@@ -323,25 +325,30 @@
                         </tr>
                         <tr>
                             <td colspan="2" style="height:72px;" ><br>
-                                <?php
-                                     for($i=0;$i<2;$i++){
-                                        echo checkphoto($photo1[$i]["file"]); 
-                                     }  
-                                ?>
+                                <?php  if($countPhoto1==1){?>
+                                    <?php echo checkphoto1($photo1[0]["file"]); ?>
+                                <?php  }else{ 
+                                    for($i=0;$i<2;$i++){?>
+                                    <?php echo checkphoto($photo1[$i]["file"]); ?>
+                                <?php } }?>
                             </td>
-                            <td colspan="2" style="height:72px;" ><br>
-                                <?php
-                                     for($i=0;$i<2;$i++){
-                                        echo checkphoto($photo1[$i]["file"]); 
-                                     }  
-                                ?>
+                            <td colspan="2" style="height:72px;"><br>
+                                <?php if($countPhoto2==1){?>
+                                    <?php echo checkphoto1($photo2[0]["file"]); ?>
+                                <?php }else{ 
+                                    for($i=0;$i<2;$i++){?>
+                                    <?php echo checkphoto($photo2[$i]["file"]); ?>
+                                <?php } }?>
                             </td>
-                           
                         </tr>
                        
                     </table>
             </div>
           
+
+           
+            
+            
         </div>
     </body>
 </html>
