@@ -345,11 +345,6 @@
                                 <?php } }?>
                             </td>
                         </tr>
-                        <tr  style="background-color:#DFDFDF" >
-                            <td colspan="2">3. ส่วนควบคุมน้ำ :<?php echo checkpixhas($countPhoto3,$photo3[0]["file"],$damage[2]); ?></td>
-                            <td>4. ส่วนท้ายน้ำ : <?php echo checkpixhas($countPhoto4,$photo4[0]["file"],$damage[3]); ?></td>
-                            <td style="text-align:center;" width="10%"><?php echo $sediment['check4']; ?></td>
-                        </tr>
                         <tr>
                             <td colspan="2" style="height:72px;" ><br>
                                 <?php  if($countPhoto3==1){?>
