@@ -397,10 +397,7 @@
                     </table>
             </div>
 
-            <?php if( (strlen($expert->weir_problem)+strlen($expert->weir_solution))>2000){ ?> 
-                <div class="page-break"></div>
-            <?php } ?>
-
+           
             <div class="text">
                     <table class="table5" border=1 style="margin-top:3px;">                   
                         <tr>
