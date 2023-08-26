@@ -378,7 +378,7 @@
                         </tr>
                     </table>
             </div>
-            <?php if( (strlen($expert[0]->weir_problem)+strlen($expert[0]->weir_solution))>2000){ ?> 
+            <?php if( (strlen($expert->weir_problem)+strlen($expert->weir_solution))>2000){ ?> 
                 <div class="page-break"></div>
             <?php } ?>
 
@@ -412,9 +412,9 @@
                             </td>
                             <td valign="top" class="text4">
                                 <b>สภาพโดยรวมของฝาย  </b> <br> 
-                                <?php echo $expert[0]->weir_problem; ?> <br>
+                                <?php echo $expert->weir_problem; ?> <br>
                                 <b>แนวทางแก้ไขปรับปรุงเบื้องต้น  </b> <br> 
-                                <?php echo $expert[0]->weir_solution; ?>
+                                <?php echo $expert->weir_solution; ?>
                             </td>
                         </tr>
                     </table>

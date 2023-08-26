@@ -198,7 +198,7 @@ class ReportPDFController extends Controller
         $maintain1 = Maintenance::select('*')->where('weir_id',$weir[0]->weir_id)->get();
         $sug = AdditinalSuggestion::select('*')->where('weir_id',$weir[0]->weir_id)->get();
         $photo = Photo::select('*')->where('weir_id',$weir[0]->weir_id)->get();
-        $expert = WeirExpert::select('*')->where('weir_id',$weir[0]->weir_id)->get();
+        $expert = WeirExpert::select('*')->where('weir_id',$weir[0]->weir_id)->get()->last();
         $area = DB::table('weir_catchments')->select('*')->where('weir_id', $weir[0]->weir_id)->get();
 
         // dd($expert);
@@ -397,9 +397,9 @@ class ReportPDFController extends Controller
             $waterdelivery[0]->section_status,
         ];
         
-        dd($expert);
+        // dd($expert);
         
-        if(!empty($expert[0]->weir_solution)){
+        if(!empty($expert->weir_solution)){
             $name="weir_".$weir[0]->weir_code.".pdf";
             $pdf = PDF::loadView('reportPDF.reportOnepage',compact('mt','area','expert','sediment','date','building','model_text','weir','location','districtData','river','model','locationUTM','locationLat','space','upprotection','upconcrete','control','downconcrete','downprotection','waterdelivery','plan','maintain','sug','photo1','photo2','photo3','photo4','photo5','photo6','damage'));
             return $pdf->stream($name);
