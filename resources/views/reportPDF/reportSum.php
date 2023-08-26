@@ -341,6 +341,43 @@
                                 <?php } }?>
                             </td>
                         </tr>
+                        <tr>
+                            <td colspan="2" style="height:72px;" ><br>
+                                <?php  if($countPhoto3==1){?>
+                                    <?php echo checkphoto1($photo3[0]["file"]); ?>
+                                <?php  }else{ 
+                                    for($i=0;$i<2;$i++){?>
+                                    <?php echo checkphoto($photo3[$i]["file"]); ?>
+                                <?php } }?>
+                            </td>
+                            <td colspan="2" style="height:72px;"><br>
+                                <?php if($countPhoto4==1){?>
+                                    <?php echo checkphoto1($photo4[0]["file"]); ?>
+                                <?php }else{ 
+                                    for($i=0;$i<2;$i++){?>
+                                    <?php echo checkphoto($photo4[$i]["file"]); ?>
+                                <?php } }?>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" style="height:72px;" ><br>
+                                <?php  if($countPhoto5==1){?>
+                                    <?php echo checkphoto1($photo5[0]["file"]); ?>
+                                <?php  }else{ 
+                                    for($i=0;$i<2;$i++){?>
+                                    <?php echo checkphoto($photo5[$i]["file"]); ?>
+                                <?php } }?>
+                            </td>
+                            <td colspan="2" style="height:72px;"><br>
+                                <?php if($countPhoto5==1){?>
+                                    <?php echo checkphoto1($photo5[0]["file"]); ?>
+                                <?php }else{ 
+                                    for($i=0;$i<2;$i++){?>
+                                    <?php echo checkphoto($photo5[$i]["file"]); ?>
+                                <?php } }?>
+                            </td>
+                        </tr>
+
                        
                     </table>
             </div>
