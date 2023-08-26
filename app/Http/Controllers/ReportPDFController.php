@@ -397,7 +397,7 @@ class ReportPDFController extends Controller
             $waterdelivery[0]->section_status,
         ];
         
-        // dd($damage);
+        dd($expert);
         
         if(!empty($expert[0]->weir_solution)){
             $name="weir_".$weir[0]->weir_code.".pdf";
