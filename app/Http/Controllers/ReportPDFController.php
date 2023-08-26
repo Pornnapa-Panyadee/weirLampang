@@ -200,7 +200,7 @@ class ReportPDFController extends Controller
         $photo = Photo::select('*')->where('weir_id',$weir[0]->weir_id)->get();
         $expert = WeirExpert::select('*')->where('weir_id',$weir[0]->weir_id)->get()->last();
         $area = DB::table('weir_catchments')->select('*')->where('weir_id', $weir[0]->weir_id)->get();
-        dd($photo);
+
         // dd($expert);
         // crete json_decode
             $model=json_decode($weir[0]->weir_model);
@@ -397,7 +397,7 @@ class ReportPDFController extends Controller
             $waterdelivery[0]->section_status,
         ];
         
-        dd($expert);
+        // dd($expert);
         
         if(!empty($expert->weir_solution)){
             $name="weir_".$weir[0]->weir_code.".pdf";
