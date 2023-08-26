@@ -216,6 +216,185 @@
 
             ?>
             
+            <div class="text06">
+                <table style="text-align:left;">
+                    <tr>
+                        <td width="20%">ชื่อฝาย : <?php  echo($weir[0]->weir_name) ; ?> </td>
+                        <td width="15%">ชื่อลำน้ำ : &nbsp;&nbsp;<?php  echo($river[0]->river_name); ?> </td>
+                        <td width="20%">ลำน้ำสาขาของ : &nbsp;&nbsp;<?php echo($river[0]->river_branch); ?> </td>
+                        <td width="15%">ประเภทลำน้ำ :  &nbsp;&nbsp;<?php echo($river[0]->river_type); ?> </td> 
+                        <td width="20%"> วันที่สำรวจ :  &nbsp;&nbsp;<?php echo($date) ; ?></td>
+                    </tr>
+                </table>
+                <table style="text-align:left;">
+                    <tr>
+                        <td width="20%">หมู่บ้าน : หมู่ที่ &nbsp;<?php echo $moo; ?>&nbsp;<?php echo $tambol; ?></td>
+                        <td width="15%">ตำบล : &nbsp;<?php echo $location[0]->weir_tumbol; ?></td>
+                        <td width="15%">อำเภอ : &nbsp;<?php echo $location[0]->weir_district; ?></td>
+                        <td width="15%">จังหวัด : &nbsp;ลำปาง</td>
+                        <td  >&nbsp;</td>
+                    </tr>
+                </table>
+                <table style="text-align:left;">
+                    <tr>
+                        <td width="18%">ก่อสร้าง เมื่อปี พ.ศ. : &nbsp;<?php echo $weir[0]->weir_build; ?></td>
+                        <td width="20%">อายุฝาย : &nbsp;<?php echo $weir[0]->weir_age; ?></td>
+                        <td width="25%"> หน่วยงานรับผิดชอบ : &nbsp;<?php echo checkCuase($weir[0]->resp_name); ?> </td>
+                        <td> <?php echo ( $model_text['text3']."  ".$model_text['text1']." ".$model_text['text2']); ?></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="text">
+                <table class="table" border=1 >
+                    <thead>
+                        <tr>
+                        <th colspan="4" class="text-center" style="background-color:#C0C0C0">พิกัดฝาย</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td width="15%">X(UTM)</td>
+                            <td width="35%"><?php echo $locationUTM->x; ?></td>
+                            <td width="15%">Y(UTM)</td>
+                            <td width="35%"><?php echo $locationUTM->y; ?></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="text" style="margin-top:3px;">
+                <table id="customers" >
+                    <tr align="center"><th colspan="5" class="text-center" style="background-color:#C0C0C0">ลักษณะทั่วไป</th></tr>
+                    <tr>
+                        <td colspan="2"> <b>ประเภทของสันฝาย : </b>  &nbsp;<?php echo $space[0]->ridge_type->type; ?> </td>
+                        <td >ความสูงชัน :  &nbsp;<?php echo $space[0]->ridge_height; ?>  &nbsp;เมตร</td>
+                        <td colspan="2">ความกว้างสัน :  &nbsp;<?php echo $space[0]->ridge_width; ?>  &nbsp;เมตร</td>
+                    </tr>
+                    <tr>
+                        <td > <b>ประตูระบายน้ำ : </b>  &nbsp;<?php echo(checkhas($space[0]->gate_has)); ?> </td>
+                        <td >ชนิดบานประตู :  &nbsp;<?php echo (checkCuase($space[0]->gate_type)); ?> </td>
+                        <td >ขนาด (กว้าง*สูง) : &nbsp; <?php echo (checkCuase($space[0]->gate_dimension->size)) ; ?></td>
+                        <td >จำนวน : &nbsp; <?php echo(checkCuase($space[0]->gate_dimension->num)); ?>&nbsp;ชุด</td>
+                        <td>ชนิดเครื่องยกบาน : &nbsp; <?php echo (checkCuase($space[0]->gate_machanic_type)); ?></td>
+                    </tr>
+                    <tr>
+                        <td > <b>อาคารบังคับน้ำ : </b>  &nbsp;<?php echo(checkhas($space[0]->control_building_has)); ?> </td>
+                        <td ><?php echo $building['side']; ?> </td>
+                        <td ><?php echo $building['text1']; ?> </td>
+                        <td><?php echo $building['text2']; ?> </td>
+                        <td ><?php echo $building['text3']; ?> </td>
+                    </tr>
+
+                    <tr>
+                        <td > <b>ระบบส่งน้ำ : </b>  &nbsp;<?php echo checkhas($space[0]->canal_has); ?> </td>
+                        <td >ลักษณะคลอง :  &nbsp;<?php echo checkCuase($space[0]->canal_type); ?> </td>
+                        <td >ขนาดกันคลองกว้าง : &nbsp; <?php echo checkCuase($space[0]->canel_dimension->width); ?>&nbsp;เมตร</td>
+                        <td colspan="2">ความยาวประมาณ : &nbsp; <?php echo checkCuase($space[0]->canel_dimension->lenght); ?>&nbsp;กิโลเมตรเมตร</td>
+                    </tr>
+                    <tr>
+                        <td colspan="5"> <b>ข้อมูลประวัติการซ่อม : </b>  &nbsp;</td>
+                    </tr>
+                    <tr align="center" style="background-color:#C0C0C0">
+                        <th>ปี พ.ศ.</th>
+                        <th>รายการซ่อม</th>
+                        <th>หน่วยงาน</th>
+                        <th colspan="2">หมายเหตุ</th>
+                    </tr>
+                    <?php for($i=0;$i<$mt;$i++){ ?>
+                        <tr >
+                            <td style="border: 1px solid;"><?php echo $maintain[$i]['maintain_date']; ?>&nbsp;</td>
+                            <td style="border: 1px solid;"><?php echo $maintain[$i]['maintain_detail']; ?>&nbsp;</td>
+                            <td style="border: 1px solid;"><?php echo $maintain[$i]['maintain_resp']; ?>&nbsp;</td>
+                            <td colspan="2" style="border: 1px solid;"><?php echo $maintain[$i]['maintain_remark']; ?>&nbsp;</td>
+                        </tr>  
+                    <?php  } ?>
+                </table>
+            </div>
+
+            <div class="text">
+                <div class="text3">ผลการตรวจสอบสภาพฝาย </div>
+                    <table class="table3" border=1>
+                        <tr align="center"><th colspan="4" class="text-center" style="background-color:#C0C0C0">สภาพฝายของแต่ละองค์ประกอบ (Element)</th></tr>
+                        <tr style="background-color:#DFDFDF">
+                            <td width="40%">1. ส่วนป้องกันเหนือน้ำ : <?php echo checkpixhas(count($photo1),$photo1[0]["file"],$damage[0]); ?> </td>
+                            <td style="text-align:center;" width="10%"><?php echo $sediment['check1']; ?></td>
+                            <td width="40%">2. ส่วนเหนือน้ำ   : <?php echo checkpixhas(count($photo2),$photo2[0]["file"],$damage[1]); ?></td>
+                            <td style="text-align:center;" width="10%"><?php echo $sediment['check2']; ?></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" style="height:72px;" ><br>
+                                <?php  if(count($photo1)==1){?>
+                                    <?php echo checkphoto1($photo1[0]["file"]); ?>
+                                <?php  }else{ 
+                                    for($i=0;$i<2;$i++){?>
+                                    <?php echo checkphoto($photo1[$i]["file"]); ?>
+                                <?php } }?>
+                            </td>
+                            <td colspan="2" style="height:72px;"><br>
+                                <?php if(count($photo2)==1){?>
+                                    <?php echo checkphoto1($photo2[0]["file"]); ?>
+                                <?php }else{ 
+                                    for($i=0;$i<2;$i++){?>
+                                    <?php echo checkphoto($photo2[$i]["file"]); ?>
+                                <?php } }?>
+                            </td>
+                        </tr>
+                        <!--  -->
+                        <tr  style="background-color:#DFDFDF" >
+                            <td colspan="2">3. ส่วนควบคุมน้ำ :<?php echo checkpixhas(count($photo3),$photo3[0]["file"],$damage[2]); ?></td>
+                            <td>4. ส่วนท้ายน้ำ : <?php echo checkpixhas(count($photo4),$photo4[0]["file"],$damage[3]); ?></td>
+                            <td style="text-align:center;" width="10%"><?php echo $sediment['check4']; ?></td>
+                        </tr>
+                        <tr>
+                            <td style="height:72px;" colspan="2"> <br>
+                                <?php  if(count($photo3)==1){?>
+                                    <?php echo checkphoto1($photo3[0]["file"]); ?>
+                                <?php }else{ 
+                                    for($i=0;$i<2;$i++){?>
+                                    <?php echo checkphoto($photo3[$i]["file"]); ?>
+                                <?php  } }?>
+                            </td>
+
+                            <td style="height:72px;" colspan="2"><br>
+                                <?php if(count($photo4)==1){?>
+                                    <?php echo checkphoto1($photo4[0]["file"]); ?>
+                                <?php }else{ 
+                                    for($i=0;$i<2;$i++){?>
+                                    <?php echo checkphoto($photo4[$i]["file"]); ?>
+                                <?php  } }?>
+                            </td>
+                        </tr>
+                        <!--  -->
+                        <tr style="background-color:#DFDFDF">
+                            <td >5. ส่วนป้องกันท้ายน้ำ : <?php echo checkpixhas(count($photo5),$photo5[0]["file"],$damage[4]); ?></td>
+                            <td style="text-align:center;" width="10%"><?php echo $sediment['check5']; ?></td>
+                            <td >6. ระบบส่งน้ำ : <?php echo checkpixhas(count($photo6),$photo6[0]["file"],$damage[5]); ?></td>
+                            <td style="text-align:center;" width="10%"><?php echo $sediment['check6']; ?></td>
+                        </tr>
+                        <tr>
+                            <td style="height:72px;" colspan="2"><br>
+                                <?php if(count($photo5)==1){?>
+                                    <?php echo checkphoto1($photo5[0]["file"]); ?>
+                                <?php }else{ 
+                                    for($i=0;$i<2;$i++){?>
+                                    <?php echo checkphoto($photo5[$i]["file"]); ?>
+                                <?php } }?>
+                            </td>
+                            <td style="height:72px;" colspan="2"><br>
+                                <?php if(count($photo6)==1){?>
+                                    <?php echo checkphoto1($photo6[0]["file"]); ?>
+                                <?php }else{ 
+                                    for($i=0;$i<2;$i++){?>
+                                    <?php echo checkphoto($photo6[$i]["file"]); ?>
+                                <?php } }?>
+                            </td>
+                        </tr>
+                    </table>
+            </div>
+            <?php if( (strlen($expert->weir_problem)+strlen($expert->weir_solution))>2000){ ?> 
+                <div class="page-break"></div>
+            <?php } ?>
+
            
             
             
