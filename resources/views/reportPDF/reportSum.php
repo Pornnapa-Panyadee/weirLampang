@@ -170,6 +170,10 @@
                 $s_lng=str_split($locationUTM->y);
                 $countPhoto1 = count($photo1);
                 $countPhoto2 = count($photo2);
+                $countPhoto3 = count($photo3);
+                $countPhoto4 = count($photo4);
+                $countPhoto5 = count($photo5);
+                $countPhoto6 = count($photo6);
                 function checkphoto($text){
                     if($text!=NULL){
                         $img=$text;
