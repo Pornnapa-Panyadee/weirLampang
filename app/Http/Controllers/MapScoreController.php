@@ -277,7 +277,7 @@ class MapScoreController extends Controller
     {
         // $imp = Impovement::select('*')->where('weir_amp', $amp)->where('improve_type', $class)->get();
         $location = WeirLocation::select('*')->where('weir_district', $amp)->get();
-        dd($location);
+        // dd($location);
         for ($i = 0; $i < count($location); $i++) {
             $weir = WeirSurvey::select('*')->where('weir_location_id', $location[$i]->weir_location_id)->get();
             $river = River::select('river_name')->where('river_id', $weir[0]->river_id)->get();
