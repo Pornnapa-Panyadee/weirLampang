@@ -346,9 +346,9 @@
                             </td>
                         </tr>
                         <tr style="background-color:#DFDFDF">
-                            <td width="40%">3. ส่วนควบคุมน้ำ : <?php echo (checkpixhas(count($photo3),$photo3[0]["file"],$damage[2])); ?> </td>
+                            <td width="40%">1. ส่วนป้องกันเหนือน้ำ : <?php echo (checkpixhas(count($photo1),$photo1[0]["file"],$damage[0])); ?> </td>
                             <td style="text-align:center;" width="10%"><?php echo $sediment['check1']; ?></td>
-                            <td width="40%">4. ส่วนท้ายน้ำ   : <?php echo (checkpixhas(count($photo4),$photo4[0]["file"],$damage[3])); ?></td>
+                            <td width="40%">2. ส่วนเหนือน้ำ   : <?php echo (checkpixhas(count($photo2),$photo2[0]["file"],$damage[1])); ?></td>
                             <td style="text-align:center;" width="10%"><?php echo $sediment['check2']; ?></td>
                         </tr>
                        
