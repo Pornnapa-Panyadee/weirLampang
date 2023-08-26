@@ -244,7 +244,72 @@
                     </tr>
                 </table>
             </div>
-            
+            <div class="text">
+                <table class="table" border=1 >
+                    <thead>
+                        <tr>
+                        <th colspan="4" class="text-center" style="background-color:#C0C0C0">พิกัดฝาย</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td width="15%">X(UTM)</td>
+                            <td width="35%"><?php echo $locationUTM->x; ?></td>
+                            <td width="15%">Y(UTM)</td>
+                            <td width="35%"><?php echo $locationUTM->y; ?></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="text" style="margin-top:3px;">
+                <table id="customers" >
+                    <tr align="center"><th colspan="5" class="text-center" style="background-color:#C0C0C0">ลักษณะทั่วไป</th></tr>
+                    <tr>
+                        <td colspan="2"> <b>ประเภทของสันฝาย : </b>  &nbsp;<?php echo $space[0]->ridge_type->type; ?> </td>
+                        <td >ความสูงชัน :  &nbsp;<?php echo $space[0]->ridge_height; ?>  &nbsp;เมตร</td>
+                        <td colspan="2">ความกว้างสัน :  &nbsp;<?php echo $space[0]->ridge_width; ?>  &nbsp;เมตร</td>
+                    </tr>
+                    <tr>
+                        <td > <b>ประตูระบายน้ำ : </b>  &nbsp;<?php echo(checkhas($space[0]->gate_has)); ?> </td>
+                        <td >ชนิดบานประตู :  &nbsp;<?php echo (checkCuase($space[0]->gate_type)); ?> </td>
+                        <td >ขนาด (กว้าง*สูง) : &nbsp; <?php echo (checkCuase($space[0]->gate_dimension->size)) ; ?></td>
+                        <td >จำนวน : &nbsp; <?php echo(checkCuase($space[0]->gate_dimension->num)); ?>&nbsp;ชุด</td>
+                        <td>ชนิดเครื่องยกบาน : &nbsp; <?php echo (checkCuase($space[0]->gate_machanic_type)); ?></td>
+                    </tr>
+                    <tr>
+                        <td > <b>อาคารบังคับน้ำ : </b>  &nbsp;<?php echo(checkhas($space[0]->control_building_has)); ?> </td>
+                        <td ><?php echo $building['side']; ?> </td>
+                        <td ><?php echo $building['text1']; ?> </td>
+                        <td><?php echo $building['text2']; ?> </td>
+                        <td ><?php echo $building['text3']; ?> </td>
+                    </tr>
+
+                    <tr>
+                        <td > <b>ระบบส่งน้ำ : </b>  &nbsp;<?php echo checkhas($space[0]->canal_has); ?> </td>
+                        <td >ลักษณะคลอง :  &nbsp;<?php echo checkCuase($space[0]->canal_type); ?> </td>
+                        <td >ขนาดกันคลองกว้าง : &nbsp; <?php echo checkCuase($space[0]->canel_dimension->width); ?>&nbsp;เมตร</td>
+                        <td colspan="2">ความยาวประมาณ : &nbsp; <?php echo checkCuase($space[0]->canel_dimension->lenght); ?>&nbsp;กิโลเมตรเมตร</td>
+                    </tr>
+                    <tr>
+                        <td colspan="5"> <b>ข้อมูลประวัติการซ่อม : </b>  &nbsp;</td>
+                    </tr>
+                    <tr align="center" style="background-color:#C0C0C0">
+                        <th>ปี พ.ศ.</th>
+                        <th>รายการซ่อม</th>
+                        <th>หน่วยงาน</th>
+                        <th colspan="2">หมายเหตุ</th>
+                    </tr>
+                    <?php for($i=0;$i<$mt;$i++){ ?>
+                        <tr >
+                            <td style="border: 1px solid;"><?php echo $maintain[$i]['maintain_date']; ?>&nbsp;</td>
+                            <td style="border: 1px solid;"><?php echo $maintain[$i]['maintain_detail']; ?>&nbsp;</td>
+                            <td style="border: 1px solid;"><?php echo $maintain[$i]['maintain_resp']; ?>&nbsp;</td>
+                            <td colspan="2" style="border: 1px solid;"><?php echo $maintain[$i]['maintain_remark']; ?>&nbsp;</td>
+                        </tr>  
+                    <?php  } ?>
+                </table>
+            </div>
 
 
            
