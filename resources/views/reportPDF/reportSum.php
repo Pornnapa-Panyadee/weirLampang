@@ -311,6 +311,87 @@
                 </table>
             </div>
 
+            <div class="text">
+                <div class="text3">ผลการตรวจสอบสภาพฝาย </div>
+                    <table class="table3" border=1>
+                        <tr align="center"><th colspan="4" class="text-center" style="background-color:#C0C0C0">สภาพฝายของแต่ละองค์ประกอบ (Element)</th></tr>
+                        <tr style="background-color:#DFDFDF">
+                            <td width="40%">1. ส่วนป้องกันเหนือน้ำ : <?php echo checkpixhas(count($photo1),$photo1[0]["file"],$damage[0]); ?> </td>
+                            <td style="text-align:center;" width="10%"><?php echo $sediment['check1']; ?></td>
+                            <td width="40%">2. ส่วนเหนือน้ำ   : <?php echo checkpixhas(count($photo2),$photo2[0]["file"],$damage[1]); ?></td>
+                            <td style="text-align:center;" width="10%"><?php echo $sediment['check2']; ?></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" style="height:72px;" ><br>
+                                <?php  if(count($photo1)==1){?>
+                                    <?php echo checkphoto1($photo1[0]["file"]); ?>
+                                <?php  }else{ 
+                                    for($i=0;$i<2;$i++){?>
+                                    <?php echo checkphoto($photo1[$i]["file"]); ?>
+                                <?php } }?>
+                            </td>
+                            <td colspan="2" style="height:72px;"><br>
+                                <?php if(count($photo2)==1){?>
+                                    <?php echo checkphoto1($photo2[0]["file"]); ?>
+                                <?php }else{ 
+                                    for($i=0;$i<2;$i++){?>
+                                    <?php echo checkphoto($photo2[$i]["file"]); ?>
+                                <?php } }?>
+                            </td>
+                        </tr>
+                        <!--  -->
+                        <tr  style="background-color:#DFDFDF" >
+                            <td colspan="2">3. ส่วนควบคุมน้ำ :<?php echo checkpixhas(count($photo3),$photo3[0]["file"],$damage[2]); ?></td>
+                            <td>4. ส่วนท้ายน้ำ : <?php echo checkpixhas(count($photo4),$photo4[0]["file"],$damage[3]); ?></td>
+                            <td style="text-align:center;" width="10%"><?php echo $sediment['check4']; ?></td>
+                        </tr>
+                        <tr>
+                            <td style="height:72px;" colspan="2"> <br>
+                                <?php  if(count($photo3)==1){?>
+                                    <?php echo checkphoto1($photo3[0]["file"]); ?>
+                                <?php }else{ 
+                                    for($i=0;$i<2;$i++){?>
+                                    <?php echo checkphoto($photo3[$i]["file"]); ?>
+                                <?php  } }?>
+                            </td>
+
+                            <td style="height:72px;" colspan="2"><br>
+                                <?php if(count($photo4)==1){?>
+                                    <?php echo checkphoto1($photo4[0]["file"]); ?>
+                                <?php }else{ 
+                                    for($i=0;$i<2;$i++){?>
+                                    <?php echo checkphoto($photo4[$i]["file"]); ?>
+                                <?php  } }?>
+                            </td>
+                        </tr>
+                        <!--  -->
+                        <tr style="background-color:#DFDFDF">
+                            <td >5. ส่วนป้องกันท้ายน้ำ : <?php echo checkpixhas(count($photo5),$photo5[0]["file"],$damage[4]); ?></td>
+                            <td style="text-align:center;" width="10%"><?php echo $sediment['check5']; ?></td>
+                            <td >6. ระบบส่งน้ำ : <?php echo checkpixhas(count($photo6),$photo6[0]["file"],$damage[5]); ?></td>
+                            <td style="text-align:center;" width="10%"><?php echo $sediment['check6']; ?></td>
+                        </tr>
+                        <tr>
+                            <td style="height:72px;" colspan="2"><br>
+                                <?php if(count($photo5)==1){?>
+                                    <?php echo checkphoto1($photo5[0]["file"]); ?>
+                                <?php }else{ 
+                                    for($i=0;$i<2;$i++){?>
+                                    <?php echo checkphoto($photo5[$i]["file"]); ?>
+                                <?php } }?>
+                            </td>
+                            <td style="height:72px;" colspan="2"><br>
+                                <?php if(count($photo6)==1){?>
+                                    <?php echo checkphoto1($photo6[0]["file"]); ?>
+                                <?php }else{ 
+                                    for($i=0;$i<2;$i++){?>
+                                    <?php echo checkphoto($photo6[$i]["file"]); ?>
+                                <?php } }?>
+                            </td>
+                        </tr>
+                    </table>
+            </div>
+          
 
            
             
