@@ -397,17 +397,6 @@
             </div>
 
           
-            <div class="text">
-                    <table class="table5" border=1 style="margin-top:3px;">                   
-                        <tr>
-                            <th style="background-color:#C0C0C0; text-align:center" width="50%" colspan="2">พื้นที่รับน้ำของฝายและข้อมูลประกอบ </th>
-                            <th style="background-color:#C0C0C0; text-align:center" width="50%">สภาพโดยรวมของฝายและแนวทางแก้ไขปรับปรุงเบื้องต้น</th>
-                        </tr>
-                      
-                    </table>
-            </div>
-          
-
            
             
             
