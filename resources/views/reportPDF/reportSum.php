@@ -74,7 +74,7 @@
         }tr,td { 
             padding-top:-10px;
         }#customers {
-            border: 1px solid;
+            border: 1px solid black;
             border-collapse: collapse;
             width: 100%;
             text-align:left;
@@ -82,7 +82,7 @@
         #customers td, #customers th {
             padding-left: 4px;
         }#customers th {
-            border: 1px solid;
+            border: 1px solid ;
         }.headname{
             margin-top:-40px;
         }.table1{
@@ -346,7 +346,7 @@
                             </td>
                         </tr>
                         <tr style="background-color:#DFDFDF">
-                            <td width="40%">3. ส่วนควบคุมน้ำ : <?php echo (checkpixhas(count($photo1),$photo1[0]["file"],$damage[0])); ?> </td>
+                            <td width="40%">3. ส่วนควบคุมน้ำ : <?php echo (checkpixhas(count($photo3),$photo3[0]["file"],$damage[0])); ?> </td>
                             <td style="text-align:center;" width="10%"><?php echo $sediment['check1']; ?></td>
                             <td width="40%">4. ส่วนท้ายน้ำ   : <?php echo (checkpixhas(count($photo2),$photo2[0]["file"],$damage[1])); ?></td>
                             <td style="text-align:center;" width="10%"><?php echo $sediment['check2']; ?></td>
