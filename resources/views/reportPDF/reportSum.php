@@ -384,15 +384,14 @@
                                 <?php } }?>
                             </td>
                             <td colspan="2" style="height:72px;"><br>
-                                <?php if($countPhoto5==1){?>
-                                    <?php echo checkphoto1($photo5[0]["file"]); ?>
+                                <?php if($countPhoto6==1){?>
+                                    <?php echo checkphoto1($photo6[0]["file"]); ?>
                                 <?php }else{ 
                                     for($i=0;$i<2;$i++){?>
-                                    <?php echo checkphoto($photo5[$i]["file"]); ?>
+                                    <?php echo checkphoto($photo6[$i]["file"]); ?>
                                 <?php } }?>
                             </td>
                         </tr>
-
                        
                     </table>
             </div>
