@@ -41,6 +41,12 @@
             text-align:left;
             padding-top: -10px;
             line-height: 1;
+        }.texthead{
+            font-size: 14px;
+            text-align: center;
+            font-weight: bold;
+            margin-top: 5px;
+            line-height:90%;
         }.text2{
             font-size: 14px;
             text-align: center;
@@ -139,14 +145,78 @@
         <div class="headname">
             <table >
                 <tr>
-                    <td><img src="<?php asset('images/icon/cr.png') ; ?>" width="8%"></td>
-                    <td>
-                        <div class="text2"> การตรวจสภาพฝายและแนวทางแก้ไขปรับปรุงเพื่อเพิ่มประสิทธิภาพฝาย ในพื้นที่จังหวัดลำปาง</div>
+                    <td width="20%" align="right" >
+                        <img src='images/footer/lampang.png' width="30px" style="margin-top:20px;">
+                        <img src='images/footer/egat.jpg' width="50px">
+                        
                     </td>
-                    <td><img src="<?php asset('images/icon/cmu.png') ; ?>" width="10%"></td>
+                    <td width="60%">
+                        <div class="texthead"> การตรวจสภาพฝายและแนวทางแก้ไขปรับปรุงเพื่อเพิ่มประสิทธิภาพฝาย ในพื้นที่ลุ่มน้ำแม่จาง จังหวัดลำปาง</div>
+                    </td>
+                    <td width="20%" align="left">
+                        <img src='images/footer/cmu.png' width="30px"></td>
+                    </td>    
+                    
                 </tr>
             </table>
-          
+            <div class="row justify-content-end" align="right"><div class="col-2">รหัสฝายที่ : <?php echo  $weir[0]['weir_code']; ?> </div> </div>
+            <?php 
+                $level=["น้อย","ปานกลาง","มาก"];
+                $code=str_split($weir[0]->weir_code );
+                $text= explode(" ",$location[0]->weir_village);
+                $moo = $text[1];
+                $tambol=$text[2];
+                $s_lat=str_split($locationUTM->x);
+                $s_lng=str_split($locationUTM->y);
+                function checkphoto($text){
+                    if($text!=NULL){
+                        $img=$text;
+                        echo "<img src='{$img}'  width=140px; style='margin:8px 0 -10px 20px;'>";
+                    }else{ echo "";}	
+                }
+                function checkphoto1($text){
+                    if($text!=NULL){
+                        $img=$text;
+                        echo "<img src='{$img}'  width=140px; style='margin:-14px 0 0px 20px;'>";
+                    }else{ echo "";}	
+                }
+                function checkCuase($text) {
+                    if($text!=NULL){
+                        echo $text;	
+                    }else{
+                        echo "-";	
+                    }
+                }
+                function checkhas($text) {
+                    if($text==1){
+                    echo "มี";	
+                }else{
+                        echo "ไม่มี";	
+                } 
+                }
+                function check_score($s){
+                    if($s==1){ $text=['https://watercenter.scmc.cmu.ac.th/weir/jang_basin/images/logo/check.png','https://watercenter.scmc.cmu.ac.th/weir/jang_basin/images/logo/square.png','https://watercenter.scmc.cmu.ac.th/weir/jang_basin/images/logo/square.png'];}
+                    elseif($s==2){ $text=['https://watercenter.scmc.cmu.ac.th/weir/jang_basin/images/logo/square.png','https://watercenter.scmc.cmu.ac.th/weir/jang_basin/images/logo/check.png','https://watercenter.scmc.cmu.ac.th/weir/jang_basin/images/logo/square.png'] ;}
+                    elseif($s==3){ $text=['https://watercenter.scmc.cmu.ac.th/weir/jang_basin/images/logo/square.png','https://watercenter.scmc.cmu.ac.th/weir/jang_basin/images/logo/square.png','https://watercenter.scmc.cmu.ac.th/weir/jang_basin/images/logo/check.png'] ;}
+                    else{ $text=['https://watercenter.scmc.cmu.ac.th/weir/jang_basin/images/logo/square.png','https://watercenter.scmc.cmu.ac.th/weir/jang_basin/images/logo/square.png','https://watercenter.scmc.cmu.ac.th/weir/jang_basin/images/logo/square.png'] ; }
+                    return $text;
+                }
+                function checkpixhas($text,$t,$s) {
+                    $sc = check_score($s);
+                    if($text<2){
+                        if($t!=NULL){
+                            echo "<img class='ck' src='{$sc[0]}'width=12px;> ใช้งานได้ <img class='ck' src='{$sc[1]}'width=12px; class='ck'>ควรปรับปรุง<img class='ck' src='{$sc[2]}' width=12px;>ควรรื้อถอน";	
+                        }else{
+                            echo "ไม่มี";
+                        }
+                    }else{
+                            echo "<img class='ck' src='{$sc[0]}'width=12px;>ใช้งานได้<img class='ck' src='{$sc[1]}'width=12px; class='ck'>ควรปรับปรุง<img class='ck' src='{$sc[2]}' width=12px;>ควรรื้อถอน";	
+                    }
+                }
+
+            ?>
+            
+           
             
             
         </div>
