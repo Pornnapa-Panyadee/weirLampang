@@ -653,7 +653,7 @@ class ReportPDFController extends Controller
                 $expert = WeirExpert::select('*')->where('weir_id',$weir[0]->weir_id)->get();
                 $area = DB::table('weir_catchments')->select('*')->where('weir_id', $weir[0]->weir_id)->get();
                 $score = DB::table('score_sums')->select('*')->where('weir_id', $weir[0]->weir_id)->get();
-                // dd($score);
+                dd($photo);
                 $warning=0;
                 if(!empty($score[0]->state)){
                     $warning=1;
