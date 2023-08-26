@@ -200,25 +200,11 @@
                         echo "ไม่มี";	
                 } 
                 }
-                function check_score($s){
-                    if($s==1){ $text=['https://watercenter.scmc.cmu.ac.th/weir/jang_basin/images/logo/check.png','https://watercenter.scmc.cmu.ac.th/weir/jang_basin/images/logo/square.png','https://watercenter.scmc.cmu.ac.th/weir/jang_basin/images/logo/square.png'];}
-                    elseif($s==2){ $text=['https://watercenter.scmc.cmu.ac.th/weir/jang_basin/images/logo/square.png','https://watercenter.scmc.cmu.ac.th/weir/jang_basin/images/logo/check.png','https://watercenter.scmc.cmu.ac.th/weir/jang_basin/images/logo/square.png'] ;}
-                    elseif($s==3){ $text=['https://watercenter.scmc.cmu.ac.th/weir/jang_basin/images/logo/square.png','https://watercenter.scmc.cmu.ac.th/weir/jang_basin/images/logo/square.png','https://watercenter.scmc.cmu.ac.th/weir/jang_basin/images/logo/check.png'] ;}
-                    else{ $text=['https://watercenter.scmc.cmu.ac.th/weir/jang_basin/images/logo/square.png','https://watercenter.scmc.cmu.ac.th/weir/jang_basin/images/logo/square.png','https://watercenter.scmc.cmu.ac.th/weir/jang_basin/images/logo/square.png'] ; }
-                    return $text;
-                }
-                function checkpixhas($text,$t,$s) {
-                    $sc = check_score($s);
-                    if($text<2){
-                        if($t!=NULL){
-                            echo "<img class='ck' src='{$sc[0]}'width=12px;> ใช้งานได้ <img class='ck' src='{$sc[1]}'width=12px; class='ck'>ควรปรับปรุง<img class='ck' src='{$sc[2]}' width=12px;>ควรรื้อถอน";	
-                        }else{
-                            echo "ไม่มี";
-                        }
-                    }else{
-                            echo "<img class='ck' src='{$sc[0]}'width=12px;>ใช้งานได้<img class='ck' src='{$sc[1]}'width=12px; class='ck'>ควรปรับปรุง<img class='ck' src='{$sc[2]}' width=12px;>ควรรื้อถอน";	
-                    }
-                }
+                function checkpair($text,$i) {
+                    if($i==$text){echo "<img src='images/logo/check.png'  width=12px;>";	
+                    }else{ echo "<img src='images/logo/square.png'  width=12px;>";	
+                } 
+            }
 
             ?>
             
@@ -322,9 +308,17 @@
                     <table class="table3" border=1>
                         <tr align="center"><th colspan="4" class="text-center" style="background-color:#C0C0C0">สภาพฝายของแต่ละองค์ประกอบ (Element)</th></tr>
                         <tr style="background-color:#DFDFDF">
-                            <td width="40%">1. ส่วนป้องกันเหนือน้ำ : <?php echo (checkpixhas(count($photo1),$photo1[0]["file"],$damage[0])); ?> </td>
+                            <td width="40%">1. ส่วนป้องกันเหนือน้ำ : 
+                                <span><?php checkpair(1,$damage[0])?> ใช้งานได้  </span>
+                                <span><?php checkpair(2,$damage[0])?> ควรปรับปรุง  </span>
+                                <span><?php checkpair(3,$damage[0])?> ควรรื้อถอน </span>
+                            </td>
                             <td style="text-align:center;" width="10%"><?php echo $sediment['check1']; ?></td>
-                            <td width="40%">2. ส่วนเหนือน้ำ   : <?php echo (checkpixhas(count($photo2),$photo2[0]["file"],$damage[1])); ?></td>
+                            <td width="40%">2. ส่วนเหนือน้ำ   : 
+                                <span><?php checkpair(1,$damage[1])?> ใช้งานได้  </span>
+                                <span><?php checkpair(2,$damage[1])?> ควรปรับปรุง  </span>
+                                <span><?php checkpair(3,$damage[1])?> ควรรื้อถอน </span>
+                            </td>
                             <td style="text-align:center;" width="10%"><?php echo $sediment['check2']; ?></td>
                         </tr>
                         <tr>
@@ -345,6 +339,19 @@
                                 <?php } }?>
                             </td>
                         </tr>
+                        <tr  style="background-color:#DFDFDF" >
+                            <td colspan="2">3. ส่วนควบคุมน้ำ :
+                                <span><?php checkpair(1,$damage[2])?> ใช้งานได้  </span>
+                                <span><?php checkpair(2,$damage[2])?> ควรปรับปรุง  </span>
+                                <span><?php checkpair(3,$damage[2])?> ควรรื้อถอน </span>
+                            </td>
+                            <td>4. ส่วนท้ายน้ำ : 
+                                <span><?php checkpair(1,$damage[3])?> ใช้งานได้  </span>
+                                <span><?php checkpair(2,$damage[3])?> ควรปรับปรุง  </span>
+                                <span><?php checkpair(3,$damage[3])?> ควรรื้อถอน </span>
+                            </td>
+                            <td style="text-align:center;" width="10%"><?php echo $sediment['check4']; ?></td>
+                        </tr>
                         <tr>
                             <td colspan="2" style="height:72px;" ><br>
                                 <?php  if($countPhoto3==1){?>
@@ -364,9 +371,17 @@
                             </td>
                         </tr>
                         <tr style="background-color:#DFDFDF">
-                            <td >5. ส่วนป้องกันท้ายน้ำ : <?php echo checkpixhas($countPhoto5,$photo5[0]["file"],$damage[4]); ?></td>
+                            <td >5. ส่วนป้องกันท้ายน้ำ : 
+                                <span><?php checkpair(1,$damage[4])?> ใช้งานได้  </span>
+                                <span><?php checkpair(2,$damage[4])?> ควรปรับปรุง  </span>
+                                <span><?php checkpair(3,$damage[4])?> ควรรื้อถอน </span>
+                            </td>
                             <td style="text-align:center;" width="10%"><?php echo $sediment['check5']; ?></td>
-                            <td >6. ระบบส่งน้ำ : <?php echo checkpixhas($countPhoto6,$photo6[0]["file"],$damage[5]); ?></td>
+                            <td >6. ระบบส่งน้ำ : 
+                                <span><?php checkpair(1,$damage[5])?> ใช้งานได้  </span>
+                                <span><?php checkpair(2,$damage[5])?> ควรปรับปรุง  </span>
+                                <span><?php checkpair(3,$damage[5])?> ควรรื้อถอน </span>
+                            </td>
                             <td style="text-align:center;" width="10%"><?php echo $sediment['check6']; ?></td>
                         </tr>
                         <tr>
@@ -391,6 +406,9 @@
                     </table>
             </div>
             
+            <?php if( (strlen($expert->weir_problem)+strlen($expert->weir_solution))>2000){ ?> 
+                <div class="page-break"></div>
+            <?php } ?>
 
             <div class="text">
                     <table class="table5" border=1 style="margin-top:3px;">                   
