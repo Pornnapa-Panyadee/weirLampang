@@ -69,7 +69,7 @@
             /* padding-left: -20px; */
         }
         .text_rote{
-            width: 20px;
+            width: 25px;
             height: 40px;
         }
         
