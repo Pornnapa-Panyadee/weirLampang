@@ -511,7 +511,7 @@ class ReportPDFController extends Controller
        
         if($warning==1){
             $name="weir_report.pdf";
-            $pdf = PDF::loadView('reportPDF.weir_composition',compact('result','amp','dataNo','tumbol','text_amp'))->setPaper('Letter', 'landscape');;
+            $pdf = PDF::loadView('reportPDF.weir_table',compact('result','amp','dataNo','tumbol','text_amp'))->setPaper('Letter', 'landscape');;
             return $pdf->stream($name);
         }else{
             return view('guest.warning'); 
