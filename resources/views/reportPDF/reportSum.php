@@ -420,19 +420,19 @@
                             <td  width="25%"> <center><img src="<?php echo($expert->map); ?>"  width="90%" ></center>  </td>
                             <td valign="top" width="25%" class="text_table"> 
                                 <u>ข้อมูลพื้นที่รับน้ำของฝาย</u><br>
-                                A = <?php echo $area[0]->area; ?> ตารางกิโลเมตร <BR>
-                                L = <?php echo $area[0]->L; ?> กิโลเมตร <BR>
-                                LC = <?php echo $area[0]->LC; ?> กิโลเมตร <BR>
-                                H = <?php echo $area[0]->H; ?> เมตร <BR>
-                                s = <?php echo $area[0]->S; ?>  <BR>
-                                <?php if($area[0]->area<25){?>
-                                    c = <?php echo $area[0]->c; ?> <BR>
-                                    I = <?php echo $area[0]->I; ?> มิลลิเมตร/ชั่วโมง <BR>
-                                    Return period = <?php echo $area[0]->Return_period; ?> ปี <BR>
-                                    อัตราการไหลสูงสุด  = <?php echo $area[0]->flow; ?> ลบ.ม./วินาที
+                                A = <?php echo $area->area; ?> ตารางกิโลเมตร <BR>
+                                L = <?php echo $area->L; ?> กิโลเมตร <BR>
+                                LC = <?php echo $area->LC; ?> กิโลเมตร <BR>
+                                H = <?php echo $area->H; ?> เมตร <BR>
+                                s = <?php echo $area->S; ?>  <BR>
+                                <?php if($area->area<25){?>
+                                    c = <?php echo $area->c; ?> <BR>
+                                    I = <?php echo $area->I; ?> มิลลิเมตร/ชั่วโมง <BR>
+                                    Return period = <?php echo $area->Return_period; ?> ปี <BR>
+                                    อัตราการไหลสูงสุด  = <?php echo $area->flow; ?> ลบ.ม./วินาที
                                 <?php } else{ ?> 
-                                    Return period = <?php echo $area[0]->Return_period; ?> ปี <BR>
-                                    อัตราการไหลสูงสุด  = <?php echo $area[0]->flow; ?> ลบ.ม./วินาที
+                                    Return period = <?php echo $area->Return_period; ?> ปี <BR>
+                                    อัตราการไหลสูงสุด  = <?php echo $area->flow; ?> ลบ.ม./วินาที
                                     <BR><BR><BR><BR>
                                 <?php } ?>                                
                                 

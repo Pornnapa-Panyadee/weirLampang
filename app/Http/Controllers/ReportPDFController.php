@@ -26,6 +26,7 @@ use App\Models\WeirLocation;
 use App\Models\WeirSpaceification;
 use App\Models\WeirExpert;
 use App\Models\Impovement;
+use App\Models\WeirCatchment;
 
 
 class ReportPDFController extends Controller
@@ -199,7 +200,7 @@ class ReportPDFController extends Controller
         $sug = AdditinalSuggestion::select('*')->where('weir_id',$weir[0]->weir_id)->get();
         $photo = Photo::select('*')->where('weir_id',$weir[0]->weir_id)->get();
         $expert = WeirExpert::select('*')->where('weir_id',$weir[0]->weir_id)->get()->last();
-        $area = DB::table('weir_catchments')->select('*')->where('weir_id', $weir[0]->weir_id)->get();
+        $area = WeirCatchment::select('*')->where('weir_id', $weir[0]->weir_id)->get()->last();
 
         // dd($expert);
         // crete json_decode
@@ -619,7 +620,7 @@ class ReportPDFController extends Controller
             $sug = AdditinalSuggestion::select('*')->where('weir_id',$weir[0]->weir_id)->get();
             $photo = Photo::select('*')->where('weir_id',$weir[0]->weir_id)->get();
             $expert = WeirExpert::select('*')->where('weir_id',$weir[0]->weir_id)->get();
-            $area = DB::table('weir_catchments')->select('*')->where('weir_id', $weir[0]->weir_id)->get();
+            $area = WeirCatchment::select('*')->where('weir_id', $weir[0]->weir_id)->get()->last();
             $score =Impovement::select('*')->where('weir_id', $weir[0]->weir_id)->get();
                 // dd($score);
                 
