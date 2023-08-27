@@ -412,39 +412,35 @@ class ReportPDFController extends Controller
 
     public function compositionWeir(Request $request) {
         // dd($request);
-        function check_state($s,$t){
-            if($s==1 && $t==1){return 1;}
-            else if($s==1 && $t==2){return 2;}
-            else if($s==1 && $t==3){return 3;}
-            else if($s==1 && $t==4){return 4;}
-            else{return NULL;}
-        }
+        
         $amp=$request->amp;
         $tumbol=$request->tumbol;
-        $N=check_state($request->weir_N,4);
-        $Y=check_state($request->weir_Y,3);
-        $O=check_state($request->weir_O,2);
-        $D=check_state($request->weir_D,1);
+        $N=$request->weir_N;
+        $O=$request->weir_O;
+        $D=$request->weir_D;
 
-        // dd($weir_N);
+        // chose Location amp & tambol
         if($amp=="sum"){$location = WeirLocation::select('*')->get();} 
         else if ($tumbol!=NULL){ $location = WeirLocation::select('*')->where('weir_district',$amp)->where('weir_tumbol',$tumbol)->get();}
         else {$location = WeirLocation::select('*')->where('weir_district',$amp)->get();}
+        $warning=0;
         
-        
-        // dd($location);
         for ($i=0;$i<count($location);$i++){ 
             $weir = WeirSurvey::select('*')->where('weir_location_id',$location[$i]->weir_location_id)->get();
-
-            $score = DB::table('score_sums')->select('*')->where('weir_id', $weir[0]->weir_id)->get();
-            $warning=0;
-            if(!empty($score[0]->state)){
+            $score =Impovement::select('*')->where('weir_id', $weir[0]->weir_id)->get();
+            
+            if(!empty($score[0]->improve_type)){
                 $warning=1;
-                if ($score[0]->state==$N || $score[0]->state==$Y || $score[0]->state==$O || $score[0]->state==$D ){
+                if ($score[0]->improve_type==$N  || $score[0]->improve_type==$O || $score[0]->improve_type==$D ){
                     $river = River::select('river_name')->where('river_id',$weir[0]->river_id)->get();
                     $latlong=json_decode($location[$i]->latlong);
                     $vill=explode(" ",$location[$i]['weir_village']);
-                    
+                    $upprotection = UpprotectionInv::select('section_status')->where('weir_id', $weir[0]->weir_id)->get();
+                    $upconcrete = UpconcreteInv::select('section_status')->where('weir_id', $weir[0]->weir_id)->get();
+                    $control = ControlInv::select('section_status')->where('weir_id', $weir[0]->weir_id)->get();
+                    $downconcrete = DownconcreteInv::select('section_status')->where('weir_id', $weir[0]->weir_id)->get();
+                    $downprotection = DownprotectionInv::select('section_status')->where('weir_id', $weir[0]->weir_id)->get();
+                    $waterdelivery = WaterdeliveryInv::select('section_status')->where('weir_id', $weir[0]->weir_id)->get();
                 
                     // เปลี่ยนคำ
                         if(strpos($weir[0]->resp_name, "เทศบาลตำบล")== 0){$weir[0]->resp_name = str_replace("เทศบาลตำบล","ทต.",$weir[0]->resp_name);}
@@ -479,17 +475,11 @@ class ReportPDFController extends Controller
                         if(strpos($weir[0]->transfer, "กองทัพภาคที่3กองกำลังผาเมืองกรมทหารราบที่31")== 0){ $weir[0]->transfer = str_replace("กองทัพภาคที่3กองกำลังผาเมืองกรมทหารราบที่31","กองทัพภาคที่3",$weir[0]->transfer); }
                         if(strpos($weir[0]->transfer, "การไฟฟ้าส่วนภูมิภาค")== 0){ $weir[0]->transfer = str_replace("การไฟฟ้าส่วนภูมิภาค","กฟภ.",$weir[0]->transfer); }
                             
-        
-                        if( $weir[0]->weir_name=="โครงการส่งน้ำและบำรุงรักษาแม่ลาว"){ $name="โครงการส่งน้ำ"."\n"."และบำรุงรักษาแม่ลาว";}
-                        else if($weir[0]->weir_name=="ประตูระบายน้ำเจ้าวรกานบรรชา"){ $name="ประตูระบายน้ำ"."\n"."เจ้าวรกานบรรชา";}
-                        else{$name=$weir[0]->weir_name;}
-        
-                        if($river[0]->river_name=="หนองเพลิงน่าน/ห้วยแซะ"){ $river[0]->river_name="หนองเพลิงน่าน";}
-        
+               
                         $result[] = [
                                 'weir_id'=> $weir[0]->weir_id,
                                 'weir_code'=> $weir[0]->weir_code,
-                                'weir_name'=> $name,
+                                'weir_name'=> $weir[0]->weir_name,
                                 'lat'=>number_format($latlong->x, 3, '.', ''), 
                                 'long'=>number_format($latlong->y, 3, '.', ''), 
                                 'weir_village'=> $vill[2],
@@ -498,43 +488,27 @@ class ReportPDFController extends Controller
                                 'river' => $river[0]->river_name,
                                 'resp_name'=> $weir[0]->resp_name,
                                 'transfer'=>$weir[0]->transfer,
-                                'damage_1'=> $score[0]->damage_1,
-                                'damage_2'=> $score[0]->damage_2,
-                                'damage_3'=> $score[0]->damage_3,
-                                'damage_4'=> $score[0]->damage_4,
-                                'damage_5'=> $score[0]->damage_5,
-                                'damage_6'=> $score[0]->damage_6,
-                                'damage_score_1'=> number_format($score[0]->damage_score_1, 2, '.', ''),
-                                'damage_score_2'=> number_format($score[0]->damage_score_2, 2, '.', ''),
-                                'damage_score_3'=> number_format($score[0]->damage_score_3, 2, '.', ''),
-                                'damage_score_4'=> number_format($score[0]->damage_score_4, 2, '.', ''),
-                                'damage_score_5'=> number_format($score[0]->damage_score_5, 2, '.', ''),
-                                'damage_score_6'=> number_format($score[0]->damage_score_6, 2, '.', ''),
-                                'sumScoreAll'=>number_format($score[0]->score, 2, '.', '') ,
-                                'classSum'=>$score[0]->class_1
-                    ];
+                                'damage_1'=> $upprotection[0]->section_status,
+                                'damage_2'=> $upconcrete[0]->section_status,
+                                'damage_3'=> $control[0]->section_status,
+                                'damage_4'=> $downconcrete[0]->section_status,
+                                'damage_5'=> $downprotection[0]->section_status,
+                                'damage_6'=> $waterdelivery[0]->section_status,
+                                'classSum'=>$score[0]->improve_type
+                        ];
         
                 }
-            }else{ $warning=0;break;}
+            }
            
         }
             
-        
+        // dd($warning);
         if(isset($result)==NULL){$dataNo=1;}
         else{$dataNo=0;}
         $amp=$amp;
         if($tumbol!=NULL){ $text_amp="ตำบล".$tumbol."  อำเภอ".$amp; }
         else{ $text_amp="อำเภอ".$amp; }
-        // $result = json_encode($result);
-        
-        // dd($result);
-        // if($amp=="แม่จัน"){
-        //     return view('guest.warning'); 
-        // }else{
-        //     $name="weir_report.pdf";
-        //     $pdf = PDF::loadView('reportPDF.weir_composition',compact('result','amp','dataNo','tumbol','text_amp'))->setPaper('Letter', 'landscape');;
-        //     return $pdf->stream($name);
-        // }
+       
         if($warning==1){
             $name="weir_report.pdf";
             $pdf = PDF::loadView('reportPDF.weir_composition',compact('result','amp','dataNo','tumbol','text_amp'))->setPaper('Letter', 'landscape');;

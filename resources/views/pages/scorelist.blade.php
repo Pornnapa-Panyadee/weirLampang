@@ -103,34 +103,25 @@
                                                                                                     <span class="cr">
                                                                                                     <i class="cr-icon icofont icofont-ui-check txt-primary"></i>
                                                                                                     </span>
-                                                                                                    <span>สภาพดี : สภาพปกติ   
+                                                                                                    <span>ใช้งานได้   
                                                                                                 </label>
                                                                                             </div> <br> 
                                                                                             <div class="checkbox-zoom zoom-primary">
                                                                                                 <label>
-                                                                                                    <input type="checkbox" value="1" checked="" name="weir_Y">
+                                                                                                    <input type="checkbox" value="2" checked="" name="weir_O">
                                                                                                     <span class="cr">
                                                                                                     <i class="cr-icon icofont icofont-ui-check txt-primary"></i>
                                                                                                     </span>
-                                                                                                    <span>สภาพค่อนข้างดี : ซ่อมแซมเล็กน้อย </span>
+                                                                                                    <span>ควรปรับปรุง </span>
                                                                                                 </label>
                                                                                             </div> <br> 
                                                                                             <div class="checkbox-zoom zoom-primary">
                                                                                                 <label>
-                                                                                                    <input type="checkbox" value="1" checked="" name="weir_O">
+                                                                                                    <input type="checkbox" value="3" checked="" name="weir_D">
                                                                                                     <span class="cr">
                                                                                                     <i class="cr-icon icofont icofont-ui-check txt-primary"></i>
                                                                                                     </span>
-                                                                                                    <span>สภาพปานกลาง : ควรซ่อมแซม </span>
-                                                                                                </label>
-                                                                                            </div> <br> 
-                                                                                            <div class="checkbox-zoom zoom-primary">
-                                                                                                <label>
-                                                                                                    <input type="checkbox" value="1" checked="" name="weir_D">
-                                                                                                    <span class="cr">
-                                                                                                    <i class="cr-icon icofont icofont-ui-check txt-primary"></i>
-                                                                                                    </span>
-                                                                                                    <span>สภาพทรุดโทรม : ซ่อมแซมทันที / สร้างใหม่ 
+                                                                                                    <span>ควรรื้อถอนก่อสร้างใหม่ </span>
                                                                                                 </label>
                                                                                             </div> 
                                                                                         </td>

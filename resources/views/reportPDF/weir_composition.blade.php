@@ -134,24 +134,30 @@
         <div class="row" align="center" style="page-break-after:always; margin-top:40px;"> 
             <table align="center" class="customers" width="80%">
                 <tr >
-                    <td width="20%" class="customers"><img src="{{ asset('images/footer/cr.png') }}" width="80%"></td>
-                    <td width="60%" class="customers"><font style="font-size:70px;"><b>รายงานสรุป</b></font></td>
-                    <td width="20%" class="customers"><img src="{{ asset('images/footer/cmu.png') }}" width="100%"></td>
+                    <td width="10%" class="customers">
+                        <img src="{{ asset('images/footer/lampang.png') }}" width="100%">
+                    </td>
+                    <td width="20%" align="left">
+                        <img src="{{ asset('images/footer/egat.jpg') }}" width="100%">
+                    </td>
+                    <td width="30%" class="customers"><font style="font-size:70px;"><b>รายงานสรุป</b></font></td>
+                    <td width="30%" class="customers" align="right"><img src="{{ asset('images/footer/cmu.png') }}" width="90px;"></td>
+                </tr>
+
+                <tr>
+                    <td colspan="4" height=100px; class="customers"> <font style="font-size:42px;"><b>ผลการตรวจประเมินสภาพฝายแต่ละองค์ประกอบ</b></td>
                 </tr>
                 <tr>
-                    <td colspan="3" height=100px; class="customers"> <font style="font-size:42px;"><b>ผลการตรวจประเมินสภาพฝายแต่ละองค์ประกอบ</b></td>
+                    <td colspan="4" height=200px; class="customers"> <font style="font-size:50px;"><b>{{$text_amp}}  จังหวัดลำปาง</b></td>
                 </tr>
                 <tr>
-                    <td colspan="3" height=200px; class="customers"> <font style="font-size:50px;"><b>{{$text_amp}}  จังหวัดลำปาง</b></td>
+                    <td colspan="4" class="customers"> <font style="font-size:32px;"><b>โครงการพัฒนาระบบสารสนเทศการตรวจประเมินสภาพฝายและวางแผนปรับปรุงเพิ่มประสิทธิภาพฝาย<b></td>
                 </tr>
                 <tr>
-                    <td colspan="3" class="customers"> <font style="font-size:32px;"><b>โครงการพัฒนาระบบสารสนเทศการตรวจประเมินสภาพฝายและวางแผนปรับปรุงเพิ่มประสิทธิภาพฝาย<b></td>
+                    <td colspan="4" class="customers"> <font style="font-size:32px;"><b>ในพื้นที่ลุ่มน้ำแม่จาง จังหวัดลำปาง<b></td>
                 </tr>
                 <tr>
-                    <td colspan="3" class="customers"> <font style="font-size:32px;"><b>ในพื้นที่ลุ่มน้ำแม่จาง จังหวัดลำปาง<b></td>
-                </tr>
-                <tr>
-                    <td colspan="3" height=100px;> <font style="font-size:26px;"><b>โดยการไฟฟ้าฝ่ายผลิตแห่งประเทศไทย (กฟผ) แม่เมาะ ร่วมกับมหาวิทยาลัยเชียงใหม่<b></td>
+                    <td colspan="4" height=100px;> <font style="font-size:26px;"><b>โดยการไฟฟ้าฝ่ายผลิตแห่งประเทศไทย (กฟผ) แม่เมาะ ร่วมกับมหาวิทยาลัยเชียงใหม่<b></td>
                 </tr>
             </table>
             <!-- <img src="{{ asset('images/header_pages/'.$amp.'.jpg') }}" width="105%">  -->
@@ -175,6 +181,17 @@
                     return "/";
                 }
             }
+            function changeText($t){
+                if($t==1){
+                    return "ใช้งานได้";
+                }else if($t==2){
+                    return "ควรปรับปรุง";
+                }else if($t==3){
+                    return "ควรลื้อถอน";
+                }else{
+                    return "-";
+                }
+            }
         ?>
         
         <div class="text1">
@@ -186,8 +203,7 @@
                         <td rowspan="3"> ชื่อฝาย <br> (ชื่อลำน้ำ) </td>
                         <td rowspan="3"> หมู่บ้าน <br> ตำบล</td>
                         <td colspan="2"> พิกัด</td>
-                        <td colspan="24">สภาพของฝายแต่ละองค์ประกอบ</td>
-                        <td rowspan="3"> <div class='rotatehead'>ดัชนีสภาพ </div></td>
+                        <td colspan="18">สภาพของฝายแต่ละองค์ประกอบ</td>
                         <td rowspan="3"> <div class='rotatehead'> สภาพฝาย </div></td>
                         <td rowspan="3">หน่วยงาน<br>รับผิดชอบ</td>
                         <td rowspan="3">รับโอน<br>ถ่ายจาก</td>
@@ -195,39 +211,32 @@
                     <tr>
                         <td rowspan="2"><div class='rotatehead'> ละติจูด </div></td>      
                         <td rowspan="2"><div class='rotatehead'> ลองจิจูด </div></td>     
-                        <td colspan="4">ส่วน Protection เหนือน้ำ</td>
-                        <td colspan="4">ส่วนเหนือน้ำ</td>
-                        <td colspan="4">ส่วนควบคุมน้ำ</td>
-                        <td colspan="4">ส่วนท้ายน้ำ</td>
-                        <td colspan="4">ส่วน Protection ท้ายน้ำ</td>
-                        <td colspan="4">ระบบส่งน้ำ</td>
+                        <td colspan="3">ส่วน Protection เหนือน้ำ</td>
+                        <td colspan="3">ส่วนเหนือน้ำ</td>
+                        <td colspan="3">ส่วนควบคุมน้ำ</td>
+                        <td colspan="3">ส่วนท้ายน้ำ</td>
+                        <td colspan="3">ส่วน Protection ท้ายน้ำ</td>
+                        <td colspan="3">ระบบส่งน้ำ</td>
                     </tr>
                     <tr>
-                        <td class="text_rote"> <div class='rotate'> สภาพดี </div></td>
-                        <td class="text_rote"><div class='rotate'> ค่อนข้างดี </div></td>
-                        <td class="text_rote"><div class='rotate'>ปานกลาง </div> </td>
-                        <td class="text_rote"><div class='rotate'>ทรุดโทรม </div> </td>
-                        <td class="text_rote"> <div class='rotate'> สภาพดี</div></td>
-                        <td class="text_rote"><div class='rotate'> ค่อนข้างดี </div></td>
-                        <td class="text_rote"><div class='rotate'>ปานกลาง </div> </td>
-                        <td class="text_rote"><div class='rotate'>ทรุดโทรม </div> </td>
-                        <td class="text_rote"> <div class='rotate'> สภาพดี </div></td>
-                        <td class="text_rote"><div class='rotate'> ค่อนข้างดี </div></td>
-                        <td class="text_rote"><div class='rotate'>ปานกลาง </div> </td>
-                        <td class="text_rote"><div class='rotate'>ทรุดโทรม </div> </td>
-                        <td class="text_rote"> <div class='rotate'> สภาพดี </div></td>
-                        <td class="text_rote"><div class='rotate'> ค่อนข้างดี </div></td>
-                        <td class="text_rote"><div class='rotate'>ปานกลาง </div> </td>
-                        <td class="text_rote"><div class='rotate'>ทรุดโทรม </div> </td>
-                        <td class="text_rote"> <div class='rotate'> สภาพดี </div></td>
-                        <td class="text_rote"><div class='rotate'> ค่อนข้างดี </div></td>
-                        <td class="text_rote"><div class='rotate'>ปานกลาง </div> </td>
-                        <td class="text_rote"><div class='rotate'>ทรุดโทรม </div> </td>
-                        <td class="text_rote"> <div class='rotate'> สภาพดี </div></td>
-                        <td class="text_rote"><div class='rotate'> ค่อนข้างดี </div></td>
-                        <td class="text_rote"><div class='rotate'>ปานกลาง </div> </td>
-                        <td class="text_rote"><div class='rotate'>ทรุดโทรม </div> </td>
-
+                        <td class="text_rote"> <div class='rotate'> ใช้งานได้ </div></td>
+                        <td class="text_rote"><div class='rotate'> ควรปรับปรุง </div></td>
+                        <td class="text_rote"><div class='rotate'>ควรรื้อถอน </div> </td>
+                        <td class="text_rote"> <div class='rotate'> ใช้งานได้ </div></td>
+                        <td class="text_rote"><div class='rotate'> ควรปรับปรุง </div></td>
+                        <td class="text_rote"><div class='rotate'>ควรรื้อถอน </div> </td>
+                        <td class="text_rote"> <div class='rotate'> ใช้งานได้ </div></td>
+                        <td class="text_rote"><div class='rotate'> ควรปรับปรุง </div></td>
+                        <td class="text_rote"><div class='rotate'>ควรรื้อถอน </div> </td>
+                        <td class="text_rote"> <div class='rotate'> ใช้งานได้ </div></td>
+                        <td class="text_rote"><div class='rotate'> ควรปรับปรุง </div></td>
+                        <td class="text_rote"><div class='rotate'>ควรรื้อถอน </div> </td>
+                        <td class="text_rote"> <div class='rotate'> ใช้งานได้ </div></td>
+                        <td class="text_rote"><div class='rotate'> ควรปรับปรุง </div></td>
+                        <td class="text_rote"><div class='rotate'>ควรรื้อถอน </div> </td>
+                        <td class="text_rote"> <div class='rotate'> ใช้งานได้ </div></td>
+                        <td class="text_rote"><div class='rotate'> ควรปรับปรุง </div></td>
+                        <td class="text_rote"><div class='rotate'>ควรรื้อถอน </div> </td>
                     </tr>
                 </thead>
                 <tbody>
@@ -249,55 +258,31 @@
                             <!-- <td>{{$result[$i]['weir_district']}}</td> -->
                             <td>{{$result[$i]['lat']}}</td>
                             <td>{{$result[$i]['long']}}</td>
-                            <td>{{score($result[$i]['damage_1'],4) }}</td>
-                            <td>{{score($result[$i]['damage_1'],3) }}</td>
+                            <td>{{score($result[$i]['damage_1'],1) }}</td>
                             <td>{{score($result[$i]['damage_1'],2)}}</td>
-                            <td>{{score($result[$i]['damage_1'],1)}}</td>
+                            <td>{{score($result[$i]['damage_1'],3)}}</td>
 
-                            <td>{{score($result[$i]['damage_2'],4)}}</td>
-                            <td>{{score($result[$i]['damage_2'],3)}}</td>
-                            <td>{{score($result[$i]['damage_2'],2)}}</td>
                             <td>{{score($result[$i]['damage_2'],1)}}</td>
+                            <td>{{score($result[$i]['damage_2'],2)}}</td>
+                            <td>{{score($result[$i]['damage_2'],3)}}</td>
 
-                            <td>{{score($result[$i]['damage_3'],4)}}</td>
-                            <td>{{score($result[$i]['damage_3'],3)}}</td>
-                            <td>{{score($result[$i]['damage_3'],2)}}</td>
                             <td>{{score($result[$i]['damage_3'],1)}}</td>
+                            <td>{{score($result[$i]['damage_3'],2)}}</td>
+                            <td>{{score($result[$i]['damage_3'],3)}}</td>
 
-                            <td>{{score($result[$i]['damage_4'],4)}}</td>
-                            <td>{{score($result[$i]['damage_4'],3)}}</td>
-                            <td>{{score($result[$i]['damage_4'],2)}}</td>
                             <td>{{score($result[$i]['damage_4'],1)}}</td>
+                            <td>{{score($result[$i]['damage_4'],2)}}</td>
+                            <td>{{score($result[$i]['damage_4'],3)}}</td>
 
-                            <td>{{score($result[$i]['damage_5'],4)}}</td>
-                            <td>{{score($result[$i]['damage_5'],3)}}</td>
-                            <td>{{score($result[$i]['damage_5'],2)}}</td>
                             <td>{{score($result[$i]['damage_5'],1)}}</td>
+                            <td>{{score($result[$i]['damage_5'],2)}}</td>
+                            <td>{{score($result[$i]['damage_5'],3)}}</td>
 
-                            <td>{{score($result[$i]['damage_6'],4)}}</td>
-                            <td>{{score($result[$i]['damage_6'],3)}}</td>
-                            <td>{{score($result[$i]['damage_6'],2)}}</td>
                             <td>{{score($result[$i]['damage_6'],1)}}</td>
-                            <!-- <td>{{score($result[$i]['damage_1'],3) }}</td>
-                            <td>{{score($result[$i]['damage_1'],2)}}</td>
-                            <td>{{score($result[$i]['damage_1'],1)}}</td>
-                            <td>{{score($result[$i]['damage_2'],3)}}</td>
-                            <td>{{score($result[$i]['damage_2'],2)}}</td>
-                            <td>{{score($result[$i]['damage_2'],1)}}</td>
-                            <td>{{score($result[$i]['damage_3'],3)}}</td>
-                            <td>{{score($result[$i]['damage_3'],2)}}</td>
-                            <td>{{score($result[$i]['damage_3'],1)}}</td>
-                            <td>{{score($result[$i]['damage_4'],3)}}</td>
-                            <td>{{score($result[$i]['damage_4'],2)}}</td>
-                            <td>{{score($result[$i]['damage_4'],1)}}</td>
-                            <td>{{score($result[$i]['damage_5'],3)}}</td>
-                            <td>{{score($result[$i]['damage_5'],2)}}</td>
-                            <td>{{score($result[$i]['damage_5'],1)}}</td>
-                            <td>{{score($result[$i]['damage_6'],3)}}</td>
                             <td>{{score($result[$i]['damage_6'],2)}}</td>
-                            <td>{{score($result[$i]['damage_6'],1)}}</td> -->
-                            <td>{{$result[$i]['sumScoreAll']}}</td>
-                            <td>{{$result[$i]['classSum']}}</td>
+                            <td>{{score($result[$i]['damage_6'],3)}}</td>
+
+                            <td>{{ changeText($result[$i]['classSum'])}}</td>
                             <td>{{ wordwrap($result[$i]['resp_name'],5, "<br/>\n")}}</td> 
                             <td>{{ wordwrap($result[$i]['transfer'],5, "\n")}}</td> 
                         </tr>
@@ -308,6 +293,5 @@
                 </tbody>
             </table>
         </div>
-        
     </body>
 </html>
