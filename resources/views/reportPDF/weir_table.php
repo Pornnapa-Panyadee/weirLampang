@@ -8,7 +8,7 @@
         font-family:  'THSarabunNew';
         font-style: normal;
         font-weight: normal;
-        src: url("<?php echo  asset('fonts/THSarabunNew.ttf')  ?>") format('truetype');
+        src: url("{{ asset('fonts/THSarabunNew.ttf') }}") format('truetype');
         }
 
         body{
@@ -63,8 +63,9 @@
             /* padding-left: -20px; */
         }
         .rotate {
-            font-size: 9px;
+            font-size: 12px;
             transform: rotate(-90deg);
+            width: 20px;
             /* padding-left: -20px; */
         }
         .text_rote{
@@ -80,7 +81,6 @@
             border: solid #000;
             border-width: 0 1px 1px 0;
             transform: rotate(40deg);
-            margin-left: 10px;
         }
         footer {
             position: fixed; 
@@ -131,40 +131,34 @@
     </style>
  </head>
     <body>
-        <div class="row" align="center" style="page-break-after:always; margin-top:40px;"> 
+        <div class="row" align="center" style="page-break-after:always; margin-top:60px;"> 
             <table align="center" class="customers" width="80%">
                 <tr >
-                    <td width="10%" class="customers">
-                        <img src="<?php echo  asset('images/footer/lampang.png')  ?>" width="100%">
-                    </td>
-                    <td width="20%" align="left">
-                        <img src="<?php echo  asset('images/footer/egat.jpg')  ?>" width="100%">
-                    </td>
-                    <td width="30%" class="customers"><font style="font-size:70px;"><b>รายงานสรุป</b></font></td>
-                    <td width="30%" class="customers" align="right"><img src="<?php echo  asset('images/footer/cmu.png')  ?>" width="90px;"></td>
-                </tr>
-
-                <tr>
-                    <td colspan="4" height=100px; class="customers"> <font style="font-size:42px;"><b>ผลการตรวจประเมินสภาพฝายแต่ละองค์ประกอบ</b></td>
+                    <td width="30%" class="customers"><img src="images/footer/lampang.png" width="100px"></td>
+                    <td width="30%" class="customers"><img src="images/footer/egat.jpg" width="200px"></td>
+                    <td width="30%" class="customers"><img src="images/footer/cmu.png" width="100px"></td>
                 </tr>
                 <tr>
-                    <td colspan="4" height=200px; class="customers"> <font style="font-size:50px;"><b><?php echo $text_amp ?>  จังหวัดลำปาง</b></td>
+                    <td colspan="3" class="customers"><font style="font-size:70px;"><b>รายงานสรุป</b></font></td>
                 </tr>
                 <tr>
-                    <td colspan="4" class="customers"> <font style="font-size:32px;"><b>โครงการพัฒนาระบบสารสนเทศการตรวจประเมินสภาพฝายและวางแผนปรับปรุงเพิ่มประสิทธิภาพฝาย<b></td>
+                    <td colspan="3" height=150px; class="customers"> <font style="font-size:42px;"><b>ผลการตรวจประเมินสภาพฝายแต่ละองค์ประกอบ</b></td>
                 </tr>
                 <tr>
-                    <td colspan="4" class="customers"> <font style="font-size:32px;"><b>ในพื้นที่ลุ่มน้ำแม่จาง จังหวัดลำปาง<b></td>
+                    <td colspan="3" height=150px; class="customers"> <font style="font-size:50px;"><b><?php echo $text_amp ?>  จังหวัดลำปาง</b></td>
                 </tr>
                 <tr>
-                    <td colspan="4" height=100px;> <font style="font-size:26px;"><b>โดยการไฟฟ้าฝ่ายผลิตแห่งประเทศไทย (กฟผ) แม่เมาะ ร่วมกับมหาวิทยาลัยเชียงใหม่<b></td>
+                    <td colspan="3" class="customers"> <font style="font-size:32px;"><b>โครงการพัฒนาระบบสารสนเทศการตรวจประเมินสภาพฝายและวางแผนปรับปรุงเพิ่มประสิทธิภาพฝาย<b></td>
                 </tr>
+                <tr>
+                    <td colspan="3" class="customers"> <font style="font-size:32px;"><b>ในพื้นที่ลุ่มน้ำแม่จาง จังหวัดลำปาง<b></td>
+                </tr>
+                <tr>
+                    <td colspan="3" height=80px;> <font style="font-size:26px;"><b>โดยการไฟฟ้าฝ่ายผลิตแห่งประเทศไทย (กฟผ) แม่เมาะ ร่วมกับมหาวิทยาลัยเชียงใหม่<b></td>
             </table>
-            <!-- <img src="<?php echo  asset('images/header_pages/'.$amp.'.jpg')  ?>" width="105%">  -->
 
         </div>
         <footer>
-            <div class="copyright">*** <b>สภาพดี :</b> สภาพปกติ , <b>สภาพค่อนข้างดี :</b> ซ่อมแซมเล็กน้อย , <b>สภาพปานกลาง :</b> ควรซ่อมแซม , <b>สภาพทรุดโทรม :</b> ซ่อมแซมทันที/สร้างใหม่</div>
             <div class="social"><u>หมายเหตุ</u> ข้อมูลใช้เพื่อการศึกษาวางแผน ไม่สามารถใช้อ้างอิงทางกฎหมายและคดีความ </div>
             <div style="clear: both"></div>
         </footer>
@@ -187,13 +181,12 @@
                 }else if($t==2){
                     return "ควรปรับปรุง";
                 }else if($t==3){
-                    return "ควรลื้อถอน";
+                    return "ควรรื้อถอน";
                 }else{
                     return "-";
                 }
             }
         ?>
-        
         <div class="text1">
             <table class="table table-bordered">
                 <thead align="center" >
@@ -252,10 +245,8 @@
                         <tr>
                             <td ><?php echo $i+1 ?></td>
                             <td><?php echo $result[$i]['weir_code'] ?></td>
-                            <!-- <td><?php echo wordwrap($result[$i]['weir_name'],15,"\n") ?></td>  -->
                             <td><?php echo $result[$i]['weir_name'] ?> <br> (<?php echo $result[$i]['river'] ?>) </td>
                             <td><?php echo $result[$i]['weir_village'] ?> <br> <?php echo $result[$i]['weir_tumbol'] ?></td>
-                            <!-- <td><?php echo $result[$i]['weir_district'] ?></td> -->
                             <td><?php echo $result[$i]['lat'] ?></td>
                             <td><?php echo $result[$i]['long'] ?></td>
                             <td><?php echo score($result[$i]['damage_1'],1)  ?></td>
@@ -293,5 +284,7 @@
                 </tbody>
             </table>
         </div>
+               
+       
     </body>
 </html>
