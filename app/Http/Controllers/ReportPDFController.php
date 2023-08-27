@@ -803,14 +803,14 @@ class ReportPDFController extends Controller
                             $d=explode(" ",$weir[0]->created_at);
                             $date=DateTimeThai($d[0]);
                         
-                            $sediment=[
+                            $sediment[]=[
                                 'check1'=>checksediment($upprotection[0]->check_floor),
                                 'check2'=>checksediment($upconcrete[0]->check_floor),
                                 'check4'=>checksediment($downconcrete[0]->check_floor),
                                 'check5'=>checksediment($downprotection[0]->check_floor),
                                 'check6'=>checksediment($waterdelivery[0]->check_floor),
                             ];
-                            $damage=[$upprotection[0]->section_status,
+                            $damage[]=[$upprotection[0]->section_status,
                                      $upconcrete[0]->section_status,
                                      $control[0]->section_status,
                                      $downconcrete[0]->section_status,
