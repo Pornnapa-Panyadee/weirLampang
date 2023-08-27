@@ -584,54 +584,48 @@ class ReportPDFController extends Controller
                 }
                 return $check1;
             }
-            function check_state($s,$t){
-                if($s==1 && $t==1){return 1;}
-                else if($s==1 && $t==2){return 2;}
-                else if($s==1 && $t==3){return 3;}
-                else if($s==1 && $t==4){return 4;}
-                else{return NULL;}
-            }
+           
         $amp=$request->amp;
         $tumbol=$request->tumbol;
-        $N=check_state($request->weir_N,4);
-        $Y=check_state($request->weir_Y,3);
-        $O=check_state($request->weir_O,2);
-        $D=check_state($request->weir_D,1);
+        $amp=$request->amp;
+        $tumbol=$request->tumbol;
+        $N=$request->weir_N;
+        $O=$request->weir_O;
+        $D=$request->weir_D;
 
         // dd($weir_N);
         if($amp=="sum"){$locations = WeirLocation::select('*')->get();} 
         else if ($tumbol!=NULL){ $locations = WeirLocation::select('*')->where('weir_district',$amp)->where('weir_tumbol',$tumbol)->get();}
         else {$locations = WeirLocation::select('*')->where('weir_district',$amp)->get();}
         
-        
-        // dd($num);
-        // $num=2;
+        $warning=0;
         $c_line=0;
-            for ($z=0;$z<count($locations) ;$z++){ 
+
+        for ($z=0;$z<count($locations) ;$z++){ 
                 
-                $weir = WeirSurvey::select('*')->where('weir_location_id',$locations[$z]->weir_location_id)->get();
-                $location = WeirLocation::select('*')->where('weir_location_id',$weir[0]->weir_location_id)->get();
-                $river = River::select('*')->where('river_id',$weir[0]->river_id)->get();
-                $districtData['data'] = Location::getDistrictCR();
-                $space = WeirSpaceification::select('*')->where('weir_spec_id',$weir[0]->weir_spec_id)->get();
-                $upprotection = UpprotectionInv::select('*')->where('weir_id',$weir[0]->weir_id)->get();
-                $upconcrete = UpconcreteInv::select('*')->where('weir_id',$weir[0]->weir_id)->get();
-                $control = ControlInv::select('*')->where('weir_id',$weir[0]->weir_id)->get();
-                $downconcrete = DownconcreteInv::select('*')->where('weir_id',$weir[0]->weir_id)->get();
-                $downprotection = DownprotectionInv::select('*')->where('weir_id',$weir[0]->weir_id)->get();
-                $waterdelivery = WaterdeliveryInv::select('*')->where('weir_id',$weir[0]->weir_id)->get();
-                $plan = ImprovementPlan::select('*')->where('weir_id',$weir[0]->weir_id)->get();
-                $maintain1 = Maintenance::select('*')->where('weir_id',$weir[0]->weir_id)->get();
-                $sug = AdditinalSuggestion::select('*')->where('weir_id',$weir[0]->weir_id)->get();
-                $photo = Photo::select('*')->where('weir_id',$weir[0]->weir_id)->get();
-                $expert = WeirExpert::select('*')->where('weir_id',$weir[0]->weir_id)->get();
-                $area = DB::table('weir_catchments')->select('*')->where('weir_id', $weir[0]->weir_id)->get();
-                $score = DB::table('score_sums')->select('*')->where('weir_id', $weir[0]->weir_id)->get();
+            $weir = WeirSurvey::select('*')->where('weir_location_id',$locations[$z]->weir_location_id)->get();
+            $location = WeirLocation::select('*')->where('weir_location_id',$weir[0]->weir_location_id)->get();
+            $river = River::select('*')->where('river_id',$weir[0]->river_id)->get();
+            $districtData['data'] = Location::getDistrictCR();
+            $space = WeirSpaceification::select('*')->where('weir_spec_id',$weir[0]->weir_spec_id)->get();
+            $upprotection = UpprotectionInv::select('*')->where('weir_id',$weir[0]->weir_id)->get();
+            $upconcrete = UpconcreteInv::select('*')->where('weir_id',$weir[0]->weir_id)->get();
+            $control = ControlInv::select('*')->where('weir_id',$weir[0]->weir_id)->get();
+            $downconcrete = DownconcreteInv::select('*')->where('weir_id',$weir[0]->weir_id)->get();
+            $downprotection = DownprotectionInv::select('*')->where('weir_id',$weir[0]->weir_id)->get();
+            $waterdelivery = WaterdeliveryInv::select('*')->where('weir_id',$weir[0]->weir_id)->get();
+            $plan = ImprovementPlan::select('*')->where('weir_id',$weir[0]->weir_id)->get();
+            $maintain1 = Maintenance::select('*')->where('weir_id',$weir[0]->weir_id)->get();
+            $sug = AdditinalSuggestion::select('*')->where('weir_id',$weir[0]->weir_id)->get();
+            $photo = Photo::select('*')->where('weir_id',$weir[0]->weir_id)->get();
+            $expert = WeirExpert::select('*')->where('weir_id',$weir[0]->weir_id)->get();
+            $area = DB::table('weir_catchments')->select('*')->where('weir_id', $weir[0]->weir_id)->get();
+            $score =Impovement::select('*')->where('weir_id', $weir[0]->weir_id)->get();
                 // dd($score);
-                $warning=0;
-                if(!empty($score[0]->state)){
+                
+                if(!empty($score[0]->improve_type)){
                     $warning=1;
-                    if ($score[0]->state==$N || $score[0]->state==$Y || $score[0]->state==$O || $score[0]->state==$D ){
+                    if ($score[0]->improve_type==$N || $score[0]->improve_type==$O || $score[0]->improve_type==$D ){
                         // dd($expert);
                         // crete json_decode
                             $model=json_decode($weir[0]->weir_model);
@@ -816,7 +810,13 @@ class ReportPDFController extends Controller
                                 'check5'=>checksediment($downprotection[0]->check_floor),
                                 'check6'=>checksediment($waterdelivery[0]->check_floor),
                             ];
-                            $damage=[$score[0]->damage_1,$score[0]->damage_2,$score[0]->damage_3,$score[0]->damage_4,$score[0]->damage_5,$score[0]->damage_6];
+                            $damage=[$upprotection[0]->section_status,
+                                     $upconcrete[0]->section_status,
+                                     $control[0]->section_status,
+                                     $downconcrete[0]->section_status,
+                                     $downprotection[0]->section_status,
+                                     $waterdelivery[0]->section_status
+                                    ];
                             // dd($damage);
                         $result[] = [
                             'i'=>$z,
@@ -850,8 +850,7 @@ class ReportPDFController extends Controller
                             'photo5'=>$photo5,
                             'photo6'=>$photo6,
                             'damage'=>$damage,
-                            'mt'=>$mt
-                            
+                            'mt'=>$mt                            
                         ];
                         $c_line=$c_line+1;                    
                     }
@@ -873,7 +872,7 @@ class ReportPDFController extends Controller
         if($warning==0){
             return view('guest.warning');  
         }else{
-            $pdf = PDF::loadView('reportPDF.reportOnepage_amp',compact('result','num','text_tm','text_amp','dataNo'));
+            $pdf = PDF::loadView('reportPDF.reportOnepage_amp',compact('result','num','text_tm','text_amp','damage','sediment'));
             return $pdf->stream($name); 
         }
         
