@@ -201,7 +201,7 @@
                             <div class="col-lg-12 col-xl-12">
                               <div class="sub-title"><h4>ตารางแสดงรายละเอียดการตรวจสอบฝาย</h4> </div>
                               <!-- choose Amp -->
-                                <form id="amp" name="amp" action="/#tableData" method="get"> 
+                                <form id="amp" name="amp" action="/weir/jang_basin/#tableData" method="get"> 
                                 <div class="find">
                                   <div class="row justify-content-center" >
                                     <div class="col-md-8 col-xl-6"></div>
@@ -354,7 +354,7 @@
           osmBw = L.tileLayer('http://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}',{
                 maxZoom: 20,subdomains:['mt0','mt1','mt2','mt3'], attribution: mbAttr });
       var map = L.map('map', {
-          layers: [osm,station1,station2,station3,station4,rid,ridNo,dwr,loyal,borders],
+          layers: [osm,station1,station2,station3,station4,borders],
           center: [x,y],
           zoom: 10,
         });
@@ -383,72 +383,12 @@
           iconAnchor: [5, 30],
           popupAnchor: [0, 0]
         });
-      var pinRid = L.icon({
-          iconUrl: '{{ asset('images/icon/pin99.png') }}',
-          iconRetinaUrl:'{{ asset('images/icon/pin99.png') }}',
-          iconSize: [18, 20],
-          iconAnchor: [10, 10],
-          popupAnchor: [0, 0]
-        });
-
-      var pinMORid = L.icon({
-          iconUrl: '{{ asset('images/icon/pin99.png') }}',
-          iconRetinaUrl:'{{ asset('images/icon/pin99.png') }}',
-          iconSize: [18, 20],
-          iconAnchor: [10, 10],
-          popupAnchor: [0, 0]
-        });
-      var pinRidNo = L.icon({
-          iconUrl: '{{ asset('images/icon/ridNo1.png') }}',
-          iconRetinaUrl:'{{ asset('images/icon/ridNo1.png') }}',
-          iconSize: [8, 8],
-          iconAnchor: [10, 10],
-          popupAnchor: [0, 0]
-        });
-
-      var pinMORidNo = L.icon({
-          iconUrl: '{{ asset('images/icon/ridNo1.png') }}',
-          iconRetinaUrl:'{{ asset('images/icon/ridNo1.png') }}',
-          iconSize: [8, 8],
-          iconAnchor: [10, 10],
-          popupAnchor: [0, 0]
-        });
-      var pindwr = L.icon({
-          iconUrl: '{{ asset('images/icon/pin98.png') }}',
-          iconRetinaUrl:'{{ asset('images/icon/pin98.png') }}',
-          iconSize: [18, 20],
-          iconAnchor: [10, 10],
-          popupAnchor: [0, 0]
-        });
-
-      var pinMOdwr = L.icon({
-          iconUrl: '{{ asset('images/icon/pin98.png') }}',
-          iconRetinaUrl:'{{ asset('images/icon/pin98.png') }}',
-          iconSize: [18, 20],
-          iconAnchor: [10, 10],
-          popupAnchor: [0, 0]
-        });
-      var pinloyal = L.icon({
-          iconUrl: '{{ asset('images/icon/loyal1.png') }}',
-          iconRetinaUrl:'{{ asset('images/icon/loyal1.png') }}',
-          iconSize: [8, 8],
-          iconAnchor: [10, 10],
-          popupAnchor: [0, 0]
-        });
-
-      var pinMOloyal = L.icon({
-          iconUrl: '{{ asset('images/icon/loyal1.png') }}',
-          iconRetinaUrl:'{{ asset('images/icon/loyal1.png') }}',
-          iconSize: [8, 8],
-          iconAnchor: [10, 10],
-          popupAnchor: [0, 0]
-        });
            
      var amp=["เมืองลำปาง", "เกาะคา", "แม่ทะ","แม่เมาะ"];    
       
       
       function addPin(ampName,i,mo){
-        if(i!=79 && i!=89 && i!=99 && i!=69 ){
+        
           $.getJSON("{{ asset('form/getDataSurvey') }}/"+amp[i], 
           function (data){
             // alert (data[0].lat);
@@ -468,85 +408,7 @@
               }
             }//end for
           });
-        }else if(i==79) {
-          $.getJSON("{{ asset('form/getDataRidtranfer')}}", 
-          function (datarid){
-            for (i=0;i<datarid.length;i++){
-              var x=datarid[i].lat;
-              var y=datarid[i].long;
-              var tag = "<font style=\"font-family: 'Mitr';\" size=\"3\"COLOR=#009ddc > กรมชลประทาน (ถ่ายโอนให้ อปท.) </font><br>" ;
-              var text ="<font style=\"font-family: 'Mitr';\" size=\"3\"COLOR=#466DF3 >  ฝาย : "+ datarid[i].weir_name+ "</font><br>";
-                  text1 = "<font style=\"font-family: 'Mitr';\" size=\"2\"COLOR=#466DF3 >ที่ตั้ง : "+ datarid[i].weir_moo +" "+ datarid[i].weir_village +" ต."+ datarid[i].weir_tumbol +" อ."+ datarid[i].weir_district +"</font><br>";
-                  text2 ="<font style=\"font-family: 'Mitr';\" size=\"2\"COLOR=#466DF3 > งบประมาณ : "+ datarid[i].budget_from+ "</font><br>";
-                  text3 ="<font style=\"font-family: 'Mitr';\" size=\"2\"COLOR=#466DF3 > ถ่ายโอนให้หน่วยงาน : "+ datarid[i].weir_tranfer_unit+ " เมื่อปี พ.ศ. "+ datarid[i].weir_tranfer_year +"</font><br>";
-              if(mo==0){
-                L.marker([x,y],{icon: pinMORid}).addTo(rid).bindPopup(tag+text+text1+text3);  
-              }else{
-                L.marker([x,y],{icon: pinRid}).addTo(rid).bindPopup(tag+text+text1+text3);  
-              }
-              
-            }//end for
-          });
-        }else if( i==89){
-          $.getJSON("{{ asset('form/getDataRidtranferNo')}}", 
-          function (datarid){
-            for (i=0;i<datarid.length;i++){
-              var x=datarid[i].lat;
-              var y=datarid[i].long;
-              var tag = "<font style=\"font-family: 'Mitr';\" size=\"3\"COLOR=#ffb64d > กรมชลประทาน  </font><br>" ;
-              var text  = "<font style=\"font-family: 'Mitr';\" size=\"3\"COLOR=#466DF3 > ฝาย : "+ datarid[i].weir_name+ "</font><br>";
-                  text1 = "<font style=\"font-family: 'Mitr';\" size=\"2\"COLOR=#466DF3 >ที่ตั้ง : "+ datarid[i].weir_moo +" "+ datarid[i].weir_village +" ต."+ datarid[i].weir_tumbol +" อ."+ datarid[i].weir_district +"</font><br>";
-                  text2 = "<font style=\"font-family: 'Mitr';\" size=\"2\"COLOR=#466DF3 > งบประมาณ : "+ datarid[i].budget_from+ "</font><br>";
-                 
-              if(mo==0){
-                L.marker([x,y],{icon: pinMORid}).addTo(ridNo).bindPopup(tag+text+text1+text2);  
-              }else{
-                L.marker([x,y],{icon: pinRid}).addTo(ridNo).bindPopup(tag+text+text1+text2);  
-              }
-              
-            }//end for
-          });
-
-        }else if( i==99){
-          $.getJSON("{{ asset('form/getDataDwr')}}", 
-          function (datadwr){
-            for (i=0;i<datadwr.length;i++){
-              var x=datadwr[i].lat;
-              var y=datadwr[i].long;
-              var tag = "<font style=\"font-family: 'Mitr';\" size=\"3\"COLOR=#ffb64d > กรมทรัพยากรน้ำ </font><br>" ;
-              var text  = "<font style=\"font-family: 'Mitr';\" size=\"3\"COLOR=#466DF3 > ฝาย : "+ datadwr[i].weir_name+ " (ลำน้ำ : "+datadwr[i].river+"</font><br>";
-                  text1 = "<font style=\"font-family: 'Mitr';\" size=\"2\"COLOR=#466DF3 >ที่ตั้ง : "+ datadwr[i].weir_moo +" "+ datadwr[i].weir_village +" ต."+ datadwr[i].weir_tumbol +" อ."+ datadwr[i].weir_district +"</font><br>";
-                  text2 = "<font style=\"font-family: 'Mitr';\" size=\"2\"COLOR=#466DF3 > สร้างเมื่อ : พ.ศ. "+ datadwr[i].weir_build_year+ "</font><br>";
-                  text3 = "<font style=\"font-family: 'Mitr';\" size=\"2\"COLOR=#466DF3 > สถานะปัจจุบัน : "+ datadwr[i].weir_use+ "</font><br>";
-              if(mo==0){
-                L.marker([x,y],{icon: pinMOdwr}).addTo(dwr).bindPopup(tag+text+text1+text2+text3);  
-              }else{
-                L.marker([x,y],{icon: pindwr}).addTo(dwr).bindPopup(tag+text+text1+text2+text3);  
-              }
-              
-            }//end for
-          });
-        }else{
-          $.getJSON("{{ asset('form/getDataLoyal')}}", 
-          function (dataloyal){
-            for (i=0;i<dataloyal.length;i++){
-              var x=dataloyal[i].lat;
-              var y=dataloyal[i].long;
-              var tag = "<font style=\"font-family: 'Mitr';\" size=\"3\"COLOR=#ffb64d > โครงการอันเนื่องมาจากพระราชดำริ  </font><br>" ;
-              var text  = "<font style=\"font-family: 'Mitr';\" size=\"3\"COLOR=#466DF3 > ฝาย : "+ dataloyal[i].weir_name+ "</font><br>";
-                  text1 = "<font style=\"font-family: 'Mitr';\" size=\"2\"COLOR=#466DF3 >ที่ตั้ง : ต."+ dataloyal[i].weir_tumbol +" อ."+ dataloyal[i].weir_district +"</font><br>";
-                  text2 = "<font style=\"font-family: 'Mitr';\" size=\"2\"COLOR=#466DF3 > สร้างเมื่อ : "+ dataloyal[i].weir_start_year+ "</font><br>";
-                  text3 = "<font style=\"font-family: 'Mitr';\" size=\"2\"COLOR=#466DF3 > ระบบชลประทาน : "+ dataloyal[i].weir_system+ "</font><br>";
-              if(mo==0){
-                L.marker([x,y],{icon: pinMORid}).addTo(loyal).bindPopup(tag+text+text1+text2+text3);  
-              }else{
-                L.marker([x,y],{icon: pinRid}).addTo(loyal).bindPopup(tag+text+text1+text2+text3);  
-              }
-              
-            }//end for
-          });
-        }
-        
+                
       }
 
       
@@ -558,10 +420,7 @@
         mo=1;
       }
       
-      addPin(rid,79,mo);
-      addPin(ridNo,89,mo);
-      addPin(dwr,99,mo);
-      addPin(loyal,69,mo); 
+      
       addPin(station1,0,mo);
       addPin(station2,1,mo);
       addPin(station3,2,mo);
@@ -589,27 +448,6 @@
                 { label:" "+amp[2],layer: station3},
                 { label:" "+amp[3],layer: station4},
           ]
-        },
-        {
-            label: ' หน่วยงานอื่น',
-            selectAllCheckbox: true,
-            collapsed: true,
-            children: [
-                {label: ' กรมชลประทาน',
-                    selectAllCheckbox: true,
-                    children: [
-                      { label:" "+"กรมชลประทาน ",layer: ridNo},
-                      { label:" "+"กรมชลประทาน (ถ่ายโอนให้ อปท.)",layer: rid},
-                      { label:" "+"โครงการพระราชดำริฯ ",layer: loyal},
-                    ]
-                },
-                {label: ' กรมทรัพยากรน้ำ',
-                    selectAllCheckbox: true,
-                    children: [
-                      { label:" "+"กรมทรัพยากรน้ำ ",layer: dwr},
-                    ]
-                },
-            ]
         }];
         
         ctl.setOverlayTree(overlays).collapseTree(true).expandSelected(true);
