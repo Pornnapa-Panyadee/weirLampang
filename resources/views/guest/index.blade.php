@@ -252,7 +252,7 @@
                                       <?php for($i = 0;$i < count($data);$i++){  ?>
                                         <tr>
                                           <td align="center">{{$i+1}} </td>
-                                          <td>{{$data[$i]['weir_code']}}</td>
+                                          <td><a href='{{ asset('/report/pdf') }}/{{$data[$i]['weir_code']}}'> {{$data[$i]['weir_code']}} </a></td>
                                           <td>{{$data[$i]['weir_name']}}/{{$data[$i]['river']}} </td>
                                           <td>{{$data[$i]['weir_village']}}</td>
                                           <td>{{$data[$i]['weir_tumbol']}}  </td>
