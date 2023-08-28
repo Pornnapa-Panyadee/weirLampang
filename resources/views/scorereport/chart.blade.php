@@ -365,7 +365,7 @@
         // }());
 
         var users = <?php echo (json_encode($countNum)) ?>;
-        alert (users);
+        // alert (users);
         Highcharts.chart('container', {
             chart: {
                 type: 'pie',
