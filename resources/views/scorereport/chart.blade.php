@@ -22,11 +22,6 @@
 <link rel="stylesheet" href="{{ asset('css/form/feather.css')}}">
 <link rel="stylesheet" href="{{ asset('css/form/style1.css')}}">
 
-<!-- leaflet -->
-
-<link rel="stylesheet" href="{{ asset('css/form/leaflet.css')}}" crossorigin="" />
-<script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.2.0/leaflet-omnivore.min.js'></script>
-<script src="{{ asset('js/leaflet-src.js')}}" crossorigin=""></script>
 
 <style type="text/css">
     select {
@@ -237,19 +232,17 @@
                                                                             <table class="table table-striped table-bordered first" width=80%>
                                                                                 <thead>
                                                                                     <tr>
-                                                                                        <th colspan="4">สภาพฝาย ( จำนวนทั้งหมด {{$result[0]['score_N']+$result[0]['score_Y']+$result[0]['score_O']+$result[0]['score_R']}} ฝาย )</th>
+                                                                                        <th colspan="4">สภาพฝาย ( จำนวนทั้งหมด {{$result[0]['score_N']+$result[0]['score_O']+$result[0]['score_R']}} ฝาย )</th>
                                                                                     </tr>
                                                                                     <tr>
-                                                                                        <th>ดี</th>
-                                                                                        <th>ค่อนข้างดี</th>
-                                                                                        <th>ปานกลาง</th>
-                                                                                        <th>ทรุดโทรม</th>
+                                                                                        <th>ใช้งานได้</th>
+                                                                                        <th>ควรปรับปรุง</th>
+                                                                                        <th>ควรรื้อถอน</th>
                                                                                     </tr>
                                                                                 </thead>
                                                                                 <tbody>
                                                                                     <tr>
                                                                                         <td align="center" width=20%>{{$result[0]['score_N']}} <br> ( {{$result[0]['scoreper_N']}} %)</td>
-                                                                                        <td align="center" width=20%>{{$result[0]['score_Y']}} <br> ( {{$result[0]['scoreper_Y']}} %)</td>
                                                                                         <td align="center" width=20%>{{$result[0]['score_O']}} <br> ( {{$result[0]['scoreper_O']}} %)</td>
                                                                                         <td align="center" width=20%>{{$result[0]['score_R']}} <br> ( {{$result[0]['scoreper_R']}} %)</td>
                                                                                     </tr>
@@ -263,20 +256,18 @@
                                                                                         <th colspan="4">สภาพฝาย </th>
                                                                                     </tr>
                                                                                     <tr>
-                                                                                        <th>ดี</th>
-                                                                                        <th>ค่อนข้างดี</th>
-                                                                                        <th>ปานกลาง</th>
-                                                                                        <th>ทรุดโทรม</th>
+                                                                                        <th>ใช้งานได้</th>
+                                                                                        <th>ควรปรับปรุง</th>
+                                                                                        <th>ควรรื้อถอน</th>
                                                                                     </tr>
                                                                                 </thead>
                                                                                 <tbody>
                                                                                     <?php for ($i = 1; $i < 7; $i++) { ?>
                                                                                         <tr>
                                                                                             <td>{{$head[$i]}}</td>
-                                                                                            <td align="center" width=20%>{{$e[3][$i]}}</td>
-                                                                                            <td align="center" width=20%>{{$e[2][$i]}}</td>
-                                                                                            <td align="center" width=20%>{{$e[1][$i]}}</td>
                                                                                             <td align="center" width=20%>{{$e[0][$i]}}</td>
+                                                                                            <td align="center" width=20%>{{$e[1][$i]}}</td>
+                                                                                            <td align="center" width=20%>{{$e[2][$i]}}</td>
                                                                                         </tr>
                                                                                     <?php } ?>
                                                                                 </tbody>
@@ -287,11 +278,10 @@
                                                                             <div class="card-body">
                                                                                 <div class="row align-items-center">
                                                                                     <div class="col">
-                                                                                        <b> สภาพฝายแบ่งออกเป็น 4 ระดับ </b> <br>
-                                                                                        - สภาพดี : สภาพปกติ <br>
-                                                                                        - สภาพค่อนข้างดี : ซ่อมแซมเล็กน้อย <br>
-                                                                                        - สภาพปานกลาง : ควรซ่อมแซม <br>
-                                                                                        - สภาพทรุดโทรม : ซ่อมแซมทันที / สร้างใหม่ <br>
+                                                                                        <b> สภาพฝายแบ่งออกเป็น 3 ระดับ </b> <br>
+                                                                                        - ใช้งานได้ : สภาพปกติ <br>
+                                                                                        - ควรปรับปรุง : ซ่อมแซม <br>
+                                                                                        - ควรรื้อถอน : สร้างใหม่ <br>
                                                                                     </div>
 
                                                                                 </div>
@@ -363,21 +353,19 @@
     <script src="https://code.highcharts.com/modules/accessibility.js"></script>
 
     <script type="text/javascript">
-        var pieColors = (function() {
-            var colors = [],
-                base = Highcharts.getOptions().colors[0],
-                i;
+        // var pieColors = (function() {
+        //     var colors = [],
+        //         base = Highcharts.getOptions().colors[0],
+        //         i;
 
-            for (i = 0; i < 10; i += 1) {
-                // Start out with a darkened base color (negative brighten), and end
-                // up with a much brighter color
-                colors.push(Highcharts.Color(base).brighten((i - 3) / 7).get());
-            }
-            return colors;
-        }());
+        //     for (i = 0; i < 10; i += 1) {
+        //         colors.push(Highcharts.Color(base).brighten((i - 3) / 7).get());
+        //     }
+        //     return colors;
+        // }());
 
-        var users = <?php echo json_encode($countNum) ?>;
-        // alert (users);
+        var users = <?php echo (json_encode($countNum)) ?>;
+        alert (users);
         Highcharts.chart('container', {
             chart: {
                 type: 'pie',
@@ -422,7 +410,6 @@
             },
             colors: [
                 '#0aa34f',
-                '#f5ee41',
                 '#f4891e',
                 '#7e0123'
             ],
