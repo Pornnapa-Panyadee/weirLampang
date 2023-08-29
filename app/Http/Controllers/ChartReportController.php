@@ -54,7 +54,7 @@ class ChartReportController extends Controller
             'scoreper_O' => number_format($score_O->count() / $sum * 100, 1, '.', ''),
             'scoreper_R' => number_format($score_R->count() / $sum * 100, 1, '.', ''),
         ];
-        $countNum = [["ใช้งานได้", $score_N->count()], ["ควรปรับปรุง", $score_O->count()], ["ควรรื้อถอน", $score_R->count()]];
+        $countNum = [["ใช้งานได้ดี", $score_N->count()], ["ปานกลาง ควรซ่อมแซมปรับปรุง", $score_O->count()], ["ทรุดโทรม ควรรื้อถอน/ก่อสร้างใหม่", $score_R->count()]];
         
         $e = [[0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0]];
         if ($amp == "sum") {

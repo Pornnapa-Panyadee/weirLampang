@@ -440,7 +440,7 @@
 
     
       var overlays = [{
-          label: ' อำเภอ',
+          label: ' ข้อมูลฝายรายอำเภอ',
           selectAllCheckbox: true,
           children: [
                 { label:" "+amp[0],layer: station1},

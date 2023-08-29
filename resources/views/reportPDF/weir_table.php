@@ -177,11 +177,11 @@
             }
             function changeText($t){
                 if($t==1){
-                    return "ใช้งานได้";
+                    return "ใช้งานได้ดี";
                 }else if($t==2){
-                    return "ควรปรับปรุง";
+                    return "ปานกลาง";
                 }else if($t==3){
-                    return "ควรรื้อถอน";
+                    return "ทรุดโทรม";
                 }else{
                     return "-";
                 }
@@ -212,24 +212,24 @@
                         <td colspan="3">ระบบส่งน้ำ</td>
                     </tr>
                     <tr>
-                        <td class="text_rote"> <div class='rotate'> ใช้งานได้ </div></td>
-                        <td class="text_rote"><div class='rotate'> ควรปรับปรุง </div></td>
-                        <td class="text_rote"><div class='rotate'>ควรรื้อถอน </div> </td>
-                        <td class="text_rote"> <div class='rotate'> ใช้งานได้ </div></td>
-                        <td class="text_rote"><div class='rotate'> ควรปรับปรุง </div></td>
-                        <td class="text_rote"><div class='rotate'>ควรรื้อถอน </div> </td>
-                        <td class="text_rote"> <div class='rotate'> ใช้งานได้ </div></td>
-                        <td class="text_rote"><div class='rotate'> ควรปรับปรุง </div></td>
-                        <td class="text_rote"><div class='rotate'>ควรรื้อถอน </div> </td>
-                        <td class="text_rote"> <div class='rotate'> ใช้งานได้ </div></td>
-                        <td class="text_rote"><div class='rotate'> ควรปรับปรุง </div></td>
-                        <td class="text_rote"><div class='rotate'>ควรรื้อถอน </div> </td>
-                        <td class="text_rote"> <div class='rotate'> ใช้งานได้ </div></td>
-                        <td class="text_rote"><div class='rotate'> ควรปรับปรุง </div></td>
-                        <td class="text_rote"><div class='rotate'>ควรรื้อถอน </div> </td>
-                        <td class="text_rote"> <div class='rotate'> ใช้งานได้ </div></td>
-                        <td class="text_rote"><div class='rotate'> ควรปรับปรุง </div></td>
-                        <td class="text_rote"><div class='rotate'>ควรรื้อถอน </div> </td>
+                        <td class="text_rote"> <div class='rotate'> ใช้งานได้ดี </div></td>
+                        <td class="text_rote"><div class='rotate'> ปานกลาง </div></td>
+                        <td class="text_rote"><div class='rotate'>ทรุดโทรม </div> </td>
+                        <td class="text_rote"> <div class='rotate'> ใช้งานได้ดี </div></td>
+                        <td class="text_rote"><div class='rotate'> ปานกลาง </div></td>
+                        <td class="text_rote"><div class='rotate'>ทรุดโทรม </div> </td>
+                        <td class="text_rote"> <div class='rotate'> ใช้งานได้ดี </div></td>
+                        <td class="text_rote"><div class='rotate'> ปานกลาง </div></td>
+                        <td class="text_rote"><div class='rotate'>ทรุดโทรม </div> </td>
+                        <td class="text_rote"> <div class='rotate'> ใช้งานได้ดี </div></td>
+                        <td class="text_rote"><div class='rotate'> ปานกลาง </div></td>
+                        <td class="text_rote"><div class='rotate'>ทรุดโทรม </div> </td>
+                        <td class="text_rote"> <div class='rotate'> ใช้งานได้ดี </div></td>
+                        <td class="text_rote"><div class='rotate'> ปานกลาง </div></td>
+                        <td class="text_rote"><div class='rotate'>ทรุดโทรม </div> </td>
+                        <td class="text_rote"> <div class='rotate'> ใช้งานได้ดี </div></td>
+                        <td class="text_rote"><div class='rotate'> ปานกลาง </div></td>
+                        <td class="text_rote"><div class='rotate'>ทรุดโทรม </div> </td>
                     </tr>
                 </thead>
                 <tbody>

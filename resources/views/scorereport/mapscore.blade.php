@@ -132,7 +132,7 @@
                                         <br>
                                         <div class="row justify-content-end"> 
                                           <div class="col col-lg-6">
-                                              <img class="ref" src="{{ asset('/images/icon/refmap2.png') }}" align="right" width=100% >
+                                              <img class="ref" src="{{ asset('/images/icon/refmap3.png') }}" align="right" width=100% >
                                           </div>
                                       </div>
                                     </div>
@@ -157,9 +157,9 @@
                                             <th colspan="3">สภาพฝาย (จำนวน) </th>
                                           </tr>
                                           <tr>
-                                            <th valign="middle">ใช้งานได้</th>
-                                            <th>ควรปรับปรุง</th>    
-                                            <th>ควรรื้อถอนก่อสร้างใหม่ </th>                                                                             
+                                            <th valign="middle">ใช้งานได้ดี</th>
+                                            <th>ปานกลาง ควรซ่อมแซมปรับปรุง</th>    
+                                            <th>ทรุดโทรม ควรรื้อถอน/ก่อสร้างใหม่ </th>                                                                             
                                           </tr>
                                         </thead>
                                         <tbody>
@@ -412,7 +412,7 @@
     
        var overlays = [
         {
-          label: ' ใช้งานได้',
+          label: ' ใช้งานได้ดี',
           selectAllCheckbox: true,
           children: [
                 { label:" "+amp[0],layer: station1},
@@ -422,7 +422,7 @@
           ]
         },
         {
-            label: ' ควรปรับปรุง',
+            label: ' ปานกลาง ควรซ่อมแซมปรับปรุง',
             selectAllCheckbox: true,
             children: [
                 { label:" "+amp[0],layer: station19},
@@ -432,7 +432,7 @@
           ]
         },
         {
-            label: ' ควรรื้อถอนก่อสร้างใหม่',
+            label: ' ทรุดโทรม ควรรื้อถอน/ก่อสร้างใหม่',
             selectAllCheckbox: true,
             children: [
                 { label:" "+amp[0],layer: station37},

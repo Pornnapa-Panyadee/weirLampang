@@ -235,9 +235,9 @@
                                                                                         <th colspan="4">สภาพฝาย ( จำนวนทั้งหมด {{$result[0]['score_N']+$result[0]['score_O']+$result[0]['score_R']}} ฝาย )</th>
                                                                                     </tr>
                                                                                     <tr>
-                                                                                        <th>ใช้งานได้</th>
-                                                                                        <th>ควรปรับปรุง</th>
-                                                                                        <th>ควรรื้อถอน</th>
+                                                                                        <th>ใช้งานได้ดี</th>
+                                                                                        <th>ปานกลาง </th>
+                                                                                        <th>ทรุดโทรม </th>
                                                                                     </tr>
                                                                                 </thead>
                                                                                 <tbody>
@@ -256,9 +256,9 @@
                                                                                         <th colspan="4">สภาพฝาย </th>
                                                                                     </tr>
                                                                                     <tr>
-                                                                                        <th>ใช้งานได้</th>
-                                                                                        <th>ควรปรับปรุง</th>
-                                                                                        <th>ควรรื้อถอน</th>
+                                                                                        <th>ใช้งานได้ดี</th>
+                                                                                        <th>ปานกลาง </th>
+                                                                                        <th>ทรุดโทรม </th>
                                                                                     </tr>
                                                                                 </thead>
                                                                                 <tbody>
@@ -279,9 +279,9 @@
                                                                                 <div class="row align-items-center">
                                                                                     <div class="col">
                                                                                         <b> สภาพฝายแบ่งออกเป็น 3 ระดับ </b> <br>
-                                                                                        - ใช้งานได้ : สภาพปกติ <br>
-                                                                                        - ควรปรับปรุง : ซ่อมแซม <br>
-                                                                                        - ควรรื้อถอน : สร้างใหม่ <br>
+                                                                                        - ใช้งานได้ดี <br>
+                                                                                        - ปานกลาง ควรซ่อมแซมปรับปรุง <br>
+                                                                                        - ทรุดโทรม ควรรื้อถอน/ก่อสร้างใหม่ <br>
                                                                                     </div>
 
                                                                                 </div>
@@ -375,7 +375,7 @@
                     beta: 0
                 },
                 style: {
-                    fontFamily: 'Mitr|Prompt'
+                        fontFamily: 'Mitr|Prompt'
                 }
             },
             title: {

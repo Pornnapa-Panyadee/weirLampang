@@ -103,7 +103,7 @@
                                                                                                     <span class="cr">
                                                                                                     <i class="cr-icon icofont icofont-ui-check txt-primary"></i>
                                                                                                     </span>
-                                                                                                    <span>ใช้งานได้   
+                                                                                                    <span>ใช้งานได้ดี   
                                                                                                 </label>
                                                                                             </div> <br> 
                                                                                             <div class="checkbox-zoom zoom-primary">
@@ -112,7 +112,7 @@
                                                                                                     <span class="cr">
                                                                                                     <i class="cr-icon icofont icofont-ui-check txt-primary"></i>
                                                                                                     </span>
-                                                                                                    <span>ควรปรับปรุง </span>
+                                                                                                    <span>ปานกลาง ควรซ่อมแซมปรับปรุง </span>
                                                                                                 </label>
                                                                                             </div> <br> 
                                                                                             <div class="checkbox-zoom zoom-primary">
@@ -121,7 +121,7 @@
                                                                                                     <span class="cr">
                                                                                                     <i class="cr-icon icofont icofont-ui-check txt-primary"></i>
                                                                                                     </span>
-                                                                                                    <span>ควรรื้อถอนก่อสร้างใหม่ </span>
+                                                                                                    <span>ทรุดโทรม ควรรื้อถอน/ก่อสร้างใหม่ </span>
                                                                                                 </label>
                                                                                             </div> 
                                                                                         </td>
