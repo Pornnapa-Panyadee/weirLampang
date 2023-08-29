@@ -309,15 +309,15 @@
                         <tr align="center"><th colspan="4" class="text-center" style="background-color:#C0C0C0">สภาพฝายของแต่ละองค์ประกอบ (Element)</th></tr>
                         <tr style="background-color:#DFDFDF">
                             <td width="40%">1. ส่วนป้องกันเหนือน้ำ : 
-                                <span><?php checkpair(1,$damage[0])?> ใช้งานได้  </span>
-                                <span><?php checkpair(2,$damage[0])?> ควรปรับปรุง  </span>
-                                <span><?php checkpair(3,$damage[0])?> ควรรื้อถอน </span>
+                                <span><?php checkpair(1,$damage[0])?> ใช้งานได้ดี  </span>
+                                <span><?php checkpair(2,$damage[0])?> ปานกลาง  </span>
+                                <span><?php checkpair(3,$damage[0])?> ทรุดโทรม </span>
                             </td>
                             <td style="text-align:center;" width="10%"><?php echo $sediment['check1']; ?></td>
                             <td width="40%">2. ส่วนเหนือน้ำ   : 
-                                <span><?php checkpair(1,$damage[1])?> ใช้งานได้  </span>
-                                <span><?php checkpair(2,$damage[1])?> ควรปรับปรุง  </span>
-                                <span><?php checkpair(3,$damage[1])?> ควรรื้อถอน </span>
+                                <span><?php checkpair(1,$damage[1])?> ใช้งานได้ดี  </span>
+                                <span><?php checkpair(2,$damage[1])?> ปานกลาง  </span>
+                                <span><?php checkpair(3,$damage[1])?> ทรุดโทรม </span>
                             </td>
                             <td style="text-align:center;" width="10%"><?php echo $sediment['check2']; ?></td>
                         </tr>
@@ -341,14 +341,14 @@
                         </tr>
                         <tr  style="background-color:#DFDFDF" >
                             <td colspan="2">3. ส่วนควบคุมน้ำ :
-                                <span><?php checkpair(1,$damage[2])?> ใช้งานได้  </span>
-                                <span><?php checkpair(2,$damage[2])?> ควรปรับปรุง  </span>
-                                <span><?php checkpair(3,$damage[2])?> ควรรื้อถอน </span>
+                                <span><?php checkpair(1,$damage[2])?> ใช้งานได้ดี  </span>
+                                <span><?php checkpair(2,$damage[2])?> ปานกลาง  </span>
+                                <span><?php checkpair(3,$damage[2])?> ทรุดโทรม </span>
                             </td>
                             <td>4. ส่วนท้ายน้ำ : 
-                                <span><?php checkpair(1,$damage[3])?> ใช้งานได้  </span>
-                                <span><?php checkpair(2,$damage[3])?> ควรปรับปรุง  </span>
-                                <span><?php checkpair(3,$damage[3])?> ควรรื้อถอน </span>
+                                <span><?php checkpair(1,$damage[3])?> ใช้งานได้ดี  </span>
+                                <span><?php checkpair(2,$damage[3])?> ปานกลาง  </span>
+                                <span><?php checkpair(3,$damage[3])?> ทรุดโทรม </span>
                             </td>
                             <td style="text-align:center;" width="10%"><?php echo $sediment['check4']; ?></td>
                         </tr>
@@ -372,15 +372,15 @@
                         </tr>
                         <tr style="background-color:#DFDFDF">
                             <td >5. ส่วนป้องกันท้ายน้ำ : 
-                                <span><?php checkpair(1,$damage[4])?> ใช้งานได้  </span>
-                                <span><?php checkpair(2,$damage[4])?> ควรปรับปรุง  </span>
-                                <span><?php checkpair(3,$damage[4])?> ควรรื้อถอน </span>
+                                <span><?php checkpair(1,$damage[4])?> ใช้งานได้ดี  </span>
+                                <span><?php checkpair(2,$damage[4])?> ปานกลาง  </span>
+                                <span><?php checkpair(3,$damage[4])?> ทรุดโทรม </span>
                             </td>
                             <td style="text-align:center;" width="10%"><?php echo $sediment['check5']; ?></td>
                             <td >6. ระบบส่งน้ำ : 
-                                <span><?php checkpair(1,$damage[5])?> ใช้งานได้  </span>
-                                <span><?php checkpair(2,$damage[5])?> ควรปรับปรุง  </span>
-                                <span><?php checkpair(3,$damage[5])?> ควรรื้อถอน </span>
+                                <span><?php checkpair(1,$damage[5])?> ใช้งานได้ดี  </span>
+                                <span><?php checkpair(2,$damage[5])?> ปานกลาง  </span>
+                                <span><?php checkpair(3,$damage[5])?> ทรุดโทรม </span>
                             </td>
                             <td style="text-align:center;" width="10%"><?php echo $sediment['check6']; ?></td>
                         </tr>
