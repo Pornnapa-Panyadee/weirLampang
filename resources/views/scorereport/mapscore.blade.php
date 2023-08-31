@@ -412,6 +412,9 @@
     
        var overlays = [
         {
+          label: ' ข้อมูลฝายรายอำเภอ'
+        },
+        {
           label: ' ใช้งานได้ดี',
           selectAllCheckbox: true,
           children: [
