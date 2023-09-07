@@ -275,7 +275,7 @@
                     <tr>
                         <td > <b>ระบบส่งน้ำ : </b>  &nbsp;<?php echo checkhas($space[0]->canal_has); ?> </td>
                         <td >ลักษณะคลอง :  &nbsp;<?php echo checkCuase($space[0]->canal_type); ?> </td>
-                        <td >ขนาดกันคลองกว้าง : &nbsp; <?php echo checkCuase($space[0]->canel_dimension->width); ?>&nbsp;เมตร</td>
+                        <td >ขนาดท้องคลองกว้าง : &nbsp; <?php echo checkCuase($space[0]->canel_dimension->width); ?>&nbsp;เมตร</td>
                         <td colspan="2">ความยาวประมาณ : &nbsp; <?php echo checkCuase($space[0]->canel_dimension->lenght); ?>&nbsp;กิโลเมตรเมตร</td>
                     </tr>
                     <tr>
@@ -374,47 +374,6 @@
                                     for($i=0;$i<2;$i++){?>
                                     <?php echo checkphoto($photo6[$i]["file"]); ?>
                                 <?php } }?>
-                            </td>
-                        </tr>
-                    </table>
-            </div>
-            <?php if( (strlen($expert->weir_problem)+strlen($expert->weir_solution))>2000){ ?> 
-                <div class="page-break"></div>
-            <?php } ?>
-
-            <div class="text">
-                    <table class="table5" border=1 style="margin-top:3px;">                   
-                        <tr>
-                            <th style="background-color:#C0C0C0; text-align:center" width="50%" colspan="2">พื้นที่รับน้ำของฝายและข้อมูลประกอบ </th>
-                            <th style="background-color:#C0C0C0; text-align:center" width="50%">สภาพโดยรวมของฝายและแนวทางแก้ไขปรับปรุงเบื้องต้น</th>
-                        </tr>
-                        <tr>
-                            <td  width="25%"><img src='https://watercenter.scmc.cmu.ac.th/weir/jang_basin/images/map/<?php echo $location[0]->weir_district; ?>/<?php echo $weir[0]['weir_code']; ?>.jpg'  class="detail_img"> </td>
-                            <td valign="top" width="25%" class="text_table"> 
-                                <u>ข้อมูลพื้นที่รับน้ำของฝาย</u><br>
-                                A = <?php echo $area[0]->area; ?> ตารางกิโลเมตร <BR>
-                                L = <?php echo $area[0]->L; ?> กิโลเมตร <BR>
-                                LC = <?php echo $area[0]->LC; ?> กิโลเมตร <BR>
-                                H = <?php echo $area[0]->H; ?> เมตร <BR>
-                                s = <?php echo $area[0]->S; ?>  <BR>
-                                <?php if($area[0]->area<25){?>
-                                    c = <?php echo $area[0]->c; ?> <BR>
-                                    I = <?php echo $area[0]->I; ?> มิลลิเมตร/ชั่วโมง <BR>
-                                    Return period = <?php echo $area[0]->Return_period; ?> ปี <BR>
-                                    อัตราการไหลสูงสุด  = <?php echo $area[0]->flow; ?> ลบ.ม./วินาที
-                                <?php } else{ ?> 
-                                    Return period = <?php echo $area[0]->Return_period; ?> ปี <BR>
-                                    อัตราการไหลสูงสุด  = <?php echo $area[0]->flow; ?> ลบ.ม./วินาที
-                                    <BR><BR><BR><BR>
-                                <?php } ?>                                
-                                
-
-                            </td>
-                            <td valign="top" class="text4">
-                                <b>สภาพโดยรวมของฝาย  </b> <br> 
-                                <?php echo $expert->weir_problem; ?> <br>
-                                <b>แนวทางแก้ไขปรับปรุงเบื้องต้น  </b> <br> 
-                                <?php echo $expert->weir_solution; ?>
                             </td>
                         </tr>
                     </table>

@@ -321,7 +321,7 @@
                         <tr>
                             <td > <b>ระบบส่งน้ำ : </b> <?php checkhas($result[$i]['space'][0]->canal_has) ?> </td>
                             <td >ลักษณะคลอง :<?php checkCuase($result[$i]['space'][0]->canal_type) ?> </td>
-                            <td >ขนาดกันคลองกว้าง : <?php checkCuase($result[$i]['space'][0]->canel_dimension->width) ?>&nbsp;เมตร</td>
+                            <td >ขนาดท้องคลองกว้าง : <?php checkCuase($result[$i]['space'][0]->canel_dimension->width) ?>&nbsp;เมตร</td>
                             <td colspan="2">ความยาวประมาณ : <?php checkCuase($result[$i]['space'][0]->canel_dimension->lenght) ?>&nbsp;กิโลเมตรเมตร</td>
                         </tr>
                         <tr>

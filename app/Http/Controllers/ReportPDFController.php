@@ -378,7 +378,7 @@ class ReportPDFController extends Controller
                 return "$strDay $strMonthThai $strYear ";
         }
 
-        $d=explode(" ",$weir[0]->created_at);
+        $d=explode(" ",$weir[0]->survey_date);
         $date=DateTimeThai($d[0]);
     
         $sediment=[
@@ -419,17 +419,37 @@ class ReportPDFController extends Controller
         $N=$request->weir_N;
         $O=$request->weir_O;
         $D=$request->weir_D;
+        $date=[];
 
         // chose Location amp & tambol
         if($amp=="sum"){$location = WeirLocation::select('*')->get();} 
         else if ($tumbol!=NULL){ $location = WeirLocation::select('*')->where('weir_district',$amp)->where('weir_tumbol',$tumbol)->get();}
         else {$location = WeirLocation::select('*')->where('weir_district',$amp)->get();}
         $warning=0;
-        
+        function DateTimeThai($strDate)
+        {
+                $strYear = (date("Y",strtotime($strDate))+543)-2500;
+                $strMonth= date("n",strtotime($strDate));
+                $strDay= date("j",strtotime($strDate));
+                $strMonthCut =  Array("","ม.ค.","ก.พ.","มี.ค.","เม.ย.","พ.ค.","มิ.ย.","ก.ค.","ส.ค.","ก.ย.","ต.ค.","พ.ย.","ธ.ค.");
+                $strMonthThai=$strMonthCut[$strMonth];
+                return "$strDay $strMonthThai $strYear ";
+        }
+
         for ($i=0;$i<count($location);$i++){ 
             $weir = WeirSurvey::select('*')->where('weir_location_id',$location[$i]->weir_location_id)->get();
             $score =Impovement::select('*')->where('weir_id', $weir[0]->weir_id)->get();
+            // 
+            // dd($weir[$i]->survey_date);
             
+            if($weir[$i]->survey_date!=null){
+                $date[$i]=DateTimeThai($weir[$i]->survey_date);
+                // dd($date);
+            }else{
+                $date[$i]="-";
+            }
+            
+            // dd($date);
             if(!empty($score[0]->improve_type)){
                 $warning=1;
                 if ($score[0]->improve_type==$N  || $score[0]->improve_type==$O || $score[0]->improve_type==$D ){
@@ -442,7 +462,7 @@ class ReportPDFController extends Controller
                     $downconcrete = DownconcreteInv::select('section_status')->where('weir_id', $weir[0]->weir_id)->get();
                     $downprotection = DownprotectionInv::select('section_status')->where('weir_id', $weir[0]->weir_id)->get();
                     $waterdelivery = WaterdeliveryInv::select('section_status')->where('weir_id', $weir[0]->weir_id)->get();
-                
+                    
                     // เปลี่ยนคำ
                         if(strpos($weir[0]->resp_name, "เทศบาลตำบล")== 0){$weir[0]->resp_name = str_replace("เทศบาลตำบล","ทต.",$weir[0]->resp_name);}
                         // if(strpos($weir[0]->resp_name, "ที่ว่าการอำเภอ")== 0){ $weir[0]->resp_name = str_replace("ที่ว่าการอำเภอ","อ.",$weir[0]->resp_name);}
@@ -475,6 +495,7 @@ class ReportPDFController extends Controller
                         if(strpos($weir[0]->transfer, "สำนักงานเร่งรัดพัฒนาชนบท")== 0){ $weir[0]->transfer = str_replace("สำนักงานเร่งรัดพัฒนาชนบท","รพช.",$weir[0]->transfer); }
                         if(strpos($weir[0]->transfer, "กองทัพภาคที่3กองกำลังผาเมืองกรมทหารราบที่31")== 0){ $weir[0]->transfer = str_replace("กองทัพภาคที่3กองกำลังผาเมืองกรมทหารราบที่31","กองทัพภาคที่3",$weir[0]->transfer); }
                         if(strpos($weir[0]->transfer, "การไฟฟ้าส่วนภูมิภาค")== 0){ $weir[0]->transfer = str_replace("การไฟฟ้าส่วนภูมิภาค","กฟภ.",$weir[0]->transfer); }
+                        if(strpos($weir[0]->transfer, "การไฟฟ้าฝ่ายผลิตแห่งประเทศไทย")== 0){ $weir[0]->transfer = str_replace("การไฟฟ้าฝ่ายผลิตแห่งประเทศไทย","กฟผ.",$weir[0]->transfer); }
                             
                
                         $result[] = [
@@ -501,18 +522,19 @@ class ReportPDFController extends Controller
                 }
             }
            
-        }
-            
+        }            
         // dd($warning);
         if(isset($result)==NULL){$dataNo=1;}
         else{$dataNo=0;}
         $amp=$amp;
         if($tumbol!=NULL){ $text_amp="ตำบล".$tumbol."  อำเภอ".$amp; }
+        else if($amp=="sum"){$text_amp="";}
         else{ $text_amp="อำเภอ".$amp; }
        
         if($warning==1){
+            dd($date);
             $name="weir_report.pdf";
-            $pdf = PDF::loadView('reportPDF.weir_table',compact('result','amp','dataNo','tumbol','text_amp'))->setPaper('Letter', 'landscape');;
+            $pdf = PDF::loadView('reportPDF.weir_table',compact('date','result','amp','dataNo','tumbol','text_amp'))->setPaper('Letter', 'landscape');;
             return $pdf->stream($name);
         }else{
             return view('guest.warning'); 

@@ -199,7 +199,7 @@
                         <td colspan="18">สภาพของฝายแต่ละองค์ประกอบ</td>
                         <td rowspan="3"> <div class='rotatehead'> สภาพฝาย </div></td>
                         <td rowspan="3">หน่วยงาน<br>รับผิดชอบ</td>
-                        <td rowspan="3">รับโอน<br>ถ่ายจาก</td>
+                        <td rowspan="3">วันที่<br>สำรวจ</td>
                     </tr>
                     <tr>
                         <td rowspan="2"><div class='rotatehead'> ละติจูด </div></td>      
@@ -275,7 +275,7 @@
 
                             <td><?php echo  changeText($result[$i]['classSum']) ?></td>
                             <td><?php echo  wordwrap($result[$i]['resp_name'],5, "<br/>\n") ?></td> 
-                            <td><?php echo wordwrap($result[$i]['transfer'],5, "\n") ?></td> 
+                            <td><?php echo $date[$i] ?></td> 
                         </tr>
 
                         <?php }
