@@ -278,18 +278,20 @@
             <tr>
                 <td width="20%" ><font class="outline"> หน่วยงานรับผิดชอบ</font></td>
                 <td width="20%" ><?php checkpair($weir[0]->Resp_type,1)?> &nbsp;&nbsp;หน่วยงานตามภารกิจ &nbsp;&nbsp;  </td>
-                <td width="25%" class="line"> <?php echo checkresp_type($weir[0]->resp_name,$weir[0]->Resp_type,1) ?> </td>
+                <td width="25%" class="line" colspan=3> <?php echo checkresp_type($weir[0]->resp_name,$weir[0]->Resp_type,1) ?> </td>
+                
             </tr>
             <tr>
                 <td width="20%" ><font class="outline"> </font></td>
                 <td width="20%" ><?php checkpair($weir[0]->Resp_type,2) ?> &nbsp;&nbsp;หน่วยงานท้องถิ่น &nbsp;&nbsp;  </td>
-                <td width="25%" class="line"><?php echo checkresp_type($weir[0]->resp_name,$weir[0]->Resp_type,2) ?> </td>
-                <td width="30%" class="line"><font class="outline"> รับถ่ายโอนมาจาก </font>&nbsp;&nbsp;<?php $weir[0]->transfer ?>&nbsp;&nbsp; </td>
+                <td width="25%" class="line"><?php echo checkresp_type($weir[0]->resp_name,$weir[0]->Resp_type,2) ?> </td> -->
+                <td width="10%" >&nbsp;รับถ่ายโอนมาจาก </td> 
+                <td width="25%" class="line"> <?php echo $weir[0]->transfer  ?> </td>
             </tr>
             <tr>
                 <td width="20%" ><font class="outline"> </font></td>
                 <td width="20%" ><?php checkpair($weir[0]->Resp_type,3)?> &nbsp;&nbsp;อื่นๆ &nbsp;&nbsp;  </td>
-                <td width="25%" class="line"><?php echo checkresp_type($weir[0]->resp_name,$weir[0]->Resp_type,3) ?> </td>
+                <td width="25%" class="line" colspan=3><?php echo checkresp_type($weir[0]->resp_name,$weir[0]->Resp_type,3) ?> </td>
                 
             </tr>   
           </table>
