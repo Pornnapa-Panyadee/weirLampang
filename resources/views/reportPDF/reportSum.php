@@ -204,9 +204,7 @@
                     if($i==$text){echo "<img src='images/logo/check.png'  width=12px;>";	
                     }else{ echo "<img src='images/logo/square.png'  width=12px;>";	
                 } 
-            }
-
-            ?>
+            }?>
             
             <div class="text06">
                 <table style="text-align:left;">
