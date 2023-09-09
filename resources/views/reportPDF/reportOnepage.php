@@ -248,7 +248,6 @@
                     </tbody>
                 </table>
             </div>
-
             <div class="text" style="margin-top:3px;">
                 <table id="customers" >
                     <tr align="center"><th colspan="5" class="text-center" style="background-color:#C0C0C0">ลักษณะทั่วไป</th></tr>
