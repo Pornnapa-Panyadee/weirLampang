@@ -317,7 +317,6 @@
                             <?php } ?>
 
                         </tr>
-
                         <tr>
                             <td > <b>ระบบส่งน้ำ : </b> <?php checkhas($result[$i]['space'][0]->canal_has) ?> </td>
                             <td >ลักษณะคลอง :<?php checkCuase($result[$i]['space'][0]->canal_type) ?> </td>
