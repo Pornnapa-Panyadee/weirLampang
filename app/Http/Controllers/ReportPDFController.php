@@ -434,15 +434,15 @@ class ReportPDFController extends Controller
                 $strMonthThai=$strMonthCut[$strMonth];
                 return "$strDay $strMonthThai $strYear ";
         }
-
-        for ($i=0;$i<count($location);$i++){ 
+        // dd(count($location));
+        for ($i=1;$i<count($location);$i++){ 
             $weir = WeirSurvey::select('*')->where('weir_location_id',$location[$i]->weir_location_id)->get();
             $score =Impovement::select('*')->where('weir_id', $weir[0]->weir_id)->get();
             // 
-            // dd($weir[$i]->survey_date);
+            // dd($weir[0]->survey_date);
             
-            if($weir[$i]->survey_date!=null){
-                $date[$i]=DateTimeThai($weir[$i]->survey_date);
+            if($weir[0]->survey_date!=null){
+                $date[$i]=DateTimeThai($weir[0]->survey_date);
                 // dd($date);
             }else{
                 $date[$i]="-";
@@ -481,21 +481,9 @@ class ReportPDFController extends Controller
                         if(strpos($weir[0]->resp_name, "เทศบาลนครเชียงราย")== 0){ $weir[0]->resp_name = str_replace("เทศบาลนครเชียงราย","ทน.เชียงราย",$weir[0]->resp_name); }
                         if(strpos($weir[0]->resp_name, "กรมโยธาธิการและผังเมือง")== 0){ $weir[0]->resp_name = str_replace("กรมโยธาธิการและผังเมือง","ยผ.",$weir[0]->resp_name); }
                         if(strpos($weir[0]->resp_name, "องค์การบริหารส่วนจังหวัดเชียงราย")== 0){ $weir[0]->resp_name = str_replace("องค์การบริหารส่วนจังหวัดเชียงราย","อบจ.เชียงราย",$weir[0]->resp_name); }
+                        if(strpos($weir[0]->resp_name, "การไฟฟ้าฝ่ายผลิตแห่งประเทศไทย")== 0){ $weir[0]->resp_name = str_replace("การไฟฟ้าฝ่ายผลิตแห่งประเทศไทย","กฟผ.",$weir[0]->resp_name); }
                     // ---------------
-                        if(strpos($weir[0]->transfer, "เทศบาลตำบล")== 0){ $weir[0]->transfer = str_replace("เทศบาลตำบล","ทต.",$weir[0]->transfer); }
-                        if(strpos($weir[0]->transfer, "ที่ว่าการอำเภอ")== 0){$weir[0]->transfer = str_replace("ที่ว่าการอำเภอ","อ.",$weir[0]->transfer);}
-                        if(strpos($weir[0]->transfer, "กรมชลประทาน")== 0){ $weir[0]->transfer = str_replace("กรมชลประทาน","ชป.",$weir[0]->transfer);}
-                        if(strpos($weir[0]->transfer, "ไม่ได้โอน")== 0){ $weir[0]->transfer = str_replace("ไม่ได้โอน","-",$weir[0]->transfer); }
-                        if(strpos($weir[0]->transfer, "ไม่ทราบ")== 0){$weir[0]->transfer = str_replace("ไม่ทราบ","-",$weir[0]->transfer);}
-                        if(strpos($weir[0]->transfer, "กรมทรัพยากรน้ำ")== 0){ $weir[0]->transfer = str_replace("กรมทรัพยากรน้ำ","ทน.",$weir[0]->transfer); }
-                        if(strpos($weir[0]->transfer, "กรมโยธาธิการและผังเมือง")== 0){ $weir[0]->transfer = str_replace("กรมโยธาธิการและผังเมือง","ยผ.",$weir[0]->transfer); }
-                        if(strpos($weir[0]->transfer, "กรมพัฒนาที่ดิน")== 0){ $weir[0]->transfer = str_replace("กรมพัฒนาที่ดิน","พด.",$weir[0]->transfer); }
-                        if(strpos($weir[0]->transfer, "กรมพัฒนาพลังงานทดแทนและอนุรักษ์พลังงาน")== 0){ $weir[0]->transfer = str_replace("กรมพัฒนาพลังงานทดแทนและอนุรักษ์พลังงาน","พพ.",$weir[0]->transfer); } 
-                        if(strpos($weir[0]->transfer, "สำนักงานเร่งรัดพัฒนาชนบท")== 0){ $weir[0]->transfer = str_replace("สำนักงานเร่งรัดพัฒนาชนบท","รพช.",$weir[0]->transfer); }
-                        if(strpos($weir[0]->transfer, "กองทัพภาคที่3กองกำลังผาเมืองกรมทหารราบที่31")== 0){ $weir[0]->transfer = str_replace("กองทัพภาคที่3กองกำลังผาเมืองกรมทหารราบที่31","กองทัพภาคที่3",$weir[0]->transfer); }
-                        if(strpos($weir[0]->transfer, "การไฟฟ้าส่วนภูมิภาค")== 0){ $weir[0]->transfer = str_replace("การไฟฟ้าส่วนภูมิภาค","กฟภ.",$weir[0]->transfer); }
-                        if(strpos($weir[0]->transfer, "การไฟฟ้าฝ่ายผลิตแห่งประเทศไทย")== 0){ $weir[0]->transfer = str_replace("การไฟฟ้าฝ่ายผลิตแห่งประเทศไทย","กฟผ.",$weir[0]->transfer); }
-                            
+                        
                
                         $result[] = [
                                 'weir_id'=> $weir[0]->weir_id,
@@ -522,7 +510,7 @@ class ReportPDFController extends Controller
             }
            
         }            
-        // dd($warning);
+        // dd($result);
         if(isset($result)==NULL){$dataNo=1;}
         else{$dataNo=0;}
         $amp=$amp;
@@ -531,7 +519,7 @@ class ReportPDFController extends Controller
         else{ $text_amp="อำเภอ".$amp; }
        
         if($warning==1){
-            dd($date);
+            // dd($date);
             $name="weir_report.pdf";
             $pdf = PDF::loadView('reportPDF.weir_table',compact('date','result','amp','dataNo','tumbol','text_amp'))->setPaper('Letter', 'landscape');;
             return $pdf->stream($name);

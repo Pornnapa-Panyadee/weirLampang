@@ -275,7 +275,7 @@
 
                             <td><?php echo  changeText($result[$i]['classSum']) ?></td>
                             <td><?php echo  wordwrap($result[$i]['resp_name'],5, "<br/>\n") ?></td> 
-                            <td><?php echo $date[$i] ?></td> 
+                            <td><?php echo $date[$i+1]?></td> 
                         </tr>
 
                         <?php }
