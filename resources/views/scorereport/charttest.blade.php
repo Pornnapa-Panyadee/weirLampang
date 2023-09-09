@@ -192,7 +192,7 @@
                                                 <div class="card sale-card">
                                                     <div class="row justify-content-center" >
                                                             <div class="col-12 text-center" >
-                                                                <h2> กราฟแสดงสัดส่วนของสภาพฝาย </h2>
+                                                                <h2> กราฟแสดงสัดส่วนของสภาพฝาย ในพื้นที่ลุ่มน้ำแม่จาง</h2>
                                                                 <h3> {{$amp_name}} </h3><br><br>
                                                                 <div id="container" width=100% ></div>
                                                             </div>
@@ -201,7 +201,7 @@
                                                         
                                                         <div class="row justify-content-center" style="background-color:#fff; " >
                                                             <div class="col-md-12 text-center"  style="background-color:#fff; margin-bottom:130px;margin-top:50px;" >
-                                                                <h2> องค์ประกอบของฝายจำแนกตามสภาพฝาย </h2>
+                                                                <h2> องค์ประกอบของฝายจำแนกตามสภาพฝาย ในพื้นที่ลุ่มน้ำแม่จาง</h2>
                                                                 <h3> {{$amp_name}} </h3><br><br>
                                                                 <div id="conBar" ></div>
                                                             </div>
