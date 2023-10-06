@@ -197,6 +197,15 @@
                 }
                 return $text;
             }
+            function DateTimeThai($strDate){
+                $strYear = (date("Y",strtotime($strDate)))+543;
+                $strMonth= date("n",strtotime($strDate));
+                $strDay= date("j",strtotime($strDate));
+                $strMonthCut =  Array("","มกราคม","กุมภาพันธ์","มีนาคม","เมษายน","พฤษภาคม","มิถุนายน","กรกฎาคม","สิงหาคม","กันยายน","ตุลาคม","พฤษจิกายน","ธันวาคม");
+                $strMonthThai=$strMonthCut[$strMonth];
+                return "$strDay $strMonthThai $strYear ";
+            }
+            
             
         ?>
         <div class="text4" >
@@ -234,7 +243,7 @@
                     <font class="box">0</font>
                     <font class="box">0</font>
                     <font class="box">5</font> 
-                    <font class="box">7</font>
+                    <font class="box">2</font>
                 </td>
               </tr>
             </table>
@@ -244,7 +253,7 @@
           <table>
             <tr>
                 <td class="line"><font class="outline">ผู้ตรวจสอบ&nbsp;&nbsp;</font>&nbsp;&nbsp;<?php echo $weir[0]->survey_name; ?> &nbsp;</td>
-                <td colspan="2" class="line"><font class="outline"> วัน/เดือน/ปี </font> &nbsp;&nbsp;<?php echo $weir[0]->survey_date; ?> &nbsp;&nbsp; </td>
+                <td colspan="2" class="line"><font class="outline"> วัน/เดือน/ปี </font> &nbsp;&nbsp;<?php echo DateTimeThai($weir[0]->survey_date); ?> &nbsp;&nbsp; </td>
                 <td class="line"><font class="outline">ตำแหน่ง </font> &nbsp;&nbsp; <?php echo $weir[0]->survey_position ?> &nbsp;&nbsp;  </td>
                 <td class="line"><font class="outline">หน่วยงาน </font> &nbsp;&nbsp; <?php echo $weir[0]->survey_unit ?>  &nbsp;&nbsp;  </td>
             </tr>
@@ -259,7 +268,7 @@
           </table>
           <table>
             <tr>
-                <td width="20%" class="line"><font class="outline">ก่อสร้าง เมื่อปี พ.ศ.&nbsp;&nbsp;</font>&nbsp;&nbsp;<?php echo $weir[0]->weir_build ?> &nbsp;</td>
+                <td width="20%" class="line"><font class="outline">ก่อสร้าง เมื่อปี พ.ศ.&nbsp;&nbsp;</font>&nbsp;&nbsp;<?php echo ($weir[0]->weir_build) ?> &nbsp;</td>
                 <td width="15%" class="line"><font class="outline"> อายุฝาย </font> &nbsp;&nbsp;<?php echo $weir[0]->weir_age ?> &nbsp;&nbsp; </td>
                 <td width="14%" ><?php checkCuase($model->self->weir_self) ?> &nbsp;&nbsp;ออกแบบเอง &nbsp;&nbsp;  </td>
                 <td width="15%"> <?php checkCuase($model->self->weir_std) ?> &nbsp;&nbsp;ใช้แบบมาตราฐาน &nbsp;&nbsp;  </td>  
