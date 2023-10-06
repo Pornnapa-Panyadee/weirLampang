@@ -8,8 +8,12 @@
         font-style: normal;
         font-weight: normal;
         src: url("{{ asset('fonts/THSarabunNew.ttf')}}") format('truetype');
+        } @font-face{
+        font-family:  'THSarabunNew';
+        font-style: normal;
+        font-weight: bold;
+        src: url("{{ asset('fonts/THSarabunNew Bold.ttf')}}") format('truetype');
         }
-
         body{
         font-family: "THSarabunNew";
         font-size: 14px;
@@ -23,11 +27,12 @@
             html, body {
                 width: 210mm;
                 height: 300mm;
-                /*font-size : 16px;*/
+                font-size : 14px;
             }
         }
         html { margin-bottom: 0px}
         div.text06 {
+            font-size: 14px;
             text-align:left;
             padding-top: -10px;
             line-height: 1;
@@ -42,7 +47,7 @@
             padding-top: -10px;
             line-height: 1;
         }.texthead{
-            font-size: 14px;
+            font-size: 16px;
             text-align: center;
             font-weight: bold;
             margin-top: 5px;
@@ -55,12 +60,12 @@
             line-height:70%;
             
         }.text3{
-            font-size: 14px;
+            font-size: 16px;
             font-weight: bold;
             line-height:1;
             margin-top:-5px;
         }.text4{
-            font-size: 13px;
+            font-size: 14px;
             line-height:1;
             margin-left: 5px;
             padding-left: 5px;
@@ -74,15 +79,16 @@
         }tr,td { 
             padding-top:-10px;
         }#customers {
-            border: 1px solid black;
+            font-size: 14px;
+            border: 1px solid #6d6d6d;
             border-collapse: collapse;
             width: 100%;
             text-align:left;
         }
-        #customers td, #customers th {
+        #customers td {
             padding-left: 4px;
         }#customers th {
-            border: 1px solid ;
+            border: 1px solid #6d6d6d;
         }.headname{
             margin-top:-40px;
         }.table1{
@@ -145,21 +151,21 @@
         <div class="headname">
             <table >
                 <tr>
-                    <td width="20%" align="right" >
+                    <td width="15%" align="right" >
                         <img src='images/footer/lampang.png' width="30px" style="margin-top:20px;">
                         <img src='images/footer/egat.jpg' width="50px">
                         
                     </td>
-                    <td width="60%">
+                    <td width="70%">
                         <div class="texthead"> การตรวจสภาพฝายและแนวทางแก้ไขปรับปรุงเพื่อเพิ่มประสิทธิภาพฝาย ในพื้นที่ลุ่มน้ำแม่จาง จังหวัดลำปาง</div>
                     </td>
-                    <td width="20%" align="left">
+                    <td width="15%" align="left">
                         <img src='images/footer/cmu.png' width="30px"></td>
                     </td>    
                     
                 </tr>
             </table>
-            <div class="row justify-content-end" align="right"><div class="col-2">รหัสฝายที่ : <?php echo  $weir[0]['weir_code']; ?> </div> </div>
+            <div class="row justify-content-end" align="right"><div class="col-2"><b>รหัสฝายที่ : </b><?php echo  $weir[0]['weir_code']; ?> </div> </div>
             <?php 
                 $level=["น้อย","ปานกลาง","มาก"];
                 $code=str_split($weir[0]->weir_code );
@@ -209,33 +215,33 @@
             <div class="text06">
                 <table style="text-align:left;">
                     <tr>
-                        <td width="20%">ชื่อฝาย : <?php  echo($weir[0]->weir_name) ; ?> </td>
-                        <td width="15%">ชื่อลำน้ำ : &nbsp;&nbsp;<?php  echo($river[0]->river_name); ?> </td>
-                        <td width="20%">ลำน้ำสาขาของ : &nbsp;&nbsp;<?php echo($river[0]->river_branch); ?> </td>
-                        <td width="15%">ประเภทลำน้ำ :  &nbsp;&nbsp;<?php echo($river[0]->river_type); ?> </td> 
-                        <td width="20%"> วันที่สำรวจ :  &nbsp;&nbsp;<?php echo($date) ; ?></td>
+                        <td width="20%"><b>ชื่อฝาย </b> <?php  echo($weir[0]->weir_name) ; ?> </td>
+                        <td width="15%"><b>ชื่อลำน้ำ </b> &nbsp;&nbsp;<?php  echo($river[0]->river_name); ?> </td>
+                        <td width="20%"><b>ลำน้ำสาขาของ</b> &nbsp;&nbsp;<?php echo($river[0]->river_branch); ?> </td>
+                        <td width="15%"><b>ประเภทลำน้ำ</b>  &nbsp;&nbsp;<?php echo($river[0]->river_type); ?> </td> 
+                        <td width="20%"> <b>วันที่สำรวจ</b>  &nbsp;&nbsp;<?php echo($date) ; ?></td>
                     </tr>
                 </table>
                 <table style="text-align:left;">
                     <tr>
-                        <td width="20%">หมู่บ้าน : หมู่ที่ &nbsp;<?php echo $moo; ?>&nbsp;<?php echo $tambol; ?></td>
-                        <td width="15%">ตำบล : &nbsp;<?php echo $location[0]->weir_tumbol; ?></td>
-                        <td width="15%">อำเภอ : &nbsp;<?php echo $location[0]->weir_district; ?></td>
-                        <td width="15%">จังหวัด : &nbsp;ลำปาง</td>
+                        <td width="20%"><b>หมู่บ้าน</b> หมู่ที่ &nbsp;<?php echo $moo; ?>&nbsp;<?php echo $tambol; ?></td>
+                        <td width="15%"><b>ตำบล</b> &nbsp;<?php echo $location[0]->weir_tumbol; ?></td>
+                        <td width="15%"><b>อำเภอ</b> &nbsp;<?php echo $location[0]->weir_district; ?></td>
+                        <td width="15%"><b>จังหวัด</b> &nbsp;ลำปาง</td>
                         <td  >&nbsp;</td>
                     </tr>
                 </table>
                 <table style="text-align:left;">
                     <tr>
-                        <td width="18%">ก่อสร้าง เมื่อปี พ.ศ. : &nbsp;<?php echo $weir[0]->weir_build; ?></td>
-                        <td width="20%">อายุฝาย : &nbsp;<?php echo $weir[0]->weir_age; ?></td>
-                        <td width="25%"> หน่วยงานรับผิดชอบ : &nbsp;<?php echo checkCuase($weir[0]->resp_name); ?> </td>
+                        <td width="18%"><b>ก่อสร้าง เมื่อปี พ.ศ.</b> &nbsp;<?php echo $weir[0]->weir_build; ?></td>
+                        <td width="20%"><b>อายุฝาย</b> &nbsp;<?php echo $weir[0]->weir_age; ?></td>
+                        <td width="25%"><b> หน่วยงานรับผิดชอบ </b> &nbsp;<?php echo checkCuase($weir[0]->resp_name); ?> </td>
                         <td> <?php echo ( $model_text['text3']."  ".$model_text['text1']." ".$model_text['text2']); ?></td>
                     </tr>
                 </table>
             </div>
             <div class="text">
-                <table class="table" border=1 >
+                <table  border=1 >
                     <thead>
                         <tr>
                         <th colspan="4" class="text-center" style="background-color:#C0C0C0">พิกัดฝาย</th>
@@ -256,19 +262,19 @@
                 <table id="customers" >
                     <tr align="center"><th colspan="5" class="text-center" style="background-color:#C0C0C0">ลักษณะทั่วไป</th></tr>
                     <tr>
-                        <td colspan="2"> <b>ประเภทของสันฝาย : </b>  &nbsp;<?php echo $space[0]->ridge_type->type; ?> </td>
+                        <td colspan="2"> ประเภทของสันฝาย :  &nbsp;<?php echo $space[0]->ridge_type->type; ?> </td>
                         <td >ความสูงชัน :  &nbsp;<?php echo $space[0]->ridge_height; ?>  &nbsp;เมตร</td>
                         <td colspan="2">ความกว้างสัน :  &nbsp;<?php echo $space[0]->ridge_width; ?>  &nbsp;เมตร</td>
                     </tr>
                     <tr>
-                        <td > <b>ประตูระบายน้ำ : </b>  &nbsp;<?php echo(checkhas($space[0]->gate_has)); ?> </td>
+                        <td > ประตูระบายน้ำ :   &nbsp;<?php echo(checkhas($space[0]->gate_has)); ?> </td>
                         <td >ชนิดบานประตู :  &nbsp;<?php echo (checkCuase($space[0]->gate_type)); ?> </td>
                         <td >ขนาด (กว้าง*สูง) : &nbsp; <?php echo (checkCuase($space[0]->gate_dimension->size)) ; ?></td>
                         <td >จำนวน : &nbsp; <?php echo(checkCuase($space[0]->gate_dimension->num)); ?>&nbsp;ชุด</td>
                         <td>ชนิดเครื่องยกบาน : &nbsp; <?php echo (checkCuase($space[0]->gate_machanic_type)); ?></td>
                     </tr>
                     <tr>
-                        <td > <b>อาคารบังคับน้ำ : </b>  &nbsp;<?php echo(checkhas($space[0]->control_building_has)); ?> </td>
+                        <td >อาคารบังคับน้ำ :  &nbsp;<?php echo(checkhas($space[0]->control_building_has)); ?> </td>
                         <td ><?php echo $building['side']; ?> </td>
                         <td ><?php echo $building['text1']; ?> </td>
                         <td><?php echo $building['text2']; ?> </td>
@@ -276,13 +282,13 @@
                     </tr>
 
                     <tr>
-                        <td > <b>ระบบส่งน้ำ : </b>  &nbsp;<?php echo checkhas($space[0]->canal_has); ?> </td>
+                        <td >ระบบส่งน้ำ :  &nbsp;<?php echo checkhas($space[0]->canal_has); ?> </td>
                         <td >ลักษณะคลอง :  &nbsp;<?php echo checkCuase($space[0]->canal_type); ?> </td>
                         <td >ขนาดท้องคลองกว้าง : &nbsp; <?php echo checkCuase($space[0]->canel_dimension->width); ?>&nbsp;เมตร</td>
                         <td colspan="2">ความยาวประมาณ : &nbsp; <?php echo checkCuase($space[0]->canel_dimension->lenght); ?>&nbsp;กิโลเมตรเมตร</td>
                     </tr>
                     <tr>
-                        <td colspan="5"> <b>ข้อมูลประวัติการซ่อม : </b>  &nbsp;</td>
+                        <td colspan="5"> <b>ข้อมูลประวัติการซ่อม </b>  &nbsp;</td>
                     </tr>
                     <tr align="center" style="background-color:#C0C0C0">
                         <th>ปี พ.ศ.</th>
@@ -292,10 +298,10 @@
                     </tr>
                     <?php for($i=0;$i<$mt;$i++){ ?>
                         <tr >
-                            <td style="border: 1px solid;"><?php echo $maintain[$i]['maintain_date']; ?>&nbsp;</td>
-                            <td style="border: 1px solid;"><?php echo $maintain[$i]['maintain_detail']; ?>&nbsp;</td>
-                            <td style="border: 1px solid;"><?php echo $maintain[$i]['maintain_resp']; ?>&nbsp;</td>
-                            <td colspan="2" style="border: 1px solid;"><?php echo $maintain[$i]['maintain_remark']; ?>&nbsp;</td>
+                            <td style="border: 1px solid #6d6d6d;"><?php echo $maintain[$i]['maintain_date']; ?>&nbsp;</td>
+                            <td style="border: 1px solid #6d6d6d;"><?php echo $maintain[$i]['maintain_detail']; ?>&nbsp;</td>
+                            <td style="border: 1px solid #6d6d6d;"><?php echo $maintain[$i]['maintain_resp']; ?>&nbsp;</td>
+                            <td colspan="2" style="border: 1px solid #6d6d6d;"><?php echo $maintain[$i]['maintain_remark']; ?>&nbsp;</td>
                         </tr>  
                     <?php  } ?>
                 </table>
@@ -306,13 +312,13 @@
                     <table class="table3" border=1>
                         <tr align="center"><th colspan="4" class="text-center" style="background-color:#C0C0C0">สภาพฝายของแต่ละองค์ประกอบ (Element)</th></tr>
                         <tr style="background-color:#DFDFDF">
-                            <td width="40%">1. ส่วนป้องกันเหนือน้ำ : 
+                            <td width="40%"><b>1. ส่วนป้องกันเหนือน้ำ : </b>
                                 <span><?php checkpair(1,$damage[0])?> ใช้งานได้ดี  </span>
                                 <span><?php checkpair(2,$damage[0])?> ปานกลาง  </span>
                                 <span><?php checkpair(3,$damage[0])?> ทรุดโทรม </span>
                             </td>
                             <td style="text-align:center;" width="10%"><?php echo $sediment['check1']; ?></td>
-                            <td width="40%">2. ส่วนเหนือน้ำ   : 
+                            <td width="40%"><b>2. ส่วนเหนือน้ำ :</b> 
                                 <span><?php checkpair(1,$damage[1])?> ใช้งานได้ดี  </span>
                                 <span><?php checkpair(2,$damage[1])?> ปานกลาง  </span>
                                 <span><?php checkpair(3,$damage[1])?> ทรุดโทรม </span>
@@ -338,12 +344,12 @@
                             </td>
                         </tr>
                         <tr  style="background-color:#DFDFDF" >
-                            <td colspan="2">3. ส่วนควบคุมน้ำ :
+                            <td colspan="2"><b>3. ส่วนควบคุมน้ำ :</b>
                                 <span><?php checkpair(1,$damage[2])?> ใช้งานได้ดี  </span>
                                 <span><?php checkpair(2,$damage[2])?> ปานกลาง  </span>
                                 <span><?php checkpair(3,$damage[2])?> ทรุดโทรม </span>
                             </td>
-                            <td>4. ส่วนท้ายน้ำ : 
+                            <td><b>4. ส่วนท้ายน้ำ : </b>
                                 <span><?php checkpair(1,$damage[3])?> ใช้งานได้ดี  </span>
                                 <span><?php checkpair(2,$damage[3])?> ปานกลาง  </span>
                                 <span><?php checkpair(3,$damage[3])?> ทรุดโทรม </span>
@@ -369,13 +375,13 @@
                             </td>
                         </tr>
                         <tr style="background-color:#DFDFDF">
-                            <td >5. ส่วนป้องกันท้ายน้ำ : 
+                            <td ><b>5. ส่วนป้องกันท้ายน้ำ : </b>
                                 <span><?php checkpair(1,$damage[4])?> ใช้งานได้ดี  </span>
                                 <span><?php checkpair(2,$damage[4])?> ปานกลาง  </span>
                                 <span><?php checkpair(3,$damage[4])?> ทรุดโทรม </span>
                             </td>
                             <td style="text-align:center;" width="10%"><?php echo $sediment['check5']; ?></td>
-                            <td >6. ระบบส่งน้ำ : 
+                            <td ><b>6. ระบบส่งน้ำ : </b>
                                 <span><?php checkpair(1,$damage[5])?> ใช้งานได้ดี  </span>
                                 <span><?php checkpair(2,$damage[5])?> ปานกลาง  </span>
                                 <span><?php checkpair(3,$damage[5])?> ทรุดโทรม </span>
